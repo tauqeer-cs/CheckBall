@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4721F2011FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4721F1FF1FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.m */; };
+		4721F2021FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4721F2001FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.xib */; };
+		4721F2051FD3E187006046FE /* MakePassowdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4721F2041FD3E187006046FE /* MakePassowdViewController.m */; };
 		47315D5A1FCDB5AF0010DAA3 /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47315D591FCDB5AF0010DAA3 /* ForgotPasswordViewController.m */; };
 		47315D5D1FCDB8C50010DAA3 /* SelectedAccountTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47315D5C1FCDB8C50010DAA3 /* SelectedAccountTypeViewController.m */; };
 		4736D0E11FC5C4A7003032AA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4736D0E01FC5C4A7003032AA /* AppDelegate.m */; };
@@ -269,6 +272,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4721F1FE1FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TrainingSpecialityCollectionViewCell.h; path = CollectionView/TrainingSpecialityCollectionViewCell.h; sourceTree = "<group>"; };
+		4721F1FF1FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TrainingSpecialityCollectionViewCell.m; path = CollectionView/TrainingSpecialityCollectionViewCell.m; sourceTree = "<group>"; };
+		4721F2001FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TrainingSpecialityCollectionViewCell.xib; path = CollectionView/TrainingSpecialityCollectionViewCell.xib; sourceTree = "<group>"; };
+		4721F2031FD3E187006046FE /* MakePassowdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MakePassowdViewController.h; sourceTree = "<group>"; };
+		4721F2041FD3E187006046FE /* MakePassowdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MakePassowdViewController.m; sourceTree = "<group>"; };
 		47315D581FCDB5AF0010DAA3 /* ForgotPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordViewController.h; sourceTree = "<group>"; };
 		47315D591FCDB5AF0010DAA3 /* ForgotPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordViewController.m; sourceTree = "<group>"; };
 		47315D5B1FCDB8C50010DAA3 /* SelectedAccountTypeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectedAccountTypeViewController.h; sourceTree = "<group>"; };
@@ -881,6 +889,8 @@
 				47EFC3781FCF120500794A6E /* TrainerFormViewController.m */,
 				47EFC37A1FCF121200794A6E /* PlayerFormViewController.h */,
 				47EFC37B1FCF121200794A6E /* PlayerFormViewController.m */,
+				4721F2031FD3E187006046FE /* MakePassowdViewController.h */,
+				4721F2041FD3E187006046FE /* MakePassowdViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1972,6 +1982,9 @@
 			isa = PBXGroup;
 			children = (
 				478074E81FCC737300AFA5F6 /* TextView */,
+				4721F1FE1FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.h */,
+				4721F1FF1FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.m */,
+				4721F2001FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2064,6 +2077,7 @@
 				4736D4321FC5C703003032AA /* Info.plist in Resources */,
 				4736D42E1FC5C702003032AA /* TGCameraViewController.xib in Resources */,
 				4736D0EC1FC5C4A7003032AA /* LaunchScreen.storyboard in Resources */,
+				4721F2021FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.xib in Resources */,
 				4736D36F1FC5C702003032AA /* menu-button.png in Resources */,
 				4736D0F61FC5C59B003032AA /* SignUpStoryboard.storyboard in Resources */,
 				4736D3D11FC5C702003032AA /* IQMediaCaptureController.xcassets in Resources */,
@@ -2104,6 +2118,7 @@
 				4736D3531FC5C702003032AA /* NBAsYouTypeFormatter.m in Sources */,
 				4736D4091FC5C702003032AA /* RTSpinKitCircleAnimation.m in Sources */,
 				4736D3E91FC5C702003032AA /* JotTextEditView.m in Sources */,
+				4721F2051FD3E187006046FE /* MakePassowdViewController.m in Sources */,
 				4736D4351FC5C703003032AA /* TOCropViewControllerTransitioning.m in Sources */,
 				4736D3CB1FC5C702003032AA /* IQSongsComposersViewController.m in Sources */,
 				4736D3F71FC5C702003032AA /* LMMenuCell.m in Sources */,
@@ -2239,6 +2254,7 @@
 				4736D42B1FC5C702003032AA /* TGTintedButton.m in Sources */,
 				4736D37E1FC5C702003032AA /* NSString+JS.m in Sources */,
 				4736D3571FC5C702003032AA /* NBPhoneMetaDataGenerator.m in Sources */,
+				4721F2011FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.m in Sources */,
 				4736D43C1FC5C703003032AA /* UIImage+LMExtension.m in Sources */,
 				4736D3FC1FC5C702003032AA /* MASViewAttribute.m in Sources */,
 				4736D4031FC5C702003032AA /* NIDropDown.m in Sources */,

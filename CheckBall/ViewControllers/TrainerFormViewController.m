@@ -8,9 +8,12 @@
 
 #import "TrainerFormViewController.h"
 #import "TextViewForSignUpform.h"
+#import "TrainingSpecialityCollectionViewCell.h"
 
-@interface TrainerFormViewController ()
+@interface TrainerFormViewController ()<UICollectionViewDelegate,UICollectionViewDataSource
+>
 @property (weak, nonatomic) IBOutlet UIButton *btnContinue;
+
 @property (weak, nonatomic) IBOutlet UIView *viewNameContainer;
 @property (nonatomic,strong) TextViewForSignUpform *textViewName;
 
@@ -25,11 +28,39 @@
 
 @property (weak, nonatomic) IBOutlet UIView *viewContainerSchool;
 @property (nonatomic,strong) TextViewForSignUpform *txtSchool;
+@property (weak, nonatomic) IBOutlet UIView *viewContainerZipCode;
+@property (nonatomic,strong) TextViewForSignUpform *txtZipCode;
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+@property (nonatomic,strong) NSMutableArray * selectedArray;
+
+
+
+@property (nonatomic,strong) NSMutableArray * trainingList;
 
 @end
 
 @implementation TrainerFormViewController
+-(TextViewForSignUpform *)txtZipCode{
+    
+    
+    if (!_txtZipCode) {
+        
+        _txtZipCode = (TextViewForSignUpform *)
+        [self.view addSubViewWithContainerView:self.viewContainerZipCode
+                               andEnteringView:_txtZipCode
+                                   withNibName:@"TextViewForSignUpform"];
+        
+        _txtZipCode.txtView.isMandatory = YES;
+        _txtZipCode.txtView.delegate = self;
+        [_txtZipCode setUpViewWithText:@"Zip Code"];
+        self.viewContainerZipCode.backgroundColor = [UIColor clearColor];
+        
+    }
+    return _txtZipCode;
+    
+}
 
 -(TextViewForSignUpform *)txtWeight{
     
@@ -150,6 +181,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.trainingList =  [NSMutableArray new];
+    [self.trainingList addObject:@"Shooting"];
+    [self.trainingList addObject:@"Ball Handling"];
+    [self.trainingList addObject:@"Post Work"];
+    [self.trainingList addObject:@"Defense"];
+    
+    self.selectedArray = [NSMutableArray new];
+    
+    
+    [self.selectedArray addObject:@"0"];
+    [self.selectedArray addObject:@"0"];
+    [self.selectedArray addObject:@"0"];
+    [self.selectedArray addObject:@"0"];
+    
     self.title = @"Create Trainer Account";
     
     [self.textViewName setHidden:NO];
@@ -157,12 +202,83 @@
     [self.txtWeight setHidden:NO];
     [self.txtPosition setHidden:NO];
     [self.txtSchool setHidden:NO];
+    [self.txtZipCode setHidden:NO];
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:@"TrainingSpecialityCollectionViewCell" bundle:nil]
+          forCellWithReuseIdentifier:@"cellSpeciality"];
+
+    
+    [self.collectionView setBackgroundColor:[UIColor clearColor]];
+    
+    
+    self.btnContinue.layer.cornerRadius = 5;
+    
+    
     
 }
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+    
+    [self.collectionView reloadData];
+    
+}
+
+
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView
+     numberOfItemsInSection:(NSInteger)section{
+    
+    return [self.trainingList count];
+    
+}
+
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    TrainingSpecialityCollectionViewCell *currentCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellSpeciality" forIndexPath:indexPath];
+    
+    
+    currentCell.lblItemName.text = [self.trainingList objectAtIndex:indexPath.row];
+    
+    return currentCell;
+}
+
+
 - (IBAction)btnContinueTapped:(UIButton *)sender {
     
+
+    [self performSegueWithIdentifier:@"segueSetPassword" sender:self];
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(self.collectionView.frame.size.width/2, 42);
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+ 
+    TrainingSpecialityCollectionViewCell * cellItem = (TrainingSpecialityCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    
+    NSLog(@"");
+    if ([[self.selectedArray objectAtIndex:indexPath.row] intValue] == 0) {
+    
+        [cellItem.checkImage setImage:[UIImage imageNamed:@"checkedButton"]];
+        
+        
+        [self.selectedArray replaceObjectAtIndex:indexPath.row withObject:@"1"];
+    }
+    else {
+        [cellItem.checkImage setImage:[UIImage imageNamed:@"unCheckedButton"]];
+        [self.selectedArray replaceObjectAtIndex:indexPath.row withObject:@"0"];
+        //
+    }
+
     
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
