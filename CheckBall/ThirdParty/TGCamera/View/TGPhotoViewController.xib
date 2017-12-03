@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TGPhotoViewController">
+            <connections>
+                <outlet property="bottomView" destination="Wwe-hD-eWO" id="phi-0I-kq7"/>
+                <outlet property="defaultFilterButton" destination="9jP-uX-c4U" id="AEq-cV-Ah8"/>
+                <outlet property="filterView" destination="mfq-V7-07J" id="Pf2-0x-IU7"/>
+                <outlet property="photoView" destination="AgS-wg-ici" id="7RM-EQ-xh7"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" userLabel="View Controller">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="820"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AgS-wg-ici" userLabel="Photo View">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="820"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wwe-hD-eWO" userLabel="Bottom View">
+                    <rect key="frame" x="0.0" y="710" width="600" height="110"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZB9-dh-ayp">
+                            <rect key="frame" x="259" y="13" width="82" height="82"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="82" id="2lO-Qn-EqQ"/>
+                                <constraint firstAttribute="height" constant="82" id="kXT-3Z-MUe"/>
+                            </constraints>
+                            <color key="tintColor" red="0.31339585780000001" green="0.88697129490000004" blue="0.76227170229999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" image="Untitled-3_03">
+                                <color key="titleColor" red="0.31372549019607843" green="0.88697129490000004" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="confirmTapped" destination="-1" eventType="touchUpInside" id="KDp-TL-ArT"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CameraCheckMark" translatesAutoresizingMaskIntoConstraints="NO" id="Scs-OK-XY9">
+                            <rect key="frame" x="286" y="44" width="29" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="29" id="QBK-BK-eP4"/>
+                                <constraint firstAttribute="height" constant="22" id="ZTy-cN-hHE"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2D-dK-mun">
+                            <rect key="frame" x="500" y="15" width="80" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="6rB-dW-D76"/>
+                                <constraint firstAttribute="height" constant="80" id="Tcs-zj-Zci"/>
+                            </constraints>
+                            <color key="tintColor" red="0.31372549020000001" green="0.88697129490000004" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" image="CameraFilter">
+                                <color key="titleColor" red="0.31372549020000001" green="0.88697129490000004" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="filtersTapped" destination="-1" eventType="touchUpInside" id="YsK-pe-CDI"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dp-bL-AWG">
+                            <rect key="frame" x="20" y="15" width="80" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="QjF-4q-FWa"/>
+                                <constraint firstAttribute="width" constant="80" id="wzz-zz-BxX"/>
+                            </constraints>
+                            <color key="tintColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" image="arrow-white">
+                                <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="backTapped" destination="-1" eventType="touchUpInside" id="dN1-ZP-4we"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Scs-OK-XY9" secondAttribute="bottom" constant="44" id="2zt-j0-QeK"/>
+                        <constraint firstAttribute="bottom" secondItem="ZB9-dh-ayp" secondAttribute="bottom" constant="15" id="5Wu-w7-dMq"/>
+                        <constraint firstItem="ZB9-dh-ayp" firstAttribute="centerX" secondItem="Wwe-hD-eWO" secondAttribute="centerX" id="Ck2-Ub-Op7"/>
+                        <constraint firstAttribute="trailing" secondItem="S2D-dK-mun" secondAttribute="trailing" constant="20" id="TVx-MV-KBU"/>
+                        <constraint firstItem="S2D-dK-mun" firstAttribute="top" secondItem="Wwe-hD-eWO" secondAttribute="top" constant="15" id="YUo-uc-LzF"/>
+                        <constraint firstItem="3dp-bL-AWG" firstAttribute="leading" secondItem="Wwe-hD-eWO" secondAttribute="leading" constant="20" id="buG-Rb-VgW"/>
+                        <constraint firstAttribute="height" constant="110" id="ctq-IS-Eth"/>
+                        <constraint firstAttribute="bottom" secondItem="3dp-bL-AWG" secondAttribute="bottom" constant="15" id="mq4-4v-sUc"/>
+                        <constraint firstItem="Scs-OK-XY9" firstAttribute="centerX" secondItem="Wwe-hD-eWO" secondAttribute="centerX" id="oX5-yU-KdB"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="tintColor" red="0.98755216598510742" green="0.26285848021507263" blue="0.032961577177047729" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="AgS-wg-ici" secondAttribute="bottom" id="7SS-wc-oRV"/>
+                <constraint firstItem="AgS-wg-ici" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8ep-gF-YFg"/>
+                <constraint firstItem="AgS-wg-ici" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9Ar-Z9-3Ff"/>
+                <constraint firstAttribute="trailing" secondItem="AgS-wg-ici" secondAttribute="trailing" id="HCd-8J-19t"/>
+                <constraint firstAttribute="trailing" secondItem="Wwe-hD-eWO" secondAttribute="trailing" id="Oi8-aP-tBM"/>
+                <constraint firstAttribute="bottom" secondItem="Wwe-hD-eWO" secondAttribute="bottom" id="Wqk-4p-cEL"/>
+                <constraint firstItem="Wwe-hD-eWO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cVw-yp-RHP"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-313" y="123"/>
+        </view>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="mfq-V7-07J" userLabel="Filter View" customClass="TGCameraFilterView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="110"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8tV-Do-hEg">
+                    <rect key="frame" x="17" y="19" width="566" height="72"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZq-gJ-zBj">
+                            <rect key="frame" x="0.0" y="0.0" width="70" height="72"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jP-uX-c4U" userLabel="Default">
+                                    <rect key="frame" x="0.0" y="0.0" width="70" height="72"/>
+                                    <state key="normal" image="CameraEffectDefault">
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="defaultFilterTapped:" destination="-1" eventType="touchUpInside" id="kSi-iK-ang"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NORMAL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPz-Ij-Ac3">
+                                    <rect key="frame" x="13" y="59" width="44" height="13"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="11"/>
+                                    <color key="textColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="9jP-uX-c4U" firstAttribute="top" secondItem="dZq-gJ-zBj" secondAttribute="top" id="O3k-qD-mrl"/>
+                                <constraint firstItem="9jP-uX-c4U" firstAttribute="leading" secondItem="dZq-gJ-zBj" secondAttribute="leading" id="PYS-eI-6Pw"/>
+                                <constraint firstItem="9jP-uX-c4U" firstAttribute="centerX" secondItem="tPz-Ij-Ac3" secondAttribute="centerX" id="Z8X-mO-P8w"/>
+                                <constraint firstAttribute="width" constant="70" id="dTg-aj-Qdk"/>
+                                <constraint firstAttribute="bottom" secondItem="9jP-uX-c4U" secondAttribute="bottom" id="k7L-E5-rZZ"/>
+                                <constraint firstAttribute="trailing" secondItem="9jP-uX-c4U" secondAttribute="trailing" id="lDC-IZ-0ww"/>
+                                <constraint firstAttribute="height" constant="72" id="nIn-xs-gu7"/>
+                                <constraint firstItem="9jP-uX-c4U" firstAttribute="bottom" secondItem="tPz-Ij-Ac3" secondAttribute="bottom" id="yrK-9g-zYJ"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bw8-kI-0Qm">
+                            <rect key="frame" x="77" y="0.0" width="70" height="72"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gC-Kf-Eqh" userLabel="Sature">
+                                    <rect key="frame" x="0.0" y="0.0" width="70" height="72"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="CameraEffectSature">
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="satureFilterTapped:" destination="-1" eventType="touchUpInside" id="MbE-hh-SxB"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HUM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3A-KA-onJ">
+                                    <rect key="frame" x="10" y="60" width="50" height="12"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="11"/>
+                                    <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="72" id="sem-fv-TD2"/>
+                                <constraint firstAttribute="width" constant="70" id="xZf-64-tpO"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxq-QS-T9u">
+                            <rect key="frame" x="154" y="0.0" width="70" height="72"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DELICIOUS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sT-c8-3Hf">
+                                    <rect key="frame" x="10" y="60" width="50" height="15"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="9"/>
+                                    <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Hj-CW-y0d" userLabel="Curve">
+                                    <rect key="frame" x="0.0" y="0.0" width="70" height="72"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="CameraEffectCurve">
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="curveFilterTapped:" destination="-1" eventType="touchUpInside" id="pXJ-Kj-px1"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="72" id="C9a-3g-VyQ"/>
+                                <constraint firstAttribute="width" constant="70" id="Djs-id-kuR"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpM-sb-oyy">
+                            <rect key="frame" x="231" y="0.0" width="70" height="72"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pR-df-8q2" userLabel="Vignette">
+                                    <rect key="frame" x="0.0" y="0.0" width="70" height="72"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="CameraEffectVignette">
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="vignetteFilterTapped:" destination="-1" eventType="touchUpInside" id="Hd4-cf-U7a"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="YUPI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AuQ-8B-DGh">
+                                    <rect key="frame" x="10" y="60" width="50" height="12"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="11"/>
+                                    <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="72" id="Eui-A4-xGk"/>
+                                <constraint firstAttribute="width" constant="70" id="PP0-qa-dAc"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZL-Q6-uu9">
+                            <rect key="frame" x="308" y="0.0" width="70" height="72"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzj-3d-uCi" userLabel="Vignette">
+                                    <rect key="frame" x="0.0" y="0.0" width="70" height="72"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="CameraEffectVignette">
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="filter5Tapped:" destination="-1" eventType="touchUpInside" id="VDD-eE-u4n"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sepia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9P-LF-DKz">
+                                    <rect key="frame" x="10" y="60" width="50" height="12"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="11"/>
+                                    <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="70" id="bAm-1I-3fT"/>
+                                <constraint firstAttribute="height" constant="72" id="tf8-LE-Rk8"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OlI-Ak-OcC">
+                            <rect key="frame" x="385" y="0.0" width="70" height="72"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2k-3T-eeb" userLabel="Vignette">
+                                    <rect key="frame" x="0.0" y="0.0" width="70" height="72"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="CameraEffectVignette">
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="filter6Tapped:" destination="-1" eventType="touchUpInside" id="DCR-xa-wbd"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Blur" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUl-Ul-o97">
+                                    <rect key="frame" x="10" y="60" width="50" height="13"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="11"/>
+                                    <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="72" id="146-OY-l9n"/>
+                                <constraint firstAttribute="width" constant="70" id="Yl9-E9-2Rc"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2f6-Gi-2p2">
+                            <rect key="frame" x="462" y="0.0" width="70" height="72"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lae-OR-eEI" userLabel="Vignette">
+                                    <rect key="frame" x="0.0" y="0.0" width="70" height="72"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="CameraEffectVignette">
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="filter7Tapped:" destination="-1" eventType="touchUpInside" id="cIL-bx-9Pe"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Clamp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2z3-Sb-m99">
+                                    <rect key="frame" x="10" y="60" width="50" height="13"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="11"/>
+                                    <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="72" id="lhb-CC-Fs9"/>
+                                <constraint firstAttribute="width" constant="70" id="oAd-fx-sGO"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Bw8-kI-0Qm" firstAttribute="top" secondItem="8tV-Do-hEg" secondAttribute="top" id="0eQ-4A-dLK"/>
+                        <constraint firstAttribute="bottom" secondItem="2f6-Gi-2p2" secondAttribute="bottom" id="1C8-O5-tWo"/>
+                        <constraint firstAttribute="bottom" secondItem="cpM-sb-oyy" secondAttribute="bottom" id="3RH-Ax-sW2"/>
+                        <constraint firstItem="qZL-Q6-uu9" firstAttribute="top" secondItem="8tV-Do-hEg" secondAttribute="top" id="Bc8-aF-0kR"/>
+                        <constraint firstItem="cpM-sb-oyy" firstAttribute="top" secondItem="8tV-Do-hEg" secondAttribute="top" id="CtC-Um-5ni"/>
+                        <constraint firstItem="OlI-Ak-OcC" firstAttribute="leading" secondItem="qZL-Q6-uu9" secondAttribute="trailing" constant="7" id="G4C-dB-YCg"/>
+                        <constraint firstAttribute="trailing" secondItem="2f6-Gi-2p2" secondAttribute="trailing" id="Guc-oE-RRT"/>
+                        <constraint firstAttribute="bottom" secondItem="yxq-QS-T9u" secondAttribute="bottom" id="Imf-Kp-fUA"/>
+                        <constraint firstAttribute="bottom" secondItem="dZq-gJ-zBj" secondAttribute="bottom" id="LhC-Bd-5aO"/>
+                        <constraint firstAttribute="bottom" secondItem="OlI-Ak-OcC" secondAttribute="bottom" id="Onw-W1-rih"/>
+                        <constraint firstItem="2f6-Gi-2p2" firstAttribute="top" secondItem="8tV-Do-hEg" secondAttribute="top" id="UCE-KV-SYa"/>
+                        <constraint firstItem="Bw8-kI-0Qm" firstAttribute="leading" secondItem="dZq-gJ-zBj" secondAttribute="trailing" constant="7" id="WSo-3M-kzT"/>
+                        <constraint firstAttribute="bottom" secondItem="qZL-Q6-uu9" secondAttribute="bottom" id="Wne-va-nr0"/>
+                        <constraint firstItem="dZq-gJ-zBj" firstAttribute="top" secondItem="8tV-Do-hEg" secondAttribute="top" id="bSv-nB-MJO"/>
+                        <constraint firstItem="dZq-gJ-zBj" firstAttribute="leading" secondItem="8tV-Do-hEg" secondAttribute="leading" id="btU-aw-isR"/>
+                        <constraint firstItem="OlI-Ak-OcC" firstAttribute="top" secondItem="8tV-Do-hEg" secondAttribute="top" id="d0M-lo-I8k"/>
+                        <constraint firstItem="2f6-Gi-2p2" firstAttribute="leading" secondItem="OlI-Ak-OcC" secondAttribute="trailing" constant="7" id="dGm-eL-p0D"/>
+                        <constraint firstItem="yxq-QS-T9u" firstAttribute="leading" secondItem="Bw8-kI-0Qm" secondAttribute="trailing" constant="7" id="jam-U9-61M"/>
+                        <constraint firstItem="yxq-QS-T9u" firstAttribute="top" secondItem="8tV-Do-hEg" secondAttribute="top" id="prj-14-DTz"/>
+                        <constraint firstAttribute="bottom" secondItem="Bw8-kI-0Qm" secondAttribute="bottom" id="raI-1d-BGu"/>
+                        <constraint firstItem="qZL-Q6-uu9" firstAttribute="leading" secondItem="cpM-sb-oyy" secondAttribute="trailing" constant="7" id="w5t-ym-7dR"/>
+                        <constraint firstItem="cpM-sb-oyy" firstAttribute="leading" secondItem="yxq-QS-T9u" secondAttribute="trailing" constant="7" id="ywh-RM-b6o"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="tintColor" red="0.98755216598510742" green="0.26285848021507263" blue="0.032961577177047729" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="8tV-Do-hEg" firstAttribute="leading" secondItem="mfq-V7-07J" secondAttribute="leading" constant="17" id="49M-OV-tWu"/>
+                <constraint firstAttribute="trailing" secondItem="8tV-Do-hEg" secondAttribute="trailing" constant="17" id="Jmx-ct-PjU"/>
+                <constraint firstAttribute="bottom" secondItem="8tV-Do-hEg" secondAttribute="bottom" constant="19" id="TiT-1P-mDt"/>
+                <constraint firstItem="8tV-Do-hEg" firstAttribute="top" secondItem="mfq-V7-07J" secondAttribute="top" constant="19" id="ave-6h-4hn"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="384" y="150"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="CameraCheckMark" width="29" height="22"/>
+        <image name="CameraEffectCurve" width="50" height="50"/>
+        <image name="CameraEffectDefault" width="50" height="50"/>
+        <image name="CameraEffectSature" width="50" height="50"/>
+        <image name="CameraEffectVignette" width="50" height="50"/>
+        <image name="CameraFilter" width="41" height="41"/>
+        <image name="Untitled-3_03" width="82" height="82"/>
+        <image name="arrow-white" width="17" height="28"/>
+    </resources>
+</document>
