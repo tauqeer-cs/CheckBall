@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4711A6BB1FD5B52000A6EACC /* DashboardPlayerListCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4711A6B91FD5B52000A6EACC /* DashboardPlayerListCollectionCell.m */; };
+		4711A6BC1FD5B52000A6EACC /* DashboardPlayerListCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4711A6BA1FD5B52000A6EACC /* DashboardPlayerListCollectionCell.xib */; };
 		4721F2011FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4721F1FF1FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.m */; };
 		4721F2021FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4721F2001FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.xib */; };
 		4721F2051FD3E187006046FE /* MakePassowdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4721F2041FD3E187006046FE /* MakePassowdViewController.m */; };
@@ -266,15 +268,25 @@
 		4736D43C1FC5C703003032AA /* UIImage+LMExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4736D3451FC5C702003032AA /* UIImage+LMExtension.m */; };
 		478074EC1FCC737400AFA5F6 /* TextViewForSignUpform.m in Sources */ = {isa = PBXBuildFile; fileRef = 478074EA1FCC737300AFA5F6 /* TextViewForSignUpform.m */; };
 		478074ED1FCC737400AFA5F6 /* TextViewForSignUpform.xib in Resources */ = {isa = PBXBuildFile; fileRef = 478074EB1FCC737300AFA5F6 /* TextViewForSignUpform.xib */; };
+		47A55F771FD6F37300D48F41 /* MainTrainer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A55F751FD6F37300D48F41 /* MainTrainer.storyboard */; };
+		47A55F7B1FD6F4A000D48F41 /* DashboradTrainerListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A55F791FD6F4A000D48F41 /* DashboradTrainerListViewCell.m */; };
+		47A55F7C1FD6F4A000D48F41 /* DashboradTrainerListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47A55F7A1FD6F4A000D48F41 /* DashboradTrainerListViewCell.xib */; };
+		47A55F7E1FD6F97E00D48F41 /* OptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47A55F7D1FD6F97E00D48F41 /* OptionsView.xib */; };
+		47A55F811FD6F99600D48F41 /* OptionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A55F801FD6F99600D48F41 /* OptionsView.m */; };
+		47D1F54D1FD5A8C200FC8F44 /* PlayerDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D1F54C1FD5A8C200FC8F44 /* PlayerDashboardViewController.m */; };
+		47D1F5501FD5AE3E00FC8F44 /* TrainerDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D1F54F1FD5AE3E00FC8F44 /* TrainerDashboardViewController.m */; };
 		47EFC3761FCF0B1300794A6E /* SelectEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC3751FCF0B1300794A6E /* SelectEmailViewController.m */; };
 		47EFC3791FCF120500794A6E /* TrainerFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC3781FCF120500794A6E /* TrainerFormViewController.m */; };
 		47EFC37C1FCF121200794A6E /* PlayerFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC37B1FCF121200794A6E /* PlayerFormViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4721F1FE1FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TrainingSpecialityCollectionViewCell.h; path = CollectionView/TrainingSpecialityCollectionViewCell.h; sourceTree = "<group>"; };
-		4721F1FF1FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TrainingSpecialityCollectionViewCell.m; path = CollectionView/TrainingSpecialityCollectionViewCell.m; sourceTree = "<group>"; };
-		4721F2001FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TrainingSpecialityCollectionViewCell.xib; path = CollectionView/TrainingSpecialityCollectionViewCell.xib; sourceTree = "<group>"; };
+		4711A6B81FD5B52000A6EACC /* DashboardPlayerListCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardPlayerListCollectionCell.h; sourceTree = "<group>"; };
+		4711A6B91FD5B52000A6EACC /* DashboardPlayerListCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DashboardPlayerListCollectionCell.m; sourceTree = "<group>"; };
+		4711A6BA1FD5B52000A6EACC /* DashboardPlayerListCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardPlayerListCollectionCell.xib; sourceTree = "<group>"; };
+		4721F1FE1FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrainingSpecialityCollectionViewCell.h; sourceTree = "<group>"; };
+		4721F1FF1FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrainingSpecialityCollectionViewCell.m; sourceTree = "<group>"; };
+		4721F2001FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainingSpecialityCollectionViewCell.xib; sourceTree = "<group>"; };
 		4721F2031FD3E187006046FE /* MakePassowdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MakePassowdViewController.h; sourceTree = "<group>"; };
 		4721F2041FD3E187006046FE /* MakePassowdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MakePassowdViewController.m; sourceTree = "<group>"; };
 		47315D581FCDB5AF0010DAA3 /* ForgotPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordViewController.h; sourceTree = "<group>"; };
@@ -809,6 +821,17 @@
 		478074E91FCC737300AFA5F6 /* TextViewForSignUpform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewForSignUpform.h; sourceTree = "<group>"; };
 		478074EA1FCC737300AFA5F6 /* TextViewForSignUpform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewForSignUpform.m; sourceTree = "<group>"; };
 		478074EB1FCC737300AFA5F6 /* TextViewForSignUpform.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextViewForSignUpform.xib; sourceTree = "<group>"; };
+		47A55F761FD6F37300D48F41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainTrainer.storyboard; sourceTree = "<group>"; };
+		47A55F781FD6F4A000D48F41 /* DashboradTrainerListViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboradTrainerListViewCell.h; sourceTree = "<group>"; };
+		47A55F791FD6F4A000D48F41 /* DashboradTrainerListViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DashboradTrainerListViewCell.m; sourceTree = "<group>"; };
+		47A55F7A1FD6F4A000D48F41 /* DashboradTrainerListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboradTrainerListViewCell.xib; sourceTree = "<group>"; };
+		47A55F7D1FD6F97E00D48F41 /* OptionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionsView.xib; sourceTree = "<group>"; };
+		47A55F7F1FD6F99600D48F41 /* OptionsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OptionsView.h; sourceTree = "<group>"; };
+		47A55F801FD6F99600D48F41 /* OptionsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OptionsView.m; sourceTree = "<group>"; };
+		47D1F54B1FD5A8C200FC8F44 /* PlayerDashboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerDashboardViewController.h; sourceTree = "<group>"; };
+		47D1F54C1FD5A8C200FC8F44 /* PlayerDashboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerDashboardViewController.m; sourceTree = "<group>"; };
+		47D1F54E1FD5AE3E00FC8F44 /* TrainerDashboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrainerDashboardViewController.h; sourceTree = "<group>"; };
+		47D1F54F1FD5AE3E00FC8F44 /* TrainerDashboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrainerDashboardViewController.m; sourceTree = "<group>"; };
 		47EFC3741FCF0B1300794A6E /* SelectEmailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectEmailViewController.h; sourceTree = "<group>"; };
 		47EFC3751FCF0B1300794A6E /* SelectEmailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectEmailViewController.m; sourceTree = "<group>"; };
 		47EFC3771FCF120500794A6E /* TrainerFormViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrainerFormViewController.h; sourceTree = "<group>"; };
@@ -855,6 +878,7 @@
 				4736D0E01FC5C4A7003032AA /* AppDelegate.m */,
 				4736D0E21FC5C4A7003032AA /* ViewController.h */,
 				4736D0E31FC5C4A7003032AA /* ViewController.m */,
+				47A55F751FD6F37300D48F41 /* MainTrainer.storyboard */,
 				4736D0E51FC5C4A7003032AA /* Main.storyboard */,
 				4736D0E81FC5C4A7003032AA /* Assets.xcassets */,
 				4736D0EA1FC5C4A7003032AA /* LaunchScreen.storyboard */,
@@ -891,6 +915,10 @@
 				47EFC37B1FCF121200794A6E /* PlayerFormViewController.m */,
 				4721F2031FD3E187006046FE /* MakePassowdViewController.h */,
 				4721F2041FD3E187006046FE /* MakePassowdViewController.m */,
+				47D1F54B1FD5A8C200FC8F44 /* PlayerDashboardViewController.h */,
+				47D1F54C1FD5A8C200FC8F44 /* PlayerDashboardViewController.m */,
+				47D1F54E1FD5AE3E00FC8F44 /* TrainerDashboardViewController.h */,
+				47D1F54F1FD5AE3E00FC8F44 /* TrainerDashboardViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1981,10 +2009,11 @@
 		478074E71FCC737300AFA5F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				47D1F5561FD5AF2600FC8F44 /* CollectionView */,
 				478074E81FCC737300AFA5F6 /* TextView */,
-				4721F1FE1FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.h */,
-				4721F1FF1FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.m */,
-				4721F2001FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.xib */,
+				47A55F7D1FD6F97E00D48F41 /* OptionsView.xib */,
+				47A55F7F1FD6F99600D48F41 /* OptionsView.h */,
+				47A55F801FD6F99600D48F41 /* OptionsView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1997,6 +2026,23 @@
 				478074EB1FCC737300AFA5F6 /* TextViewForSignUpform.xib */,
 			);
 			path = TextView;
+			sourceTree = "<group>";
+		};
+		47D1F5561FD5AF2600FC8F44 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				4721F1FE1FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.h */,
+				4721F1FF1FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.m */,
+				4721F2001FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.xib */,
+				4711A6B81FD5B52000A6EACC /* DashboardPlayerListCollectionCell.h */,
+				4711A6B91FD5B52000A6EACC /* DashboardPlayerListCollectionCell.m */,
+				4711A6BA1FD5B52000A6EACC /* DashboardPlayerListCollectionCell.xib */,
+				47A55F781FD6F4A000D48F41 /* DashboradTrainerListViewCell.h */,
+				47A55F791FD6F4A000D48F41 /* DashboradTrainerListViewCell.m */,
+				47A55F7A1FD6F4A000D48F41 /* DashboradTrainerListViewCell.xib */,
+			);
+			name = CollectionView;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2075,12 +2121,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				4736D4321FC5C703003032AA /* Info.plist in Resources */,
+				47A55F7E1FD6F97E00D48F41 /* OptionsView.xib in Resources */,
 				4736D42E1FC5C702003032AA /* TGCameraViewController.xib in Resources */,
 				4736D0EC1FC5C4A7003032AA /* LaunchScreen.storyboard in Resources */,
 				4721F2021FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.xib in Resources */,
 				4736D36F1FC5C702003032AA /* menu-button.png in Resources */,
+				47A55F7C1FD6F4A000D48F41 /* DashboradTrainerListViewCell.xib in Resources */,
 				4736D0F61FC5C59B003032AA /* SignUpStoryboard.storyboard in Resources */,
 				4736D3D11FC5C702003032AA /* IQMediaCaptureController.xcassets in Resources */,
+				47A55F771FD6F37300D48F41 /* MainTrainer.storyboard in Resources */,
+				4711A6BC1FD5B52000A6EACC /* DashboardPlayerListCollectionCell.xib in Resources */,
 				4736D0E91FC5C4A7003032AA /* Assets.xcassets in Resources */,
 				4736D0E71FC5C4A7003032AA /* Main.storyboard in Resources */,
 				4736D3701FC5C702003032AA /* menu-button@2x.png in Resources */,
@@ -2172,18 +2222,21 @@
 				4736D3941FC5C702003032AA /* AFHTTPRequestOperationManager.m in Sources */,
 				4736D3BC1FC5C702003032AA /* IQAssetsAlbumViewCell.m in Sources */,
 				4736D3681FC5C702003032AA /* IGLDropDownItem.m in Sources */,
+				47D1F5501FD5AE3E00FC8F44 /* TrainerDashboardViewController.m in Sources */,
 				4736D3B91FC5C702003032AA /* UIView+Snapshot.m in Sources */,
 				4736D3F21FC5C702003032AA /* JTSSimpleImageDownloader.m in Sources */,
 				4736D3961FC5C702003032AA /* AFNetworkReachabilityManager.m in Sources */,
 				4736D3FA1FC5C702003032AA /* MASConstraintMaker.m in Sources */,
 				4736D34E1FC5C702003032AA /* UITextField+MyTextField.m in Sources */,
 				4736D4281FC5C702003032AA /* TGCameraSlideDownView.m in Sources */,
+				47A55F7B1FD6F4A000D48F41 /* DashboradTrainerListViewCell.m in Sources */,
 				4736D3551FC5C702003032AA /* NBPhoneMetaClassGenerator.m in Sources */,
 				4736D3EC1FC5C702003032AA /* JotTouchPoint.m in Sources */,
 				4736D38D1FC5C702003032AA /* YUPhoneFormatter.m in Sources */,
 				4736D3521FC5C702003032AA /* Constants.m in Sources */,
 				4736D4041FC5C702003032AA /* RTSpinKit9CubeGridAnimation.m in Sources */,
 				4736D38C1FC5C702003032AA /* YLTextView.m in Sources */,
+				4711A6BB1FD5B52000A6EACC /* DashboardPlayerListCollectionCell.m in Sources */,
 				4736D3E61FC5C702003032AA /* IQMediaPickerControllerConstants.m in Sources */,
 				4736D3951FC5C702003032AA /* AFHTTPSessionManager.m in Sources */,
 				4736D41F1FC5C702003032AA /* TGCameraFocus.m in Sources */,
@@ -2199,6 +2252,7 @@
 				4736D3601FC5C702003032AA /* CoreLocationController.m in Sources */,
 				4736D3B31FC5C702003032AA /* HRColorMapView.m in Sources */,
 				4736D3721FC5C702003032AA /* SlideNavigationContorllerAnimatorFade.m in Sources */,
+				47A55F811FD6F99600D48F41 /* OptionsView.m in Sources */,
 				4736D4021FC5C702003032AA /* UIViewController+MJPopupViewController.m in Sources */,
 				4736D4271FC5C702003032AA /* TGCameraGridView.m in Sources */,
 				4736D3901FC5C702003032AA /* ADDropDownMenuView.m in Sources */,
@@ -2303,6 +2357,7 @@
 				4736D3541FC5C702003032AA /* NBNumberFormat.m in Sources */,
 				4736D3971FC5C702003032AA /* AFSecurityPolicy.m in Sources */,
 				4736D3C61FC5C702003032AA /* IQSongsCell.m in Sources */,
+				47D1F54D1FD5A8C200FC8F44 /* PlayerDashboardViewController.m in Sources */,
 				4736D3B81FC5C702003032AA /* DragAndDropTableView.m in Sources */,
 				4736D3B71FC5C702003032AA /* CropImage.m in Sources */,
 				4736D35E1FC5C702003032AA /* EMCCountryManager.m in Sources */,
@@ -2392,6 +2447,14 @@
 				4736D3431FC5C702003032AA /* zh-Hant */,
 			);
 			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		47A55F751FD6F37300D48F41 /* MainTrainer.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				47A55F761FD6F37300D48F41 /* Base */,
+			);
+			name = MainTrainer.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

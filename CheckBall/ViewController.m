@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "TextViewForSignUpform.h"
+#import "AppDelegate.h"
 
 @interface ViewController ()<UITextFieldDelegate>
 
@@ -111,6 +112,24 @@
     
     [self performSegueWithIdentifier:@"segueSelectAccountType" sender:self];
     
+}
+- (IBAction)loginButtonTapped:(UIButton *)sender {
+    
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *initViewController;
+    initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"RooTView"];
+
+    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    appDelegate.window.rootViewController = initViewController;
+    
+    //self.window.rootViewController = initViewController;
+    
+    
+    
+    //isFirstTimeSignUp
+    
+    //
 }
 
 - (void)didReceiveMemoryWarning {
