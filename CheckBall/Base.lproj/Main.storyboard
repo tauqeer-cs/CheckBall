@@ -123,6 +123,7 @@
                     <navigationItem key="navigationItem" id="ATv-7V-XeB"/>
                     <connections>
                         <outlet property="collectionView" destination="YDT-gB-Ee3" id="1S6-cC-eTx"/>
+                        <outlet property="profileImageView" destination="9xP-cn-N6w" id="IUw-fV-7vY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

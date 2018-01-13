@@ -8,11 +8,15 @@
 
 #import "TrainerDashboardViewController.h"
 #import "DashboardPlayerListCollectionCell.h"
+#import "OptionsView.h"
+
 @interface TrainerDashboardViewController ()
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (nonatomic,strong) NSMutableArray * dataSource;
+
+@property (nonatomic,strong) OptionsView * optionView;
 
 @end
 

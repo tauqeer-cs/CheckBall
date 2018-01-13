@@ -8,6 +8,7 @@
 
 #import "PlayerDashboardViewController.h"
 #import "DashboradTrainerListViewCell.h"
+#import "OptionsView.h"
 
 
 @interface PlayerDashboardViewController ()
@@ -15,11 +16,45 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,strong) NSMutableArray * dataSource;
 
+@property (nonatomic,strong) OptionsView * optionView;
+
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+
 
 @end
 
 @implementation PlayerDashboardViewController
 
+-(OptionsView *)optionView{
+    
+    
+    if (!_optionView) {
+    
+        _optionView = (OptionsView *)[self.view getViewFromNibName:@"OptionsView" withWidth:190 withHeight:120];
+        
+        
+        [_optionView setFrame:CGRectMake(self.profileImageView.frame.origin.x-165, self.profileImageView.frame.origin.y+self.profileImageView.frame.size.height+65, _optionView.frame.size.width, _optionView.frame.size.height)];
+        
+        [self.view addSubview:_optionView];
+        
+        
+        
+        CAShapeLayer * maskLayer = [CAShapeLayer layer];
+        maskLayer.path = [UIBezierPath bezierPathWithRoundedRect: _optionView.bounds
+                                               byRoundingCorners: UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii: (CGSize){10.0, 10.}].CGPath;
+        
+        //self.firstContainer.layer.mask = maskLayer;
+        
+        _optionView.layer.mask = maskLayer;
+        
+        
+        
+        
+    
+    }
+    return _optionView;
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -41,6 +76,8 @@
 -(void)viewDidAppear:(BOOL)animated{
     
     [self.collectionView reloadData];
+    
+   // [self.optionView setHidden:NO];
     
 }
 
