@@ -45,10 +45,120 @@
 @property (nonatomic,strong) NSMutableDictionary * trainingDictionary;
 
 @property (nonatomic,strong) NSMutableArray * finalSelectedItems;
+@property (weak, nonatomic) IBOutlet UIPickerView *heightPickerView;
+
+@property (weak, nonatomic) IBOutlet UIView *viewFormContainer;
+@property (weak, nonatomic) IBOutlet UIToolbar *pickerToolbar;
+@property (weak, nonatomic) IBOutlet UIView *viewPickerContainer;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *centerLine;
+
+@property (weak, nonatomic) IBOutlet UILabel *lblSelectHeight;
+@property (nonatomic,strong) NSArray * heightFeets;
+@property (nonatomic,strong) NSArray * heightInches;
+
+@property (nonatomic,strong) NSMutableArray * weightsArray;
+
+@property (nonatomic) BOOL isSelectingHeight;
+
 
 @end
 
+
 @implementation TrainerFormViewController
+
+-(void)hidePickerViewITems{
+    
+    [self.viewPickerContainer setHidden:YES];
+    [self.viewFormContainer setHidden:NO];
+    
+    
+}
+- (IBAction)btnHEightPickerCancelTapped:(id)sender
+{
+    
+    [self hidePickerViewITems];
+    
+    
+}
+- (IBAction)btnHeightSelectedDoneTapped:(id)sender {
+    
+    [self hidePickerViewITems];
+    
+    
+    if (self.isSelectingHeight){
+        int feetIndex = [self.heightPickerView selectedRowInComponent:0];
+        int inchesIndex = [self.heightPickerView selectedRowInComponent:1];
+        
+        
+        NSString * finalSelectedHeight = [NSString stringWithFormat:@"%@%@",[self.heightFeets objectAtIndex:feetIndex],[self.heightInches objectAtIndex:inchesIndex]];
+        
+        self.txtHeight.txtView.text = finalSelectedHeight;
+        
+        
+    }
+    else {
+        
+        NSString * finalSelectedHeight = [NSString stringWithFormat:@"%@",[self.weightsArray objectAtIndex:[self.heightPickerView selectedRowInComponent:0]]];
+        
+        self.txtWeight.txtView.text = finalSelectedHeight;
+        
+        
+        
+        
+    }
+
+    NSLog(@"");
+    
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    // return the number of components required
+   
+    if (self.isSelectingHeight) {
+        
+        return 2;
+        
+    }
+    return 1;
+    
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    if (self.isSelectingHeight) {
+        
+        if (component == 0) {
+            return [self.heightFeets count];
+        }
+        else {
+           
+            return [self.heightInches count];
+            
+        }
+    }
+    
+    return [self.weightsArray count];
+    
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    
+    // Component 0 should load the array1 values, Component 1 will have the array2 values
+    if (self.isSelectingHeight){
+     
+        
+        if (component == 0) {
+            return  [self.heightFeets objectAtIndex:row];
+        }
+        else if (component == 1) {
+            return  [self.heightInches objectAtIndex:row];
+        }
+    }
+
+    return [self.weightsArray objectAtIndex:row];;
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+  }
 -(TextViewForSignUpform *)txtZipCode{
     
     
@@ -81,6 +191,7 @@
         
         _txtWeight.txtView.isMandatory = YES;
         _txtWeight.txtView.delegate = self;
+        [_txtWeight.txtView setTag:22];
         
         [_txtWeight setUpViewWithText:@"Weight"];
         
@@ -106,6 +217,8 @@
         _txtHeight.txtView.delegate = self;
         
         [_txtHeight setUpViewWithText:@"Height"];
+        
+        _txtHeight.txtView.tag = 11;
         
         self.viewHeightContainer.backgroundColor = [UIColor clearColor];
         
@@ -186,15 +299,29 @@
 //,
 
 - (void)viewDidLoad {
+    self.dontAutoHideKeyboard = YES;
+    
     [super viewDidLoad];
     
     self.trainingList =  [NSMutableArray new];
 
+    self.isSelectingHeight = YES;
     
     self.selectedArray = [NSMutableArray new];
     
     
+    self.heightFeets = @[@"1'",@"2'",@"3'",@"4'",@"5'",@"6'",@"7'",@"8'"];
+    
+    self.heightInches = @[@"1\"",@"2\"",@"3\"",@"4\"",@"5\"",@"6\"",@"7\"",@"8\"",@"9\"",@"10\"",@"11\""];
+    
 
+    self.weightsArray = [NSMutableArray new];
+    
+    for (int i = 50;i<1451;i++)
+    {
+        [self.weightsArray addObject:[NSString stringWithFormat:@"%d lb",i]];
+    }
+    
     self.finalSelectedItems =[NSMutableArray new];
    
     self.title = @"Create Trainer Account";
@@ -215,6 +342,8 @@
     
     self.btnContinue.layer.cornerRadius = 5;
     
+    
+    [self.view bringSubviewToFront:self.viewFormContainer];
     
     [User callGetSpecialitesWithComplitionHandler:^(id result) {
         
@@ -259,8 +388,10 @@
     
     
     [self.collectionView reloadData];
+
     
 }
+
 
 
 
@@ -268,6 +399,7 @@
      numberOfItemsInSection:(NSInteger)section{
     
     return [self.trainingList count];
+    
     
 }
 
@@ -329,24 +461,52 @@
         
     }
 
+ 
+    [self.view endEditing:YES];
     
 }
 
 
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if (textField.tag == 11) {
+        
+        [self.viewFormContainer setHidden:YES];
+        [self.viewPickerContainer setHidden:NO];
+        
+        self.isSelectingHeight = YES;
+        [self.view endEditing:YES];
+        self.lblSelectHeight.text = @"Select Height";
+        
+        return NO;
+        
+    }
+    else if (textField.tag == 22) {
+        
+        [self.viewFormContainer setHidden:YES];
+        [self.viewPickerContainer setHidden:NO];
+        
+        self.isSelectingHeight = NO;
+        
+        [self.heightPickerView reloadAllComponents];
+        
+        [self.view endEditing:YES];
+
+        self.lblSelectHeight.text = @"Select Weight";
+        return NO;
+        
+        
+        
+    }
+    
+    
+    
+    [self.viewFormContainer setHidden:NO];
+    [self.viewPickerContainer setHidden:YES];
+    
+    return YES;
+    
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

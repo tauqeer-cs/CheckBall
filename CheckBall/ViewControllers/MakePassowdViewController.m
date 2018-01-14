@@ -39,6 +39,8 @@
         
         _txtConfirmPassword.txtView.isMandatory = YES;
         _txtConfirmPassword.txtView.delegate = self;
+        [_txtConfirmPassword.txtView setSecureTextEntry:YES];
+        
         
         [_txtConfirmPassword setUpViewWithText:@"Confirm Password"];
         self.viewConfirmPassword.backgroundColor = [UIColor clearColor];
@@ -62,8 +64,13 @@
         _txtPassword.txtView.isMandatory = YES;
         _txtPassword.txtView.delegate = self;
         [_txtPassword setUpViewWithText:@"Password"];
+       
+        [_txtPassword.txtView setSecureTextEntry:YES];
+        
         self.viewPasswordContainer.backgroundColor = [UIColor clearColor];
      
+        
+        
         
     }
     return _txtPassword;
@@ -88,7 +95,30 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)btnSignUpTapped:(id)sender {
+    
+    if ([self.txtPassword.txtView.text isEqualToString:self.txtConfirmPassword.txtView.text]) {
+        
+        if ([self.txtConfirmPassword.txtView.text length] < 5) {
+            
+            [self showAlert:@"" message:@"Passwordshoudl be greater that 4 characters"];
+            
+        }
+        else{
+            
+            
+        }
+    }else {
+        
+        
+        [self showAlert:@"" message:@"Password and confirm password does not match."];
+        
+    }
+    
+    
 }
+
+
+
 
 /*
 #pragma mark - Navigation

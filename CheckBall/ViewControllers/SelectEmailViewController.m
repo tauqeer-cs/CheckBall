@@ -69,8 +69,13 @@
     
     self.btnEmail.layer.cornerRadius = 5;
     
+    self.textViewEmail.txtView.text = @"fff@gmail.com";
     
 }
+
+
+
+
 - (IBAction)btnEmailTapped:(UIButton *)sender {
    
     
@@ -139,6 +144,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    for (UIView * txt in self.view.subviews){
+        if ([txt isKindOfClass:[UITextField class]] && [txt isFirstResponder]) {
+            [txt resignFirstResponder];
+        }
+    }
 }
 
 /*

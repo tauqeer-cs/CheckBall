@@ -226,4 +226,8 @@
 -(UIImage*)imageWithHeightWithImage: (UIImage*) sourceImage heihgt: (float) height;
 
 -(void)mapButtonTapped;
+-(void)hideKeyBoard;
+
+@property (nonatomic) BOOL dontAutoHideKeyboard;
+
 @end

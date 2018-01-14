@@ -155,7 +155,21 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-    
+   
+    if (self.dontAutoHideKeyboard) {
+        
+    }
+    else {
+        UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc]
+                                               initWithTarget:self
+                                               action:@selector(hideKeyBoard)];
+        
+        
+        [self.view addGestureRecognizer:tapGesture];
+        
+        
+    }
+
     
     
     
@@ -163,6 +177,12 @@
 }
 
 
+
+-(void)hideKeyBoard {
+    
+    [self.view endEditing:YES];
+    
+}
 
 
 
