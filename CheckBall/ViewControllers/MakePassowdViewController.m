@@ -88,12 +88,18 @@
     self.btnSignUp.layer.cornerRadius = 5;
     
     
+#ifndef NDEBUG
+
+    self.txtPassword.txtView.text = @"111111";
+    self.txtConfirmPassword.txtView.text = @"111111";
+
+#endif
+
+    
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 - (IBAction)btnSignUpTapped:(id)sender {
     
     if ([self.txtPassword.txtView.text isEqualToString:self.txtConfirmPassword.txtView.text]) {
@@ -105,6 +111,31 @@
         }
         else{
             
+            NSString * accountType =  self.accountType;
+            
+            if ([accountType isEqualToString:@"U"]) {
+                
+                UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                UIViewController *initViewController;
+                initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"RooTView"];
+                
+                AppDelegate * appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                
+                appDelegate.window.rootViewController = initViewController;
+                
+            }
+            else {
+                
+                UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MainTrainer" bundle:nil];
+                UIViewController *initViewController;
+                initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"RooTView"];
+                
+                AppDelegate * appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                
+                appDelegate.window.rootViewController = initViewController;
+                
+                
+            }
             
         }
     }else {

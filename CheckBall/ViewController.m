@@ -99,11 +99,13 @@
     self.btnCreateAccount.layer.cornerRadius = 5;
     
     
+    /*
     [User callGetUserProfileById:@"3" WithComplitionHandler:^(id result) {
         
     } withFailueHandler:^{
         
     }];
+    */
     
     
     
@@ -123,9 +125,7 @@
 }
 - (IBAction)loginButtonTapped:(UIButton *)sender {
 
-//faheem@plego.com
-    //plego100
-    
+
     if (![Validator validateEmptyString:self.textViewPassword.txtView.text]
         || ![Validator validateEmptyString:self.textViewPassword.txtView.text])
     {

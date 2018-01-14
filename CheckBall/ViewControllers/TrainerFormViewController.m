@@ -10,6 +10,7 @@
 #import "TextViewForSignUpform.h"
 #import "TrainingSpecialityCollectionViewCell.h"
 #import "User.h"
+#import "MakePassowdViewController.h"
 
 @interface TrainerFormViewController ()<UICollectionViewDelegate,UICollectionViewDataSource
 >
@@ -65,6 +66,24 @@
 
 
 @implementation TrainerFormViewController
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if ([segue.destinationViewController isKindOfClass:[MakePassowdViewController class]])
+    {
+        MakePassowdViewController * destinationViewController = segue.destinationViewController;
+        destinationViewController.accountType = @"P";
+        
+        destinationViewController.fullName = self.textViewName.txtView.text;
+        destinationViewController.height = self.txtHeight.txtView.text;
+        destinationViewController.weight = self.txtWeight.txtView.text;
+        destinationViewController.position = self.txtPosition.txtView.text;
+        destinationViewController.zipCode = self.txtZipCode.txtView.text;
+        destinationViewController.allSpecialitesSelected = self.finalSelectedItems;
+        
+    }
+    
+}
 
 -(void)hidePickerViewITems{
     
@@ -285,7 +304,7 @@
         _txtSchool.txtView.isMandatory = YES;
         _txtSchool.txtView.delegate = self;
         
-        [_txtSchool setUpViewWithText:@"Position"];
+        [_txtSchool setUpViewWithText:@"School"];
         
         self.viewContainerSchool.backgroundColor = [UIColor clearColor];
         
@@ -418,6 +437,15 @@
 - (IBAction)btnContinueTapped:(UIButton *)sender {
     
 
+
+    if ([self.textViewName.txtView.text length] == 0 || [self.txtHeight.txtView.text length] == 0 || [self.txtWeight.txtView.text length] == 0 || [self.txtPosition.txtView.text length] == 0 || [self.txtZipCode.txtView.text length] == 0 || [self.finalSelectedItems count] == 0)
+    {
+    
+        [self showAlert:@"" message:@"Please fill all the fields"];
+        return;
+        
+    }
+    
     [self performSegueWithIdentifier:@"segueSetPassword" sender:self];
 }
 

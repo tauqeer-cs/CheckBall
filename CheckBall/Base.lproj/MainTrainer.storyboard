@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ac1-UQ-WZo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ac1-UQ-WZo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -63,9 +63,8 @@
                                     <constraint firstItem="HLN-MC-WOC" firstAttribute="leading" secondItem="bra-eN-A9e" secondAttribute="leading" constant="8" id="rp0-UG-IB0"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YDT-gB-Ee3">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YDT-gB-Ee3">
                                 <rect key="frame" x="8" y="127" width="359" height="532"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YqV-dK-vSd">
                                     <size key="itemSize" width="50" height="50"/>
@@ -92,8 +91,12 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bra-eN-A9e" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="31t-yY-cDC"/>
+                            <constraint firstItem="YDT-gB-Ee3" firstAttribute="top" secondItem="bra-eN-A9e" secondAttribute="bottom" constant="8" id="4Dr-wh-AJw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YDT-gB-Ee3" secondAttribute="trailing" constant="8" id="J8c-aF-hcH"/>
                             <constraint firstItem="5h1-w6-t5x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ngx-42-ba7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YDT-gB-Ee3" secondAttribute="bottom" constant="8" id="Nia-gl-glJ"/>
                             <constraint firstItem="5h1-w6-t5x" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="OJe-rZ-ttf"/>
+                            <constraint firstItem="YDT-gB-Ee3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="PLF-y8-UcG"/>
                             <constraint firstItem="bra-eN-A9e" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="shv-Dt-3rn"/>
                             <constraint firstItem="bra-eN-A9e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uwg-6L-tlf"/>
                             <constraint firstItem="5h1-w6-t5x" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="yh9-jd-9cY"/>

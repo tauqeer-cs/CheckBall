@@ -68,8 +68,11 @@
                                 withMsg:@"Enter Valid Email"];
     
     self.btnEmail.layer.cornerRadius = 5;
-    
+#ifndef NDEBUG
     self.textViewEmail.txtView.text = @"fff@gmail.com";
+#endif
+    
+
     
 }
 

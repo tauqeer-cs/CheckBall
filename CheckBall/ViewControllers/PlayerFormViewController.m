@@ -8,7 +8,7 @@
 
 #import "PlayerFormViewController.h"
 #import "TextViewForSignUpform.h"
-
+#import "MakePassowdViewController.h"
 @interface PlayerFormViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *btnContinue;
 
@@ -49,6 +49,22 @@
 
 @implementation PlayerFormViewController
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if ([segue.destinationViewController isKindOfClass:[MakePassowdViewController class]])
+    {
+        MakePassowdViewController * destinationViewController = segue.destinationViewController;
+        destinationViewController.accountType = @"U";
+        destinationViewController.fullName = self.textViewName.txtView.text;
+        destinationViewController.height = self.txtHeight.txtView.text;
+        destinationViewController.weight = self.txtWeight.txtView.text;
+        destinationViewController.position = self.txtPosition.txtView.text;
+        destinationViewController.zipCode = self.txtZipCode.txtView.text;
+        
+        
+        
+    }
+}
 -(void)hidePickerViewITems{
     
     [self.viewPickerContainer setHidden:YES];
@@ -181,7 +197,12 @@
 
 - (IBAction)btnContinueTapped:(UIButton *)sender {
     
-    
+    if ([self.textViewName.txtView.text length] == 0 || [self.txtHeight.txtView.text length] == 0 || [self.txtWeight.txtView.text length] == 0 || [self.txtPosition.txtView.text length] == 0 || [self.txtZipCode.txtView.text length] == 0)
+    {
+        
+        [self showAlert:@"" message:@"Please fill all the fields"];
+        return;
+    }
     [self performSegueWithIdentifier:@"segueSetPassword" sender:self];
 }
 
@@ -340,12 +361,17 @@
     
     if (textField.tag == 11) {
         
+        self.isSelectingHeight = YES;
+        
         [self.viewFormContainer setHidden:YES];
         [self.viewPickerContainer setHidden:NO];
         
         self.isSelectingHeight = YES;
         [self.view endEditing:YES];
         self.lblSelectHeight.text = @"Select Height";
+        
+        [self.heightPickerView reloadAllComponents];
+        
         
         return NO;
         
