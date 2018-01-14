@@ -8,6 +8,7 @@
 
 #import "ForgotPasswordViewController.h"
 #import "TextViewForSignUpform.h"
+#import "User.h"
 
 
 @interface ForgotPasswordViewController ()
@@ -17,6 +18,8 @@
 @property (nonatomic,strong) TextViewForSignUpform *textViewEmail;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnReset;
+
+
 @end
 
 @implementation ForgotPasswordViewController
@@ -29,6 +32,7 @@
                                 withMsg:@"Enter Valid Email"];
     
     self.btnReset.layer.cornerRadius = 5;
+    //
     
 }
 
@@ -62,7 +66,39 @@
 }
 - (IBAction)btnResetPassword:(id)sender {
     
-    [self.navigationController popViewControllerAnimated:YES];
+    [self showLoader];
+    
+    [User callForgetPasswordWithEmail:self.textViewEmail.txtView.text complitionHandler:^(id result) {
+        
+        [self hideLoader];
+        
+        [self callAlertViewControllerWithTitle:@"" withMessage:result
+                             withOkButtonTitle:@"OK"
+                               withCancleTitle:nil withOKHandler:^{
+            
+                                   
+                                   [self.navigationController popViewControllerAnimated:YES];
+                                   
+                                   
+                                   
+        } withCancelHandler:^{
+            
+            [self hideLoader];
+            
+            
+            NSLog(@"Cancle");
+            
+        }];
+        
+        
+    } withFailueHandler:^{
+        
+        [self hideLoader];
+        [self showAlert:@"" message:@"Error while resetting password"];
+        
+    }];
+    
+    //
     
 }
 

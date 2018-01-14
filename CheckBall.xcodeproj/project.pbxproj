@@ -278,6 +278,7 @@
 		47EFC3761FCF0B1300794A6E /* SelectEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC3751FCF0B1300794A6E /* SelectEmailViewController.m */; };
 		47EFC3791FCF120500794A6E /* TrainerFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC3781FCF120500794A6E /* TrainerFormViewController.m */; };
 		47EFC37C1FCF121200794A6E /* PlayerFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC37B1FCF121200794A6E /* PlayerFormViewController.m */; };
+		D4516CBC2009C89A005FDFDA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D4516CBA2009C89A005FDFDA /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -838,6 +839,8 @@
 		47EFC3781FCF120500794A6E /* TrainerFormViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrainerFormViewController.m; sourceTree = "<group>"; };
 		47EFC37A1FCF121200794A6E /* PlayerFormViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerFormViewController.h; sourceTree = "<group>"; };
 		47EFC37B1FCF121200794A6E /* PlayerFormViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerFormViewController.m; sourceTree = "<group>"; };
+		D4516CBA2009C89A005FDFDA /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		D4516CBB2009C89A005FDFDA /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -870,6 +873,7 @@
 		4736D0DE1FC5C4A7003032AA /* CheckBall */ = {
 			isa = PBXGroup;
 			children = (
+				D4516CB92009C89A005FDFDA /* Model */,
 				478074E71FCC737300AFA5F6 /* View */,
 				4736D0FC1FC5C701003032AA /* Engine */,
 				4736D19A1FC5C701003032AA /* ThirdParty */,
@@ -2045,6 +2049,15 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
+		D4516CB92009C89A005FDFDA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D4516CBA2009C89A005FDFDA /* User.m */,
+				D4516CBB2009C89A005FDFDA /* User.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2076,7 +2089,7 @@
 				TargetAttributes = {
 					4736D0DB1FC5C4A7003032AA = {
 						CreatedOnToolsVersion = 9.0.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -2252,6 +2265,7 @@
 				4736D3601FC5C702003032AA /* CoreLocationController.m in Sources */,
 				4736D3B31FC5C702003032AA /* HRColorMapView.m in Sources */,
 				4736D3721FC5C702003032AA /* SlideNavigationContorllerAnimatorFade.m in Sources */,
+				D4516CBC2009C89A005FDFDA /* User.m in Sources */,
 				47A55F811FD6F99600D48F41 /* OptionsView.m in Sources */,
 				4736D4021FC5C702003032AA /* UIViewController+MJPopupViewController.m in Sources */,
 				4736D4271FC5C702003032AA /* TGCameraGridView.m in Sources */,
@@ -2568,13 +2582,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Saad Yusuf (WDTGDQ3WCV)";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 75975U3UB4;
 				GCC_PREFIX_HEADER = CheckBall/Support/PrefixHeader.pch;
 				INFOPLIST_FILE = CheckBall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.plego.CheckBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f42d170d-fdab-4a99-89e7-968695580de5";
+				PROVISIONING_PROFILE_SPECIFIER = CheckBallDev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2583,13 +2600,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Saad Yusuf (WDTGDQ3WCV)";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 75975U3UB4;
 				GCC_PREFIX_HEADER = CheckBall/Support/PrefixHeader.pch;
 				INFOPLIST_FILE = CheckBall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.plego.CheckBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f42d170d-fdab-4a99-89e7-968695580de5";
+				PROVISIONING_PROFILE_SPECIFIER = CheckBallDev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

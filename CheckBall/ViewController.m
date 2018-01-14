@@ -9,7 +9,8 @@
 #import "ViewController.h"
 #import "TextViewForSignUpform.h"
 #import "AppDelegate.h"
-
+#import "User.h"
+#import "Validator.h"
 @interface ViewController ()<UITextFieldDelegate>
 
 
@@ -98,6 +99,13 @@
     self.btnCreateAccount.layer.cornerRadius = 5;
     
     
+    [User callGetUserProfileById:@"3" WithComplitionHandler:^(id result) {
+        
+    } withFailueHandler:^{
+        
+    }];
+    
+    
     
     
 }
@@ -114,22 +122,85 @@
     
 }
 - (IBAction)loginButtonTapped:(UIButton *)sender {
-    
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *initViewController;
-    initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"RooTView"];
 
-    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+//faheem@plego.com
+    //plego100
     
-    appDelegate.window.rootViewController = initViewController;
+    if (![Validator validateEmptyString:self.textViewPassword.txtView.text]
+        || ![Validator validateEmptyString:self.textViewPassword.txtView.text])
+    {
     
-    //self.window.rootViewController = initViewController;
+        [self showAlert:@"" message:@"Please enter both email and password"];
+    
+        return;
+        
+    }
     
     
+    if (![Validator validateEmailAddress:self.textViewEmail.txtView.text]) {
+        
+        [self showAlert:@"" message:@"Please enter valid email address"];
+        
+        return;
+        
+    }
     
-    //isFirstTimeSignUp
+    [self showLoader];
     
-    //
+
+    self.textViewEmail.txtView.text = @"faheem@plego.com";
+    self.textViewPassword.txtView.text = @"plego100";
+    
+    [User callLoginUserWithEmail:self.textViewEmail.txtView.text
+                    withPassword:self.textViewPassword.txtView.text
+           withComplitionHandler:^(id result) {
+        
+              NSString * accountType =  [result objectForKey:@"Account_Type"];
+               
+               if ([accountType isEqualToString:@"P"]) {
+                
+                   UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                   UIViewController *initViewController;
+                   initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"RooTView"];
+                   
+                   AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+                   
+                   appDelegate.window.rootViewController = initViewController;
+                   
+               }
+               else {
+                   
+                   UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MainTrainer" bundle:nil];
+                   UIViewController *initViewController;
+                   initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"RooTView"];
+                   
+                   AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+                   
+                   appDelegate.window.rootViewController = initViewController;
+                   
+                   
+               }
+               NSLog(@"");
+               
+               //
+
+               
+               
+    } withFailueHandler:^{
+        
+        
+        
+        [self hideLoader];
+        [self showAlert:@"" message:@"Invalid login credtials entered"];
+    } withNoAccountExistsHandler:^(id result) {
+        
+    }];
+    
+
+    return;
+    
+    
+
 }
 
 - (void)didReceiveMemoryWarning {

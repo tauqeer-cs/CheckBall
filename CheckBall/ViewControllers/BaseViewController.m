@@ -154,6 +154,9 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    
     
     
 
@@ -655,7 +658,7 @@
         }
         else {
             
-            [self insertSpinnerOfStyle:RTSpinKitViewStylePlane backgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5] label:@"Loading Data"];
+            [self insertSpinnerOfStyle:RTSpinKitViewStylePlane backgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5] label:@""];
             
         
             

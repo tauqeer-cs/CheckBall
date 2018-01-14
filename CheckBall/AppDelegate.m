@@ -36,6 +36,24 @@
         UIViewController *initViewController;
         initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"ViewController"];
         self.window.rootViewController = initViewController;
+     
+        return YES;
+        
+    }
+    NSString * accountType = [isFirstTimeRunDone objectForKey:@"Account_Type"];
+   
+    if ([accountType isEqualToString:@"P"]) {
+        
+    }
+    else {
+        
+
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MainTrainer" bundle:nil];
+        UIViewController *initViewController;
+        initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"RooTView"];
+        self.window.rootViewController = initViewController;
+        
+        
         
     }
     

@@ -8,6 +8,8 @@
 
 #import "SelectEmailViewController.h"
 #import "TextViewForSignUpform.h"
+#import "User.h"
+#import "Validator.h"
 
 @interface SelectEmailViewController ()
 @property (weak, nonatomic) IBOutlet UIView *viewEmailContainer;
@@ -70,17 +72,68 @@
     
 }
 - (IBAction)btnEmailTapped:(UIButton *)sender {
+   
     
-    if (self.comingAsTrainer) {
+    
+    
+    
+    if(![Validator validateEmailAddress:self.textViewEmail.txtView.text]){
         
-        [self performSegueWithIdentifier:@"segueTrainer" sender:self];
+        
+        [self showAlert:@"" message:@"Please enter valid email address"];
+        
+        return;
+        
+        
         
     }
-    else {
+    [self showLoader];
+    
+    
+    [User callCheckUserExistsWithEmail:self.textViewEmail.txtView.text complitionHandler:^(id result) {
+    
+        //
+        //
         
-        [self performSegueWithIdentifier:@"seguePlayer" sender:self];
+                [self hideLoader];
+        
+        if ([result isEqualToString:@"Email Found"])
+        {
+            [self showAlert:@"" message:@"Account already exists with this email."];
+            
+         
+        
+        }
+        else {
+            
+            //Email Not Found
+            
+            if (self.comingAsTrainer) {
+                
+                [self performSegueWithIdentifier:@"segueTrainer" sender:self];
+                
+            }
+            else {
+                
+                [self performSegueWithIdentifier:@"seguePlayer" sender:self];
+                
+            }
+            
+            
+        }
 
-    }
+        
+    } withFailueHandler:^{
+        
+        [self hideLoader];
+        [self showAlert:@"" message:@"Error while checking email.Please check your internet."];
+        
+    }];
+    
+    
+    return;
+    
+
 }
 
 - (void)didReceiveMemoryWarning {

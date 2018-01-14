@@ -9,6 +9,7 @@
 #import "TrainerFormViewController.h"
 #import "TextViewForSignUpform.h"
 #import "TrainingSpecialityCollectionViewCell.h"
+#import "User.h"
 
 @interface TrainerFormViewController ()<UICollectionViewDelegate,UICollectionViewDataSource
 >
@@ -38,6 +39,12 @@
 
 
 @property (nonatomic,strong) NSMutableArray * trainingList;
+
+@property (nonatomic,strong) id specialitesServiceResponse;
+
+@property (nonatomic,strong) NSMutableDictionary * trainingDictionary;
+
+@property (nonatomic,strong) NSMutableArray * finalSelectedItems;
 
 @end
 
@@ -182,19 +189,14 @@
     [super viewDidLoad];
     
     self.trainingList =  [NSMutableArray new];
-    [self.trainingList addObject:@"Shooting"];
-    [self.trainingList addObject:@"Ball Handling"];
-    [self.trainingList addObject:@"Post Work"];
-    [self.trainingList addObject:@"Defense"];
+
     
     self.selectedArray = [NSMutableArray new];
     
     
-    [self.selectedArray addObject:@"0"];
-    [self.selectedArray addObject:@"0"];
-    [self.selectedArray addObject:@"0"];
-    [self.selectedArray addObject:@"0"];
-    
+
+    self.finalSelectedItems =[NSMutableArray new];
+   
     self.title = @"Create Trainer Account";
     
     [self.textViewName setHidden:NO];
@@ -212,6 +214,42 @@
     
     
     self.btnContinue.layer.cornerRadius = 5;
+    
+    
+    [User callGetSpecialitesWithComplitionHandler:^(id result) {
+        
+        
+        self.specialitesServiceResponse = result;
+        [self hideLoader];
+        
+        NSMutableDictionary * tmpDic = [NSMutableDictionary new];
+        
+    
+        for (id currentItem in result) {
+            
+            
+        [self.trainingList addObject:[currentItem objectForKey:@"Name"]];
+        [self.selectedArray addObject:@"0"];
+            
+            NSLog(@"%@",currentItem);
+            
+            
+            [tmpDic setValue:[currentItem objectForKey:@"ID"] forKey:[currentItem objectForKey:@"Name"]];
+            
+        }
+        
+        self.trainingDictionary = tmpDic;
+        
+        NSLog(@"");
+        
+        
+        [self.collectionView reloadData];
+        
+    } withFailueHandler:^{
+        
+        [self hideLoader];
+        
+    }];
     
     
     
@@ -262,17 +300,33 @@
     TrainingSpecialityCollectionViewCell * cellItem = (TrainingSpecialityCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     
     NSLog(@"");
+    id currentItemToAdd = [self.trainingList objectAtIndex:indexPath.row];
+    
+    
     if ([[self.selectedArray objectAtIndex:indexPath.row] intValue] == 0) {
     
         [cellItem.checkImage setImage:[UIImage imageNamed:@"checkedButton"]];
         
         
         [self.selectedArray replaceObjectAtIndex:indexPath.row withObject:@"1"];
+    
+
+        [self.finalSelectedItems addObject:currentItemToAdd];
+        
+        
+        NSLog(@"%@",self.finalSelectedItems);
+        
     }
     else {
         [cellItem.checkImage setImage:[UIImage imageNamed:@"unCheckedButton"]];
         [self.selectedArray replaceObjectAtIndex:indexPath.row withObject:@"0"];
-        //
+        
+        [self.finalSelectedItems removeObject:currentItemToAdd];
+        NSLog(@"%@",self.finalSelectedItems);
+        
+        
+        
+        
     }
 
     

@@ -109,48 +109,6 @@
 
 
 
--(void)callStartImKarachiServicewithParams:(id)params
-{
-
-    [self callWebServiceWithTheseParams:params withSignatureSequence:@[@"username",@"contacts"] urlCalling:[[serviceLink stringByAppendingString:serviceStart] stringByAppendingString:@"friends/create-friends"]
-                  withComplitionHandler:^(id result) {
-    
-            NSDictionary *dictionary = result;
-           if ([[[dictionary objectForKey:@"header"] objectForKey:@"code"] integerValue] == 0) {
-                          
-                          id bodyItems = [dictionary objectForKey:@"body"];
-                          NSDictionary *number = [bodyItems objectForKey:@"contacts"];
-                          NSUserDefaults *defaults;
-                          defaults = [NSUserDefaults standardUserDefaults];
-                          
-               
-                        NSLog(@"%@",[bodyItems objectForKey:@"timeStamp"]);
-               
-                          [[NSUserDefaults standardUserDefaults] setObject:
-                           [bodyItems objectForKey:@"timeStamp"] forKey:@"timeStamp"];
-                          [[NSUserDefaults standardUserDefaults] synchronize];
-                          
-               
-               
-               
-               
-                        NSLog(@"%@",[defaults objectForKey:@"timeStamp"]);
-               
-                          [self.delegate contactsServiceCalled:number];
-                          
-               
-               
-               
-                      }
-                      else{
-                          
-                          NSLog(@"Something went wrong!");
-                          
-                      }
-                      
-    }];
-}
-
 
 
 
@@ -192,7 +150,13 @@
 
 
 
+/*
+ [NSURLConnection sendAsynchronousRequest:request2 queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
 
+ 
+ }];
+ 
+ */
 
 +(void)callWebServiceWithTheseParams:(NSDictionary *)params
                withSignatureSequence:(NSArray *)paramSeguence
@@ -202,56 +166,48 @@
     
 
     
-    NSMutableArray *paramSet = [NSMutableArray new];
-    [paramSet setArray:paramSeguence];
+    NSDictionary *jsonDictionary = params;
     
-
     
-    NSString *tmpPostString = @"";
+    NSError *error;
     
-    for (id currentItem in params) {
-        
-        
-        tmpPostString = [tmpPostString stringByAppendingString:currentItem];
-        tmpPostString = [tmpPostString stringByAppendingString:@"="];
-        
-        tmpPostString = [tmpPostString stringByAppendingString:[params objectForKey:currentItem]];
-        tmpPostString = [tmpPostString stringByAppendingString:@"&"];
-        
-    }
-    
-    if (tmpPostString.length > 0) {
-        
-        tmpPostString = [tmpPostString substringToIndex:[tmpPostString length] - 1];
-    
-        
-    }
-
-    NSString *postString = tmpPostString;
-    
-
     
     NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     
     if (isPost) {
         [request2 setHTTPMethod:@"POST"];
+        NSData *httpBody = [NSJSONSerialization dataWithJSONObject:jsonDictionary options:0 error:&error];
+        
+        
+        [request2 setHTTPBody:httpBody];
+        NSString *sending = [[NSString alloc] initWithData:httpBody encoding:NSUTF8StringEncoding];
+        
         
     }
-    else{
+    else {
+        
         [request2 setHTTPMethod:@"GET"];
         
     }
-    [request2 setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
-
     
-
+    [request2 setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    
     
     [NSURLConnection sendAsynchronousRequest:request2 queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        
+        
         if (!data) {
             NSLog(@"sendAsynchronousRequest error: %@", connectionError);
             failureCompletionHandler();
             NSString* newStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSLog(@"%@",newStr);
+            
+            failureCompletionHandler();
+            
+            
+            
+            
             return;
         }
         NSMutableDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
@@ -263,6 +219,9 @@
             NSString* newStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             failureCompletionHandler();
             NSLog(@"%@",newStr);
+            
+            
+            
             return;
         }
         completionHandler([dictionary dictionaryByReplacingNullsWithBlanks]);
@@ -270,6 +229,7 @@
         
     }];
     
+ 
     
     
 }
