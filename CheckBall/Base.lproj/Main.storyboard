@@ -238,17 +238,55 @@
                                                                 </constraints>
                                                                 <state key="normal" image="EDIT-ICON"/>
                                                             </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txn-Cf-giV">
+                                                                <rect key="frame" x="12" y="7" width="42" height="16"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="16" id="WgJ-jW-eLN"/>
+                                                                    <constraint firstAttribute="width" constant="42" id="hPD-w5-QrN"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                <color key="textColor" red="0.50582480430603027" green="0.50591552257537842" blue="0.50581908226013184" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57G-d8-SJo">
+                                                                <rect key="frame" x="12" y="23" width="304" height="16"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="16" id="9Fh-1t-7KU"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                <color key="textColor" red="0.50582480429999999" green="0.50591552259999995" blue="0.50581908229999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
+                                                            <constraint firstItem="57G-d8-SJo" firstAttribute="leading" secondItem="5Y0-xh-NbT" secondAttribute="leading" constant="12" id="11S-4r-ayQ"/>
+                                                            <constraint firstItem="txn-Cf-giV" firstAttribute="top" secondItem="5Y0-xh-NbT" secondAttribute="top" constant="7" id="DuD-Cn-IP6"/>
+                                                            <constraint firstItem="txn-Cf-giV" firstAttribute="leading" secondItem="5Y0-xh-NbT" secondAttribute="leading" constant="12" id="E8V-Qq-beh"/>
                                                             <constraint firstItem="Q5G-yD-z5M" firstAttribute="centerY" secondItem="5Y0-xh-NbT" secondAttribute="centerY" id="hH3-14-NPH"/>
                                                             <constraint firstAttribute="trailing" secondItem="Q5G-yD-z5M" secondAttribute="trailing" constant="8" id="ihS-88-Qmm"/>
                                                             <constraint firstAttribute="height" constant="45" id="ndo-rd-gVp"/>
+                                                            <constraint firstItem="Q5G-yD-z5M" firstAttribute="leading" secondItem="57G-d8-SJo" secondAttribute="trailing" constant="8" id="q18-um-Fxo"/>
+                                                            <constraint firstItem="57G-d8-SJo" firstAttribute="top" secondItem="txn-Cf-giV" secondAttribute="bottom" id="w5v-n8-mZR"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LdM-So-fGg">
                                                         <rect key="frame" x="0.0" y="119" width="355" height="45"/>
                                                         <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyW-KN-Ln7">
+                                                                <rect key="frame" x="12" y="7" width="42" height="16"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                <color key="textColor" red="0.50582480429999999" green="0.50591552259999995" blue="0.50581908229999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkf-MB-hAI">
+                                                                <rect key="frame" x="25" y="14" width="304" height="16"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                <color key="textColor" red="0.50582480429999999" green="0.50591552259999995" blue="0.50581908229999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vL1-ai-eB9">
                                                                 <rect key="frame" x="324" y="6" width="23" height="33"/>
                                                                 <constraints>
@@ -276,12 +314,24 @@
                                                                 </constraints>
                                                                 <state key="normal" image="EDIT-ICON"/>
                                                             </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height ( 5' 7&quot; )" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7FZ-FA-HXL">
+                                                                <rect key="frame" x="12" y="9" width="134.5" height="16"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="16" id="u4E-G8-0Xh"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                <color key="textColor" red="0.50582480429999999" green="0.50591552259999995" blue="0.50581908229999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="e5H-3J-J29" firstAttribute="centerY" secondItem="0qY-q6-XMO" secondAttribute="centerY" id="4gG-kj-hZS"/>
+                                                            <constraint firstItem="7FZ-FA-HXL" firstAttribute="leading" secondItem="0qY-q6-XMO" secondAttribute="leading" constant="12" id="GkP-IZ-vfc"/>
                                                             <constraint firstAttribute="trailing" secondItem="e5H-3J-J29" secondAttribute="trailing" constant="8" id="Ig8-pw-77R"/>
+                                                            <constraint firstItem="e5H-3J-J29" firstAttribute="leading" secondItem="7FZ-FA-HXL" secondAttribute="trailing" id="QwJ-bf-4Jn"/>
                                                             <constraint firstAttribute="height" constant="34" id="nv6-FQ-Tlx"/>
+                                                            <constraint firstItem="7FZ-FA-HXL" firstAttribute="centerY" secondItem="0qY-q6-XMO" secondAttribute="centerY" id="xi2-lZ-gqb"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRY-tk-Pnf">
@@ -295,10 +345,22 @@
                                                                 </constraints>
                                                                 <state key="normal" image="EDIT-ICON"/>
                                                             </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight ( 150 lb )" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6x-7N-BhH">
+                                                                <rect key="frame" x="8" y="9" width="134.5" height="16"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="16" id="Ttk-4q-iCj"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                <color key="textColor" red="0.50582480429999999" green="0.50591552259999995" blue="0.50581908229999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
+                                                            <constraint firstItem="t6x-7N-BhH" firstAttribute="centerY" secondItem="XRY-tk-Pnf" secondAttribute="centerY" id="7nu-De-6NG"/>
                                                             <constraint firstItem="2O4-8K-H3C" firstAttribute="centerY" secondItem="XRY-tk-Pnf" secondAttribute="centerY" id="Bs1-fu-GN8"/>
+                                                            <constraint firstItem="t6x-7N-BhH" firstAttribute="leading" secondItem="XRY-tk-Pnf" secondAttribute="leading" constant="8" id="OHx-6l-g7k"/>
+                                                            <constraint firstItem="2O4-8K-H3C" firstAttribute="leading" secondItem="t6x-7N-BhH" secondAttribute="trailing" id="dFF-Qv-asC"/>
                                                             <constraint firstAttribute="trailing" secondItem="2O4-8K-H3C" secondAttribute="trailing" constant="10.5" id="frG-yN-skb"/>
                                                             <constraint firstAttribute="height" constant="34" id="yb9-9a-FfN"/>
                                                         </constraints>
