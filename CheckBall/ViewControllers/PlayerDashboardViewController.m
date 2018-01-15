@@ -20,11 +20,39 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 
+@property (nonatomic) BOOL isProfileSmallSettingViewOpened;
+
 
 @end
 
 @implementation PlayerDashboardViewController
 
+-(void)editProfileTapped{
+    [self profilePictureTapped];
+    
+    
+    [self performSegueWithIdentifier:@"segueMyProfile" sender:self];
+    
+    
+    
+    NSLog(@"Edit Profile Button Tapped");
+}
+
+-(void)changePAsswordTapped{
+    
+    [self profilePictureTapped];
+    
+    NSLog(@"Change Password Tapped");
+}
+
+
+-(void)logoutTapped{
+    [self profilePictureTapped];
+    
+    
+    NSLog(@"LogOut Tapped");
+    
+}
 -(OptionsView *)optionView{
     
     
@@ -45,7 +73,39 @@
         
         //self.firstContainer.layer.mask = maskLayer;
         
+        
         _optionView.layer.mask = maskLayer;
+        
+        
+        _optionView.firstContainer.userInteractionEnabled = YES;
+        
+        
+        UITapGestureRecognizer *singleFingerTap =
+        [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                action:@selector(editProfileTapped)];
+        [_optionView.firstContainer addGestureRecognizer:singleFingerTap];
+        
+        
+        
+        singleFingerTap =
+        [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                action:@selector(changePAsswordTapped)];
+        [_optionView.secondContainer addGestureRecognizer:singleFingerTap];
+        
+        _optionView.secondContainer.userInteractionEnabled = YES;
+        
+        singleFingerTap =
+        [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                action:@selector(changePAsswordTapped)];
+        [_optionView.secondContainer addGestureRecognizer:singleFingerTap];
+        
+        
+        _optionView.thirdContainer.userInteractionEnabled = YES;
+        
+        singleFingerTap =
+        [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                action:@selector(logoutTapped)];
+        [_optionView.thirdContainer addGestureRecognizer:singleFingerTap];
         
         
         
@@ -72,7 +132,39 @@
     [self.dataSource addObject:@"Test"];
     
     
+    [self.profileImageView setUserInteractionEnabled:YES];
+    
+    
+    
+    UITapGestureRecognizer *singleFingerTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(profilePictureTapped)];
+    [self.profileImageView addGestureRecognizer:singleFingerTap];
+    
+    
 }
+
+-(void)profilePictureTapped{
+
+    if (self.isProfileSmallSettingViewOpened) {
+        
+        self.isProfileSmallSettingViewOpened = NO;
+        [self.optionView setHidden:YES];
+        
+        
+    }
+    else {
+        self.isProfileSmallSettingViewOpened = YES;
+    [self.optionView setHidden:NO];
+        
+    }
+    
+
+    
+    
+    
+}
+
 -(void)viewDidAppear:(BOOL)animated{
     
     [self.collectionView reloadData];
@@ -102,7 +194,12 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+
+    if (self.isProfileSmallSettingViewOpened) {
     
+        [self.optionView setHidden:YES];
+        
+    }
 }
 
 

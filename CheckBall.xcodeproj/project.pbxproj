@@ -279,6 +279,8 @@
 		47EFC3791FCF120500794A6E /* TrainerFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC3781FCF120500794A6E /* TrainerFormViewController.m */; };
 		47EFC37C1FCF121200794A6E /* PlayerFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC37B1FCF121200794A6E /* PlayerFormViewController.m */; };
 		D4516CBC2009C89A005FDFDA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D4516CBA2009C89A005FDFDA /* User.m */; };
+		D4E95BCC200CEA3300BB3F4A /* MyTrainerProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E95BCB200CEA3300BB3F4A /* MyTrainerProfileViewController.m */; };
+		D4E95BCF200CF6ED00BB3F4A /* MyUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E95BCE200CF6ED00BB3F4A /* MyUserProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -841,6 +843,10 @@
 		47EFC37B1FCF121200794A6E /* PlayerFormViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerFormViewController.m; sourceTree = "<group>"; };
 		D4516CBA2009C89A005FDFDA /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		D4516CBB2009C89A005FDFDA /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		D4E95BCA200CEA3300BB3F4A /* MyTrainerProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTrainerProfileViewController.h; sourceTree = "<group>"; };
+		D4E95BCB200CEA3300BB3F4A /* MyTrainerProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTrainerProfileViewController.m; sourceTree = "<group>"; };
+		D4E95BCD200CF6ED00BB3F4A /* MyUserProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyUserProfileViewController.h; sourceTree = "<group>"; };
+		D4E95BCE200CF6ED00BB3F4A /* MyUserProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyUserProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -923,6 +929,10 @@
 				47D1F54C1FD5A8C200FC8F44 /* PlayerDashboardViewController.m */,
 				47D1F54E1FD5AE3E00FC8F44 /* TrainerDashboardViewController.h */,
 				47D1F54F1FD5AE3E00FC8F44 /* TrainerDashboardViewController.m */,
+				D4E95BCA200CEA3300BB3F4A /* MyTrainerProfileViewController.h */,
+				D4E95BCB200CEA3300BB3F4A /* MyTrainerProfileViewController.m */,
+				D4E95BCD200CF6ED00BB3F4A /* MyUserProfileViewController.h */,
+				D4E95BCE200CF6ED00BB3F4A /* MyUserProfileViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -2398,6 +2408,7 @@
 				4736D3BB1FC5C702003032AA /* IQAlbumAssetsViewController.m in Sources */,
 				4736D3881FC5C702003032AA /* UUInputFunctionView.m in Sources */,
 				4736D38F1FC5C702003032AA /* ADDropDownMenuItemView.m in Sources */,
+				D4E95BCC200CEA3300BB3F4A /* MyTrainerProfileViewController.m in Sources */,
 				4736D42C1FC5C702003032AA /* TGTintedLabel.m in Sources */,
 				4736D4061FC5C702003032AA /* RTSpinKitArcAnimation.m in Sources */,
 				4736D37A1FC5C702003032AA /* NSArray+BinarySearch.m in Sources */,
@@ -2413,6 +2424,7 @@
 				4736D39A1FC5C702003032AA /* AFURLResponseSerialization.m in Sources */,
 				4736D4231FC5C702003032AA /* TGAssetImageFile.m in Sources */,
 				47EFC3761FCF0B1300794A6E /* SelectEmailViewController.m in Sources */,
+				D4E95BCF200CF6ED00BB3F4A /* MyUserProfileViewController.m in Sources */,
 				4736D3931FC5C702003032AA /* AFHTTPRequestOperation.m in Sources */,
 				4736D3C31FC5C702003032AA /* IQAudioPickerUtility.m in Sources */,
 			);

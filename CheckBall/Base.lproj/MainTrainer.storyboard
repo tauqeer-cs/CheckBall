@@ -30,7 +30,7 @@
                                             <constraint firstAttribute="height" constant="1" id="3dc-ST-EMu"/>
                                         </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SMALL-PRO" translatesAutoresizingMaskIntoConstraints="NO" id="9xP-cn-N6w">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SMALL-PRO" translatesAutoresizingMaskIntoConstraints="NO" id="9xP-cn-N6w">
                                         <rect key="frame" x="333" y="10" width="34" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="34" id="ftl-wJ-Znc"/>
@@ -107,11 +107,28 @@
                     <navigationItem key="navigationItem" id="ATv-7V-XeB"/>
                     <connections>
                         <outlet property="collectionView" destination="YDT-gB-Ee3" id="Too-DH-hQ3"/>
+                        <outlet property="profileImageView" destination="9xP-cn-N6w" id="bF7-BW-QCs"/>
+                        <segue destination="Y2q-OP-SKW" kind="show" identifier="segueMyProfile" id="Cd1-zg-56e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="260" y="70.614692653673174"/>
+        </scene>
+        <!--Edit Profile-->
+        <scene sceneID="i46-zr-FFf">
+            <objects>
+                <viewController restorationIdentifier="MyTrainerProfileViewController" storyboardIdentifier="MyTrainerProfileViewController" title="Edit Profile" id="Y2q-OP-SKW" customClass="MyTrainerProfileViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V8R-Yk-x1d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="X4d-W9-ZXp"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xtI-4P-Ltu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1110" y="472"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="11z-bN-9KA">
@@ -121,6 +138,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gcI-Ag-nEm">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.92369896169999999" green="0.23608970639999999" blue="0.14014643430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
