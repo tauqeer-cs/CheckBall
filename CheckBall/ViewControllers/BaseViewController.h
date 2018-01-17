@@ -152,10 +152,15 @@
 @property (nonatomic,strong) NSString *myName;
 @property (nonatomic,strong) NSString *myEmail;
 
+@property (nonatomic,strong) NSString * myAccountType;
+
 @property (nonatomic,strong) NSString *myPhoneNumber;
 
 @property (nonatomic,strong) NSString *myProfileImageUrl;
 
+@property (nonatomic,strong) NSString *myZipCode;
+
+//
 @property (nonatomic, strong) AVPlayerViewController *moviePlayer;
 
 - (void)btnPlayIntroVideoTapped:(NSString *)sender;

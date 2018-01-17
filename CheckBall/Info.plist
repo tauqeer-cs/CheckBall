@@ -64,6 +64,8 @@
 	<string>App would need access to your photo library.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app uses your location</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

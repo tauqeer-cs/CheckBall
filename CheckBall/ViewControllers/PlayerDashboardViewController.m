@@ -9,6 +9,7 @@
 #import "PlayerDashboardViewController.h"
 #import "DashboradTrainerListViewCell.h"
 #import "OptionsView.h"
+#import "User.h"
 
 
 @interface PlayerDashboardViewController ()
@@ -22,6 +23,7 @@
 
 @property (nonatomic) BOOL isProfileSmallSettingViewOpened;
 
+@property (weak, nonatomic) IBOutlet UILabel *lblName;
 
 @end
 
@@ -121,6 +123,8 @@
     
     //
     
+
+    
     self.title = @"Dashboard";
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"DashboradTrainerListViewCell" bundle:nil]
@@ -128,10 +132,7 @@
     [self.collectionView setBackgroundColor:[UIColor clearColor]];
         self.dataSource = [NSMutableArray new];
     
-    [self.dataSource addObject:@"Test"];
-    [self.dataSource addObject:@"Test"];
-    
-    
+
     [self.profileImageView setUserInteractionEnabled:YES];
     
     
@@ -140,6 +141,8 @@
     [[UITapGestureRecognizer alloc] initWithTarget:self
                                             action:@selector(profilePictureTapped)];
     [self.profileImageView addGestureRecognizer:singleFingerTap];
+    
+    self.lblName.text = self.myName;
     
     
 }
@@ -168,6 +171,26 @@
 -(void)viewDidAppear:(BOOL)animated{
     
     [self.collectionView reloadData];
+ 
+    [self showLoader];
+    
+    [User callGetPlayersWithZipCode:self.myZipCode
+              WithComplitionHandler:^(id result) {
+                  
+                  NSLog(@"");
+                  
+                  [self hideLoader];
+                  self.dataSource = result;
+                  [self.collectionView reloadData];
+                  
+              } withFailueHandler:^{
+                  
+                  [self hideLoader];
+                  [self showAlert:@"" message:@"Error while loading data."];
+                  
+                  
+                  
+              }];
     
    // [self.optionView setHidden:NO];
     
@@ -185,6 +208,9 @@
     
     DashboradTrainerListViewCell *currentCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellTrainer" forIndexPath:indexPath];
     
+    
+    [currentCell updateWithDate:[self.dataSource objectAtIndex:indexPath.row]];
+    //updateWithDate
     return currentCell;
 }
 

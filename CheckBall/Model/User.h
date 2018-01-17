@@ -10,13 +10,7 @@
 
 @interface User : NSObject
 
-+(void)callRegisterUserWithEmail:(NSString *)emailAddress withName:(NSString *)name
-                    withPassword:(NSString *)password withMobile:(NSString *)mobile
-                    withDeviceId:(NSString *)deviceId
-                         withDob:(NSString *)dob
-                    withIsSingle:(NSString *)isSingle
-                      withGender:(NSString *)gender
-                       withImage:(UIImage *)profileImage
++(void)callRegisterUserWithParams:(NSDictionary *)params
            withComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler
         withAlreadyExistsHandler:(void(^)(id result))alreadyExistHandler;
 
@@ -132,6 +126,13 @@ withComplitionHandler:(void(^)(id result))completionHandler
 +(void)callGetUserProfileById:(NSString *)profileId
         WithComplitionHandler:(void(^)(id result))completionHandler
             withFailueHandler:(void(^)(void))failureHandler;
+
++(void)callGetPlayersWithZipCode:(NSString *)myZipCode WithComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler;
++(void)callGetTrainersWithZipCode:(NSString *)myZipCode WithComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler;
+
++(void)callUpdateProfileWithParams:(NSDictionary *)params
+             withComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler
+          withAlreadyExistsHandler:(void(^)(id result))alreadyExistHandler;
 
 
 @end

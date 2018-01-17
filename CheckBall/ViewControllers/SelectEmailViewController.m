@@ -10,6 +10,8 @@
 #import "TextViewForSignUpform.h"
 #import "User.h"
 #import "Validator.h"
+#import "TrainerFormViewController.h"
+#import "PlayerFormViewController.h"
 
 @interface SelectEmailViewController ()
 @property (weak, nonatomic) IBOutlet UIView *viewEmailContainer;
@@ -144,6 +146,32 @@
 
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    
+    if ([segue.destinationViewController isKindOfClass:[TrainerFormViewController class]]) {
+        TrainerFormViewController * destination = segue.destinationViewController;
+        
+        destination.emailSending = self.textViewEmail.txtView.text;
+        
+        //
+        
+    }
+    else if([segue.destinationViewController isKindOfClass:[PlayerFormViewController class]])
+    {
+        
+        PlayerFormViewController * destination = segue.destinationViewController;
+        
+        destination.emailSending = self.textViewEmail.txtView.text;
+        
+        
+    }
+    
+    /*
+     
+     
+     */
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

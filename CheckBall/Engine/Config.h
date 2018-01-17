@@ -10,10 +10,12 @@
 //http:///pingem/api/vendor/create-vendor-from-user
 
 
-#define baseServiceUrl (isLive) ? @"http://cpd.plego.net/CheckBallService.svc/" : @"http://cpd.plego.net/CheckBallService.svc/"
+
+///CheckBallService.svc/getlisting/p/75300
+#define baseServiceUrl (isLive) ? @"http://check-ball.plego.net/CheckBallService.svc/" : @"http://check-ball.plego.net/CheckBallService.svc/"
 //http://main.iamkarachiapp.com/api/
-#define baseImageLink (isLive) ? @"http://cpd.plego.net/CheckBallService.svc/images/" : @"http://cpd.plego.net/CheckBallService.svc/images/"
-#define serviceLink (isLive) ? @"http://cpd.plego.net/CheckBallService.svc/" : @"http://cpd.plego.net/CheckBallService.svc/"
+#define baseImageLink (isLive) ? @"http://check-ball.plego.net/CheckBallService.svc/images/" : @"http://check-ball.plego.net/CheckBallService.svc/images/"
+#define serviceLink (isLive) ? @"http://check-ball.plego.net/CheckBallService.svc/" : @"http://check-ball.plego.net/CheckBallService.svc/"
 //define serviceLink (isLive) ? @"http://beta.iamkarachiapp.com/" : @"http://dev.iamkarachiapp.com/"
 //http://main.iamkarachiapp.com/
 #define serviceStart (isLive) ? @"api/" : @"api/"

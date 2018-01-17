@@ -10,4 +10,7 @@
 
 @interface TrainerFormViewController : BaseViewController
 
+@property (nonatomic,strong) NSString * emailSending;
+
+
 @end

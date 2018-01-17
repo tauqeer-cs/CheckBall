@@ -434,9 +434,9 @@
 -(NSString *)myJid{
     
     if ([[self.userDefaults objectForKey:@"isFirstTimeSignUp"] isKindOfClass:[NSArray class]]) {
-        return [[[self.userDefaults objectForKey:@"isFirstTimeSignUp"] firstObject] objectForKey:@"id"];
+        return [[[self.userDefaults objectForKey:@"isFirstTimeSignUp"] firstObject] objectForKey:@"ID"];
     }
-    return [[self.userDefaults objectForKey:@"isFirstTimeSignUp"] objectForKey:@"id"];
+    return [[self.userDefaults objectForKey:@"isFirstTimeSignUp"] objectForKey:@"ID"];
     
 }
 
@@ -444,20 +444,48 @@
 -(NSString *)myName{
     
     
+    NSLog(@"%@",[self.userDefaults objectForKey:@"isFirstTimeSignUp"]);
+    
     if ([[self.userDefaults objectForKey:@"isFirstTimeSignUp"] isKindOfClass:[NSArray class]]) {
-        return [[[self.userDefaults objectForKey:@"isFirstTimeSignUp"] firstObject] objectForKey:@"name"];
+        return [[[self.userDefaults objectForKey:@"isFirstTimeSignUp"] firstObject] objectForKey:@"Name"];
     }
-    return [[self.userDefaults objectForKey:@"isFirstTimeSignUp"] objectForKey:@"name"];
+    return [[self.userDefaults objectForKey:@"isFirstTimeSignUp"] objectForKey:@"Name"];
     
 }
+
+-(NSString *)myZipCode{
+    
+    
+    NSLog(@"%@",[self.userDefaults objectForKey:@"isFirstTimeSignUp"]);
+    
+    if ([[self.userDefaults objectForKey:@"isFirstTimeSignUp"] isKindOfClass:[NSArray class]]) {
+        return [[[self.userDefaults objectForKey:@"isFirstTimeSignUp"] firstObject] objectForKey:@"ZipCode"];
+    }
+    return [[self.userDefaults objectForKey:@"isFirstTimeSignUp"] objectForKey:@"ZipCode"];
+    
+}
+
+//
+-(NSString *)myAccountType{
+    
+    
+    NSLog(@"%@",[self.userDefaults objectForKey:@"isFirstTimeSignUp"]);
+    
+    if ([[self.userDefaults objectForKey:@"isFirstTimeSignUp"] isKindOfClass:[NSArray class]]) {
+        return [[[self.userDefaults objectForKey:@"isFirstTimeSignUp"] firstObject] objectForKey:@"Account_Type"];
+    }
+    return [[self.userDefaults objectForKey:@"isFirstTimeSignUp"] objectForKey:@"Account_Type"];
+    
+}
+
 
 -(NSString *)myEmail{
     
     
     if ([[self.userDefaults objectForKey:@"isFirstTimeSignUp"] isKindOfClass:[NSArray class]]) {
-        return [[[self.userDefaults objectForKey:@"isFirstTimeSignUp"] firstObject] objectForKey:@"email"];
+        return [[[self.userDefaults objectForKey:@"isFirstTimeSignUp"] firstObject] objectForKey:@"Email"];
     }
-    return [[self.userDefaults objectForKey:@"isFirstTimeSignUp"] objectForKey:@"email"];
+    return [[self.userDefaults objectForKey:@"isFirstTimeSignUp"] objectForKey:@"Email"];
     
 }
 

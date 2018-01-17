@@ -24,6 +24,10 @@
 
 @property (nonatomic,strong) NSArray * allSpecialitesSelected;
 
+@property (nonatomic,strong) NSString * schoolSelcted;
+
+@property (nonatomic,strong) NSString * accountEmail;
+
 /*
 [self.txtPosition.txtView.text length] == 0 || [self.txtZipCode.txtView.text length] == 0 || [self.finalSelectedItems count] == 0)
 

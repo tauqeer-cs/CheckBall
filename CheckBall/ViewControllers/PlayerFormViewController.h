@@ -10,4 +10,6 @@
 
 @interface PlayerFormViewController : BaseViewController
 
+@property (nonatomic,strong) NSString * emailSending;
+
 @end

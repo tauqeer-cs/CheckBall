@@ -8,7 +8,7 @@
 
 #import "MakePassowdViewController.h"
 #import "TextViewForSignUpform.h"
-
+#import "User.h"
 
 @interface MakePassowdViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *btnSignUp;
@@ -102,6 +102,8 @@
 
 - (IBAction)btnSignUpTapped:(id)sender {
     
+
+    
     if ([self.txtPassword.txtView.text isEqualToString:self.txtConfirmPassword.txtView.text]) {
         
         if ([self.txtConfirmPassword.txtView.text length] < 5) {
@@ -111,28 +113,118 @@
         }
         else{
             
+            
+            NSMutableDictionary * tmpDictionary = [NSMutableDictionary new];
+            
+            [tmpDictionary setObject:@"" forKey:@"FB_ID"];
+            [tmpDictionary setObject:self.fullName forKey:@"Name"];
+            [tmpDictionary setObject:self.accountEmail forKey:@"Email"];
+            if ([self.accountType isEqualToString:@"U"]) {
+               
+                [tmpDictionary setObject:@"P" forKey:@"Account_Type"];
+                
+            }
+            else
+            [tmpDictionary setObject:@"T" forKey:@"Account_Type"];
+            
+            
+            
+            NSString * finalHeightString =[[self.height stringByReplacingOccurrencesOfString:@"\"" withString:@""] stringByReplacingOccurrencesOfString:@"'" withString:@"."];
+            
+            NSString * finalWeightString =[self.weight stringByReplacingOccurrencesOfString:@" lb" withString:@""];
+            
+            
+            
+            [tmpDictionary setObject:finalHeightString forKey:@"Height"];
+            
+            
+            [tmpDictionary setObject:finalWeightString forKey:@"Weight"];
+            [tmpDictionary setObject:self.position forKey:@"Position"];
+            [tmpDictionary setObject:self.schoolSelcted forKey:@"School"];
+            [tmpDictionary setObject:@"" forKey:@"Bio"];
+            [tmpDictionary setObject:self.zipCode forKey:@"ZipCode"];
+            [tmpDictionary setObject:self.txtPassword.txtView.text forKey:@"Password"];
+            NSMutableDictionary * paramsToPass = [NSMutableDictionary new];
+            
+            [paramsToPass setObject:@[tmpDictionary] forKey:@"Account"];
+            
+            
+            NSMutableDictionary * specialitesDicToSend = [NSMutableDictionary new];
+            
+            
+            NSMutableArray * arraySending  = [NSMutableArray new];
+            
+            for (NSString * currentItem in self.allSpecialitesSelected)
+            {
+                NSMutableDictionary * tmpDic = [NSMutableDictionary new];
+                
+                [tmpDic setObject:currentItem forKey:@"ID"];
+                
+                [arraySending addObject:tmpDic];
+                
+            }
+            
+            [paramsToPass setObject:arraySending forKey:@"Specilities"];
+            
+
+            
+            [self showLoader];
+            
             NSString * accountType =  self.accountType;
             
             if ([accountType isEqualToString:@"U"]) {
                 
-                UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                UIViewController *initViewController;
-                initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"RooTView"];
+
                 
-                AppDelegate * appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                [User callRegisterUserWithParams:paramsToPass withComplitionHandler:^(id result) {
                 
-                appDelegate.window.rootViewController = initViewController;
+                    [self hideLoader];
+                    
+                    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                    UIViewController *initViewController;
+                    initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"RooTView"];
+                    
+                    AppDelegate * appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                    
+                    appDelegate.window.rootViewController = initViewController;
+                    
+                } withFailueHandler:^{
+                    
+                    [self hideLoader];
+                    [self showAlert:@"" message:@"Error while creating user."];
+                } withAlreadyExistsHandler:^(id result) {
+                    
+                    [self hideLoader];
+                    [self showAlert:@"" message:@"User Already registerd with this email."];
+                    
+                }];
                 
             }
             else {
                 
-                UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MainTrainer" bundle:nil];
-                UIViewController *initViewController;
-                initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"RooTView"];
+                [User callRegisterUserWithParams:paramsToPass withComplitionHandler:^(id result) {
+                    
+                    [self hideLoader];
+                    
+                    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MainTrainer" bundle:nil];
+                    UIViewController *initViewController;
+                    initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"RooTView"];
+                    
+                    AppDelegate * appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                    
+                    appDelegate.window.rootViewController = initViewController;
+                    
+                } withFailueHandler:^{
+                    [self hideLoader];
+                    [self showAlert:@"" message:@"Error while creating user."];
+                    
+                } withAlreadyExistsHandler:^(id result) {
+                    
+                    [self hideLoader];
+                    [self showAlert:@"" message:@"User Already registerd with this email."];
+                }];
                 
-                AppDelegate * appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                
-                appDelegate.window.rootViewController = initViewController;
+
                 
                 
             }

@@ -278,6 +278,8 @@
 		47EFC3761FCF0B1300794A6E /* SelectEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC3751FCF0B1300794A6E /* SelectEmailViewController.m */; };
 		47EFC3791FCF120500794A6E /* TrainerFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC3781FCF120500794A6E /* TrainerFormViewController.m */; };
 		47EFC37C1FCF121200794A6E /* PlayerFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC37B1FCF121200794A6E /* PlayerFormViewController.m */; };
+		D43AF7B4200F9CAD00702481 /* AddingTextViewControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D43AF7B3200F9CAD00702481 /* AddingTextViewControl.m */; };
+		D43AF7B6200F9CBC00702481 /* AddingTextViewControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43AF7B5200F9CBC00702481 /* AddingTextViewControl.xib */; };
 		D4516CBC2009C89A005FDFDA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D4516CBA2009C89A005FDFDA /* User.m */; };
 		D4E95BCC200CEA3300BB3F4A /* MyTrainerProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E95BCB200CEA3300BB3F4A /* MyTrainerProfileViewController.m */; };
 		D4E95BCF200CF6ED00BB3F4A /* MyUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E95BCE200CF6ED00BB3F4A /* MyUserProfileViewController.m */; };
@@ -841,6 +843,9 @@
 		47EFC3781FCF120500794A6E /* TrainerFormViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrainerFormViewController.m; sourceTree = "<group>"; };
 		47EFC37A1FCF121200794A6E /* PlayerFormViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerFormViewController.h; sourceTree = "<group>"; };
 		47EFC37B1FCF121200794A6E /* PlayerFormViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerFormViewController.m; sourceTree = "<group>"; };
+		D43AF7B2200F9CAD00702481 /* AddingTextViewControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddingTextViewControl.h; sourceTree = "<group>"; };
+		D43AF7B3200F9CAD00702481 /* AddingTextViewControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddingTextViewControl.m; sourceTree = "<group>"; };
+		D43AF7B5200F9CBC00702481 /* AddingTextViewControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddingTextViewControl.xib; sourceTree = "<group>"; };
 		D4516CBA2009C89A005FDFDA /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		D4516CBB2009C89A005FDFDA /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		D4E95BCA200CEA3300BB3F4A /* MyTrainerProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTrainerProfileViewController.h; sourceTree = "<group>"; };
@@ -2028,6 +2033,9 @@
 				47A55F7D1FD6F97E00D48F41 /* OptionsView.xib */,
 				47A55F7F1FD6F99600D48F41 /* OptionsView.h */,
 				47A55F801FD6F99600D48F41 /* OptionsView.m */,
+				D43AF7B2200F9CAD00702481 /* AddingTextViewControl.h */,
+				D43AF7B3200F9CAD00702481 /* AddingTextViewControl.m */,
+				D43AF7B5200F9CBC00702481 /* AddingTextViewControl.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2145,6 +2153,7 @@
 			files = (
 				4736D4321FC5C703003032AA /* Info.plist in Resources */,
 				47A55F7E1FD6F97E00D48F41 /* OptionsView.xib in Resources */,
+				D43AF7B6200F9CBC00702481 /* AddingTextViewControl.xib in Resources */,
 				4736D42E1FC5C702003032AA /* TGCameraViewController.xib in Resources */,
 				4736D0EC1FC5C4A7003032AA /* LaunchScreen.storyboard in Resources */,
 				4721F2021FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.xib in Resources */,
@@ -2323,6 +2332,7 @@
 				4736D3891FC5C702003032AA /* Validator.m in Sources */,
 				4736D3A91FC5C702003032AA /* UzysAssetsViewCell.m in Sources */,
 				4736D3C81FC5C702003032AA /* IQSongsAlbumListViewController.m in Sources */,
+				D43AF7B4200F9CAD00702481 /* AddingTextViewControl.m in Sources */,
 				4736D3F01FC5C702003032AA /* JTSImageInfo.m in Sources */,
 				4736D3831FC5C702003032AA /* RestCall.m in Sources */,
 				4736D40D1FC5C702003032AA /* RTSpinKitPlaneAnimation.m in Sources */,

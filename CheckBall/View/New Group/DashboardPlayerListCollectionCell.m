@@ -23,4 +23,15 @@
     
 }
 
+-(void)updateWithDate:(id)data{
+    
+    self.lblName.text =   [data objectForKey:@"Name"];
+   // self.lblType.text =   [data objectForKey:@"Specialities"];
+    
+    return;
+    
+    
+}
+
+
 @end

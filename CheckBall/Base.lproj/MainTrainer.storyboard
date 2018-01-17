@@ -37,13 +37,6 @@
                                             <constraint firstAttribute="height" constant="34" id="wk4-X6-OZd"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qbv-e0-VRB">
-                                        <rect key="frame" x="15" y="17" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tim Duncan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nt0-sL-q22">
                                         <rect key="frame" x="8" y="18" width="317" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -107,6 +100,7 @@
                     <navigationItem key="navigationItem" id="ATv-7V-XeB"/>
                     <connections>
                         <outlet property="collectionView" destination="YDT-gB-Ee3" id="Too-DH-hQ3"/>
+                        <outlet property="lblName" destination="nt0-sL-q22" id="tlG-yg-QOv"/>
                         <outlet property="profileImageView" destination="9xP-cn-N6w" id="bF7-BW-QCs"/>
                         <segue destination="Y2q-OP-SKW" kind="show" identifier="segueMyProfile" id="Cd1-zg-56e"/>
                     </connections>

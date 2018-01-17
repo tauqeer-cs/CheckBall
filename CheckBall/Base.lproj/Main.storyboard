@@ -45,13 +45,6 @@
                                             <constraint firstAttribute="height" constant="34" id="wk4-X6-OZd"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qbv-e0-VRB">
-                                        <rect key="frame" x="15" y="17" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe (Player)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nt0-sL-q22">
                                         <rect key="frame" x="8" y="18" width="317" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -130,6 +123,7 @@
                     <navigationItem key="navigationItem" id="ATv-7V-XeB"/>
                     <connections>
                         <outlet property="collectionView" destination="YDT-gB-Ee3" id="1S6-cC-eTx"/>
+                        <outlet property="lblName" destination="nt0-sL-q22" id="dlX-55-m1b"/>
                         <outlet property="profileImageView" destination="9xP-cn-N6w" id="IUw-fV-7vY"/>
                         <segue destination="4uY-Nb-LkH" kind="show" identifier="segueMyProfile" id="HE9-PH-83W"/>
                     </connections>
@@ -143,15 +137,72 @@
             <objects>
                 <viewController restorationIdentifier="MyUserProfileViewController" storyboardIdentifier="MyUserProfileViewController" title="Edit Profile" id="4uY-Nb-LkH" customClass="MyUserProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qh6-0b-dE7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="497"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashboard-page" translatesAutoresizingMaskIntoConstraints="NO" id="Lfq-d5-x3z">
-                                <rect key="frame" x="0.0" y="64" width="375" height="433"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="736"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWM-xC-gL5">
-                                <rect key="frame" x="0.0" y="64" width="375" height="433"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="736"/>
                                 <subviews>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yl7-ai-GEb">
+                                        <rect key="frame" x="0.0" y="246" width="375" height="244"/>
+                                        <subviews>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdz-Bv-vB1">
+                                                <rect key="frame" x="0.0" y="44" width="375" height="189"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="4uY-Nb-LkH" id="cpk-5W-J0G"/>
+                                                    <outlet property="delegate" destination="4uY-Nb-LkH" id="DlV-EP-ohr"/>
+                                                </connections>
+                                            </pickerView>
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T2B-Xz-mSa">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="L9T-MU-4YU"/>
+                                                </constraints>
+                                                <items>
+                                                    <barButtonItem title="Cancel" id="wEb-1x-7bN">
+                                                        <connections>
+                                                            <action selector="btnHEightPickerCancelTapped:" destination="4uY-Nb-LkH" id="kZA-Ye-hVI"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="3Ih-ka-xMI"/>
+                                                    <barButtonItem title="Done" id="It9-jF-ALT">
+                                                        <connections>
+                                                            <action selector="btnHeightSelectedDoneTapped:" destination="4uY-Nb-LkH" id="uzX-L7-txG"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                </items>
+                                                <color key="tintColor" red="0.42352941179999998" green="0.42352941179999998" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </toolbar>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Height" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Yl-v4-IkI">
+                                                <rect key="frame" x="130" y="11" width="114" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="114" id="6Mz-Tg-JDi"/>
+                                                    <constraint firstAttribute="height" constant="21" id="sE5-BB-1XJ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="hdz-Bv-vB1" firstAttribute="top" secondItem="T2B-Xz-mSa" secondAttribute="bottom" id="5Y5-1m-zof"/>
+                                            <constraint firstItem="T2B-Xz-mSa" firstAttribute="top" secondItem="Yl7-ai-GEb" secondAttribute="top" id="68F-NH-7O3"/>
+                                            <constraint firstAttribute="trailing" secondItem="hdz-Bv-vB1" secondAttribute="trailing" id="8HS-KM-G98"/>
+                                            <constraint firstItem="2Yl-v4-IkI" firstAttribute="top" secondItem="Yl7-ai-GEb" secondAttribute="top" constant="11" id="Dj9-Hv-Zdb"/>
+                                            <constraint firstItem="hdz-Bv-vB1" firstAttribute="leading" secondItem="Yl7-ai-GEb" secondAttribute="leading" id="GdQ-qv-F2u"/>
+                                            <constraint firstAttribute="width" constant="375" id="KaB-Ks-L5k"/>
+                                            <constraint firstAttribute="bottom" secondItem="hdz-Bv-vB1" secondAttribute="bottom" constant="11" id="MYc-6t-sjl"/>
+                                            <constraint firstItem="2Yl-v4-IkI" firstAttribute="centerX" secondItem="Yl7-ai-GEb" secondAttribute="centerX" id="gRL-nS-elS"/>
+                                            <constraint firstItem="T2B-Xz-mSa" firstAttribute="leading" secondItem="Yl7-ai-GEb" secondAttribute="leading" id="sOJ-xb-hV0"/>
+                                            <constraint firstAttribute="height" constant="244" id="tfn-Rb-u5w"/>
+                                            <constraint firstAttribute="trailing" secondItem="T2B-Xz-mSa" secondAttribute="trailing" id="vdp-kQ-wi4"/>
+                                        </constraints>
+                                    </view>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K3N-id-COH">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="733"/>
                                         <subviews>
@@ -236,6 +287,9 @@
                                                                     <constraint firstAttribute="height" constant="33" id="f49-cI-fHP"/>
                                                                 </constraints>
                                                                 <state key="normal" image="EDIT-ICON"/>
+                                                                <connections>
+                                                                    <action selector="btnNameOptionToOpenTap:" destination="4uY-Nb-LkH" eventType="touchUpInside" id="Ztb-13-1hF"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txn-Cf-giV">
                                                                 <rect key="frame" x="12" y="7" width="42" height="16"/>
@@ -297,6 +351,9 @@
                                                                     <constraint firstAttribute="height" constant="33" id="Z2o-UM-hJC"/>
                                                                 </constraints>
                                                                 <state key="normal" image="EDIT-ICON"/>
+                                                                <connections>
+                                                                    <action selector="btnSelectPositionTapped:" destination="4uY-Nb-LkH" eventType="touchUpInside" id="hli-2W-xy0"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -322,6 +379,9 @@
                                                                     <constraint firstAttribute="width" constant="23" id="vQr-Hc-R7Y"/>
                                                                 </constraints>
                                                                 <state key="normal" image="EDIT-ICON"/>
+                                                                <connections>
+                                                                    <action selector="btnHeightTapped:" destination="4uY-Nb-LkH" eventType="touchUpInside" id="Smx-tt-PG5"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height ( 5' 7&quot; )" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7FZ-FA-HXL">
                                                                 <rect key="frame" x="12" y="9" width="134.5" height="16"/>
@@ -353,6 +413,9 @@
                                                                     <constraint firstAttribute="height" constant="33" id="Fxl-iU-CdR"/>
                                                                 </constraints>
                                                                 <state key="normal" image="EDIT-ICON"/>
+                                                                <connections>
+                                                                    <action selector="btnWeightTapped:" destination="4uY-Nb-LkH" eventType="touchUpInside" id="hFQ-au-Tlo"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight ( 150 lb )" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6x-7N-BhH">
                                                                 <rect key="frame" x="8" y="9" width="134.5" height="16"/>
@@ -403,6 +466,9 @@
                                                                     <constraint firstAttribute="width" constant="23" id="X6y-BD-VCh"/>
                                                                 </constraints>
                                                                 <state key="normal" image="EDIT-ICON"/>
+                                                                <connections>
+                                                                    <action selector="btnSchoolNameTapped:" destination="4uY-Nb-LkH" eventType="touchUpInside" id="Y9A-Mk-j6j"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -479,6 +545,9 @@
                                                                     <constraint firstAttribute="width" constant="23" id="nOk-eN-66V"/>
                                                                 </constraints>
                                                                 <state key="normal" image="EDIT-ICON"/>
+                                                                <connections>
+                                                                    <action selector="btnBioTapped:" destination="4uY-Nb-LkH" eventType="touchUpInside" id="MVv-Ju-Vsh"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPx-eI-2yp">
                                                                 <rect key="frame" x="12" y="14" width="304" height="16"/>
@@ -544,6 +613,9 @@
                                                                     <constraint firstAttribute="height" constant="33" id="nzS-Xr-Xom"/>
                                                                 </constraints>
                                                                 <state key="normal" image="EDIT-ICON"/>
+                                                                <connections>
+                                                                    <action selector="btnYouTubeOneTapped:" destination="4uY-Nb-LkH" eventType="touchUpInside" id="Qli-qT-oeH"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://www.youtube.com/watch?v=9XmD-DLfiGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6w-vl-iYb">
                                                                 <rect key="frame" x="12" y="9" width="304" height="17"/>
@@ -575,6 +647,9 @@
                                                                     <constraint firstAttribute="width" constant="23" id="peO-OF-pz7"/>
                                                                 </constraints>
                                                                 <state key="normal" image="EDIT-ICON"/>
+                                                                <connections>
+                                                                    <action selector="btnYouTubeTwoTapped:" destination="4uY-Nb-LkH" eventType="touchUpInside" id="AyR-za-CeM"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://www.youtube.com/watch?v=9XmD-DLfiGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmT-fg-eCo">
                                                                 <rect key="frame" x="12" y="9" width="304" height="17"/>
@@ -619,6 +694,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <state key="normal" title="Update"/>
+                                                <connections>
+                                                    <action selector="btnUpdateProfileTapped:" destination="4uY-Nb-LkH" eventType="touchUpInside" id="q1Z-RO-24v"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5S6-xO-AXp">
                                                 <rect key="frame" x="226" y="120" width="30" height="30"/>
@@ -658,8 +736,10 @@
                                 <constraints>
                                     <constraint firstItem="K3N-id-COH" firstAttribute="top" secondItem="tWM-xC-gL5" secondAttribute="top" id="0U8-SY-DhG"/>
                                     <constraint firstAttribute="trailing" secondItem="K3N-id-COH" secondAttribute="trailing" id="0u7-ze-Hqz"/>
+                                    <constraint firstItem="Yl7-ai-GEb" firstAttribute="centerY" secondItem="tWM-xC-gL5" secondAttribute="centerY" id="Oef-wg-Sym"/>
                                     <constraint firstAttribute="bottom" secondItem="K3N-id-COH" secondAttribute="bottom" id="SeW-Pg-7SH"/>
                                     <constraint firstItem="K3N-id-COH" firstAttribute="centerX" secondItem="tWM-xC-gL5" secondAttribute="centerX" id="b8W-kj-4Cl"/>
+                                    <constraint firstItem="Yl7-ai-GEb" firstAttribute="centerX" secondItem="tWM-xC-gL5" secondAttribute="centerX" id="nZi-f4-poV"/>
                                     <constraint firstItem="K3N-id-COH" firstAttribute="leading" secondItem="tWM-xC-gL5" secondAttribute="leading" id="tp4-Oh-BqV"/>
                                 </constraints>
                             </view>
@@ -677,13 +757,26 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J4j-ef-ovI"/>
                     </view>
-                    <size key="freeformSize" width="375" height="497"/>
+                    <size key="freeformSize" width="375" height="800"/>
                     <connections>
+                        <outlet property="btnUpdate" destination="lfW-Cd-cn2" id="lIv-Ne-ysS"/>
                         <outlet property="btnUserProfileButton" destination="93J-fc-Mdm" id="dS0-s3-7Jh"/>
+                        <outlet property="heightPickerView" destination="hdz-Bv-vB1" id="AJa-bk-0hS"/>
                         <outlet property="lblBio" destination="oPx-eI-2yp" id="eGU-MI-N36"/>
+                        <outlet property="lblHeight" destination="7FZ-FA-HXL" id="LI0-ft-Pkw"/>
+                        <outlet property="lblMyName" destination="mwh-wc-M3y" id="Hfr-99-J53"/>
+                        <outlet property="lblMyName2" destination="57G-d8-SJo" id="Is6-uK-VHv"/>
+                        <outlet property="lblPosition" destination="Rjy-Ti-K9f" id="WC6-cS-4wP"/>
+                        <outlet property="lblPosition2" destination="fkf-MB-hAI" id="Mcn-a6-278"/>
+                        <outlet property="lblSchool" destination="b21-UP-10c" id="YIN-ZD-F7g"/>
+                        <outlet property="lblSelectHeight" destination="2Yl-v4-IkI" id="Ms2-cN-moa"/>
+                        <outlet property="lblWeight" destination="t6x-7N-BhH" id="Gbx-Rc-guK"/>
+                        <outlet property="lblYouTubeOne" destination="Q6w-vl-iYb" id="byd-zj-Swb"/>
+                        <outlet property="lblYouTubeTwo" destination="nmT-fg-eCo" id="6BW-P6-FtD"/>
                         <outlet property="scrollViewUsing" destination="K3N-id-COH" id="8gK-5l-bw4"/>
                         <outlet property="viewBasicInfoContainer" destination="8z6-ag-RaW" id="1g1-eA-iqC"/>
                         <outlet property="viewBioContainer" destination="p5g-OR-qTm" id="pX3-xF-g7h"/>
+                        <outlet property="viewPickerContainer" destination="Yl7-ai-GEb" id="yX9-gH-MF4"/>
                         <outlet property="viewProfileImageButtonContainer" destination="Whr-QQ-A79" id="4dN-7E-A2b"/>
                         <outlet property="viewSchoolContainer" destination="HC0-XV-UK2" id="zdj-DQ-yNd"/>
                         <outlet property="viewVideoContainer" destination="760-Pi-6IH" id="0fN-0y-6cS"/>

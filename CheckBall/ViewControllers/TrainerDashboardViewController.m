@@ -9,8 +9,12 @@
 #import "TrainerDashboardViewController.h"
 #import "DashboardPlayerListCollectionCell.h"
 #import "OptionsView.h"
+#import "User.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface TrainerDashboardViewController ()
+@interface TrainerDashboardViewController ()<CLLocationManagerDelegate>{
+    CLLocation *currentLocation;
+}
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
@@ -21,6 +25,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 
 @property (nonatomic) BOOL isProfileSmallSettingViewOpened;
+@property (weak, nonatomic) IBOutlet UILabel *lblName;
+
+@property (nonatomic, strong) CLLocationManager *locationManager;
+
+
 
 @end
 
@@ -126,8 +135,7 @@
     [self.collectionView setBackgroundColor:[UIColor clearColor]];
     
     self.dataSource = [NSMutableArray new];
-    [self.dataSource addObject:@"Test"];
-    [self.dataSource addObject:@"Test"];
+
     //segueMyProfile
     
     
@@ -138,6 +146,39 @@
     [self.profileImageView addGestureRecognizer:singleFingerTap];
     
     
+    self.lblName.text  = self.myName;
+    
+    
+    self.locationManager = [[CLLocationManager alloc]init];
+    self.locationManager.delegate = self;
+    self.locationManager.distanceFilter = 10;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    if([CLLocationManager locationServicesEnabled] == NO){
+        NSLog(@"Your location service is not enabled, So go to Settings > Location Services");
+    }
+    else{
+        NSLog(@"Your location service is enabled");
+    }
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    [self.locationManager startUpdatingLocation];
+    
+
+    
+}
+
+
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    currentLocation = [locations lastObject];
+    if (currentLocation != nil){
+        NSLog(@"The latitude value is - %@",[NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude]);
+        NSLog(@"The logitude value is - %@",[NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude]);
+    }
+  
+ 
+[self.locationManager stopUpdatingLocation];
 }
 -(void)profilePictureTapped{
     
@@ -165,6 +206,29 @@
     
     [self.collectionView reloadData];
     
+    [self showLoader];
+    
+    
+    
+    [User callGetTrainersWithZipCode:self.myZipCode
+               WithComplitionHandler:^(id result) {
+                   
+                   [self hideLoader];
+                   
+                   self.dataSource = result;
+                   [self.collectionView reloadData];
+                   
+                   
+                   
+                   
+               } withFailueHandler:^{
+                   
+                   [self hideLoader];
+                   [self showAlert:@"" message:@"Error while loading data."];
+                   
+               }];
+    
+    
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
@@ -178,6 +242,9 @@
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     DashboardPlayerListCollectionCell *currentCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellPlayer" forIndexPath:indexPath];
+    
+    
+    [currentCell updateWithDate:[self.dataSource objectAtIndex:indexPath.row]];
     
     return currentCell;
 }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -114,6 +114,8 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <connections>
+                <outlet property="lblName" destination="2o9-NC-A9E" id="cnK-lX-C8x"/>
+                <outlet property="lblType" destination="qsY-0E-RdF" id="wvw-C5-AR0"/>
                 <outlet property="mainContainer" destination="MGz-d5-siz" id="23K-Af-ioA"/>
                 <outlet property="profileContainer" destination="sSN-nJ-3KK" id="j7R-wg-NSe"/>
                 <outlet property="profileImageView" destination="eep-VM-8qk" id="Ro2-mb-IOW"/>

@@ -182,8 +182,11 @@
         [request2 setHTTPBody:httpBody];
         NSString *sending = [[NSString alloc] initWithData:httpBody encoding:NSUTF8StringEncoding];
         
+    
+        NSLog(@"%@",sending);
         
     }
+    
     else {
         
         [request2 setHTTPMethod:@"GET"];

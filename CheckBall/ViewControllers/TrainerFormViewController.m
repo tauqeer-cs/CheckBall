@@ -49,6 +49,7 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *heightPickerView;
 
 @property (weak, nonatomic) IBOutlet UIView *viewFormContainer;
+
 @property (weak, nonatomic) IBOutlet UIToolbar *pickerToolbar;
 @property (weak, nonatomic) IBOutlet UIView *viewPickerContainer;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *centerLine;
@@ -80,6 +81,9 @@
         destinationViewController.position = self.txtPosition.txtView.text;
         destinationViewController.zipCode = self.txtZipCode.txtView.text;
         destinationViewController.allSpecialitesSelected = self.finalSelectedItems;
+        destinationViewController.schoolSelcted = self.txtSchool.txtView.text;
+        destinationViewController.accountEmail = self.emailSending;
+        
         
     }
     
@@ -470,8 +474,10 @@
         
         [self.selectedArray replaceObjectAtIndex:indexPath.row withObject:@"1"];
     
+       
+        
 
-        [self.finalSelectedItems addObject:currentItemToAdd];
+        [self.finalSelectedItems addObject: [self.trainingDictionary objectForKey:currentItemToAdd]];
         
         
         NSLog(@"%@",self.finalSelectedItems);

@@ -14,4 +14,9 @@
 @property (weak, nonatomic) IBOutlet UIView *profileContainer;
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+
+-(void)updateWithDate:(id)data;
+@property (weak, nonatomic) IBOutlet UILabel *lblName;
+@property (weak, nonatomic) IBOutlet UILabel *lblType;
+
 @end

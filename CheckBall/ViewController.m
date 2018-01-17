@@ -99,15 +99,6 @@
     self.btnCreateAccount.layer.cornerRadius = 5;
     
     
-    /*
-    [User callGetUserProfileById:@"3" WithComplitionHandler:^(id result) {
-        
-    } withFailueHandler:^{
-        
-    }];
-    */
-    
-    
     
     
 }

@@ -34,8 +34,6 @@
 @property (weak, nonatomic) IBOutlet UIView *viewFormContainer;
 
 @property (weak, nonatomic) IBOutlet UIView *viewPickerContainer;
-
-
 @property (weak, nonatomic) IBOutlet UILabel *lblSelectHeight;
 @property (nonatomic,strong) NSArray * heightFeets;
 @property (nonatomic,strong) NSArray * heightInches;
@@ -60,6 +58,8 @@
         destinationViewController.weight = self.txtWeight.txtView.text;
         destinationViewController.position = self.txtPosition.txtView.text;
         destinationViewController.zipCode = self.txtZipCode.txtView.text;
+        destinationViewController.schoolSelcted = self.txtSchool.txtView.text;
+        destinationViewController.accountEmail = self.emailSending;
         
         
         
@@ -347,7 +347,7 @@
         _txtSchool.txtView.isMandatory = YES;
         _txtSchool.txtView.delegate = self;
         
-        [_txtSchool setUpViewWithText:@"Position"];
+        [_txtSchool setUpViewWithText:@"School"];
         
         self.viewContainerSchool.backgroundColor = [UIColor clearColor];
         

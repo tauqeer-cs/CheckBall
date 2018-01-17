@@ -352,9 +352,6 @@
     NSMutableDictionary *currentDictionary = [NSMutableDictionary new];
     
     
-    //[currentDictionary setObject:emailAddress forKey:@"email"];
-
-    
     
     
     
@@ -617,149 +614,160 @@
 }
 
 
-+(void)callRegisterUserWithEmail:(NSString *)emailAddress
-                        withName:(NSString *)name
-                    withPassword:(NSString *)password
-                      withMobile:(NSString *)mobile
-                    withDeviceId:(NSString *)deviceId
-                         withDob:(NSString *)dob
-                    withIsSingle:(NSString *)isSingle
-                      withGender:(NSString *)gender
-                       withImage:(UIImage *)profileImage
-           withComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler
-        withAlreadyExistsHandler:(void(^)(id result))alreadyExistHandler
-
++(void)callRegisterUserWithParams:(NSDictionary *)params
+            withComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler
+         withAlreadyExistsHandler:(void(^)(id result))alreadyExistHandler
 {
     
 
-    NSMutableDictionary *currentDictionary = [NSMutableDictionary new];
-    [currentDictionary setObject:emailAddress forKey:@"email"];
-    [currentDictionary setObject:name forKey:@"fullname"];
-    [currentDictionary setObject:password forKey:@"password"];
-    [currentDictionary setObject:deviceId forKey:@"device_id"];
-    [currentDictionary setObject:@"IOS" forKey:@"device"];
-    if ([dob length] > 0) {
-        [currentDictionary setObject:dob forKey:@"dob"];
-        
-    }
-
-
-    if ([gender length] > 0) {
-
-    [currentDictionary setObject:gender forKey:@"gender"];
-    }
     
-    
-    //
-    if ([isSingle length] > 0) {
-        [currentDictionary setObject:isSingle forKey:@"marital_status"];
-    }
-
-
-    
-
-    
-    NSUserDefaults *defauls = [NSUserDefaults standardUserDefaults];
-    NSString *token = [defauls objectForKey:@"deviceToken"];;
-
-    if (!token) {
-        
-        AppDelegate *sharedDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        
-    }
-    
-    if (token) {
-        
-        [currentDictionary setObject:deviceId forKey:@"device_id"];
-        
-    }
     NSUserDefaults *currentUserDefault = [NSUserDefaults standardUserDefaults];
     
- 
-    
-    NSData *imageData;
-    
-    if (profileImage) {
-        imageData = UIImageJPEGRepresentation(profileImage, 1.0);
-        
-    }
-
     
     
-    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST"
-                                                                                              URLString:[baseServiceUrl stringByAppendingString:@"create"] parameters:currentDictionary constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        
-        if (imageData) {
-            
-            [formData appendPartWithFileData:imageData name:@"image" fileName:@"photo.jpg" mimeType:@"image/jpeg"];
-            
-            
-        }
-        
-        
-        
-        NSLog(@"");
-        
-        
-    } error:nil];
     
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    
-    NSURLSessionUploadTask *uploadTask;
-    uploadTask = [manager
-                  uploadTaskWithStreamedRequest:request
-                  progress:nil
-                  completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-                      
-                      if ([[responseObject objectForKey:@"code"] intValue] == 409) {
+    [RestCall callWebServiceWithTheseParams:params
+                      withSignatureSequence:nil
+                                 urlCalling:
+     [baseServiceUrl stringByAppendingString:@"register"]
+                              isPostService:YES
+                      withComplitionHandler:^(id result) {
                           
-                          alreadyExistHandler(@"Already exists");
+                          @try {
+                              
+                              id message = [[result
+                                             objectForKey:@"message"] objectForKey:@"status"];
+                              
+                              if ([message isEqualToString:@"Success"]) {
+                                  
+                                  id data = [[result objectForKey:@"message"] objectForKey:@"Data"];
+                                  
+                                  if ([data isKindOfClass:[NSArray class]])
+                                  {
+                                      data  =  data[0];
+                                      
+                                  }
+                                  
+                                  [currentUserDefault setObject:data forKey:@"isFirstTimeSignUp"];
+                                  completionHandler(data);
+                                  
+                                  
+                              }
+                              else if ([message isEqualToString:@"Failure"]){
+                               
+                                  
+                                  if ([[[result
+                                         objectForKey:@"message"] objectForKey:@"Error"] isEqualToString:@"Email Found"]) {
+                                      alreadyExistHandler(@"");
+                                      
+                                  }
+                                  else {
+                                   
+                                    failureHandler();
+                                  }
+                              }
+                              else{
+                                  
+                                  failureHandler();
+                              }
+                              
+                              
+                              
+                              
+                          }
+                          @catch (NSException *exception) {
+                              
+                              failureHandler();
+                              
+                          }
                           
-                      }
-                      else
-                      if (error) {
-                          NSLog(@"Error: %@", error);
+                          
+                      } failureComlitionHandler:^{
                           
                           failureHandler();
                           
-                      } else {
-                          NSLog(@"%@ %@", response, responseObject);
-                      
-                          if ([[responseObject objectForKey:@"status"] isEqualToString:@"success"]) {
+                      }];
+    
+    
+}
+
++(void)callUpdateProfileWithParams:(NSDictionary *)params
+            withComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler
+         withAlreadyExistsHandler:(void(^)(id result))alreadyExistHandler
+{
+    
+    
+    
+    NSUserDefaults *currentUserDefault = [NSUserDefaults standardUserDefaults];
+    
+    
+    
+    
+    [RestCall callWebServiceWithTheseParams:params
+                      withSignatureSequence:nil
+                                 urlCalling:
+     [baseServiceUrl stringByAppendingString:@"UpdateProfile"]
+                              isPostService:YES
+                      withComplitionHandler:^(id result) {
+                          
+                          @try {
                               
-                              id dataObject = [responseObject objectForKey:@"data"];
+                              id message = [[result
+                                             objectForKey:@"message"] objectForKey:@"status"];
+                              
+                              if ([message isEqualToString:@"Success"]) {
+                                  
+                                  id data = [[result objectForKey:@"message"] objectForKey:@"Data"];
+                                  
+                                  if ([data isKindOfClass:[NSArray class]])
+                                  {
+                                      data  =  data[0];
+                                      
+                                  }
+                                  
+                                  [currentUserDefault setObject:data forKey:@"isFirstTimeSignUp"];
+                                  completionHandler(data);
+                                  
+                                  
+                              }
+                              else if ([message isEqualToString:@"Failure"]){
+                                  
+                                  
+                                  if ([[[result
+                                         objectForKey:@"message"] objectForKey:@"Error"] isEqualToString:@"Email Found"]) {
+                                      alreadyExistHandler(@"");
+                                      
+                                  }
+                                  else {
+                                      
+                                      failureHandler();
+                                  }
+                              }
+                              else{
+                                  
+                                  failureHandler();
+                              }
                               
                               
-                              dataObject = [dataObject dictionaryByReplacingNullsWithBlanks];
-                              
-                              //dataObject =  [dataObject dictionaryByReplacingNullsWithBlanks];
-                              
-                              //
                               
                               
-                              
-                              [defauls setObject:dataObject forKey:@"isFirstTimeSignUp"];
-                              
-                              //defauls
-                              
-                              completionHandler(dataObject);
-                              
-                              
-                              
-                              
-                              //
                           }
-                          else {
+                          @catch (NSException *exception) {
                               
+                              failureHandler();
                               
                           }
                           
-                      }
-                  }];
+                          
+                      } failureComlitionHandler:^{
+                          
+                          failureHandler();
+                          
+                      }];
     
-    [uploadTask resume];
     
 }
+
 
 +(void)callContactUs:(NSString *)subject
                          withMessage:(NSString *)message
@@ -1490,6 +1498,143 @@ withFailueHandler:(void(^)(void))failureHandler
     
 }
 
+//http://check-ball.plego.net/CheckBallService.svc/GetListing/T/10011
+///http://check-ball.plego.net/CheckBallService.svc/GetListing/P/10011
+
+
+
++(void)callGetPlayersWithZipCode:(NSString *)myZipCode WithComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler
+{
+    
+    
+    [RestCall callWebServiceWithTheseParams:nil
+                      withSignatureSequence:nil
+                                 urlCalling:
+     [baseServiceUrl stringByAppendingString:[NSString stringWithFormat:@"GetListing/P/%@",myZipCode]]
+                              isPostService:NO
+                      withComplitionHandler:^(id result) {
+                          
+                          id message = [result objectForKey:@"message"];
+                          
+                          
+                          NSString * status = [message objectForKey:@"status"];
+                          
+                          
+                          if ([status isEqualToString:@"Success"]) {
+                              
+                              id list = [message objectForKey:@"Data"];
+                              
+                              completionHandler(list);
+                          }
+                          else if ([status isEqualToString:@"Failure"] & [[message allKeys] containsObject:@"Error"]) {
+                              
+                              //[[message allKeys] containsObject:@"Error"]
+                              
+                              
+                              if ([[message  objectForKey:@"Error"] isEqualToString:@"List Not Found"]) {
+                                  
+                                  completionHandler(nil);
+                                  
+                              }
+                              else {
+                                  
+                                  failureHandler();
+                              }
+                              
+                              
+                          }
+                          else {
+                              
+                              failureHandler();
+                              
+                          }
+                          
+                          
+                          
+                          
+                          
+                          NSLog(@"");
+                          
+                          
+                          
+                      } failureComlitionHandler:^{
+                          failureHandler();
+                          
+                          
+                          
+                      }];
+    
+    
+}
+
+
+
++(void)callGetTrainersWithZipCode:(NSString *)myZipCode WithComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler
+{
+    
+    
+    [RestCall callWebServiceWithTheseParams:nil
+                      withSignatureSequence:nil
+                                 urlCalling:
+     [baseServiceUrl stringByAppendingString:[NSString stringWithFormat:@"GetListing/T/%@",myZipCode]]
+                              isPostService:NO
+                      withComplitionHandler:^(id result) {
+                          
+                          id message = [result objectForKey:@"message"];
+                          
+                          
+                          NSString * status = [message objectForKey:@"status"];
+                          
+                          
+                          if ([status isEqualToString:@"Success"]) {
+                              
+                              id list = [message objectForKey:@"Data"];
+                              
+                              completionHandler(list);
+                          }
+                          else if ([status isEqualToString:@"Failure"] & [[message allKeys] containsObject:@"Error"]) {
+                              
+                              //[[message allKeys] containsObject:@"Error"]
+                              
+                              
+                              if ([[message  objectForKey:@"Error"] isEqualToString:@"List Not Found"]) {
+                                  
+                                  completionHandler(nil);
+                                  
+                              }
+                              else {
+                               
+                                    failureHandler();
+                              }
+                              
+
+                          }
+                          
+                          else {
+                              
+                              failureHandler();
+                              
+                          }
+                          
+                          
+                          
+                          
+                          
+                          NSLog(@"");
+                          
+                          
+                          
+                      } failureComlitionHandler:^{
+                          failureHandler();
+                          
+                          
+                          
+                      }];
+    
+    
+}
+
+
 +(void)callGetSpecialitesWithComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler
 {
 
@@ -1540,10 +1685,13 @@ withFailueHandler:(void(^)(void))failureHandler
         WithComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler
 {
 
+    int tmpID = [profileId intValue];
+    
+   
     [RestCall callWebServiceWithTheseParams:nil
                       withSignatureSequence:nil
                                  urlCalling:
-     [baseServiceUrl stringByAppendingString:[@"getprofile/" stringByAppendingString:profileId]]
+     [baseServiceUrl stringByAppendingString:[@"getprofile/" stringByAppendingString: [NSString stringWithFormat:@"%d",tmpID]]]
                               isPostService:NO
                       withComplitionHandler:^(id result) {
                           result = [result objectForKey:@"message"];
@@ -1561,8 +1709,8 @@ withFailueHandler:(void(^)(void))failureHandler
                               id locations = [result objectForKey:@"Locations"];
                               id account = [result objectForKey:@"Account"];
                               
-                              //
-                              completionHandler(@[videos,specilities,locations,account]);
+                              
+                              completionHandler(@{@"Videos":videos,@"Specialites": specilities,@"Location":locations,@"Account":account});
                           }
                           else {
                               
