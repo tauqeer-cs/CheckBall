@@ -31,6 +31,8 @@
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *allItemsToRemove;
 @property (weak, nonatomic) IBOutlet UIView *trainingLocationContainer;
 
+@property (nonatomic) BOOL viewDidAppearHAsAlreadyBeenCAlledMan;
+
 @end
 
 @implementation MyTrainerProfileViewController
@@ -40,13 +42,7 @@ GMSMapView *mapView2;
 - (void)viewDidLoad {
     // Do any additional setup after loading the view.
     
-    camera2 = [GMSCameraPosition cameraWithLatitude:self.sharedDelegate.currentLat
-                                         longitude:self.sharedDelegate.currentLong
-                                              zoom:9];
-    mapView2 = [GMSMapView mapWithFrame:CGRectZero camera:camera2];
-    mapView2.myLocationEnabled = YES;
-    mapView2.delegate = self;
-    
+
     
     self.trainingLocationContainer = mapView2;
     
@@ -112,8 +108,12 @@ GMSMapView *mapView2;
 
 -(void)viewDidAppear:(BOOL)animated{
     
-    
-    
+    if (self.viewDidAppearHAsAlreadyBeenCAlledMan) {
+        
+        return;
+        
+    }
+
     if (self.comingFromListing) {
         
         
@@ -213,6 +213,30 @@ GMSMapView *mapView2;
          
          id videosList = [result objectForKey:@"Videos"];
          
+         id locationObject = [result objectForKey:@"Location"];
+         
+         int i = 0;
+         if (locationObject) {
+             for (id currentItem in locationObject) {
+                 
+                 if (i == 0) {
+                     
+                     self.lblAddress1.text = [currentItem objectForKey:@"Description"];
+                     
+                 }
+                 else     if (i == 1){
+                     
+                     self.lblAddress2.text = [currentItem objectForKey:@"Description"];
+                     
+                     
+                 }
+                 
+                 
+                 i++;
+             }
+             
+         }
+         
          if ([videosList isKindOfClass:[NSArray class]] && [videosList count] > 0)
          {
              
@@ -307,7 +331,8 @@ GMSMapView *mapView2;
     
     [self.scrollViewUsing setContentSize:CGSizeMake(self.view.frame.size.width, 893)];
     
-    //
+        self.viewDidAppearHAsAlreadyBeenCAlledMan = YES;
+    
 }
 
 
@@ -334,7 +359,6 @@ GMSMapView *mapView2;
 
 -(void)locationSelectedWithLat:(NSString *)lat withLong:(NSString *)longit withAddress:(NSString *)addres{
     
-;
  
     if (self.indexAddingOfLocation == 1) {
         
@@ -352,7 +376,7 @@ GMSMapView *mapView2;
         self.secondLocationAddres = addres;
         self.lblAddress2.text = addres;
         
-                self.hasEditingAnyField = YES;
+        self.hasEditingAnyField = YES;
     }
 }
 

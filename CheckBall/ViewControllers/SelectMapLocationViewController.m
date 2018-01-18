@@ -74,7 +74,9 @@ didLongPressAtCoordinate:(CLLocationCoordinate2D)coordinate{
             NSLog(@"Geocoder result: %@", address);
             
             
-           NSString * addresToSend =  [NSString stringWithFormat:@"%@ , %@",address.thoroughfare,address.locality];
+            NSString * addresToSend  = [address.lines componentsJoinedByString:@","];
+            
+;
             
            
             [self.delegate locationSelectedWithLat:[NSString stringWithFormat:@"%.8f", coordinate.latitude] withLong:[NSString stringWithFormat:@"%.8f", coordinate.longitude]
