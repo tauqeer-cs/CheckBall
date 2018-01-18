@@ -149,8 +149,6 @@
             [paramsToPass setObject:@[tmpDictionary] forKey:@"Account"];
             
             
-            NSMutableDictionary * specialitesDicToSend = [NSMutableDictionary new];
-            
             
             NSMutableArray * arraySending  = [NSMutableArray new];
             

@@ -216,6 +216,9 @@
                                                             <constraint firstAttribute="width" constant="133" id="Gvw-X2-8dj"/>
                                                         </constraints>
                                                         <state key="normal" image="LeBron-James"/>
+                                                        <connections>
+                                                            <action selector="btnImagePickerTapped:" destination="4uY-Nb-LkH" eventType="touchUpInside" id="uDP-RN-Cdj"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.7293313146" green="0.72945815319999996" blue="0.72932332749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -705,6 +708,9 @@
                                                     <constraint firstAttribute="width" constant="30" id="Q0d-MP-xdb"/>
                                                 </constraints>
                                                 <state key="normal" image="ADD-PHOTO"/>
+                                                <connections>
+                                                    <action selector="btnImagePickerTapped:" destination="4uY-Nb-LkH" eventType="touchUpInside" id="TL6-Xt-9Ni"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>

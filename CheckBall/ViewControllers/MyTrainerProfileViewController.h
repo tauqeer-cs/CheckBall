@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
+#import "MyUserProfileViewController.h"
 
-@interface MyTrainerProfileViewController : BaseViewController
+@interface MyTrainerProfileViewController : MyUserProfileViewController
+
 
 @end

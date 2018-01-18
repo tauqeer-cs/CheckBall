@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CropImageViewController">
+            <connections>
+                <outlet property="tkImageView" destination="Xxl-IJ-F1K" id="iOh-Ke-5NV"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" misplaced="YES" id="Xxl-IJ-F1K" customClass="TKImageView">
+                    <rect key="frame" x="0.0" y="65" width="375" height="602"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </view>
+                <navigationBar contentMode="scaleToFill" misplaced="YES" id="RII-cG-Kfb">
+                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.16862745100000001" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <items>
+                        <navigationItem id="46I-Gv-r7s">
+                            <barButtonItem key="rightBarButtonItem" title="Done" id="ylV-UK-Qtb">
+                                <connections>
+                                    <action selector="btnDone:" destination="-1" id="UgX-jg-eQP"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="304.5" y="374.5"/>
+        </view>
+        <panGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="4Sd-xr-rt8">
+            <connections>
+                <action selector="moveCorner:" destination="-1" id="lL5-Mn-yf2"/>
+            </connections>
+        </panGestureRecognizer>
+        <panGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="nMX-U1-AWL">
+            <connections>
+                <action selector="moveCorner:" destination="-1" id="1vr-F5-cE7"/>
+            </connections>
+        </panGestureRecognizer>
+        <panGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="qfZ-oR-JoZ">
+            <connections>
+                <action selector="moveCorner:" destination="-1" id="AsB-AS-hKE"/>
+            </connections>
+        </panGestureRecognizer>
+        <panGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="PGb-Ta-SbO">
+            <connections>
+                <action selector="moveCorner:" destination="-1" id="W5H-Pm-rqg"/>
+            </connections>
+        </panGestureRecognizer>
+        <panGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="Pws-Sv-aB3">
+            <connections>
+                <action selector="moveCropView:" destination="-1" id="oni-RJ-VXv"/>
+            </connections>
+        </panGestureRecognizer>
+    </objects>
+</document>

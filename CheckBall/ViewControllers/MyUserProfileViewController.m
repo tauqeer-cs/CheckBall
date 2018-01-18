@@ -8,65 +8,28 @@
 
 #import "MyUserProfileViewController.h"
 #import "User.h"
-#import "AddingTextViewControl.h"
-@interface MyUserProfileViewController ()
-@property (weak, nonatomic) IBOutlet UIView *viewProfileImageButtonContainer;
-@property (weak, nonatomic) IBOutlet UIButton *btnUserProfileButton;
-
-@property (weak, nonatomic) IBOutlet UIView *viewBasicInfoContainer;
-@property (weak, nonatomic) IBOutlet UIView *viewSchoolContainer;
-
-@property (weak, nonatomic) IBOutlet UILabel *lblBio;
-
-@property (weak, nonatomic) IBOutlet UIView *viewBioContainer;
-@property (weak, nonatomic) IBOutlet UIView *viewVideoContainer;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollViewUsing;
-
-@property (weak, nonatomic) IBOutlet UIButton *btnUpdate;
-
-@property (weak, nonatomic) IBOutlet UILabel *lblMyName;
-@property (weak, nonatomic) IBOutlet UILabel *lblPosition;
-@property (weak, nonatomic) IBOutlet UILabel *lblMyName2;
-
-@property (weak, nonatomic) IBOutlet UILabel *lblHeight;
-@property (weak, nonatomic) IBOutlet UILabel *lblWeight;
-@property (weak, nonatomic) IBOutlet UILabel *lblPosition2;
-@property (weak, nonatomic) IBOutlet UILabel *lblSchool;
-
-@property (nonatomic,strong) AddingTextViewControl * addingTextView;
-
-@property (nonatomic) BOOL changingTheName;
-@property (nonatomic) BOOL changingThePosition;
-@property (nonatomic) BOOL changingTheSchool;
-@property (nonatomic) BOOL changingTheBioDetails;
-
-@property (nonatomic) BOOL changingYouTubeOne;
-@property (nonatomic) BOOL changingYouTubeTwo;
-
-@property (nonatomic) BOOL hasEditingAnyField;
 
 
-@property (weak, nonatomic) IBOutlet UIPickerView *heightPickerView;
-
-@property (weak, nonatomic) IBOutlet UIView *viewPickerContainer;
-@property (weak, nonatomic) IBOutlet UILabel *lblSelectHeight;
-@property (nonatomic,strong) NSArray * heightFeets;
-@property (nonatomic,strong) NSArray * heightInches;
-
-@property (nonatomic,strong) NSMutableArray * weightsArray;
-
-@property (nonatomic) BOOL isSelectingHeight;
-
-@property (nonatomic,strong) NSString * heightSelected;
-@property (nonatomic,strong) NSString * weightSelected;
+@interface MyUserProfileViewController ()<CropImageViewControllerDelegate>
 
 
-@property (weak, nonatomic) IBOutlet UILabel *lblYouTubeOne;
-
-@property (weak, nonatomic) IBOutlet UILabel *lblYouTubeTwo;
 @end
 
+
 @implementation MyUserProfileViewController
+
+
+-(NSMutableArray *)allVideos{
+    
+    if (!_allVideos) {
+        
+        _allVideos = [NSMutableArray new];
+        
+        
+    }
+    return _allVideos;
+}
+
 
 -(void)hidePickerViewITems{
     
@@ -82,6 +45,9 @@
     
     
 }
+
+
+
 
 
 - (IBAction)btnHeightSelectedDoneTapped:(id)sender {
@@ -215,6 +181,16 @@
     
 }
 
+-(void)hideKeyBoard {
+    
+ 
+    [self.view endEditing:YES];
+    
+    [self addingTextFieldCancelButtonTapped];
+    
+}
+
+
 
 -(void)addingTextFieldCancelButtonTapped{
     [self.addingTextView setHidden:YES];
@@ -323,6 +299,8 @@
     
     self.changingTheName = YES;
     
+    [self.addingTextView.txtBoxEntering becomeFirstResponder];
+    
     
 }
 - (IBAction)btnSelectPositionTapped:(id)sender {
@@ -335,6 +313,8 @@
     
     
     self.changingThePosition = YES;
+    
+    [self.addingTextView.txtBoxEntering becomeFirstResponder];
     
     
 }
@@ -351,6 +331,12 @@
     
     
     
+    [self.addingTextView.txtBoxEntering becomeFirstResponder];
+    
+    [self.addingTextView.txtBoxEntering becomeFirstResponder];
+    
+    
+    
 }
 
 - (IBAction)btnBioTapped:(id)sender {
@@ -362,6 +348,9 @@
     
     
     self.changingTheBioDetails = YES;
+    
+    [self.addingTextView.txtBoxEntering becomeFirstResponder];
+    
     
 }
 
@@ -375,6 +364,9 @@
     
     self.changingYouTubeOne = YES;
     
+    [self.addingTextView.txtBoxEntering becomeFirstResponder];
+    
+    
 }
 - (IBAction)btnYouTubeTwoTapped:(id)sender {
     _addingTextView.txtBoxEntering.text = @"";
@@ -386,12 +378,19 @@
     
     self.changingYouTubeTwo = YES;
     
+    
+    [self.addingTextView.txtBoxEntering becomeFirstResponder];
+    
+    
 }
 
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    [self.scrollViewUsing setHidden:YES];
     
     [self showLoader];
     
@@ -438,6 +437,18 @@
     
          [self hideLoader];
          
+         id videosList = [result objectForKey:@"Videos"];
+
+         if ([videosList isKindOfClass:[NSArray class]] && [videosList count] > 0)
+         {
+         
+             
+             for (id currentItem in videosList)
+             {
+                [self.allVideos addObject:[currentItem objectForKey:@"Url"]];
+             }
+             
+         }
          self.lblMyName.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
          self.lblMyName2.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
          
@@ -473,21 +484,25 @@
              self.weightSelected = weight;
              
          }
-         //   ( 150 lb )
-
-         
          weight = [weight stringByAppendingString:@" lb"];
-        
-
+        self.lblWeight.text = [NSString stringWithFormat:@"Weight ( %@ )",weight];;
+         [self.scrollViewUsing setHidden:NO];
          
+       
+         if ([self.allVideos count] >= 2) {
+             
+             self.lblYouTubeOne.text = self.allVideos[0];
+            self.lblYouTubeTwo.text = self.allVideos[1];
+             
+         }
+         else if([self.allVideos count] >= 1){
+             
+             
+            self.lblYouTubeOne.text = self.allVideos[0];
+             
+             
+         }
          
-         self.lblWeight.text = [NSString stringWithFormat:@"Weight ( %@ )",weight];;
-         
-
-         
-         NSLog(@"");
-         
-        
     } withFailueHandler:^{
        
         [self hideLoader];
@@ -588,5 +603,143 @@
     
     
 }
+- (IBAction)btnImagePickerTapped:(id)sender {
+    
+    
+    TOActionSheet *actionSheet = [[TOActionSheet alloc] init];
+    actionSheet.title = @"Select an option";
+    actionSheet.style = TOActionSheetStyleLight;
+    
+    actionSheet.contentstyle = TOActionSheetContentStyleDefault;
+    
+    
+    [actionSheet addButtonWithTitle:@"Capture Image" icon:nil tappedBlock:^{
+        
+        
+        AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+        if (authStatus == AVAuthorizationStatusDenied)
+        {
+            // Denies access to camera, alert the user.
+            // The user has previously denied access. Remind the user that we need camera access to be useful.
+            UIAlertController *alertController =
+            [UIAlertController alertControllerWithTitle:@"Unable to access the Camera"
+                                                message:@"To enable access, go to Settings > Privacy > Camera and turn on Camera access for this app."
+                                         preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+            [alertController addAction:ok];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
+        else if (authStatus == AVAuthorizationStatusNotDetermined)
+            // The user has not yet been presented with the option to grant access to the camera hardware.
+            // Ask for it.
+            [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^( BOOL granted ) {
+                // If access was denied, we do not set the setup error message since access was just denied.
+                if (granted)
+                {
+                    // Allowed access to camera, go ahead and present the UIImagePickerController.
+                    [self showImagePickerForSourceType:UIImagePickerControllerSourceTypeCamera fromButton:sender];
+                }
+            }];
+        else
+        {
+            // Allowed access to camera, go ahead and present the UIImagePickerController.
+            [self showImagePickerForSourceType:UIImagePickerControllerSourceTypeCamera fromButton:sender];
+        }
+        
+    }];
+    
+    
+    [actionSheet addButtonWithTitle:@"Select Image" icon:nil tappedBlock:^{
+        
+        [self showImagePickerForSourceType:UIImagePickerControllerSourceTypePhotoLibrary fromButton:nil];
+        
+    }];
+    
+    actionSheet.actionSheetDismissedBlock = ^{
+        
+        
+    };
+    [actionSheet showFromView:sender inView:self.navigationController.view];
+    
+    
+    
+    
+}
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+        CropImageViewController *cropImageViewController = [[CropImageViewController alloc]initWithNibName:@"CropImageViewController" bundle:nil];
+        cropImageViewController.image = image;
+        cropImageViewController.delegate = self;
+        
+        [self presentViewController:cropImageViewController animated:YES completion:^{
+            
+            
+        }];
+        
+        
+        
+    }];
+    
+    
+    NSLog(@"");
+    
+}
+
+
+- (void)showImagePickerForSourceType:(UIImagePickerControllerSourceType)sourceType fromButton:(UIBarButtonItem *)button
+{
+    
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    imagePickerController.sourceType = sourceType;
+    imagePickerController.delegate = self;
+    imagePickerController.modalPresentationStyle =
+    (sourceType == UIImagePickerControllerSourceTypeCamera) ? UIModalPresentationFullScreen : UIModalPresentationPopover;
+    
+    UIPopoverPresentationController *presentationController = imagePickerController.popoverPresentationController;
+    presentationController.barButtonItem = button;  // display popover from the UIBarButtonItem as an anchor
+    presentationController.permittedArrowDirections = UIPopoverArrowDirectionAny;
+    
+    if (sourceType == UIImagePickerControllerSourceTypeCamera)
+    {
+        imagePickerController.showsCameraControls = YES;
+        
+    }
+    
+    _imagePickerController = imagePickerController; // we need this for later
+    
+    [self presentViewController:self.imagePickerController
+                       animated:YES
+                     completion:^{
+                         
+                         //.. done presenting
+                         
+                     }];
+}
+
+
+
+- (void) imageCropedInCircle : (UIImage *) Croppedimage{
+    
+    [self.btnUserProfileButton setImage:Croppedimage forState:UIControlStateNormal];
+    [self.btnUserProfileButton roundTheView];
+    self.selectedImage = Croppedimage;
+    
+    
+    
+    
+    
+}
+
+
 
 @end
+
