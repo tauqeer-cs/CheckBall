@@ -49,14 +49,27 @@
 -(void)changePAsswordTapped{
     [self profilePictureTapped];
     
-    
-    NSLog(@"Change Password Tapped");
+   
+
 }
 
 
 -(void)logoutTapped{
     
     [self profilePictureTapped];
+    
+    
+    
+    NSUserDefaults *currentUserDefault = [NSUserDefaults standardUserDefaults];
+    [currentUserDefault setObject:nil forKey:@"isFirstTimeSignUp"];
+    
+    
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"SignUpStoryboard" bundle:nil];
+    UIViewController *initViewController;
+    initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"ViewController"];
+    self.sharedDelegate.window.rootViewController = initViewController;
+    
+    
     
     NSLog(@"LogOut Tapped");
     
@@ -175,7 +188,18 @@
     if (currentLocation != nil){
         NSLog(@"The latitude value is - %@",[NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude]);
         NSLog(@"The logitude value is - %@",[NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude]);
+        
+        self.sharedDelegate.currentLat = [[NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude] floatValue];
+        
+        self.sharedDelegate.currentLong = [[NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude] floatValue];
+        
+        
+    
     }
+    else {
+        
+        
+     }
   
  
 [self.locationManager stopUpdatingLocation];

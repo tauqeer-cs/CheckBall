@@ -12,4 +12,8 @@
 @interface MyTrainerProfileViewController : MyUserProfileViewController
 
 
+@property (nonatomic) BOOL comingFromListing;
+
+@property (nonatomic) int idCalling;
+
 @end

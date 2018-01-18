@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+@import GoogleMaps;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+
+@property (nonatomic) float currentLat;
+@property (nonatomic) float currentLong;
 
 
 @end

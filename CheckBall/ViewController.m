@@ -139,8 +139,8 @@
     [self showLoader];
     
 
-    self.textViewEmail.txtView.text = @"faheem@plego.com";
-    self.textViewPassword.txtView.text = @"plego100";
+    //self.textViewEmail.txtView.text = @"faheem@plego.com";
+   // self.textViewPassword.txtView.text = @"plego100";
     
     [User callLoginUserWithEmail:self.textViewEmail.txtView.text
                     withPassword:self.textViewPassword.txtView.text
@@ -198,6 +198,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
+//
 @end

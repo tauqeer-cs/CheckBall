@@ -25,13 +25,14 @@
     
     
     
-    
+    [GMSServices provideAPIKey:@"AIzaSyCFNgBaMKeIuuncWFZ1nZmbBta7w0ajKTM"];
+
     
     
     
     if (!isFirstTimeRunDone){
         
-   ///Users/tauqeer/Work/CheckBall/CheckBall/ViewControllers/PlayerDashboardViewController.m
+
         UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"SignUpStoryboard" bundle:nil];
         UIViewController *initViewController;
         initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"ViewController"];

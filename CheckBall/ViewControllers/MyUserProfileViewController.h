@@ -10,6 +10,7 @@
 #import "AddingTextViewControl.h"
 #import "CropImageViewController.h"
 #import "TOActionSheet.h"
+#import "SelectMapLocationViewController.h"
 
 
 @interface MyUserProfileViewController : BaseViewController

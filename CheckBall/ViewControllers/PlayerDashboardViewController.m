@@ -10,9 +10,9 @@
 #import "DashboradTrainerListViewCell.h"
 #import "OptionsView.h"
 #import "User.h"
+#import "MyTrainerProfileViewController.h"
 
-
-@interface PlayerDashboardViewController ()
+@interface PlayerDashboardViewController ()<UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,strong) NSMutableArray * dataSource;
@@ -24,6 +24,8 @@
 @property (nonatomic) BOOL isProfileSmallSettingViewOpened;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblName;
+
+@property (nonatomic,strong) id tmpObjectSelected;
 
 @end
 
@@ -53,6 +55,18 @@
     
     
     NSLog(@"LogOut Tapped");
+    
+    
+    NSUserDefaults *currentUserDefault = [NSUserDefaults standardUserDefaults];
+    [currentUserDefault setObject:nil forKey:@"isFirstTimeSignUp"];
+    
+    
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"SignUpStoryboard" bundle:nil];
+    UIViewController *initViewController;
+    initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"ViewController"];
+    self.sharedDelegate.window.rootViewController = initViewController;
+    
+    
     
 }
 -(OptionsView *)optionView{
@@ -118,10 +132,15 @@
     
 }
 - (void)viewDidLoad {
+    
+    self.dontAutoHideKeyboard = NO;
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     //
+    
+    
     
 
     
@@ -203,6 +222,22 @@
     
 }
 
+-(void)selectedItem:(UITapGestureRecognizer *)indexSelected{
+    
+    int tag = indexSelected.view.tag;
+    
+    id currentItem = [self.dataSource objectAtIndex:tag];
+    
+    self.tmpObjectSelected = currentItem;
+    
+    
+    [self performSegueWithIdentifier:@"segueShowProfileDetail" sender:self];
+    
+    
+    NSLog(@"");
+    
+    
+}
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -210,6 +245,17 @@
     
     
     [currentCell updateWithDate:[self.dataSource objectAtIndex:indexPath.row]];
+    
+    UITapGestureRecognizer *singleFingerTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(selectedItem:)];
+    currentCell.contentView.tag = indexPath.row;
+    
+    [currentCell.contentView addGestureRecognizer:singleFingerTap];
+    
+    
+    
+    
     //updateWithDate
     return currentCell;
 }
@@ -218,16 +264,47 @@
 {
     return CGSizeMake(self.collectionView.frame.size.width, 55);
 }
-
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    
+}
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 
-    if (self.isProfileSmallSettingViewOpened) {
     
+    
+    
+    
+    NSLog(@"");
+    
+    
+    
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    if (self.isProfileSmallSettingViewOpened) {
+        
         [self.optionView setHidden:YES];
         
     }
+    
+    
 }
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if ([segue.destinationViewController isKindOfClass:[MyTrainerProfileViewController class]]) {
+        
+        MyTrainerProfileViewController * destination = segue.destinationViewController;
+        destination.comingFromListing  = YES;
+        destination.idCalling = [[self.tmpObjectSelected objectForKey:@"ID"] intValue];
+       
+        
+        
+        //     = 18;
+      //  Name = Test;
+     ///   Specialities = "Defense/Shooting";
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
