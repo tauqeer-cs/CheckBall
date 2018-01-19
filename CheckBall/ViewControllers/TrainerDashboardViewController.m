@@ -10,11 +10,9 @@
 #import "DashboardPlayerListCollectionCell.h"
 #import "OptionsView.h"
 #import "User.h"
-#import <CoreLocation/CoreLocation.h>
+#import "MyUserProfileViewController.h"
 
-@interface TrainerDashboardViewController ()<CLLocationManagerDelegate>{
-    CLLocation *currentLocation;
-}
+@interface TrainerDashboardViewController ()
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
@@ -27,7 +25,8 @@
 @property (nonatomic) BOOL isProfileSmallSettingViewOpened;
 @property (weak, nonatomic) IBOutlet UILabel *lblName;
 
-@property (nonatomic, strong) CLLocationManager *locationManager;
+
+@property (nonatomic,strong) id tmpObjectSelected;
 
 
 
@@ -43,7 +42,7 @@
     [self performSegueWithIdentifier:@"segueMyProfile" sender:self];
     
 
-    NSLog(@"Edit Profile Button Tapped");
+
 }
 
 -(void)changePAsswordTapped{
@@ -178,6 +177,11 @@
     [self.locationManager startUpdatingLocation];
     
 
+    [FileManager loadProfileImage:self.profileImageView url:[baseImageLink stringByAppendingString:[NSString stringWithFormat:@"tmb%d.jpg",[self.myJid intValue]]]];
+    
+    
+   
+    
     
 }
 
@@ -194,7 +198,8 @@
         self.sharedDelegate.currentLong = [[NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude] floatValue];
         
         
-    
+        [self.locationManager stopUpdatingLocation];
+        
     }
     else {
         
@@ -202,7 +207,7 @@
      }
   
  
-[self.locationManager stopUpdatingLocation];
+
 }
 -(void)profilePictureTapped{
     
@@ -269,10 +274,61 @@
     
     
     [currentCell updateWithDate:[self.dataSource objectAtIndex:indexPath.row]];
+    currentCell.contentView.tag = indexPath.row;
+    
+    
+    UITapGestureRecognizer *singleFingerTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(selectedItem:)];
+    currentCell.contentView.tag = indexPath.row;
+    
+    [currentCell.contentView addGestureRecognizer:singleFingerTap];
+    
+    
     
     return currentCell;
 }
 
+-(void)selectedItem:(UITapGestureRecognizer *)indexSelected{
+    
+    int tag = indexSelected.view.tag;
+    
+    id currentItem = [self.dataSource objectAtIndex:tag];
+    
+    self.tmpObjectSelected = currentItem;
+    
+    
+    [self performSegueWithIdentifier:@"segueShowProfileDetail" sender:self];
+    
+    
+    NSLog(@"");
+    
+    
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    
+    if ([segue.identifier isEqualToString:@"segueMyProfile"]) {
+        
+        
+    }
+    else
+    if ([segue.destinationViewController isKindOfClass:[MyUserProfileViewController class]]) {
+        
+        MyUserProfileViewController * destination  = segue.destinationViewController;
+
+        destination.comingFromListing  = YES;
+        destination.idCalling = [[self.tmpObjectSelected objectForKey:@"id"] intValue];
+        
+        
+        NSLog(@"");
+        
+    }
+    
+    
+   
+}
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return CGSizeMake(self.collectionView.frame.size.width, 55);

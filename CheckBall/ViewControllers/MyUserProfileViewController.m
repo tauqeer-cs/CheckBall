@@ -13,6 +13,8 @@
 @interface MyUserProfileViewController ()<CropImageViewControllerDelegate>
 
 
+@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *allItemsToRemove;
+
 @end
 
 
@@ -390,6 +392,9 @@
     [super viewDidLoad];
     
     
+    
+    [self.btnUserProfileButton setImage:[UIImage imageNamed:@"gander-icon"] forState:UIControlStateNormal];
+    
     [self.scrollViewUsing setHidden:YES];
     
     [self showLoader];
@@ -425,6 +430,27 @@
     
     
     
+   if (self.comingFromListing)
+   {
+       [FileManager loadProfileImageToButton:self.btnUserProfileButton :[baseImageLink stringByAppendingString:[NSString stringWithFormat:@"%d.jpg",self.idCalling ]] loader:nil];
+       
+   }
+
+    else
+    { [FileManager loadProfileImageToButton:self.btnUserProfileButton :[baseImageLink stringByAppendingString:[NSString stringWithFormat:@"%d.jpg",[self.myJid intValue]]] loader:nil];
+    }
+    
+    
+    if (self.comingFromListing) {
+        for (UIView * currentView in self.allItemsToRemove)
+        {
+            
+            [currentView removeFromSuperview];
+            
+        }
+        
+    }
+    
     //733
 }
 
@@ -432,82 +458,107 @@
     
     [super viewDidAppear:animated];
     
-    [User
-     callGetUserProfileById:self.myJid WithComplitionHandler:^(id result) {
-    
-         [self hideLoader];
-         
-         id videosList = [result objectForKey:@"Videos"];
 
-         if ([videosList isKindOfClass:[NSArray class]] && [videosList count] > 0)
-         {
-         
-             
-             for (id currentItem in videosList)
+    if (self.comingFromListing) {
+        
+        [User
+         callGetUserProfileById:[NSString stringWithFormat:@"%d",self.idCalling]
+         WithComplitionHandler:^(id result) {
+             [self hideLoader];
+             id videosList = [result objectForKey:@"Videos"];
+             if ([videosList isKindOfClass:[NSArray class]] && [videosList count] > 0)
+             {for (id currentItem in videosList)
              {
-                [self.allVideos addObject:[currentItem objectForKey:@"Url"]];
+                 [self.allVideos addObject:[currentItem objectForKey:@"Url"]];
+             }
+             }
+             self.lblMyName.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
+             self.lblMyName2.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
+             self.lblPosition.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Position"];
+             self.lblPosition2.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Position"];
+             self.lblSchool.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"School"];
+             self.lblBio.text =  [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Bio"];
+             NSString * heightShowing = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Height"];
+             if (![heightShowing isKindOfClass:[NSString class]]) {
+                 heightShowing = [NSString stringWithFormat:@"%.02f",[heightShowing doubleValue]];
+                 self.heightSelected = heightShowing;
+             }
+             heightShowing = [heightShowing stringByReplacingOccurrencesOfString:@"." withString:@"\""];
+             heightShowing = [heightShowing stringByAppendingString:@"'"];
+             heightShowing = [NSString stringWithFormat:@"Height ( %@ )",heightShowing];
+             self.lblHeight.text = heightShowing;
+             NSString * weight = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Weight"];
+             if (![weight isKindOfClass:[NSString class]]) {
+                 weight = [NSString stringWithFormat:@"%d",[weight intValue]];self.weightSelected = weight;
+             }
+             weight = [weight stringByAppendingString:@" lb"];
+             self.lblWeight.text = [NSString stringWithFormat:@"Weight ( %@ )",weight];;
+             [self.scrollViewUsing setHidden:NO];
+             if ([self.allVideos count] >= 2) {
+                 self.lblYouTubeOne.text = self.allVideos[0]; self.lblYouTubeTwo.text = self.allVideos[1];
+                 
+             }
+             else if([self.allVideos count] >= 1){
+                 self.lblYouTubeOne.text = self.allVideos[0];
              }
              
-         }
-         self.lblMyName.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
-         self.lblMyName2.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
-         
-         self.lblPosition.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Position"];
-         self.lblPosition2.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Position"];
-         
-         self.lblSchool.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"School"];
-         
-         self.lblBio.text =  [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Bio"];
-         
-         NSString * heightShowing = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Height"];
-         if (![heightShowing isKindOfClass:[NSString class]]) {
+         } withFailueHandler:^{
              
-             //  5' 7" )
-             heightShowing = [NSString stringWithFormat:@"%.02f",[heightShowing doubleValue]];
+             [self hideLoader];
+             [self showAlert:@"" message:@"Error while laoding data"];
+         }];
+        
+    }
+    {
+     
+        [User
+         callGetUserProfileById:self.myJid WithComplitionHandler:^(id result) {
+             [self hideLoader];
+             id videosList = [result objectForKey:@"Videos"];
+             if ([videosList isKindOfClass:[NSArray class]] && [videosList count] > 0)
+             {for (id currentItem in videosList)
+             {
+                 [self.allVideos addObject:[currentItem objectForKey:@"Url"]];
+             }
+             }
+             self.lblMyName.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
+             self.lblMyName2.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
+             self.lblPosition.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Position"];
+             self.lblPosition2.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Position"];
+             self.lblSchool.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"School"];
+             self.lblBio.text =  [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Bio"];
+             NSString * heightShowing = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Height"];
+             if (![heightShowing isKindOfClass:[NSString class]]) {
+                 heightShowing = [NSString stringWithFormat:@"%.02f",[heightShowing doubleValue]];
+                 self.heightSelected = heightShowing;
+             }
+             heightShowing = [heightShowing stringByReplacingOccurrencesOfString:@"." withString:@"\""];
+             heightShowing = [heightShowing stringByAppendingString:@"'"];
+             heightShowing = [NSString stringWithFormat:@"Height ( %@ )",heightShowing];
+             self.lblHeight.text = heightShowing;
+             NSString * weight = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Weight"];
+             if (![weight isKindOfClass:[NSString class]]) {
+                 weight = [NSString stringWithFormat:@"%d",[weight intValue]];self.weightSelected = weight;
+             }
+             weight = [weight stringByAppendingString:@" lb"];
+             self.lblWeight.text = [NSString stringWithFormat:@"Weight ( %@ )",weight];;
+             [self.scrollViewUsing setHidden:NO];
+             if ([self.allVideos count] >= 2) {
+                 self.lblYouTubeOne.text = self.allVideos[0]; self.lblYouTubeTwo.text = self.allVideos[1];
+                 
+             }
+             else if([self.allVideos count] >= 1){
+                 self.lblYouTubeOne.text = self.allVideos[0];
+             }
              
-             self.heightSelected = heightShowing;
+         } withFailueHandler:^{
              
-         }
-         heightShowing = [heightShowing stringByReplacingOccurrencesOfString:@"." withString:@"\""];
-         heightShowing = [heightShowing stringByAppendingString:@"'"];
-         
-         heightShowing = [NSString stringWithFormat:@"Height ( %@ )",heightShowing];
-         
-         self.lblHeight.text = heightShowing;
-         
-         NSString * weight = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Weight"];
-         
-         if (![weight isKindOfClass:[NSString class]]) {
-             
-             weight = [NSString stringWithFormat:@"%d",[weight intValue]];
-             
-             self.weightSelected = weight;
-             
-         }
-         weight = [weight stringByAppendingString:@" lb"];
-        self.lblWeight.text = [NSString stringWithFormat:@"Weight ( %@ )",weight];;
-         [self.scrollViewUsing setHidden:NO];
-         
-       
-         if ([self.allVideos count] >= 2) {
-             
-             self.lblYouTubeOne.text = self.allVideos[0];
-            self.lblYouTubeTwo.text = self.allVideos[1];
-             
-         }
-         else if([self.allVideos count] >= 1){
-             
-             
-            self.lblYouTubeOne.text = self.allVideos[0];
-             
-             
-         }
-         
-    } withFailueHandler:^{
-       
-        [self hideLoader];
-        [self showAlert:@"" message:@"Error while laoding data"];
-    }];
+             [self hideLoader];
+             [self showAlert:@"" message:@"Error while laoding data"];
+         }];
+        
+    }
+
     
     CAShapeLayer * maskLayer = [CAShapeLayer layer];
     maskLayer.path = [UIBezierPath bezierPathWithRoundedRect: self.viewSchoolContainer.bounds byRoundingCorners: UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii: (CGSize){10.0, 10.}].CGPath;
@@ -519,8 +570,6 @@
     maskLayer.path = [UIBezierPath bezierPathWithRoundedRect: self.viewBioContainer.bounds byRoundingCorners: UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii: (CGSize){10.0, 10.}].CGPath;
     
     self.viewBioContainer.layer.mask = maskLayer;
-    
-    //226 120
     
     maskLayer = [CAShapeLayer layer];
     maskLayer.path = [UIBezierPath bezierPathWithRoundedRect: self.viewVideoContainer.bounds byRoundingCorners: UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii: (CGSize){10.0, 10.}].CGPath;
@@ -729,6 +778,18 @@
 
 - (void) imageCropedInCircle : (UIImage *) Croppedimage{
     
+    
+    
+    [User callUploadProfileWithId:self.myJid
+                    withImageName:Croppedimage
+            withComplitionHandler:^(id result) {
+                
+                
+                    } withFailueHandler:^{
+                       
+                        [self showAlert:@"" message:@"Error while uploading image"];
+                    }];
+    
     [self.btnUserProfileButton setImage:Croppedimage forState:UIControlStateNormal];
     [self.btnUserProfileButton roundTheView];
     self.selectedImage = Croppedimage;
@@ -739,6 +800,30 @@
     
 }
 
+- (IBAction)btnConnectStarted:(UIButton *)sender {
+    
+    [self showLoader];
+    
+    
+    
+    
+    [User callConnectUserWithMyId:self.myJid andUserOtherUserId:[NSString stringWithFormat:@"%d",self.idCalling] withComplitionHandler:^(id result) {
+        
+        [self showAlert:@"" message:result];
+        
+        [self hideLoader];
+        
+    } withFailueHandler:^{
+        
+        [self hideLoader];
+        [self showAlert:@"" message:@"Error while connecting to user"];
+        
+        
+    } withAlreadyExistsHandler:^(id result) {
+        
+    }];
+    
+}
 
 
 @end

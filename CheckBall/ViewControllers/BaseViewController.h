@@ -26,6 +26,8 @@
 #import "UIView+MyUIView.h"
 #import <CoreText/CoreText.h>
 
+#import <CoreLocation/CoreLocation.h>
+
 
 
 @import AVKit;
@@ -34,9 +36,10 @@
 @class AppDelegate;
 @class AVMutableVideoComposition;
 
-@interface BaseViewController : UIViewController<UITextFieldDelegate,SlideNavigationControllerDelegate,RestCallDelegates,UITextViewDelegate>
+@interface BaseViewController : UIViewController<UITextFieldDelegate,SlideNavigationControllerDelegate,RestCallDelegates,UITextViewDelegate,CLLocationManagerDelegate>
 {
-
+    CLLocation *currentLocation;
+    
     float radius;
     float bubbleRadius;
 }
@@ -234,5 +237,7 @@
 -(void)hideKeyBoard;
 
 @property (nonatomic) BOOL dontAutoHideKeyboard;
+@property (nonatomic, strong) CLLocationManager *locationManager;
+
 
 @end

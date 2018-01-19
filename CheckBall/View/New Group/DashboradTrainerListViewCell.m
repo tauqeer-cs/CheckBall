@@ -7,6 +7,7 @@
 //
 
 #import "DashboradTrainerListViewCell.h"
+#import "AppDelegate.h"
 
 @implementation DashboradTrainerListViewCell
 
@@ -22,10 +23,77 @@
 }
 -(void)updateWithDate:(id)data{
     
-  self.lblName.text =   [data objectForKey:@"Name"];
-    self.lblType.text =   [data objectForKey:@"Specialities"];
     
-    //
+    ;
+    
+
+    AppDelegate * sharedDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+  
+    if (sharedDelegate.currentLat == 0) {
+     
+        
+        self.lblMiles.text = @"";
+        
+    }
+    else {
+        
+        
+        
+        CLLocation *startLocation = [[CLLocation alloc] initWithLatitude:sharedDelegate.currentLat longitude:sharedDelegate.currentLong];
+
+        id locationITem = [data objectForKey:@"Locations"];
+        
+        
+        if ([locationITem count] > 0 ) {
+            
+            
+            float lastOne = 0;
+            
+            for (id currentItem in locationITem)
+            {
+                
+                float latShowing = [[currentItem objectForKey:@"latitude"] floatValue];
+                float longShowing = [[currentItem objectForKey:@"longitude"] floatValue];
+                
+                CLLocation *endLocation = [[CLLocation alloc] initWithLatitude:latShowing longitude:longShowing];
+
+                CLLocationDistance distance = [startLocation distanceFromLocation:endLocation]; // aka double
+
+                if (distance > lastOne) {
+                    lastOne = distance;
+                    self.lblMiles.text = [NSString stringWithFormat:@"%.1fmi",(distance/1609.344)];
+                    
+                    
+                }
+                
+                
+            }
+            NSLog(@"");
+            
+        }
+        NSLog(@"");
+        
+        
+        
+    }
+    
+//    CLLocation *startLocation = [[CLLocation alloc] initWithLatitude:startLatitude longitude:startLongitude];
+
+    if ([[data objectForKey:@"photo"] length] == 0) {
+        
+        [self.profileImageView setImage:[UIImage imageNamed:@"gander-icon"]];
+        
+    }
+    else
+    [FileManager loadProfileImage:self.profileImageView url:[baseImageLink stringByAppendingString:[NSString stringWithFormat:@"tmb%d.jpg",[[data objectForKey:@"id"] intValue]]] loader:nil];
+    
+    
+  self.lblName.text =   [data objectForKey:@"name"];
+    self.lblType.text =   [data objectForKey:@"specialities"];
+    
+    //http://check-ball.plego.net/Images/DP/tmb2.png
+    
     return;
     
 

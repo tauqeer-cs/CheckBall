@@ -25,9 +25,13 @@
 
 -(void)updateWithDate:(id)data{
     
-    self.lblName.text =   [data objectForKey:@"Name"];
-   // self.lblType.text =   [data objectForKey:@"Specialities"];
+    self.lblName.text =   [data objectForKey:@"name"];
+   
     
+    [FileManager loadProfileImage:self.profileImageView url:[baseImageLink stringByAppendingString:[NSString stringWithFormat:@"tmb%d.jpg",[[data objectForKey:@"id"] intValue]]] loader:nil];
+    
+    
+    //[baseImageLink stringByAppendingString:[NSString stringWithFormat:@"%d.jpg",[self.myJid intValue]]]
     return;
     
     

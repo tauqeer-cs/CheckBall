@@ -228,6 +228,7 @@
     if ([FileManager fileExistsAtPath:pathName])
     {
         imageToBeLoaded.image = [FileManager getImage:pathName];
+                [imageToBeLoaded roundTheView];
         [loader stopAnimating];
         
     }
@@ -237,7 +238,7 @@
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             
-            NSURL *imageURL = [NSURL URLWithString:[baseImageLink stringByAppendingString:urlToLoad]];
+            NSURL *imageURL = [NSURL URLWithString:urlToLoad];
             
             NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
             if (!imageData) {
@@ -378,6 +379,8 @@
         if ([imageToBeLoaded isKindOfClass:[UIImageView class]]) {
         imageToBeLoaded.image = [FileManager getImage:pathName];
             
+            [imageToBeLoaded roundTheView];
+            
             
         }
 
@@ -407,7 +410,8 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 // Update the UI
                 imageToBeLoaded.image = [UIImage imageWithData:imageData];
-           
+                [imageToBeLoaded roundTheView];
+                
                 
             });
         });

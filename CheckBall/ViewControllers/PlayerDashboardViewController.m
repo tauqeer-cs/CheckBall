@@ -27,6 +27,7 @@
 
 @property (nonatomic,strong) id tmpObjectSelected;
 
+@property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @end
 
 @implementation PlayerDashboardViewController
@@ -163,8 +164,60 @@
     
     self.lblName.text = self.myName;
     
+    self.locationManager = [[CLLocationManager alloc]init];
+    self.locationManager.delegate = self;
+    self.locationManager.distanceFilter = 10;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    if([CLLocationManager locationServicesEnabled] == NO){
+        NSLog(@"Your location service is not enabled, So go to Settings > Location Services");
+    }
+    else{
+        NSLog(@"Your location service is enabled");
+    }
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    [self.locationManager startUpdatingLocation];
+    
+
+    [FileManager loadProfileImage:self.profileImageView url:[baseImageLink stringByAppendingString:[NSString stringWithFormat:@"tmb%d.jpg",[self.myJid intValue]]]];
+    
+    
+    
+    
+    
     
 }
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    currentLocation = [locations lastObject];
+    if (currentLocation != nil){
+       
+        self.sharedDelegate.currentLat = [[NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude] floatValue];
+        
+        self.sharedDelegate.currentLong = [[NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude] floatValue];
+        
+        
+        
+        
+        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:currentLocation.coordinate.latitude
+                                             longitude:currentLocation.coordinate.longitude
+                                                  zoom:11];
+        
+        [self.mapView setCamera:camera];
+        
+        [self.locationManager stopUpdatingLocation];
+        
+    }
+    else {
+        
+        
+    }
+    
+    
+
+}
+
 
 -(void)profilePictureTapped{
 
@@ -198,9 +251,37 @@
                   
                   NSLog(@"");
                   
+                  
                   [self hideLoader];
                   self.dataSource = result;
+                  
+                  
                   [self.collectionView reloadData];
+                  [self.mapView clear];
+                  
+                  for (id currentItem in result) {
+                      
+                      id currentLocaton  = [currentItem objectForKey:@"Locations"];
+                      
+                      if ([currentLocaton count]  > 0) {
+                          
+                          
+                          for (id innerItem in currentLocaton) {
+                              
+                              float latShowing = [[innerItem objectForKey:@"latitude"] floatValue];
+                              float longShowing = [[innerItem objectForKey:@"longitude"] floatValue];
+
+                            CLLocationCoordinate2D position = CLLocationCoordinate2DMake(latShowing, longShowing);
+                              
+                              GMSMarker *marker = [GMSMarker markerWithPosition:position];
+                              marker.map = self.mapView;
+                              
+                              
+                              
+                              
+                          }
+                      }
+                  }
                   
               } withFailueHandler:^{
                   
@@ -224,7 +305,7 @@
 
 -(void)selectedItem:(UITapGestureRecognizer *)indexSelected{
     
-    int tag = indexSelected.view.tag;
+    int tag = (int)indexSelected.view.tag;
     
     id currentItem = [self.dataSource objectAtIndex:tag];
     
@@ -232,9 +313,6 @@
     
     
     [self performSegueWithIdentifier:@"segueShowProfileDetail" sender:self];
-    
-    
-    NSLog(@"");
     
     
 }
@@ -296,29 +374,11 @@
         
         MyTrainerProfileViewController * destination = segue.destinationViewController;
         destination.comingFromListing  = YES;
-        destination.idCalling = [[self.tmpObjectSelected objectForKey:@"ID"] intValue];
+        destination.idCalling = [[self.tmpObjectSelected objectForKey:@"id"] intValue];
        
         
-        
-        //     = 18;
-      //  Name = Test;
-     ///   Specialities = "Defense/Shooting";
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

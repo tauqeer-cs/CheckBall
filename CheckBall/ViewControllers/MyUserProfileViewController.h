@@ -11,6 +11,7 @@
 #import "CropImageViewController.h"
 #import "TOActionSheet.h"
 #import "SelectMapLocationViewController.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 
 @interface MyUserProfileViewController : BaseViewController
@@ -75,5 +76,11 @@
 
 @property (nonatomic,strong) UIImage * selectedImage;
 
+
+@property (nonatomic) BOOL comingFromListing;
+
+@property (nonatomic) int idCalling;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnCOnnect;
 
 @end

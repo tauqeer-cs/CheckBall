@@ -24,7 +24,7 @@
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sSN-nJ-3KK">
                                 <rect key="frame" x="8" y="8" width="39" height="39"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listImage" translatesAutoresizingMaskIntoConstraints="NO" id="eep-VM-8qk">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gander-icon" translatesAutoresizingMaskIntoConstraints="NO" id="eep-VM-8qk">
                                         <rect key="frame" x="1" y="1" width="37" height="37"/>
                                     </imageView>
                                 </subviews>
@@ -114,6 +114,7 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <connections>
+                <outlet property="lblMiles" destination="0o6-Gs-foD" id="Fhc-Pt-ETb"/>
                 <outlet property="lblName" destination="2o9-NC-A9E" id="cnK-lX-C8x"/>
                 <outlet property="lblType" destination="qsY-0E-RdF" id="wvw-C5-AR0"/>
                 <outlet property="mainContainer" destination="MGz-d5-siz" id="23K-Af-ioA"/>
@@ -125,6 +126,6 @@
     </objects>
     <resources>
         <image name="NEXT" width="11" height="20"/>
-        <image name="listImage" width="150" height="150"/>
+        <image name="gander-icon" width="29" height="29"/>
     </resources>
 </document>

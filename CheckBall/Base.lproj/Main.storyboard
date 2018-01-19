@@ -38,7 +38,7 @@
                                             <constraint firstAttribute="height" constant="1" id="3dc-ST-EMu"/>
                                         </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SMALL-PRO" translatesAutoresizingMaskIntoConstraints="NO" id="9xP-cn-N6w">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gander-icon" translatesAutoresizingMaskIntoConstraints="NO" id="9xP-cn-N6w">
                                         <rect key="frame" x="333" y="10" width="34" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="34" id="ftl-wJ-Znc"/>
@@ -88,33 +88,28 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Bmq-5y-y3P"/>
                                 </connections>
                             </collectionView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="h3V-3h-KUX">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZU-uo-CiH" customClass="GMSMapView">
                                 <rect key="frame" x="8" y="127" width="359" height="140"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="6yN-Q4-IPT"/>
-                                    <constraint firstAttribute="width" secondItem="h3V-3h-KUX" secondAttribute="height" multiplier="359:140" id="cpo-Yh-bMY"/>
+                                    <constraint firstAttribute="width" secondItem="JZU-uo-CiH" secondAttribute="height" multiplier="359:140" id="9N8-jg-ij1"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="6yN-Q4-IPT"/>
-                                    </mask>
-                                </variation>
-                            </mapView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bra-eN-A9e" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="31t-yY-cDC"/>
-                            <constraint firstItem="h3V-3h-KUX" firstAttribute="top" secondItem="bra-eN-A9e" secondAttribute="bottom" constant="8" id="AOt-ad-nPR"/>
-                            <constraint firstItem="YDT-gB-Ee3" firstAttribute="top" secondItem="h3V-3h-KUX" secondAttribute="bottom" constant="8" id="LBV-fu-BU4"/>
+                            <constraint firstItem="JZU-uo-CiH" firstAttribute="top" secondItem="bra-eN-A9e" secondAttribute="bottom" constant="8" id="4oQ-9g-Pny"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JZU-uo-CiH" secondAttribute="trailing" constant="8" id="Kzs-Kz-Acq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YDT-gB-Ee3" secondAttribute="bottom" constant="8" id="Mkt-g1-Nft"/>
                             <constraint firstItem="5h1-w6-t5x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ngx-42-ba7"/>
                             <constraint firstItem="5h1-w6-t5x" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="OJe-rZ-ttf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h3V-3h-KUX" secondAttribute="trailing" constant="8" id="UcY-zz-FgR"/>
                             <constraint firstItem="YDT-gB-Ee3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="fsF-Sq-0q7"/>
+                            <constraint firstItem="YDT-gB-Ee3" firstAttribute="top" secondItem="JZU-uo-CiH" secondAttribute="bottom" constant="8" id="kIy-Yh-xM1"/>
                             <constraint firstItem="bra-eN-A9e" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="shv-Dt-3rn"/>
                             <constraint firstItem="bra-eN-A9e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uwg-6L-tlf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YDT-gB-Ee3" secondAttribute="trailing" constant="8" id="vRK-eK-mgc"/>
-                            <constraint firstItem="h3V-3h-KUX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="x4n-Lh-qXb"/>
+                            <constraint firstItem="JZU-uo-CiH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="xya-po-sc6"/>
                             <constraint firstItem="5h1-w6-t5x" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="yh9-jd-9cY"/>
                             <constraint firstItem="5h1-w6-t5x" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zxs-Yv-no3"/>
                         </constraints>
@@ -124,6 +119,7 @@
                     <connections>
                         <outlet property="collectionView" destination="YDT-gB-Ee3" id="1S6-cC-eTx"/>
                         <outlet property="lblName" destination="nt0-sL-q22" id="dlX-55-m1b"/>
+                        <outlet property="mapView" destination="JZU-uo-CiH" id="UQl-PI-IPT"/>
                         <outlet property="profileImageView" destination="9xP-cn-N6w" id="IUw-fV-7vY"/>
                         <segue destination="4uY-Nb-LkH" kind="show" identifier="segueMyProfile" id="HE9-PH-83W"/>
                         <segue destination="YjE-oh-giF" kind="show" identifier="segueShowProfileDetail" id="9kB-ph-Pn1"/>
@@ -131,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="335" y="152"/>
+            <point key="canvasLocation" x="333.60000000000002" y="151.57421289355324"/>
         </scene>
         <!--Edit Profile-->
         <scene sceneID="qbq-ng-YEZ">
@@ -877,9 +873,6 @@
                                                             <constraint firstAttribute="width" constant="133" id="WNL-JG-OF7"/>
                                                         </constraints>
                                                         <state key="normal" image="LeBron-James"/>
-                                                        <connections>
-                                                            <action selector="btnImagePickerTapped:" destination="YjE-oh-giF" eventType="touchUpInside" id="uUI-Yf-HLp"/>
-                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.7293313146" green="0.72945815319999996" blue="0.72932332749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1350,7 +1343,7 @@
                                                     <constraint firstAttribute="height" constant="109" id="tOb-UO-hQF"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbI-hO-axB">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbI-hO-axB">
                                                 <rect key="frame" x="226" y="120" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="9GX-kB-1jX"/>
@@ -1413,6 +1406,21 @@
                                                     <constraint firstItem="KN4-HI-FB7" firstAttribute="top" secondItem="4aI-gt-nCC" secondAttribute="bottom" constant="2" id="xNL-Bc-jC4"/>
                                                 </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSf-yZ-Yax">
+                                                <rect key="frame" x="285" y="169" width="80" height="30"/>
+                                                <color key="backgroundColor" red="0.15630099180000001" green="0.72731453180000005" blue="0.36551025510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="5yO-1E-5jh"/>
+                                                    <constraint firstAttribute="width" constant="80" id="wcC-qV-e0X"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                <state key="normal" title="Connect">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnConnectStarted:" destination="YjE-oh-giF" eventType="touchUpInside" id="Y1n-l4-QSh"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="2qJ-LN-hMU" firstAttribute="centerX" secondItem="3yL-dx-Qpu" secondAttribute="centerX" id="2nJ-Bl-vhD"/>
@@ -1430,10 +1438,12 @@
                                             <constraint firstItem="88g-VU-64U" firstAttribute="leading" secondItem="3yL-dx-Qpu" secondAttribute="leading" constant="10" id="eag-6u-Dgs"/>
                                             <constraint firstAttribute="trailing" secondItem="djG-hB-OxE" secondAttribute="trailing" constant="10" id="fS6-U6-K5W"/>
                                             <constraint firstItem="zbI-hO-axB" firstAttribute="leading" secondItem="gg4-iR-wIK" secondAttribute="trailing" constant="-30" id="hgY-Uk-inQ"/>
+                                            <constraint firstItem="nSf-yZ-Yax" firstAttribute="top" secondItem="3yL-dx-Qpu" secondAttribute="top" constant="169" id="iZ2-Bf-3ha"/>
                                             <constraint firstItem="gg4-iR-wIK" firstAttribute="top" secondItem="3yL-dx-Qpu" secondAttribute="top" constant="24" id="k0G-p6-Tj7"/>
                                             <constraint firstAttribute="trailing" secondItem="fpv-lW-YNI" secondAttribute="trailing" constant="10" id="knT-d9-0ay"/>
                                             <constraint firstItem="fpv-lW-YNI" firstAttribute="leading" secondItem="3yL-dx-Qpu" secondAttribute="leading" constant="10" id="oDv-dy-oc0"/>
                                             <constraint firstItem="zbI-hO-axB" firstAttribute="top" secondItem="3yL-dx-Qpu" secondAttribute="top" constant="120" id="sl4-eO-7wa"/>
+                                            <constraint firstAttribute="trailing" secondItem="nSf-yZ-Yax" secondAttribute="trailing" constant="10" id="spv-rk-avC"/>
                                             <constraint firstAttribute="trailing" secondItem="88g-VU-64U" secondAttribute="trailing" constant="10" id="xRH-QL-ebS"/>
                                             <constraint firstItem="2qJ-LN-hMU" firstAttribute="top" secondItem="gg4-iR-wIK" secondAttribute="bottom" constant="8" id="yRx-be-DhK"/>
                                         </constraints>
@@ -1466,6 +1476,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="900"/>
                     <connections>
+                        <outlet property="btnCOnnect" destination="nSf-yZ-Yax" id="6Al-kh-XVe"/>
                         <outlet property="btnUserProfileButton" destination="qmc-O9-qvw" id="Jcv-Du-opV"/>
                         <outlet property="heightPickerView" destination="rY6-ld-7ly" id="WLB-0i-4LB"/>
                         <outlet property="lblBio" destination="V5r-OJ-dI5" id="F32-JV-7Uo"/>
@@ -1501,7 +1512,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KHf-nz-Qe0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="817" y="1032"/>
+            <point key="canvasLocation" x="816.79999999999995" y="1031.784107946027"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="11z-bN-9KA">
@@ -1537,7 +1548,7 @@
         <image name="EDIT-ICON" width="15" height="15"/>
         <image name="EDIT-INFO" width="21" height="21"/>
         <image name="LeBron-James" width="133" height="133"/>
-        <image name="SMALL-PRO" width="34" height="34"/>
         <image name="dashboard-page" width="375" height="667"/>
+        <image name="gander-icon" width="29" height="29"/>
     </resources>
 </document>

@@ -133,6 +133,15 @@ withComplitionHandler:(void(^)(id result))completionHandler
 +(void)callUpdateProfileWithParams:(NSDictionary *)params
              withComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler
           withAlreadyExistsHandler:(void(^)(id result))alreadyExistHandler;
++(void)callUploadProfileWithId:(NSString *)imageId
+                 withImageName:(UIImage *)imageName
+         withComplitionHandler:(void(^)(id result))completionHandler
+             withFailueHandler:(void(^)(void))failureHandler;
 
+
++(void)callConnectUserWithMyId:(NSString *)myId
+            andUserOtherUserId:(NSString *)otherId
+         withComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler
+      withAlreadyExistsHandler:(void(^)(id result))alreadyExistHandler;
 
 @end

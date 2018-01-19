@@ -8,8 +8,8 @@
 
 #import "MyTrainerProfileViewController.h"
 #import "User.h"
-#import <GoogleMaps/GoogleMaps.h>
 
+#import "MyTrainerProfileViewController.h"
 
 @interface MyTrainerProfileViewController ()<SelectMapLocationViewCellDelegate,GMSMapViewDelegate>
 
@@ -43,6 +43,19 @@ GMSMapView *mapView2;
     // Do any additional setup after loading the view.
     
 
+    
+    [self.btnUserProfileButton setImage:[UIImage imageNamed:@"gander-icon"] forState:UIControlStateNormal];
+    
+    [FileManager loadProfileImage:nil url:[baseImageLink stringByAppendingString:[NSString stringWithFormat:@"%d.jpg",[self.myJid intValue]]]];
+    
+    
+    if (self.comingFromListing) {
+    [FileManager loadProfileImageToButton:self.btnUserProfileButton :[baseImageLink stringByAppendingString:[NSString stringWithFormat:@"%d.jpg",self.idCalling ]] loader:nil];
+        
+    }
+    else
+    [FileManager loadProfileImageToButton:self.btnUserProfileButton :[baseImageLink stringByAppendingString:[NSString stringWithFormat:@"%d.jpg",[self.myJid intValue]]] loader:nil];
+    
     
     self.trainingLocationContainer = mapView2;
     
@@ -89,6 +102,8 @@ GMSMapView *mapView2;
         
     }
 
+    self.btnCOnnect.layer.cornerRadius = 5;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -96,15 +111,6 @@ GMSMapView *mapView2;
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 -(void)viewDidAppear:(BOOL)animated{
     

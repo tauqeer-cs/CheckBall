@@ -18,4 +18,5 @@
 -(void)updateWithDate:(id)data;
 @property (weak, nonatomic) IBOutlet UILabel *lblName;
 @property (weak, nonatomic) IBOutlet UILabel *lblType;
+@property (weak, nonatomic) IBOutlet UILabel *lblMiles;
 @end

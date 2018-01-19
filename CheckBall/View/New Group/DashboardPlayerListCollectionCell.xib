@@ -24,7 +24,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9bj-Bj-RQx">
                                 <rect key="frame" x="8" y="8" width="39" height="39"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listImage" translatesAutoresizingMaskIntoConstraints="NO" id="Uk0-Wa-h9M">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gander-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Uk0-Wa-h9M">
                                         <rect key="frame" x="1" y="1" width="37" height="37"/>
                                     </imageView>
                                 </subviews>
@@ -113,6 +113,6 @@
     </objects>
     <resources>
         <image name="NEXT" width="11" height="20"/>
-        <image name="listImage" width="150" height="150"/>
+        <image name="gander-icon" width="29" height="29"/>
     </resources>
 </document>

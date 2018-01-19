@@ -104,96 +104,6 @@
     
 }
 
-+(void)callCheckGooogleLoginIdExists:(NSString *)loginId
-       withDoesNotExistsHandler:(void(^)(id result))doesNotExists
-              withFailueHandler:(void(^)(void))failureHandler
-       withAlreadyExistsHandler:(void(^)(id result))alreadyExistHandler
-{
-    
-    NSMutableDictionary *currentDictionary = [NSMutableDictionary new];
-    [currentDictionary setObject:loginId forKey:@"google_token"];
-    
-    
-    NSUserDefaults *defauls = [NSUserDefaults standardUserDefaults];
-    NSString *token = [defauls objectForKey:@"device_id"];;
-    
-    
-    if (!token) {
-        
-        AppDelegate *myAppDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        
-    }
-    
-    if (token)
-    {
-        [currentDictionary setObject:token forKey:@"device_id"];
-        [currentDictionary setObject:@"IOS" forKey:@"device"];
-    }
-    
-    
-    
-    
-    
-    
-    [RestCall callWebServiceWithTheseParams:currentDictionary
-                      withSignatureSequence:nil
-                                 urlCalling:
-     [baseServiceUrl stringByAppendingString:@"/login_google"]
-                              isPostService:YES
-                      withComplitionHandler:^(id result) {
-                          
-                          @try {
-                              
-                              
-                              
-                              id message = [result objectForKey:@"data"];
-                              
-                              
-                              BOOL isNew = [[message objectForKey:@"is_new"] boolValue];
-                              
-                              id dataObject = [result objectForKey:@"data"];
-                              
-                              
-                              
-                              dataObject =  [dataObject dictionaryByReplacingNullsWithBlanks];
-                              
-                              
-                              [defauls setObject:dataObject forKey:@"isFirstTimeSignUp"];
-                              
-                              
-                              
-                              if (isNew) {
-                                  
-                                  doesNotExists(nil);
-                                  
-                              }
-                              else {
-                                  
-                                  alreadyExistHandler(nil);
-                                  
-                                  
-                              }
-                              
-                              
-                              
-                              
-                              
-                          }
-                          @catch (NSException *exception) {
-                              
-                              failureHandler();
-                              
-                          }
-                          
-                          
-                      } failureComlitionHandler:^{
-                          
-                          failureHandler();
-                          
-                      }];
-    
-}
-
 
 
 +(NSString *)myJid{
@@ -220,249 +130,8 @@
 
 
 
-+(void)callEditPeriodInfo:(NSString *)dateString
-                       withNoOfPeriodDays:(int)noOfPeriodDay
-                       WithmenstrualCycleDays:(int)menstrualCycleDays
-          withComplitionHandler:(void(^)(id result))completionHandler
-              withFailueHandler:(void(^)(void))failureHandler
-
-{
-    
-    
-    NSMutableDictionary *currentDictionary = [NSMutableDictionary new];
-    [currentDictionary setObject:dateString forKey:@"last_period_date"];
-    [currentDictionary setObject:[NSString stringWithFormat:@"%d",noOfPeriodDay] forKey:@"no_of_period_days"];
-    [currentDictionary setObject:[NSString stringWithFormat:@"%d",menstrualCycleDays] forKey:@"menstrual_cycle_days"];
-    
-    
-
-    
-    
-    
-    
-    
-    NSUserDefaults *defauls = [NSUserDefaults standardUserDefaults];
-    NSString *token = [defauls objectForKey:@"deviceToken"];;
-    
-    if (!token) {
-        
-        AppDelegate *sharedDelegate =(AppDelegate *) [[UIApplication sharedApplication] delegate];
-        
-
-        
-        
-    }
-    
-    
-    NSData *imageData;
-    
-
-    
-    
-    
-    NSUserDefaults * myDefault =  [NSUserDefaults standardUserDefaults];
-    id c =  [myDefault objectForKey:@"isFirstTimeSignUp"];
-    
-    
-    
-    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST"
-                                                                                              URLString:[baseServiceUrl stringByAppendingString:@"edit_Profile"] parameters:currentDictionary constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-                                                                                                  
-
-                                                                                                  
-                                                                                                  
-                                                                                              } error:nil];
-    
-    
-    
-    
-    
-    if ([c isKindOfClass:[NSDictionary class]]) {
-        
-        NSString * authKey = [c objectForKey:@"authtoken"];
-        [request setValue:authKey forHTTPHeaderField:@"Authtoken"];
-        
-    }
-    
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc]
-                                    initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    
-    NSURLSessionUploadTask *uploadTask;
-    uploadTask = [manager
-                  uploadTaskWithStreamedRequest:request
-                  progress:nil
-                  completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-                      
-                      if ([[responseObject objectForKey:@"code"] intValue] == 409) {
-                          
-                          completionHandler(nil);
-                          
-                          
-                      }
-                      else
-                          if (error) {
-                              NSLog(@"Error: %@", error);
-                              
-                              failureHandler();
-                              
-                          } else {
-                              NSLog(@"%@ %@", response, responseObject);
-                              
-                              if ([[responseObject objectForKey:@"status"] isEqualToString:@"success"]) {
-                                  
-                                  id dataObject = [responseObject objectForKey:@"data"];
-                                  
-                                  
-                                  
-                                  //dataObject =  [dataObject dictionaryByReplacingNullsWithBlanks];
-                                  
-                                  
-                                  [defauls setObject:dataObject forKey:@"isFirstTimeSignUp"];
-                                  
-                                  
-                                  completionHandler(dataObject);
-                                  
-                                  
-                                  
-                                  
-                                  //
-                              }
-                              else {
-                                  
-                                  
-                              }
-                              
-                          }
-                  }];
-    
-    [uploadTask resume];
-    
-}
 
 
-
-+(void)callEditProfileWithImage:(UIImage *)profileImage
-          withComplitionHandler:(void(^)(id result))completionHandler
-              withFailueHandler:(void(^)(void))failureHandler
-       withAlreadyExistsHandler:(void(^)(id result))alreadyExistHandler
-
-{
-    
-    
-    NSMutableDictionary *currentDictionary = [NSMutableDictionary new];
-    
-    
-    
-    
-    
-    
-    NSUserDefaults *defauls = [NSUserDefaults standardUserDefaults];
-    NSString *token = [defauls objectForKey:@"deviceToken"];;
-    
-    if (!token) {
-        
-        AppDelegate *sharedDelegate =(AppDelegate *) [[UIApplication sharedApplication] delegate];
-        
-
-        
-    }
-    
-    
-    NSData *imageData;
-    
-    if (profileImage) {
-        imageData = UIImageJPEGRepresentation(profileImage, 1.0);
-        
-    }
-    
-    
-    
-    NSUserDefaults * myDefault =  [NSUserDefaults standardUserDefaults];
-    id c =  [myDefault objectForKey:@"isFirstTimeSignUp"];
-    
-    
-    
-    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST"
-                                                                                              URLString:[baseServiceUrl stringByAppendingString:@"edit"] parameters:currentDictionary constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-                                                                                                  
-                                                                                                  if (imageData) {
-                                                                                                      
-                                                                                                      [formData appendPartWithFileData:imageData name:@"image" fileName:@"photo.jpg" mimeType:@"image/jpeg"];
-                                                                                                      
-                                                                                                      
-                                                                                                  }
-                                                                                                  
-                                                                                                  
-                                                                                                  
-                                                                                                  NSLog(@"");
-                                                                                                  
-                                                                                                  
-                                                                                              } error:nil];
-    
-    
-    
-    
-    
-    if ([c isKindOfClass:[NSDictionary class]]) {
-        
-        NSString * authKey = [c objectForKey:@"authtoken"];
-        [request setValue:authKey forHTTPHeaderField:@"Authtoken"];
-        
-    }
-    
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc]
-                                    initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    
-    NSURLSessionUploadTask *uploadTask;
-    uploadTask = [manager
-                  uploadTaskWithStreamedRequest:request
-                  progress:nil
-                  completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-                      
-                      if ([[responseObject objectForKey:@"code"] intValue] == 409) {
-                          
-                          alreadyExistHandler(@"Already exists");
-                          
-                      }
-                      else
-                          if (error) {
-                              NSLog(@"Error: %@", error);
-                              
-                              failureHandler();
-                              
-                          } else {
-                              NSLog(@"%@ %@", response, responseObject);
-                              
-                              if ([[responseObject objectForKey:@"status"] isEqualToString:@"success"]) {
-                                  
-                                  id dataObject = [responseObject objectForKey:@"data"];
-                                  
-                                  
-                                  
-                                  dataObject =  [dataObject dictionaryByReplacingNullsWithBlanks];
-                                  
-                                  
-                                  [defauls setObject:dataObject forKey:@"isFirstTimeSignUp"];
-                                  
-                                  
-                                  completionHandler(dataObject);
-                                  
-                                  
-                                  
-                                  
-                                  //
-                              }
-                              else {
-                                  
-                                  
-                              }
-                              
-                          }
-                  }];
-    
-    [uploadTask resume];
-    
-}
 
 
 +(void)callEditProfileWithEmail:(NSString *)emailAddress
@@ -690,6 +359,87 @@
     
     
 }
+
++(void)callConnectUserWithMyId:(NSString *)myId
+            andUserOtherUserId:(NSString *)otherId
+            withComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler
+         withAlreadyExistsHandler:(void(^)(id result))alreadyExistHandler
+{
+    
+    
+
+    
+    
+    
+    
+    NSMutableDictionary * tmpConnect = [NSMutableDictionary new];
+    [tmpConnect setObject:[NSString stringWithFormat:@"%d",[myId intValue]] forKey:@"IDFrom"];
+    [tmpConnect setObject:[NSString stringWithFormat:@"%d",[otherId intValue]] forKey:@"IDTo"];
+    
+    [RestCall callWebServiceWithTheseParams:tmpConnect
+                      withSignatureSequence:nil
+                                 urlCalling:
+     [baseServiceUrl stringByAppendingString:@"contact"]
+                              isPostService:YES
+                      withComplitionHandler:^(id result) {
+                          
+                          @try {
+                              
+                              id message = [[result
+                                             objectForKey:@"message"] objectForKey:@"status"];
+                              
+                              if ([message isEqualToString:@"Success"]) {
+                                  
+                                  id data = [[result objectForKey:@"message"] objectForKey:@"Data"];
+                                  
+                                  if ([data isKindOfClass:[NSArray class]])
+                                  {
+                                      data  =  data[0];
+                                      
+                                  }
+                                  
+                                  completionHandler(data);
+                                  
+                                  
+                              }
+                              else if ([message isEqualToString:@"Failure"]){
+                                  
+                                  
+                                  if ([[[result
+                                         objectForKey:@"message"] objectForKey:@"Error"] isEqualToString:@"Email Found"]) {
+                                      alreadyExistHandler(@"");
+                                      
+                                  }
+                                  else {
+                                      
+                                      failureHandler();
+                                  }
+                              }
+                              else{
+                                  
+                                  failureHandler();
+                              }
+                              
+                              
+                              
+                              
+                          }
+                          @catch (NSException *exception) {
+                              
+                              failureHandler();
+                              
+                          }
+                          
+                          
+                      } failureComlitionHandler:^{
+                          
+                          failureHandler();
+                          
+                      }];
+    
+    
+}
+
 
 +(void)callUpdateProfileWithParams:(NSDictionary *)params
             withComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler
@@ -1702,7 +1452,6 @@ withFailueHandler:(void(^)(void))failureHandler
                           
                           if ([status isEqualToString:@"Success"]) {
                               
-                              //id list = [result objectForKey:@"Data"];
                               
                               id videos = [result objectForKey:@"Videos"];
                               id specilities = [result objectForKey:@"Specilities"];
@@ -1736,6 +1485,89 @@ withFailueHandler:(void(^)(void))failureHandler
     
 }
 
+
+
++(void)callUploadProfileWithId:(NSString *)imageId
+                 withImageName:(UIImage *)imageName
+         withComplitionHandler:(void(^)(id result))completionHandler
+             withFailueHandler:(void(^)(void))failureHandler
+
+{
+    
+    
+    NSData *imageData;
+    imageData = UIImageJPEGRepresentation(imageName, 1.0);
+    
+    
+    
+    
+    
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST"
+                                                                                              URLString:[baseServiceUrl stringByAppendingString:@"UpdatePhoto"] parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  [formData appendPartWithFileData:imageData name:@"image" fileName:[NSString stringWithFormat:@"%d.jpg",[imageId intValue]] mimeType:@"image/jpeg"];
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                              } error:nil];
+    
+    
+    
+    
+    
+    
+    
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc]
+                                    initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    
+    NSURLSessionUploadTask *uploadTask;
+    uploadTask = [manager
+                  uploadTaskWithStreamedRequest:request
+                  progress:nil
+                  completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+                      
+                      if ([[responseObject objectForKey:@"code"] intValue] == 409) {
+                          
+                          completionHandler(nil);
+                          
+                          
+                      }
+                      else
+                          if (error) {
+                              NSLog(@"Error: %@", error);
+                              
+                              failureHandler();
+                              
+                          } else {
+                              NSLog(@"%@ %@", response, responseObject);
+                              
+                              /*
+                              if ([[responseObject objectForKey:@"message"] isEqualToString:@"Success"]) {
+                                  
+                                  
+                                  //dataObject =  [dataObject dictionaryByReplacingNullsWithBlanks];
+                                  
+                                  
+                                  
+                                  completionHandler(nil);
+                                  
+                                  
+                                  
+                                  
+                                  //
+                              }*/
+                              
+                              
+                          }
+                  }];
+    
+    [uploadTask resume];
+    
+}
 
 
 
