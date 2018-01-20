@@ -10,9 +10,43 @@
 
 @interface User : NSObject
 
+
+@property (nonatomic) int userId;
+
+@property (nonatomic,strong) NSString * accountType;
+
+
+
+@property (nonatomic,strong) NSString * name;
+@property (nonatomic,strong) NSString * position;
+@property (nonatomic,strong) NSString * school;
+@property (nonatomic,strong) NSString * bio;
+
+@property (nonatomic) double height;
+@property (nonatomic,strong) NSString * heightStringToShow;
+
+@property (nonatomic) int weight;
+@property (nonatomic,strong) NSString * weightStringToShow;
+@property (nonatomic,strong) NSString * zipCode;
+@property (nonatomic,strong) NSString * phoneName;
+
+@property (nonatomic) BOOL hasImage;
+@property (nonatomic,strong) NSArray * specialites;
+
+@property (nonatomic,strong) NSArray * videos;
+
+@property (nonatomic,strong) NSArray * locations;
+
 +(void)callRegisterUserWithParams:(NSDictionary *)params
            withComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler
         withAlreadyExistsHandler:(void(^)(id result))alreadyExistHandler;
+
+
++(void)callChangePasswordWithOldPassword:(NSString *)oldPassword
+                         withNewPassword:(NSString *)newPassword
+                                withMyId:(int)myId
+                   withComplitionHandler:(void(^)(id result))completionHandler
+                       withFailueHandler:(void(^)(void))failureHandler;
 
 
 
@@ -93,10 +127,6 @@ withFailueHandler:(void(^)(void))failureHandler;
        withFailueHandler:(void(^)(void))failureHandler;
 
 
-+(void)callChangePasswordWithOldPassword:(NSString *)oldPassword
-                         withNewPassword:(NSString *)newPassword
-                   withComplitionHandler:(void(^)(id result))completionHandler
-                       withFailueHandler:(void(^)(void))failureHandler;
 
 +(void)callEditPeriodInfo:(NSString *)dateString
        withNoOfPeriodDays:(int)noOfPeriodDay

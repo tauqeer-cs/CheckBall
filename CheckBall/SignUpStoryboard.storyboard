@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -605,11 +606,108 @@
                         <outlet property="btnSignUp" destination="hbT-VA-y1R" id="ZJg-II-M6B"/>
                         <outlet property="viewConfirmPassword" destination="5SA-K1-iZX" id="Tcf-xw-7x6"/>
                         <outlet property="viewPasswordContainer" destination="Jeb-kD-ldF" id="7z0-AX-bJG"/>
+                        <segue destination="tUM-WQ-FNw" kind="show" id="AK8-Vk-KHQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h7B-bo-jbD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4255" y="-743"/>
+        </scene>
+        <!--Change Password View Controller-->
+        <scene sceneID="hm8-qg-7Rf">
+            <objects>
+                <viewController restorationIdentifier="ChangePasswordViewController" storyboardIdentifier="ChangePasswordViewController" id="tUM-WQ-FNw" customClass="ChangePasswordViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ScT-Ex-Sob">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="forget-password" translatesAutoresizingMaskIntoConstraints="NO" id="kZ1-5t-5mg">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFE-fI-iQ0">
+                                <rect key="frame" x="16" y="88" width="343" height="579"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wGn-BC-D8s">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Dy3-8a-2Cj"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ia1-kM-s1O">
+                                        <rect key="frame" x="0.0" y="56" width="343" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="5dv-Zo-Ub1"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o45-KV-XYf">
+                                        <rect key="frame" x="0.0" y="168" width="343" height="40"/>
+                                        <color key="backgroundColor" red="0.15686274510000001" green="0.73333333329999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="LFc-ij-VMr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Update Password">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnUpdateTapped:" destination="tUM-WQ-FNw" eventType="touchUpInside" id="Jjv-2T-hvF"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7be-Hu-haH">
+                                        <rect key="frame" x="0.0" y="112" width="343" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="WJ1-ms-VlA"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="o45-KV-XYf" firstAttribute="leading" secondItem="dFE-fI-iQ0" secondAttribute="leading" id="3Hi-rU-we9"/>
+                                    <constraint firstItem="ia1-kM-s1O" firstAttribute="top" secondItem="wGn-BC-D8s" secondAttribute="bottom" constant="16" id="3Wb-nc-SAT"/>
+                                    <constraint firstAttribute="trailing" secondItem="o45-KV-XYf" secondAttribute="trailing" id="3j7-ST-P7p"/>
+                                    <constraint firstAttribute="trailing" secondItem="ia1-kM-s1O" secondAttribute="trailing" id="ArF-0w-IgC"/>
+                                    <constraint firstItem="wGn-BC-D8s" firstAttribute="leading" secondItem="dFE-fI-iQ0" secondAttribute="leading" id="E8m-3F-H6J"/>
+                                    <constraint firstAttribute="trailing" secondItem="7be-Hu-haH" secondAttribute="trailing" id="F8B-CX-vux"/>
+                                    <constraint firstItem="ia1-kM-s1O" firstAttribute="leading" secondItem="dFE-fI-iQ0" secondAttribute="leading" id="Hxg-SM-95D"/>
+                                    <constraint firstItem="7be-Hu-haH" firstAttribute="leading" secondItem="dFE-fI-iQ0" secondAttribute="leading" id="KNS-Tw-rGC"/>
+                                    <constraint firstItem="wGn-BC-D8s" firstAttribute="top" secondItem="dFE-fI-iQ0" secondAttribute="top" id="W4X-3p-mP5"/>
+                                    <constraint firstAttribute="height" constant="500" id="Xve-Hq-p4c"/>
+                                    <constraint firstAttribute="trailing" secondItem="wGn-BC-D8s" secondAttribute="trailing" id="ZPf-zA-Me9"/>
+                                    <constraint firstItem="o45-KV-XYf" firstAttribute="top" secondItem="7be-Hu-haH" secondAttribute="bottom" constant="16" id="a6E-MY-iix"/>
+                                    <constraint firstItem="7be-Hu-haH" firstAttribute="top" secondItem="ia1-kM-s1O" secondAttribute="bottom" constant="16" id="hG4-W6-LKf"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Xve-Hq-p4c"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dFE-fI-iQ0" firstAttribute="bottom" secondItem="pAI-jE-vJl" secondAttribute="bottom" id="FX4-zT-PNV"/>
+                            <constraint firstItem="dFE-fI-iQ0" firstAttribute="leading" secondItem="pAI-jE-vJl" secondAttribute="leading" constant="16" id="INa-zC-trp"/>
+                            <constraint firstItem="pAI-jE-vJl" firstAttribute="trailing" secondItem="dFE-fI-iQ0" secondAttribute="trailing" constant="16" id="aM3-lf-xp6"/>
+                            <constraint firstItem="kZ1-5t-5mg" firstAttribute="leading" secondItem="pAI-jE-vJl" secondAttribute="leading" id="ea0-xi-fbp"/>
+                            <constraint firstItem="kZ1-5t-5mg" firstAttribute="bottom" secondItem="pAI-jE-vJl" secondAttribute="bottom" id="et3-pT-8m1"/>
+                            <constraint firstItem="kZ1-5t-5mg" firstAttribute="top" secondItem="pAI-jE-vJl" secondAttribute="top" id="g6A-cA-ZHL"/>
+                            <constraint firstItem="kZ1-5t-5mg" firstAttribute="trailing" secondItem="pAI-jE-vJl" secondAttribute="trailing" id="g9V-kR-rYE"/>
+                            <constraint firstItem="dFE-fI-iQ0" firstAttribute="top" secondItem="pAI-jE-vJl" secondAttribute="top" constant="24" id="jAf-Sn-gXP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pAI-jE-vJl"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnUpdate" destination="o45-KV-XYf" id="5Uf-P7-hCx"/>
+                        <outlet property="viewConfirmPassword" destination="7be-Hu-haH" id="a6Q-jB-APA"/>
+                        <outlet property="viewOldPasswordContainer" destination="wGn-BC-D8s" id="sk4-OB-w6z"/>
+                        <outlet property="viewPasswordContainer" destination="ia1-kM-s1O" id="B1X-Nw-5lh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kw9-DJ-ClO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4988" y="-632"/>
         </scene>
         <!--Player Form View Controller-->
         <scene sceneID="M2p-ea-mQg">

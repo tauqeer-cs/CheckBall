@@ -300,6 +300,11 @@
 		D43AF7B4200F9CAD00702481 /* AddingTextViewControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D43AF7B3200F9CAD00702481 /* AddingTextViewControl.m */; };
 		D43AF7B6200F9CBC00702481 /* AddingTextViewControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43AF7B5200F9CBC00702481 /* AddingTextViewControl.xib */; };
 		D4516CBC2009C89A005FDFDA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D4516CBA2009C89A005FDFDA /* User.m */; };
+		D463654A2013544900E7E442 /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46365492013544900E7E442 /* ChangePasswordViewController.m */; };
+		D46365572013747C00E7E442 /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D463654D2013747A00E7E442 /* Assets.bundle */; };
+		D46365592013747C00E7E442 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D46365502013747B00E7E442 /* README.md */; };
+		D463655A2013747C00E7E442 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D46365512013747B00E7E442 /* LICENSE */; };
+		D463655C2013747C00E7E442 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D46365562013747C00E7E442 /* YTPlayerView.m */; };
 		D4E5896520105C1C00EB95F1 /* CropImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E5896320105C1B00EB95F1 /* CropImageViewController.xib */; };
 		D4E5896620105C1C00EB95F1 /* CropImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E5896420105C1B00EB95F1 /* CropImageViewController.m */; };
 		D4E5896920105C6C00EB95F1 /* TOActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E5896820105C6C00EB95F1 /* TOActionSheet.m */; };
@@ -890,6 +895,13 @@
 		D43AF7B5200F9CBC00702481 /* AddingTextViewControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddingTextViewControl.xib; sourceTree = "<group>"; };
 		D4516CBA2009C89A005FDFDA /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		D4516CBB2009C89A005FDFDA /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		D46365482013544900E7E442 /* ChangePasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
+		D46365492013544900E7E442 /* ChangePasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
+		D463654D2013747A00E7E442 /* Assets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Assets.bundle; sourceTree = "<group>"; };
+		D46365502013747B00E7E442 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D46365512013747B00E7E442 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		D46365552013747C00E7E442 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
+		D46365562013747C00E7E442 /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
 		D4E5896220105C1B00EB95F1 /* CropImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropImageViewController.h; sourceTree = "<group>"; };
 		D4E5896320105C1B00EB95F1 /* CropImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CropImageViewController.xib; sourceTree = "<group>"; };
 		D4E5896420105C1B00EB95F1 /* CropImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropImageViewController.m; sourceTree = "<group>"; };
@@ -1009,6 +1021,8 @@
 				D4E95BCE200CF6ED00BB3F4A /* MyUserProfileViewController.m */,
 				D41AD4522010E62A00718161 /* SelectMapLocationViewController.h */,
 				D41AD4532010E62A00718161 /* SelectMapLocationViewController.m */,
+				D46365482013544900E7E442 /* ChangePasswordViewController.h */,
+				D46365492013544900E7E442 /* ChangePasswordViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1276,6 +1290,7 @@
 		4736D19A1FC5C701003032AA /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				D463654C2013746800E7E442 /* YouTube */,
 				4736D19B1FC5C701003032AA /* ADDrop */,
 				4736D1A51FC5C701003032AA /* AF */,
 				4736D1CB1FC5C701003032AA /* AssetLibrary */,
@@ -2173,6 +2188,26 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		D463654C2013746800E7E442 /* YouTube */ = {
+			isa = PBXGroup;
+			children = (
+				D463654D2013747A00E7E442 /* Assets.bundle */,
+				D46365542013747C00E7E442 /* Classes */,
+				D46365512013747B00E7E442 /* LICENSE */,
+				D46365502013747B00E7E442 /* README.md */,
+			);
+			path = YouTube;
+			sourceTree = "<group>";
+		};
+		D46365542013747C00E7E442 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D46365552013747C00E7E442 /* YTPlayerView.h */,
+				D46365562013747C00E7E442 /* YTPlayerView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2258,14 +2293,17 @@
 				4736D36F1FC5C702003032AA /* menu-button.png in Resources */,
 				47A55F7C1FD6F4A000D48F41 /* DashboradTrainerListViewCell.xib in Resources */,
 				D41AD4342010E3D300718161 /* GoogleMaps.bundle in Resources */,
+				D463655A2013747C00E7E442 /* LICENSE in Resources */,
 				4736D0F61FC5C59B003032AA /* SignUpStoryboard.storyboard in Resources */,
 				4736D3D11FC5C702003032AA /* IQMediaCaptureController.xcassets in Resources */,
 				47A55F771FD6F37300D48F41 /* MainTrainer.storyboard in Resources */,
 				4711A6BC1FD5B52000A6EACC /* DashboardPlayerListCollectionCell.xib in Resources */,
 				4736D0E91FC5C4A7003032AA /* Assets.xcassets in Resources */,
+				D46365592013747C00E7E442 /* README.md in Resources */,
 				4736D0E71FC5C4A7003032AA /* Main.storyboard in Resources */,
 				4736D3701FC5C702003032AA /* menu-button@2x.png in Resources */,
 				4736D3A61FC5C702003032AA /* UzysAssetPickerController.bundle in Resources */,
+				D46365572013747C00E7E442 /* Assets.bundle in Resources */,
 				4736D4311FC5C703003032AA /* TOCropViewControllerLocalizable.strings in Resources */,
 				4736D42D1FC5C702003032AA /* TGCameraAuthorizationViewController.xib in Resources */,
 				4736D3C21FC5C702003032AA /* IQAudioPickerController.xcassets in Resources */,
@@ -2435,6 +2473,7 @@
 				4736D3C81FC5C702003032AA /* IQSongsAlbumListViewController.m in Sources */,
 				D41AD4542010E62A00718161 /* SelectMapLocationViewController.m in Sources */,
 				D43AF7B4200F9CAD00702481 /* AddingTextViewControl.m in Sources */,
+				D463655C2013747C00E7E442 /* YTPlayerView.m in Sources */,
 				4736D3F01FC5C702003032AA /* JTSImageInfo.m in Sources */,
 				4736D3831FC5C702003032AA /* RestCall.m in Sources */,
 				4736D40D1FC5C702003032AA /* RTSpinKitPlaneAnimation.m in Sources */,
@@ -2537,6 +2576,7 @@
 				4736D4231FC5C702003032AA /* TGAssetImageFile.m in Sources */,
 				47EFC3761FCF0B1300794A6E /* SelectEmailViewController.m in Sources */,
 				D4E95BCF200CF6ED00BB3F4A /* MyUserProfileViewController.m in Sources */,
+				D463654A2013544900E7E442 /* ChangePasswordViewController.m in Sources */,
 				4736D3931FC5C702003032AA /* AFHTTPRequestOperation.m in Sources */,
 				4736D3C31FC5C702003032AA /* IQAudioPickerUtility.m in Sources */,
 			);
@@ -2706,7 +2746,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Plego Technologies, LLC (75975U3UB4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Saad Yusuf (WDTGDQ3WCV)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 75975U3UB4;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2720,8 +2760,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.plego.CheckBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "48b4a62d-da4b-4074-b6f6-1d6fa2f7d498";
-				PROVISIONING_PROFILE_SPECIFIER = "CheckBall_ Distribution";
+				PROVISIONING_PROFILE = "f42d170d-fdab-4a99-89e7-968695580de5";
+				PROVISIONING_PROFILE_SPECIFIER = CheckBallDev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2730,7 +2770,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Plego Technologies, LLC (75975U3UB4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Saad Yusuf (WDTGDQ3WCV)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 75975U3UB4;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2744,8 +2784,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.plego.CheckBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "48b4a62d-da4b-4074-b6f6-1d6fa2f7d498";
-				PROVISIONING_PROFILE_SPECIFIER = "CheckBall_ Distribution";
+				PROVISIONING_PROFILE = "f42d170d-fdab-4a99-89e7-968695580de5";
+				PROVISIONING_PROFILE_SPECIFIER = CheckBallDev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

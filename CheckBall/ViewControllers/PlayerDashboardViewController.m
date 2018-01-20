@@ -11,6 +11,7 @@
 #import "OptionsView.h"
 #import "User.h"
 #import "MyTrainerProfileViewController.h"
+#import "ChangePasswordViewController.h"
 
 @interface PlayerDashboardViewController ()<UICollectionViewDelegate>
 
@@ -46,8 +47,12 @@
 -(void)changePAsswordTapped{
     
     [self profilePictureTapped];
+ 
+    ChangePasswordViewController * destination = [self viewControllerFromStoryBoard:@"SignUpStoryboard" withViewControllerName:@"ChangePasswordViewController"];
     
-    NSLog(@"Change Password Tapped");
+    [self showViewController:destination sender:self];
+    
+
 }
 
 

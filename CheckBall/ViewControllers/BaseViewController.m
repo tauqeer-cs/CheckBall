@@ -1306,7 +1306,20 @@
     
 }
 
-
+-(NSString *)extractYouTubeVideoUrl:(NSString *)videoUrl{
+    
+    NSString * c = [videoUrl substringFromString:@"="];
+    
+    if ([c contains:@"&"]) {
+        
+        c = [c substringToString:@"&"];
+        
+    }
+    
+    
+    return c;
+    
+}
 
 
 @end

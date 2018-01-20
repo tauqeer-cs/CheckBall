@@ -8,12 +8,17 @@
 
 #import "MyUserProfileViewController.h"
 #import "User.h"
+#import "ESImageViewController.h"
+
+
 
 
 @interface MyUserProfileViewController ()<CropImageViewControllerDelegate>
 
 
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *allItemsToRemove;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnConnect;
 
 @end
 
@@ -392,6 +397,14 @@
     [super viewDidLoad];
     
     
+    if (self.comingFromListing) {
+        
+        self.title = @"Profile";
+    }
+    
+    self.btnConnect.layer.cornerRadius = 5;
+    
+    [self.youTubePrayer setHidden:YES];
     
     [self.btnUserProfileButton setImage:[UIImage imageNamed:@"gander-icon"] forState:UIControlStateNormal];
     
@@ -434,10 +447,15 @@
    {
        [FileManager loadProfileImageToButton:self.btnUserProfileButton :[baseImageLink stringByAppendingString:[NSString stringWithFormat:@"%d.jpg",self.idCalling ]] loader:nil];
        
+       self.hasImage = YES;
+       
+       
    }
-
-    else
-    { [FileManager loadProfileImageToButton:self.btnUserProfileButton :[baseImageLink stringByAppendingString:[NSString stringWithFormat:@"%d.jpg",[self.myJid intValue]]] loader:nil];
+   else
+    {
+        [FileManager loadProfileImageToButton:self.btnUserProfileButton :[baseImageLink stringByAppendingString:[NSString stringWithFormat:@"%d.jpg",[self.myJid intValue]]] loader:nil];
+    
+        
     }
     
     
@@ -459,25 +477,71 @@
     [super viewDidAppear:animated];
     
 
+   
+    
     if (self.comingFromListing) {
         
         [User
          callGetUserProfileById:[NSString stringWithFormat:@"%d",self.idCalling]
          WithComplitionHandler:^(id result) {
              [self hideLoader];
+             
+
+
+             
              id videosList = [result objectForKey:@"Videos"];
              if ([videosList isKindOfClass:[NSArray class]] && [videosList count] > 0)
-             {for (id currentItem in videosList)
              {
+                 BOOL hasVideoBeenSetForTube = NO;
+                 
+                 for (id currentItem in videosList)
+             {
+             
                  [self.allVideos addObject:[currentItem objectForKey:@"Url"]];
+             
+                 if (!hasVideoBeenSetForTube) {
+                     [self.youTubePrayer loadWithVideoId:[self extractYouTubeVideoUrl:[currentItem objectForKey:@"Url"]]];
+                     hasVideoBeenSetForTube = YES;
+                     
+                 }
+                 
+                 self.youTubePrayer.delegate = self;
+                 
+
+                 
+                 self.currentIndexOfVideos = 0;
+                
+
+
              }
+                 
+                 if ([self.allVideos count] > 1)
+                 {
+                  
+                    self.doShowTheNextButton = YES;
+                     
+                 }
+                 
+                 if([self.allVideos count] == 0){
+                     
+                     [self.lblNoVideoLabel setHidden:NO];
+                     
+                 }
              }
+             if ( [[[[result objectForKey:@"Account"] firstObject] objectForKey:@"photo"] length] == 0)  {
+                 
+                 self.hasImage = NO;
+                 
+             }
+             
              self.lblMyName.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
              self.lblMyName2.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
              self.lblPosition.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Position"];
              self.lblPosition2.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Position"];
              self.lblSchool.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"School"];
              self.lblBio.text =  [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Bio"];
+             
+             
              NSString * heightShowing = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Height"];
              if (![heightShowing isKindOfClass:[NSString class]]) {
                  heightShowing = [NSString stringWithFormat:@"%.02f",[heightShowing doubleValue]];
@@ -493,7 +557,6 @@
              }
              weight = [weight stringByAppendingString:@" lb"];
              self.lblWeight.text = [NSString stringWithFormat:@"Weight ( %@ )",weight];;
-             [self.scrollViewUsing setHidden:NO];
              if ([self.allVideos count] >= 2) {
                  self.lblYouTubeOne.text = self.allVideos[0]; self.lblYouTubeTwo.text = self.allVideos[1];
                  
@@ -501,6 +564,9 @@
              else if([self.allVideos count] >= 1){
                  self.lblYouTubeOne.text = self.allVideos[0];
              }
+             
+             [self.scrollViewUsing setHidden:NO];
+             
              
          } withFailueHandler:^{
              
@@ -513,6 +579,9 @@
      
         [User
          callGetUserProfileById:self.myJid WithComplitionHandler:^(id result) {
+             
+           
+             
              [self hideLoader];
              id videosList = [result objectForKey:@"Videos"];
              if ([videosList isKindOfClass:[NSArray class]] && [videosList count] > 0)
@@ -521,6 +590,12 @@
                  [self.allVideos addObject:[currentItem objectForKey:@"Url"]];
              }
              }
+             
+             if ( [[[[result objectForKey:@"Account"] firstObject] objectForKey:@"photo"] length] == 0)  {
+                 
+                 self.hasImage = NO;
+                 
+             }
              self.lblMyName.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
              self.lblMyName2.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
              self.lblPosition.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Position"];
@@ -528,6 +603,7 @@
              self.lblSchool.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"School"];
              self.lblBio.text =  [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Bio"];
              NSString * heightShowing = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Height"];
+             
              if (![heightShowing isKindOfClass:[NSString class]]) {
                  heightShowing = [NSString stringWithFormat:@"%.02f",[heightShowing doubleValue]];
                  self.heightSelected = heightShowing;
@@ -542,14 +618,16 @@
              }
              weight = [weight stringByAppendingString:@" lb"];
              self.lblWeight.text = [NSString stringWithFormat:@"Weight ( %@ )",weight];;
-             [self.scrollViewUsing setHidden:NO];
-             if ([self.allVideos count] >= 2) {
+              if ([self.allVideos count] >= 2) {
                  self.lblYouTubeOne.text = self.allVideos[0]; self.lblYouTubeTwo.text = self.allVideos[1];
                  
              }
              else if([self.allVideos count] >= 1){
                  self.lblYouTubeOne.text = self.allVideos[0];
              }
+             
+             [self.scrollViewUsing setHidden:NO];
+             
              
          } withFailueHandler:^{
              
@@ -653,8 +731,17 @@
     
 }
 - (IBAction)btnImagePickerTapped:(id)sender {
+
     
+
     
+    if (self.comingFromListing) {
+        
+        NSLog(@"");
+        
+        return;
+        
+    }
     TOActionSheet *actionSheet = [[TOActionSheet alloc] init];
     actionSheet.title = @"Select an option";
     actionSheet.style = TOActionSheetStyleLight;
@@ -825,6 +912,67 @@
     
 }
 
+
+- (IBAction)btnShowUserImageTapped:(id)sender {
+    
+    
+    if (!self.hasImage) {
+        
+        return;
+        
+    }
+    JTSImageInfo *imageInfo = [[JTSImageInfo alloc] init];
+    imageInfo.image = self.btnUserProfileButton.imageView.image;
+    
+ imageInfo.referenceRect = self.view.frame;
+    imageInfo.referenceView = self.view.superview;
+    
+    JTSImageViewController *imageViewer = [[JTSImageViewController alloc]
+                                           initWithImageInfo:imageInfo
+                                           mode:JTSImageViewControllerMode_Image
+                                           backgroundStyle:JTSImageViewControllerBackgroundOption_Scaled];
+    
+    [imageViewer showFromViewController:self transition:JTSImageViewControllerTransition_FromOriginalPosition];
+
+    
+}
+
+- (void)playerViewDidBecomeReady:(nonnull YTPlayerView *)playerView{
+    [self.youTubePrayer setHidden:NO];
+    [self.videoLoader stopAnimating];
+    
+    [self.btnNextVideo setHidden:!self.doShowTheNextButton];
+    
+}
+
+
+- (IBAction)btnNextVideoTapped:(UIButton *)sender {
+    [sender setHidden:YES];
+    
+    
+    if(self.currentIndexOfVideos+1 == [self.allVideos count]){
+     
+        self.currentIndexOfVideos  = 0;
+        
+    }
+    else {
+        
+        self.currentIndexOfVideos ++;
+        
+        
+    }
+    
+    NSString * currentVideoURL =  [self.allVideos objectAtIndex:self.currentIndexOfVideos];
+    
+    
+    currentVideoURL = [self extractYouTubeVideoUrl:currentVideoURL];
+    
+    [self.youTubePrayer loadWithVideoId:currentVideoURL];
+    
+    [self.youTubePrayer setHidden:YES];
+    [self.videoLoader startAnimating];
+    
+}
 
 @end
 

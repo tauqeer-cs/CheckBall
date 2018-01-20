@@ -25,7 +25,8 @@
 #import "FileManager.h"
 #import "UIView+MyUIView.h"
 #import <CoreText/CoreText.h>
-
+#import "TextViewForSignUpform.h"
+#import "User.h"
 #import <CoreLocation/CoreLocation.h>
 
 
@@ -239,5 +240,6 @@
 @property (nonatomic) BOOL dontAutoHideKeyboard;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
+-(NSString *)extractYouTubeVideoUrl:(NSString *)videoUrl;
 
 @end

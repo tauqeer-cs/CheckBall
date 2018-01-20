@@ -12,9 +12,8 @@
 #import "TOActionSheet.h"
 #import "SelectMapLocationViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
-
-
-@interface MyUserProfileViewController : BaseViewController
+#import "YTPlayerView.h"
+@interface MyUserProfileViewController : BaseViewController<YTPlayerViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *viewProfileImageButtonContainer;
 @property (weak, nonatomic) IBOutlet UIButton *btnUserProfileButton;
@@ -83,4 +82,20 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnCOnnect;
 
+@property (nonatomic) BOOL hasImage;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *videoContainerHeight;
+
+@property (weak, nonatomic) IBOutlet UIView *viewVideoContent;
+
+@property (nonatomic,strong) IBOutlet YTPlayerView *youTubePrayer;
+
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *videoLoader;
+
+@property (nonatomic) int currentIndexOfVideos;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnNextVideo;
+
+@property (nonatomic) BOOL doShowTheNextButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *lblNoVideoLabel;
 @end

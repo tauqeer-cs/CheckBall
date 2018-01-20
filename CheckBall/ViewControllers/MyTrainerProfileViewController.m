@@ -32,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UIView *trainingLocationContainer;
 
 @property (nonatomic) BOOL viewDidAppearHAsAlreadyBeenCAlledMan;
+@property (weak, nonatomic) IBOutlet GMSMapView *mapViewTraines;
 
 @end
 
@@ -41,16 +42,23 @@ GMSMapView *mapView2;
 
 - (void)viewDidLoad {
     // Do any additional setup after loading the view.
+    if (self.comingFromListing) {
+        
+        self.title = @"Profile";
+    }
+
     
+    [self.scrollViewUsing setHidden:YES];
+    [self.youTubePrayer setHidden:YES];
 
     
     [self.btnUserProfileButton setImage:[UIImage imageNamed:@"gander-icon"] forState:UIControlStateNormal];
     
-    [FileManager loadProfileImage:nil url:[baseImageLink stringByAppendingString:[NSString stringWithFormat:@"%d.jpg",[self.myJid intValue]]]];
-    
-    
+   
     if (self.comingFromListing) {
     [FileManager loadProfileImageToButton:self.btnUserProfileButton :[baseImageLink stringByAppendingString:[NSString stringWithFormat:@"%d.jpg",self.idCalling ]] loader:nil];
+     
+        self.hasImage = YES;
         
     }
     else
@@ -59,7 +67,6 @@ GMSMapView *mapView2;
     
     self.trainingLocationContainer = mapView2;
     
-    [self.scrollViewUsing setHidden:YES];
     
     [self showLoader];
     
@@ -129,8 +136,54 @@ GMSMapView *mapView2;
         [User
          callGetUserProfileById:[NSString stringWithFormat:@"%d",self.idCalling] WithComplitionHandler:^(id result) {
              
-             [self hideLoader];
              
+             id locationObject = [result objectForKey:@"Location"];
+             
+             
+             BOOL cameriaHasBeenSet = NO;
+             
+             for (id currentItemDoing in locationObject)
+             {
+                 
+                float latShowing =  [[currentItemDoing objectForKey:@"Latitude"] floatValue];
+                 
+                float longShowing = [[currentItemDoing objectForKey:@"Longitude"] floatValue];
+                 
+                 if (!cameriaHasBeenSet) {
+                     
+                     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:latShowing
+                                                                             longitude:longShowing
+                                                                                  zoom:11];
+                     
+                     [self.mapViewTraines setCamera:camera];
+                     
+                 }
+                 
+                 CLLocationCoordinate2D position = CLLocationCoordinate2DMake(latShowing, longShowing);
+                 
+                 GMSMarker *marker = [GMSMarker markerWithPosition:position];
+                 //self.mapViewTraines.map = self.mapView;
+                 
+                 marker.map = self.mapViewTraines;
+                 
+
+                 
+
+                 
+                 
+                 
+                 cameriaHasBeenSet = YES;
+                 
+                 
+                 
+             }
+             
+             [self hideLoader];
+             if ( [[[[result objectForKey:@"Account"] firstObject] objectForKey:@"photo"] length] == 0)  {
+                 
+                 self.hasImage = NO;
+                 
+             }
              self.mySpeciality = [result objectForKey:@"Specialites"];
              
              id videosList = [result objectForKey:@"Videos"];
@@ -139,12 +192,48 @@ GMSMapView *mapView2;
              {
                  
                  
+
+                 BOOL hasVideoBeenSetForTube = NO;
                  for (id currentItem in videosList)
                  {
                      [self.allVideos addObject:[currentItem objectForKey:@"Url"]];
+                     
+                     if (!hasVideoBeenSetForTube) {
+                         [self.youTubePrayer loadWithVideoId:[self extractYouTubeVideoUrl:[currentItem objectForKey:@"Url"]]];
+                         hasVideoBeenSetForTube = YES;
+                     
+                         self.youTubePrayer.delegate = self;
+                         
+                         
+                         
+                     }
+                     
+                     self.currentIndexOfVideos = 0;
+                     
+                     
+                     
+                 }
+                 
+                 self.youTubePrayer.delegate = self;
+                 
+                 
+                 
+                 if ([self.allVideos count] > 1)
+                 {
+                     
+                     self.doShowTheNextButton = YES;
+                     
+                 }
+                 self.youTubePrayer.delegate = self;
+             
+                 if([self.allVideos count] == 0){
+                     
+                     [self.lblNoVideoLabel setHidden:NO];
+                     
                  }
                  
              }
+             
              self.lblMyName.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
              self.lblMyName2.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
              
@@ -182,7 +271,6 @@ GMSMapView *mapView2;
              }
              weight = [weight stringByAppendingString:@" lb"];
              self.lblWeight.text = [NSString stringWithFormat:@"Weight ( %@ )",weight];;
-             [self.scrollViewUsing setHidden:NO];
              
              
              if ([self.allVideos count] >= 2) {
@@ -199,6 +287,9 @@ GMSMapView *mapView2;
                  
              }
              
+             [self.scrollViewUsing setHidden:NO];
+             
+             
          } withFailueHandler:^{
              
              [self hideLoader];
@@ -214,6 +305,11 @@ GMSMapView *mapView2;
      callGetUserProfileById:self.myJid WithComplitionHandler:^(id result) {
          
          [self hideLoader];
+         if ( [[[[result objectForKey:@"Account"] firstObject] objectForKey:@"photo"] length] == 0)  {
+             
+             self.hasImage = NO;
+             
+         }
          
          self.mySpeciality = [result objectForKey:@"Specialites"];
          
@@ -251,6 +347,9 @@ GMSMapView *mapView2;
              {
                  [self.allVideos addObject:[currentItem objectForKey:@"Url"]];
              }
+             
+        
+
              
          }
          self.lblMyName.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
@@ -290,7 +389,6 @@ GMSMapView *mapView2;
          }
          weight = [weight stringByAppendingString:@" lb"];
          self.lblWeight.text = [NSString stringWithFormat:@"Weight ( %@ )",weight];;
-         [self.scrollViewUsing setHidden:NO];
          
          
          if ([self.allVideos count] >= 2) {
@@ -306,6 +404,8 @@ GMSMapView *mapView2;
              
              
          }
+         
+         [self.scrollViewUsing setHidden:NO];
          
      } withFailueHandler:^{
          

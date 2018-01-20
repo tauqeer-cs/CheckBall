@@ -17,6 +17,59 @@
 @implementation User
 
 
+-(NSString *)heightStringToShow{
+    
+    NSString * heightShowing = [NSString stringWithFormat:@"%.02f",self.height];
+    
+    heightShowing = [heightShowing stringByReplacingOccurrencesOfString:@"." withString:@"\""];
+    heightShowing = [heightShowing stringByAppendingString:@"'"];
+    heightShowing = [NSString stringWithFormat:@"Height ( %@ )",heightShowing];
+    
+    return heightShowing;
+    
+}
+
+-(BOOL)hasImage{
+    
+    if ([self.phoneName length] == 0) {
+        
+        return NO;
+        
+    }
+    
+    return YES;
+}
+
++(User *)parseItemFromItem:(id)item{
+    
+    User *currentItem = [User new];
+    
+    NSLog(@"");
+    
+    id accountItem = [[item objectForKey:@"Account"] firstObject];
+    currentItem.accountType =  [accountItem objectForKey:@"Account_Type"];
+    currentItem.bio =  [accountItem objectForKey:@"Bio"];
+    currentItem.height =  [[accountItem objectForKey:@"Height"] doubleValue];
+    currentItem.userId =  [[accountItem objectForKey:@"ID"] intValue];
+    currentItem.name =  [accountItem objectForKey:@"Name"];
+    currentItem.position =  [accountItem objectForKey:@"Position"];
+    currentItem.school =  [accountItem objectForKey:@"School"];
+    currentItem.weight =  [[accountItem objectForKey:@"Weight"] intValue];
+    currentItem.zipCode =  [accountItem objectForKey:@"ZipCode"];
+    currentItem.phoneName =  [accountItem objectForKey:@"photo"];
+    
+    
+   // currentItem.descriptionText = [item objectForKey:@"description"];;
+   // currentItem.imageUrl = [item objectForKey:@"image_url"];;
+   // currentItem.newsfeedId = [[item objectForKey:@"newsfeed_id"] intValue];
+
+
+    return currentItem;
+    
+}
+
+
+
 +(void)callCheckFbLoginIdExists:(NSString *)loginId
        withDoesNotExistsHandler:(void(^)(id result))doesNotExists
               withFailueHandler:(void(^)(void))failureHandler
@@ -582,17 +635,27 @@
 
 +(void)callChangePasswordWithOldPassword:(NSString *)oldPassword
                          withNewPassword:(NSString *)newPassword
+                                withMyId:(int)myId
    withComplitionHandler:(void(^)(id result))completionHandler
        withFailueHandler:(void(^)(void))failureHandler
 
 {
     
     
+    /*
+     {"":"3",
+     "" : "plego123",
+     "" : "plego100",
+     "" : "plego100"}
+     */
     NSMutableDictionary *currentDictionary = [NSMutableDictionary new];
+    [currentDictionary setObject:oldPassword forKey:@"ConfirmPassword"];
+    
+    
     
     [currentDictionary setObject:newPassword forKey:@"NewPassword"];
     [currentDictionary setObject:oldPassword forKey:@"OldPassword"];
-    [currentDictionary setObject:oldPassword forKey:@"ConfirmPassword"];
+    [currentDictionary setObject:[NSString stringWithFormat:@"%d",myId] forKey:@"ID"];
     
     
     
@@ -609,15 +672,15 @@
                               id message = [result
                                             objectForKey:@"status"];
                               
-                              if ([message isEqualToString:@"success"]) {
+                              if ([message isEqualToString:@"Success"]) {
                                   
                                   completionHandler(@"success");
                                   
                                   
                               }
-                              else if ([message isEqualToString:@"failed"]){
+                              else if ([message isEqualToString:@"Failure"]){
                                   
-                                  completionHandler(@"failed");
+                                  failureHandler();
                                   
                               }
                               else{
@@ -1458,6 +1521,8 @@ withFailueHandler:(void(^)(void))failureHandler
                               id locations = [result objectForKey:@"Locations"];
                               id account = [result objectForKey:@"Account"];
                               
+                              
+                              [self parseItemFromItem:result];
                               
                               completionHandler(@{@"Videos":videos,@"Specialites": specilities,@"Location":locations,@"Account":account});
                           }

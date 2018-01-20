@@ -11,6 +11,7 @@
 #import "OptionsView.h"
 #import "User.h"
 #import "MyUserProfileViewController.h"
+#import "ChangePasswordViewController.h"
 
 @interface TrainerDashboardViewController ()
 
@@ -48,7 +49,12 @@
 -(void)changePAsswordTapped{
     [self profilePictureTapped];
     
-   
+    ChangePasswordViewController * destination = [self viewControllerFromStoryBoard:@"SignUpStoryboard" withViewControllerName:@"ChangePasswordViewController"];
+    
+    [self showViewController:destination sender:self];
+    
+
+    
 
 }
 
@@ -148,6 +154,9 @@
     
     self.dataSource = [NSMutableArray new];
 
+    self.title = @"Dashboard";
+    
+    
     //segueMyProfile
     
     

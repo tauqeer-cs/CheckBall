@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.208231"
+            timestampString = "538162853.420138"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "805"
-            endingLineNumber = "805"
-            landmarkName = "+callLoginUserWithEmail:withPassword:withComplitionHandler:withFailueHandler:withNoAccountExistsHandler:"
+            startingLineNumber = "833"
+            endingLineNumber = "833"
+            landmarkName = "+callLogOut:withComplitionHandler:withFailueHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.208544"
+            timestampString = "538162853.420543"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "796"
-            endingLineNumber = "796"
-            landmarkName = "+callLoginUserWithEmail:withPassword:withComplitionHandler:withFailueHandler:withNoAccountExistsHandler:"
+            startingLineNumber = "824"
+            endingLineNumber = "824"
+            landmarkName = "+callLogOut:withComplitionHandler:withFailueHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -148,12 +148,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.208708"
+            timestampString = "538162853.420891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1105"
-            endingLineNumber = "1105"
-            landmarkName = "+callForgetPasswordWithEmail:complitionHandler:withFailueHandler:"
+            startingLineNumber = "1133"
+            endingLineNumber = "1133"
+            landmarkName = "+callRemoveFriendsWith:withFriendIds:ComplitionHandler:withFailueHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -164,12 +164,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.208768"
+            timestampString = "538162853.421162"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1104"
-            endingLineNumber = "1104"
-            landmarkName = "+callForgetPasswordWithEmail:complitionHandler:withFailueHandler:"
+            startingLineNumber = "1132"
+            endingLineNumber = "1132"
+            landmarkName = "+callRemoveFriendsWith:withFriendIds:ComplitionHandler:withFailueHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -260,7 +260,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/BaseViewController.m"
-            timestampString = "538072618.438764"
+            timestampString = "538162853.421489"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "851"
@@ -276,7 +276,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/BaseViewController.m"
-            timestampString = "538072618.439009"
+            timestampString = "538162853.421541"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "852"
@@ -386,12 +386,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.20895"
+            timestampString = "538162853.421617"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1398"
-            endingLineNumber = "1398"
-            landmarkName = "+callGetSpecialitesWithComplitionHandler:withFailueHandler:"
+            startingLineNumber = "1426"
+            endingLineNumber = "1426"
+            landmarkName = "+callGetTrainersWithZipCode:WithComplitionHandler:withFailueHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -402,12 +402,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.209008"
+            timestampString = "538162853.421912"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1391"
-            endingLineNumber = "1391"
-            landmarkName = "+callGetSpecialitesWithComplitionHandler:withFailueHandler:"
+            startingLineNumber = "1419"
+            endingLineNumber = "1419"
+            landmarkName = "+callGetTrainersWithZipCode:WithComplitionHandler:withFailueHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -514,12 +514,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.20917"
+            timestampString = "538162853.422255"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1156"
-            endingLineNumber = "1156"
-            landmarkName = "+callCheckUserExistsWithEmail:complitionHandler:withFailueHandler:"
+            startingLineNumber = "1184"
+            endingLineNumber = "1184"
+            landmarkName = "+callForgetPasswordWithEmail:complitionHandler:withFailueHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -562,12 +562,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.209271"
+            timestampString = "538162853.422539"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1448"
-            endingLineNumber = "1448"
-            landmarkName = "+callGetUserProfileById:WithComplitionHandler:withFailueHandler:"
+            startingLineNumber = "1476"
+            endingLineNumber = "1476"
+            landmarkName = "+callGetSpecialitesWithComplitionHandler:withFailueHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -578,12 +578,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.209324"
+            timestampString = "538162853.422792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1452"
-            endingLineNumber = "1452"
-            landmarkName = "+callGetUserProfileById:WithComplitionHandler:withFailueHandler:"
+            startingLineNumber = "1480"
+            endingLineNumber = "1480"
+            landmarkName = "+callGetSpecialitesWithComplitionHandler:withFailueHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -652,11 +652,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/TrainerDashboardViewController.m"
-            timestampString = "538078173.209434"
+            timestampString = "538162853.423093"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "-profilePictureTapped"
             landmarkType = "7">
          </BreakpointContent>
@@ -668,7 +668,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
-            timestampString = "538078173.210068"
+            timestampString = "538162853.423148"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2"
@@ -716,11 +716,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
-            timestampString = "538078173.210284"
+            timestampString = "538162853.423663"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "MyUserProfileViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -732,7 +732,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MakePassowdViewController.m"
-            timestampString = "537820257.8025711"
+            timestampString = "538138460.004038"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "107"
@@ -748,7 +748,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MakePassowdViewController.m"
-            timestampString = "537820257.802791"
+            timestampString = "538138460.004328"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "205"
@@ -806,12 +806,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.210398"
+            timestampString = "538162853.424148"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "298"
-            endingLineNumber = "298"
-            landmarkName = "+callRegisterUserWithParams:withComplitionHandler:withFailueHandler:withAlreadyExistsHandler:"
+            startingLineNumber = "316"
+            endingLineNumber = "316"
+            landmarkName = "+callEditProfileWithEmail:withName:withDob:withIsSingle:withGender:withImage:withComplitionHandler:withFailueHandler:withAlreadyExistsHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -902,12 +902,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.210547"
+            timestampString = "538162853.424491"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "308"
-            endingLineNumber = "308"
-            landmarkName = "+callRegisterUserWithParams:withComplitionHandler:withFailueHandler:withAlreadyExistsHandler:"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
+            landmarkName = "+callEditProfileWithEmail:withName:withDob:withIsSingle:withGender:withImage:withComplitionHandler:withFailueHandler:withAlreadyExistsHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -918,12 +918,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.210602"
+            timestampString = "538162853.424739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
-            landmarkName = "+callRegisterUserWithParams:withComplitionHandler:withFailueHandler:withAlreadyExistsHandler:"
+            startingLineNumber = "325"
+            endingLineNumber = "325"
+            landmarkName = "+callEditProfileWithEmail:withName:withDob:withIsSingle:withGender:withImage:withComplitionHandler:withFailueHandler:withAlreadyExistsHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -934,12 +934,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.210652"
+            timestampString = "538162853.424978"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "306"
-            endingLineNumber = "306"
-            landmarkName = "+callRegisterUserWithParams:withComplitionHandler:withFailueHandler:withAlreadyExistsHandler:"
+            startingLineNumber = "324"
+            endingLineNumber = "324"
+            landmarkName = "+callEditProfileWithEmail:withName:withDob:withIsSingle:withGender:withImage:withComplitionHandler:withFailueHandler:withAlreadyExistsHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -950,12 +950,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.2107019"
+            timestampString = "538162853.42522"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
-            landmarkName = "+callRegisterUserWithParams:withComplitionHandler:withFailueHandler:withAlreadyExistsHandler:"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
+            landmarkName = "+callEditProfileWithEmail:withName:withDob:withIsSingle:withGender:withImage:withComplitionHandler:withFailueHandler:withAlreadyExistsHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -966,7 +966,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/BaseViewController.m"
-            timestampString = "538072618.440987"
+            timestampString = "538162853.4254659"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "447"
@@ -998,7 +998,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MakePassowdViewController.m"
-            timestampString = "537820257.803495"
+            timestampString = "538138460.004812"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "128"
@@ -1014,11 +1014,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/TrainerDashboardViewController.m"
-            timestampString = "538078173.210812"
+            timestampString = "538162853.425563"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -1030,11 +1030,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/PlayerDashboardViewController.m"
-            timestampString = "538078173.211125"
+            timestampString = "538162853.4256279"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -1046,11 +1046,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/PlayerDashboardViewController.m"
-            timestampString = "538078173.211357"
+            timestampString = "538162853.425679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -1062,91 +1062,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.211432"
+            timestampString = "538162853.425727"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1326"
-            endingLineNumber = "1326"
-            landmarkName = "+callGetTrainersWithZipCode:WithComplitionHandler:withFailueHandler:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.211486"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1333"
-            endingLineNumber = "1333"
-            landmarkName = "+callGetTrainersWithZipCode:WithComplitionHandler:withFailueHandler:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CheckBall/ViewControllers/TrainerDashboardViewController.m"
-            timestampString = "538078173.21154"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
-            landmarkName = "-locationManager:didUpdateLocations:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CheckBall/ViewControllers/TrainerDashboardViewController.m"
-            timestampString = "538078173.211836"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CheckBall/ViewControllers/TrainerDashboardViewController.m"
-            timestampString = "538078173.212144"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.212422"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1267"
-            endingLineNumber = "1267"
+            startingLineNumber = "1354"
+            endingLineNumber = "1354"
             landmarkName = "+callGetPlayersWithZipCode:WithComplitionHandler:withFailueHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1158,12 +1078,92 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.212483"
+            timestampString = "538162853.42599"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1450"
-            endingLineNumber = "1450"
-            landmarkName = "+callGetUserProfileById:WithComplitionHandler:withFailueHandler:"
+            startingLineNumber = "1361"
+            endingLineNumber = "1361"
+            landmarkName = "+callGetPlayersWithZipCode:WithComplitionHandler:withFailueHandler:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/TrainerDashboardViewController.m"
+            timestampString = "538162853.426236"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "-locationManager:didUpdateLocations:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/TrainerDashboardViewController.m"
+            timestampString = "538162853.426283"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/TrainerDashboardViewController.m"
+            timestampString = "538162853.4263279"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/Model/User.m"
+            timestampString = "538162853.426373"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1295"
+            endingLineNumber = "1295"
+            landmarkName = "+callChangeUserPasswordWithUserId:withOldPassword:withNewPassword:complitionHandler:withFailueHandler:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/Model/User.m"
+            timestampString = "538162853.42662"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1478"
+            endingLineNumber = "1478"
+            landmarkName = "+callGetSpecialitesWithComplitionHandler:withFailueHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1184,11 +1184,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
-            timestampString = "538078173.212541"
+            timestampString = "538162853.426869"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "-btnHeightSelectedDoneTapped:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1200,11 +1200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
-            timestampString = "538078173.212605"
+            timestampString = "538162853.427299"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "-btnHeightSelectedDoneTapped:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1216,11 +1216,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
-            timestampString = "538078173.212661"
+            timestampString = "538162853.427719"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "-btnHeightSelectedDoneTapped:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1232,11 +1232,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
-            timestampString = "538078173.2127171"
+            timestampString = "538162853.428136"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "-btnHeightTapped:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1248,12 +1248,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.212773"
+            timestampString = "538162853.428552"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "466"
-            endingLineNumber = "466"
-            landmarkName = "+callUpdateProfileWithParams:withComplitionHandler:withFailueHandler:withAlreadyExistsHandler:"
+            startingLineNumber = "484"
+            endingLineNumber = "484"
+            landmarkName = "+callConnectUserWithMyId:andUserOtherUserId:withComplitionHandler:withFailueHandler:withAlreadyExistsHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1264,11 +1264,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
-            timestampString = "538078173.2128249"
+            timestampString = "538162853.428805"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "633"
-            endingLineNumber = "633"
+            startingLineNumber = "710"
+            endingLineNumber = "710"
             landmarkName = "-btnUpdateProfileTapped:"
             landmarkType = "7">
             <Locations>
@@ -1312,11 +1312,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
-            timestampString = "538078173.21288"
+            timestampString = "538162853.429229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "634"
-            endingLineNumber = "634"
+            startingLineNumber = "711"
+            endingLineNumber = "711"
             landmarkName = "-btnUpdateProfileTapped:"
             landmarkType = "7">
             <Locations>
@@ -1360,11 +1360,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
-            timestampString = "538078173.2129411"
+            timestampString = "538162853.429912"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
             landmarkName = "-viewDidAppear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1376,11 +1376,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
-            timestampString = "538078173.213186"
+            timestampString = "538162853.430055"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
             landmarkName = "-viewDidAppear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1392,11 +1392,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
-            timestampString = "538078173.213246"
+            timestampString = "538162853.430173"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "347"
-            endingLineNumber = "347"
+            startingLineNumber = "447"
+            endingLineNumber = "447"
             landmarkName = "-btnAddLocationOneTaped:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1504,11 +1504,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
-            timestampString = "538078173.213724"
+            timestampString = "538162853.430475"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "391"
-            endingLineNumber = "391"
+            startingLineNumber = "491"
+            endingLineNumber = "491"
             landmarkName = "-btnUpdateProfileTapped:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1520,11 +1520,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
-            timestampString = "538078173.21378"
+            timestampString = "538162853.430599"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "590"
-            endingLineNumber = "590"
+            startingLineNumber = "667"
+            endingLineNumber = "667"
             landmarkName = "-btnUpdateProfileTapped:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1536,11 +1536,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
-            timestampString = "538078173.213836"
+            timestampString = "538162853.431451"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "589"
-            endingLineNumber = "589"
+            startingLineNumber = "666"
+            endingLineNumber = "666"
             landmarkName = "-btnUpdateProfileTapped:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1552,11 +1552,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
-            timestampString = "538078173.213892"
+            timestampString = "538162853.432212"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
             landmarkName = "-viewDidAppear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1568,11 +1568,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
-            timestampString = "538078173.2139471"
+            timestampString = "538162853.4323061"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "417"
-            endingLineNumber = "417"
+            startingLineNumber = "517"
+            endingLineNumber = "517"
             landmarkName = "-btnUpdateProfileTapped:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1584,11 +1584,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
-            timestampString = "538078173.214"
+            timestampString = "538162853.432381"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "467"
-            endingLineNumber = "467"
+            startingLineNumber = "567"
+            endingLineNumber = "567"
             landmarkName = "-btnUpdateProfileTapped:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1600,11 +1600,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
-            timestampString = "538078173.214054"
+            timestampString = "538162853.432452"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "473"
-            endingLineNumber = "473"
+            startingLineNumber = "573"
+            endingLineNumber = "573"
             landmarkName = "-btnUpdateProfileTapped:"
             landmarkType = "7">
             <Locations>
@@ -1678,11 +1678,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
-            timestampString = "538078173.214105"
+            timestampString = "538162853.432524"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "472"
-            endingLineNumber = "472"
+            startingLineNumber = "572"
+            endingLineNumber = "572"
             landmarkName = "-btnUpdateProfileTapped:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1694,11 +1694,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
-            timestampString = "538078173.2141581"
+            timestampString = "538162853.432596"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
+            startingLineNumber = "308"
+            endingLineNumber = "308"
             landmarkName = "-viewDidAppear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1710,11 +1710,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/PlayerDashboardViewController.m"
-            timestampString = "538078173.214213"
+            timestampString = "538162853.432669"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
             landmarkName = "-viewDidAppear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1726,11 +1726,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/PlayerDashboardViewController.m"
-            timestampString = "538078173.2142791"
+            timestampString = "538162853.432723"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "352"
-            endingLineNumber = "352"
+            startingLineNumber = "357"
+            endingLineNumber = "357"
             landmarkName = "-collectionView:didSelectItemAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1742,11 +1742,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/PlayerDashboardViewController.m"
-            timestampString = "538078173.214344"
+            timestampString = "538162853.4327739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "373"
-            endingLineNumber = "373"
+            startingLineNumber = "378"
+            endingLineNumber = "378"
             landmarkName = "-prepareForSegue:sender:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1758,11 +1758,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
-            timestampString = "538078173.214406"
+            timestampString = "538162853.432824"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "-viewDidAppear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1774,11 +1774,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
-            timestampString = "538078173.2144589"
+            timestampString = "538162853.432896"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "-viewDidAppear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1790,11 +1790,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
-            timestampString = "538078173.214512"
+            timestampString = "538162853.4329669"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "-viewDidAppear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1806,11 +1806,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/PlayerDashboardViewController.m"
-            timestampString = "538078173.214565"
+            timestampString = "538162853.433037"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "347"
-            endingLineNumber = "347"
+            startingLineNumber = "352"
+            endingLineNumber = "352"
             landmarkName = "-collectionView:didHighlightItemAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1838,12 +1838,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.214677"
+            timestampString = "538162853.43312"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1505"
-            endingLineNumber = "1505"
-            landmarkName = "+callUploadProfileWithId:withImageName:withComplitionHandler:withFailueHandler:"
+            startingLineNumber = "1535"
+            endingLineNumber = "1535"
+            landmarkName = "+callGetUserProfileById:WithComplitionHandler:withFailueHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1854,11 +1854,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.214731"
+            timestampString = "538162853.433449"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1533"
-            endingLineNumber = "1533"
+            startingLineNumber = "1563"
+            endingLineNumber = "1563"
             landmarkName = "+callUploadProfileWithId:withImageName:withComplitionHandler:withFailueHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1870,11 +1870,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
-            timestampString = "538078173.214783"
+            timestampString = "538162853.433731"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "441"
-            endingLineNumber = "441"
+            startingLineNumber = "457"
+            endingLineNumber = "457"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -1950,11 +1950,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/TrainerDashboardViewController.m"
-            timestampString = "538078173.2157"
+            timestampString = "538162853.434307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "273"
-            endingLineNumber = "273"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
             landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1966,11 +1966,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/PlayerDashboardViewController.m"
-            timestampString = "538078173.216007"
+            timestampString = "538162853.4343719"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "325"
-            endingLineNumber = "325"
+            startingLineNumber = "330"
+            endingLineNumber = "330"
             landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1982,11 +1982,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/TrainerDashboardViewController.m"
-            timestampString = "538078173.216083"
+            timestampString = "538162853.434426"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "325"
-            endingLineNumber = "325"
+            startingLineNumber = "334"
+            endingLineNumber = "334"
             landmarkName = "-prepareForSegue:sender:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1998,11 +1998,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/TrainerDashboardViewController.m"
-            timestampString = "538078173.216341"
+            timestampString = "538162853.434478"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
             landmarkName = "-viewDidAppear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2014,11 +2014,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/TrainerDashboardViewController.m"
-            timestampString = "538078173.2165869"
+            timestampString = "538162853.434528"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "298"
-            endingLineNumber = "298"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
             landmarkName = "-selectedItem:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2030,12 +2030,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.216831"
+            timestampString = "538162853.4345779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "388"
-            endingLineNumber = "388"
-            landmarkName = "+callConnectUserWithMyId:andUserOtherUserId:withComplitionHandler:withFailueHandler:withAlreadyExistsHandler:"
+            startingLineNumber = "406"
+            endingLineNumber = "406"
+            landmarkName = "+callRegisterUserWithParams:withComplitionHandler:withFailueHandler:withAlreadyExistsHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2046,12 +2046,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Model/User.m"
-            timestampString = "538078173.216889"
+            timestampString = "538162853.434871"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "379"
-            endingLineNumber = "379"
-            landmarkName = "+callConnectUserWithMyId:andUserOtherUserId:withComplitionHandler:withFailueHandler:withAlreadyExistsHandler:"
+            startingLineNumber = "397"
+            endingLineNumber = "397"
+            landmarkName = "+callRegisterUserWithParams:withComplitionHandler:withFailueHandler:withAlreadyExistsHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2062,11 +2062,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
-            timestampString = "538078173.216944"
+            timestampString = "538162853.435153"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "810"
-            endingLineNumber = "810"
+            startingLineNumber = "896"
+            endingLineNumber = "896"
             landmarkName = "-btnConnectStarted:"
             landmarkType = "7">
             <Locations>
@@ -2110,11 +2110,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
-            timestampString = "538078173.216997"
+            timestampString = "538162853.43566"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "812"
-            endingLineNumber = "812"
+            startingLineNumber = "898"
+            endingLineNumber = "898"
             landmarkName = "-btnConnectStarted:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2206,11 +2206,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/PlayerDashboardViewController.m"
-            timestampString = "538078173.217551"
+            timestampString = "538162853.436241"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "-locationManager:didUpdateLocations:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2222,11 +2222,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/PlayerDashboardViewController.m"
-            timestampString = "538078173.217608"
+            timestampString = "538162853.4363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
             landmarkName = "-viewDidAppear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2254,11 +2254,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
-            timestampString = "538078173.2177089"
+            timestampString = "538162853.436375"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "462"
-            endingLineNumber = "462"
+            startingLineNumber = "482"
+            endingLineNumber = "482"
             landmarkName = "-viewDidAppear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2270,11 +2270,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/PlayerDashboardViewController.m"
-            timestampString = "538078173.2177531"
+            timestampString = "538162853.43688"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -2356,6 +2356,422 @@
             startingLineNumber = "245"
             endingLineNumber = "245"
             landmarkName = "+loadProfileImage:url:loader:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/Model/User.m"
+            timestampString = "538162853.437026"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "637"
+            endingLineNumber = "637"
+            landmarkName = "+callChangePasswordWithOldPassword:withNewPassword:withMyId:withComplitionHandler:withFailueHandler:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
+            timestampString = "538162853.437319"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "405"
+            endingLineNumber = "405"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
+            timestampString = "538162853.437813"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
+            timestampString = "538162853.437898"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "737"
+            endingLineNumber = "737"
+            landmarkName = "-btnImagePickerTapped:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
+            timestampString = "538162853.4383889"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "448"
+            endingLineNumber = "448"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
+            timestampString = "538162853.438869"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
+            timestampString = "538162853.438946"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "493"
+            endingLineNumber = "493"
+            landmarkName = "-viewDidAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
+            timestampString = "538162853.439379"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "492"
+            endingLineNumber = "492"
+            landmarkName = "-viewDidAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
+            timestampString = "538162853.439822"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "587"
+            endingLineNumber = "587"
+            landmarkName = "-viewDidAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
+            timestampString = "538162853.440249"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "480"
+            endingLineNumber = "480"
+            landmarkName = "-viewDidAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
+            timestampString = "538162853.4406641"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "490"
+            endingLineNumber = "490"
+            landmarkName = "-viewDidAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
+            timestampString = "538162853.440984"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "-viewDidAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
+            timestampString = "538162853.441061"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "477"
+            endingLineNumber = "477"
+            landmarkName = "-viewDidAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
+            timestampString = "538162853.441376"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "-viewDidAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
+            timestampString = "538162853.441448"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "-viewDidAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
+            timestampString = "538162853.441514"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "-viewDidAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/BaseViewController.m"
+            timestampString = "538162853.441584"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1311"
+            endingLineNumber = "1311"
+            landmarkName = "-extractYouTubeVideoUrl:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
+            timestampString = "538162853.441632"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "-viewDidAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
+            timestampString = "538162853.4416929"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "478"
+            endingLineNumber = "478"
+            landmarkName = "-viewDidAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
+            timestampString = "538162853.442004"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "944"
+            endingLineNumber = "944"
+            landmarkName = "-playerViewDidBecomeReady:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyUserProfileViewController.m"
+            timestampString = "538162853.442328"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "518"
+            endingLineNumber = "518"
+            landmarkName = "-viewDidAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
+            timestampString = "538162853.442652"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
+            landmarkName = "-viewDidAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
+            timestampString = "538162853.4427119"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "-viewDidAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
+            timestampString = "538162853.442765"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "-viewDidAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/MyTrainerProfileViewController.m"
+            timestampString = "538162853.442816"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "-viewDidAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/Model/User.m"
+            timestampString = "538162853.442865"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "-heightStringToShow"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
