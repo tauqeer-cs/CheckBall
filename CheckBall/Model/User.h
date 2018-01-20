@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Location.h"
+
 
 @interface User : NSObject
 
@@ -33,9 +35,10 @@
 @property (nonatomic) BOOL hasImage;
 @property (nonatomic,strong) NSArray * specialites;
 
-@property (nonatomic,strong) NSArray * videos;
+@property (nonatomic,strong) NSMutableArray <NSString *> * videos;
 
-@property (nonatomic,strong) NSArray * locations;
+
+@property (nonatomic,strong) NSMutableArray <Location *>* locations;
 
 +(void)callRegisterUserWithParams:(NSDictionary *)params
            withComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler

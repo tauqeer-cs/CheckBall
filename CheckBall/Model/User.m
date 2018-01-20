@@ -40,6 +40,28 @@
     return YES;
 }
 
+-(NSMutableArray *)videos{
+    
+    if (!_videos) {
+        
+        _videos  = [NSMutableArray new];
+        
+        
+    }
+    
+    return _videos;
+    
+}
+-(NSMutableArray *)locations{
+    if (!_locations) {
+        
+        _locations  = [NSMutableArray new];
+        
+        
+    }
+    return _locations;
+    
+}
 +(User *)parseItemFromItem:(id)item{
     
     User *currentItem = [User new];
@@ -59,14 +81,31 @@
     currentItem.phoneName =  [accountItem objectForKey:@"photo"];
     
     
-   // currentItem.descriptionText = [item objectForKey:@"description"];;
-   // currentItem.imageUrl = [item objectForKey:@"image_url"];;
-   // currentItem.newsfeedId = [[item objectForKey:@"newsfeed_id"] intValue];
+    
+    id locations = [item objectForKey:@"Locations"];
+    
 
+    
+    for (id currentTmpLocaton in locations)
+    {
+    
+        [currentItem.locations addObject:
+         [Location parseItemFromItem:currentTmpLocaton]];
+    }
+ 
+    
+    id videos = [item objectForKey:@"Videos"];
+    
+    for (id currentVideo in videos)
+    {
+        [currentItem.videos addObject:[currentVideo objectForKey:@"Url"]];
+    }
+    
 
     return currentItem;
     
 }
+
 
 
 

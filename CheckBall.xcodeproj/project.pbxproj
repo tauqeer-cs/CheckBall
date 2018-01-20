@@ -305,6 +305,7 @@
 		D46365592013747C00E7E442 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D46365502013747B00E7E442 /* README.md */; };
 		D463655A2013747C00E7E442 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D46365512013747B00E7E442 /* LICENSE */; };
 		D463655C2013747C00E7E442 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D46365562013747C00E7E442 /* YTPlayerView.m */; };
+		D463655F2013BA0F00E7E442 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = D463655E2013BA0F00E7E442 /* Location.m */; };
 		D4E5896520105C1C00EB95F1 /* CropImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E5896320105C1B00EB95F1 /* CropImageViewController.xib */; };
 		D4E5896620105C1C00EB95F1 /* CropImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E5896420105C1B00EB95F1 /* CropImageViewController.m */; };
 		D4E5896920105C6C00EB95F1 /* TOActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E5896820105C6C00EB95F1 /* TOActionSheet.m */; };
@@ -902,6 +903,8 @@
 		D46365512013747B00E7E442 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D46365552013747C00E7E442 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
 		D46365562013747C00E7E442 /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
+		D463655D2013BA0F00E7E442 /* Location.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		D463655E2013BA0F00E7E442 /* Location.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		D4E5896220105C1B00EB95F1 /* CropImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropImageViewController.h; sourceTree = "<group>"; };
 		D4E5896320105C1B00EB95F1 /* CropImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CropImageViewController.xib; sourceTree = "<group>"; };
 		D4E5896420105C1B00EB95F1 /* CropImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropImageViewController.m; sourceTree = "<group>"; };
@@ -2184,6 +2187,8 @@
 			children = (
 				D4516CBA2009C89A005FDFDA /* User.m */,
 				D4516CBB2009C89A005FDFDA /* User.h */,
+				D463655D2013BA0F00E7E442 /* Location.h */,
+				D463655E2013BA0F00E7E442 /* Location.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2574,6 +2579,7 @@
 				4736D34B1FC5C702003032AA /* UIButton+MyButton.m in Sources */,
 				4736D39A1FC5C702003032AA /* AFURLResponseSerialization.m in Sources */,
 				4736D4231FC5C702003032AA /* TGAssetImageFile.m in Sources */,
+				D463655F2013BA0F00E7E442 /* Location.m in Sources */,
 				47EFC3761FCF0B1300794A6E /* SelectEmailViewController.m in Sources */,
 				D4E95BCF200CF6ED00BB3F4A /* MyUserProfileViewController.m in Sources */,
 				D463654A2013544900E7E442 /* ChangePasswordViewController.m in Sources */,
