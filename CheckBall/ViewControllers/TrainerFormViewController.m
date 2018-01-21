@@ -11,7 +11,7 @@
 #import "TrainingSpecialityCollectionViewCell.h"
 #import "User.h"
 #import "MakePassowdViewController.h"
-
+#import "Specialities.h"
 @interface TrainerFormViewController ()<UICollectionViewDelegate,UICollectionViewDataSource
 >
 @property (weak, nonatomic) IBOutlet UIButton *btnContinue;
@@ -368,7 +368,7 @@
     
     [self.view bringSubviewToFront:self.viewFormContainer];
     
-    [User callGetSpecialitesWithComplitionHandler:^(id result) {
+    [Specialities callGetSpecialitesWithComplitionHandler:^(id result) {
         
         
         self.specialitesServiceResponse = result;

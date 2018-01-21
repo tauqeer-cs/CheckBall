@@ -98,4 +98,11 @@
 @property (nonatomic) BOOL doShowTheNextButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblNoVideoLabel;
+- (void)enterBasicInfoToLabler:(User *)result;
+- (void)setVideLabelsForEditor:(User *)result;
+
+- (void)setYoutubePlaerForUer:(User *)result;
+
+@property (nonatomic,strong) User * currentUserShowing;
+
 @end

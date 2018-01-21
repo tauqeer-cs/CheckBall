@@ -19,25 +19,37 @@
 
 - (NSInteger)numberOfRowsInPickerview:(DYAlertPickView *)pickerView;
 
+
+
 @end
 
 @protocol DYAlertPickViewDelegate <NSObject>
 @optional
 
-
+// delegate for selecting item
 - (void)pickerview:(DYAlertPickView *)pickerView
-          didConfirmWithItemAtRow:(NSInteger)row;
+didConfirmWithItemAtRow:(NSInteger)row withIsSelected:(BOOL)isSelected;
+-(void)didEndSelected;;
+
+// delegate for canceling
 - (void)pickerviewDidClickCancelButton:(DYAlertPickView *)pickerView;
+
+
 - (void)pickerviewDidClickSwitchButton:(UISwitch *)switchButton __attribute((deprecated("use DYAlertPickerViewDidClickSwitchButton:switchButton:")));
+
 - (void)pickerviewDidClickSwitchButton:(DYAlertPickView *)pickerView switchButton:(UISwitch *)switchButton;
+
+//
 - (BOOL)pickerviewStateOfSwitchButton;
 
 @end
 
 @interface DYAlertPickView : UIView<UITableViewDataSource, UITableViewDelegate>
 
+//tap background to dismiss
 @property BOOL tapBackgroundToDismiss;
 
+//tap item to select and confirm
 @property BOOL tapPickerViewItemToConfirm;
 
 /*
@@ -55,26 +67,40 @@
 @property id<DYAlertPickViewDelegate> delegate;
 @property id<DYAlertPickViewDataSource> dataSource;
 
-
+//header background color */
 @property (nonatomic, strong) UIColor *headerBackgroundColor;
 
+//header title color */
 @property (nonatomic, strong) UIColor *headerTitleColor;
 
+//cancel button background color
 @property (nonatomic, strong) UIColor *cancelButtonBackgroundColor;
 
+//cancel button normal state color
 @property (nonatomic, strong) UIColor *cancelButtonNormalColor;
 
+//cancel button highlighted state color
 @property (nonatomic, strong) UIColor *cancelButtonHighlightedColor;
 
+//confirm button background color
 @property (nonatomic, strong) UIColor *confirmButtonBackgroundColor;
 
+//confirm button normal state color
 @property (nonatomic, strong) UIColor *confirmButtonNormalColor;
 
+//confirm button highlighted state color
 @property (nonatomic, strong) UIColor *confirmButtonHighlightedColor;
 
+//switch button title
 @property (nonatomic, strong) NSString *switchButtonTitle;
 
+@property (nonatomic) BOOL allowMultipleSelection;
+
+//show the AlerPickerView
+
 - (void)show;
+
+//show AlerPickerView and default selected
 - (void)showAndSelectedIndex:(NSInteger)index;
 
 @end

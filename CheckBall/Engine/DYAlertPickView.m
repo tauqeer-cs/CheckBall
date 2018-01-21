@@ -7,6 +7,7 @@
 //
 
 #import "DYAlertPickView.h"
+#import "DIYTableViewCell.h"
 
 #define DY_BACKGROUND_ALPHA 0.4
 #define DY_HEADER_HEIGHT 44.0
@@ -138,7 +139,7 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
     UITableView *tableView = [[UITableView alloc] initWithFrame:tableRect style:UITableViewStylePlain];
     tableView.delegate = self;
     tableView.dataSource = self;
-  //  tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     return tableView;
 }
 
@@ -344,7 +345,8 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
         self.layer.transform = CATransform3DMakeScale(1, 1, 1);
         [self removeFromSuperview];
         [self setNeedsDisplay];
-        // Request to stop receiving accelerometer events and turn off accelerometer
+
+        
         [[NSNotificationCenter defaultCenter] removeObserver:self];
         [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
         [self show];
@@ -368,9 +370,10 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
 
 - (IBAction)confirmButtonPressed:(UIButton *)sender {
     [self dismiss:^{
-        if(self.selectedIndexPath && [self.delegate respondsToSelector:@selector(pickerview:didConfirmWithItemAtRow:)]){
-            [self.delegate pickerview:self didConfirmWithItemAtRow:self.selectedIndexPath.row];
-        }
+        
+        [self.delegate didEndSelected];
+            
+        
     }];
 }
 
@@ -393,9 +396,9 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"picker_view_identifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    DIYTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: cellIdentifier];
+        cell = [[DIYTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: cellIdentifier];
     }
     if(self.selectedIndexPath && [self.selectedIndexPath isEqual:indexPath]){
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -412,24 +415,78 @@ typedef void (^DYAlertPickerViewDismissCallback)(void);
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if(self.selectedIndexPath){
-        UITableViewCell *prevCell = [tableView cellForRowAtIndexPath:self.selectedIndexPath];
-        if(prevCell){
-            prevCell.accessoryType = UITableViewCellAccessoryNone;
+    DIYTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+
+    if (!self.allowMultipleSelection) {
+        
+        
+        if(self.selectedIndexPath){
+            DIYTableViewCell *prevCell = [tableView cellForRowAtIndexPath:self.selectedIndexPath];
+            if(prevCell){
+                prevCell.accessoryType = UITableViewCellAccessoryNone;
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                cell.isSelected = YES;
+                
+            } else {
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                cell.isSelected = YES;
+            }
+        } else{
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        } else {
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            
+            cell.selected = YES;
+            
+            
         }
-    } else{
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    }
-    self.selectedIndexPath = indexPath;
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if(self.tapPickerViewItemToConfirm && [self.delegate respondsToSelector:@selector(pickerview:didConfirmWithItemAtRow:)]){
+     
+        self.selectedIndexPath = indexPath;
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
         [self dismiss:^{
-            [self.delegate pickerview:self didConfirmWithItemAtRow:indexPath.row];
+            [self.delegate pickerview:self didConfirmWithItemAtRow:indexPath.row withIsSelected:cell.isSelected];
+            
         }];
+         
+
+            
     }
+    else {
+        
+    
+        if (cell.isSelected) {
+            
+            cell.isSelected = NO;
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            
+        }
+        else
+            if(self.selectedIndexPath){
+            DIYTableViewCell *prevCell = [tableView cellForRowAtIndexPath:self.selectedIndexPath];
+            if(prevCell){
+                 //prevCell.accessoryType = UITableViewCellAccessoryNone;
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                cell.isSelected = YES;
+                
+            } else {
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                cell.isSelected = YES;
+            }
+        } else{
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            
+            cell.selected = YES;
+            
+            
+        }
+    
+        [self.delegate pickerview:self didConfirmWithItemAtRow:indexPath.row withIsSelected:cell.isSelected];
+        
+        
+    }
+    
+ 
+    
+   
 }
 @end

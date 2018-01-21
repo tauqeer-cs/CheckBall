@@ -69,18 +69,23 @@
         int inchesIndex = [self.heightPickerView selectedRowInComponent:1];
         
         
+        
+        
         NSString * finalSelectedHeight = [NSString stringWithFormat:@"%@%@",[self.heightFeets objectAtIndex:feetIndex],[self.heightInches objectAtIndex:inchesIndex]];
         
-        //self.txtHeight.txtView.text = finalSelectedHeight;
 
+       
         self.heightSelected = [finalSelectedHeight stringByReplacingOccurrencesOfString:@"'" withString:@"."];
+        
+        self.currentUserShowing.height = [self.heightSelected doubleValue];
+        
         
         self.heightSelected = [self.heightSelected stringByReplacingOccurrencesOfString:@"\"" withString:@""];
         
 
         finalSelectedHeight = [NSString stringWithFormat:@"Height ( %@ )",finalSelectedHeight];
         
-        self.lblHeight.text = finalSelectedHeight;
+        self.lblHeight.text = self.currentUserShowing.heightStringToShow;
         
         
 
@@ -89,11 +94,13 @@
         
         NSString * finalSelectedHeight = [NSString stringWithFormat:@"%@",[self.weightsArray objectAtIndex:[self.heightPickerView selectedRowInComponent:0]]];
         
-        //self.txtWeight.txtView.text = finalSelectedHeight;
+        
 
         self.weightSelected = [finalSelectedHeight stringByReplacingOccurrencesOfString:@" lb" withString:@""];
-        NSLog(@"%@",self.weightSelected);
-        self.lblWeight.text = [NSString stringWithFormat:@"Weight ( %@ )",finalSelectedHeight];;
+        
+        self.currentUserShowing.weight = [self.weightSelected intValue];
+        
+        self.lblWeight.text = self.currentUserShowing.weightStringToShow;;
         
     }
     
@@ -162,7 +169,7 @@
     
     [self.heightPickerView reloadAllComponents];
     
-   // self.txtHeight.txtView.text = finalSelectedHeight;
+
     
     
     
@@ -180,10 +187,6 @@
     self.lblSelectHeight.text = @"Select Weight";
     
     [self.heightPickerView reloadAllComponents];
-    
-    // self.txtHeight.txtView.text = finalSelectedHeight;
-    
-    
     
     
 }
@@ -224,8 +227,8 @@
         
         self.lblMyName.text = self.addingTextView.txtBoxEntering.text;
         self.lblMyName2.text = self.addingTextView.txtBoxEntering.text;
-    
         self.changingTheName = NO;
+        self.currentUserShowing.name = self.addingTextView.txtBoxEntering.text;
         
     }
     else if(self.changingThePosition){
@@ -233,6 +236,8 @@
         self.lblPosition.text = self.addingTextView.txtBoxEntering.text;
         self.lblPosition2.text = self.addingTextView.txtBoxEntering.text;
         self.changingThePosition = NO;
+        
+        self.currentUserShowing.position = self.addingTextView.txtBoxEntering.text;
         
         
     }
@@ -242,6 +247,7 @@
         self.lblSchool.text = self.addingTextView.txtBoxEntering.text;
         self.changingTheSchool = NO;
         
+        self.currentUserShowing.school = self.addingTextView.txtBoxEntering.text;
         
     }
     else if(self.changingTheBioDetails){
@@ -250,22 +256,51 @@
         self.lblBio.text = self.addingTextView.txtBoxEntering.text;
         self.changingTheBioDetails = NO;
         
+        self.currentUserShowing.bio = self.addingTextView.txtBoxEntering.text;
+        
         
     }
     else if(self.changingYouTubeOne){
         
+        
         self.lblYouTubeOne.text = self.addingTextView.txtBoxEntering.text;
         self.lblYouTubeOne.text = self.addingTextView.txtBoxEntering.text;
         self.changingYouTubeOne = NO;
+        NSMutableArray* currentVideos = self.currentUserShowing.videos;
         
+        if ([currentVideos count] == 0) {
+            currentVideos = [NSMutableArray new];
+            
+            [currentVideos addObject:self.lblYouTubeOne.text];
+            
+        }
+        else {
+            [currentVideos replaceObjectAtIndex:0 withObject:self.lblYouTubeOne.text];
+        }
         
     }
     else if(self.changingYouTubeTwo){
         
         self.lblYouTubeTwo.text = self.addingTextView.txtBoxEntering.text;
         self.lblYouTubeTwo.text = self.addingTextView.txtBoxEntering.text;
+        
         self.changingYouTubeTwo  = NO;
         
+        NSMutableArray* currentVideos = self.currentUserShowing.videos;
+        
+        
+        if ([currentVideos count] == 0) {
+            currentVideos = [NSMutableArray new];
+            
+            [currentVideos addObject:self.lblYouTubeOne.text];
+            
+        }
+        else if([currentVideos count] == 2){
+            [currentVideos replaceObjectAtIndex:1 withObject:self.lblYouTubeOne.text];
+        }
+        else if([currentVideos count] == 1){
+            [currentVideos replaceObjectAtIndex:0 withObject:self.lblYouTubeOne.text];
+        }
         
     }
     
@@ -483,88 +518,15 @@
         
         [User
          callGetUserProfileById:[NSString stringWithFormat:@"%d",self.idCalling]
-         WithComplitionHandler:^(id result) {
+         WithComplitionHandler:^(User * result) {
              [self hideLoader];
              
 
 
-             
-             id videosList = [result objectForKey:@"Videos"];
-             if ([videosList isKindOfClass:[NSArray class]] && [videosList count] > 0)
-             {
-                 BOOL hasVideoBeenSetForTube = NO;
-                 
-                 for (id currentItem in videosList)
-             {
-             
-                 [self.allVideos addObject:[currentItem objectForKey:@"Url"]];
-             
-                 if (!hasVideoBeenSetForTube) {
-                     [self.youTubePrayer loadWithVideoId:[self extractYouTubeVideoUrl:[currentItem objectForKey:@"Url"]]];
-                     hasVideoBeenSetForTube = YES;
-                     
-                 }
-                 
-                 self.youTubePrayer.delegate = self;
-                 
-
-                 
-                 self.currentIndexOfVideos = 0;
-                
-
-
-             }
-                 
-                 if ([self.allVideos count] > 1)
-                 {
-                  
-                    self.doShowTheNextButton = YES;
-                     
-                 }
-                 
-                 if([self.allVideos count] == 0){
-                     
-                     [self.lblNoVideoLabel setHidden:NO];
-                     
-                 }
-             }
-             if ( [[[[result objectForKey:@"Account"] firstObject] objectForKey:@"photo"] length] == 0)  {
-                 
-                 self.hasImage = NO;
-                 
-             }
-             
-             self.lblMyName.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
-             self.lblMyName2.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
-             self.lblPosition.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Position"];
-             self.lblPosition2.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Position"];
-             self.lblSchool.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"School"];
-             self.lblBio.text =  [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Bio"];
-             
-             
-             NSString * heightShowing = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Height"];
-             if (![heightShowing isKindOfClass:[NSString class]]) {
-                 heightShowing = [NSString stringWithFormat:@"%.02f",[heightShowing doubleValue]];
-                 self.heightSelected = heightShowing;
-             }
-             heightShowing = [heightShowing stringByReplacingOccurrencesOfString:@"." withString:@"\""];
-             heightShowing = [heightShowing stringByAppendingString:@"'"];
-             heightShowing = [NSString stringWithFormat:@"Height ( %@ )",heightShowing];
-             self.lblHeight.text = heightShowing;
-             NSString * weight = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Weight"];
-             if (![weight isKindOfClass:[NSString class]]) {
-                 weight = [NSString stringWithFormat:@"%d",[weight intValue]];self.weightSelected = weight;
-             }
-             weight = [weight stringByAppendingString:@" lb"];
-             self.lblWeight.text = [NSString stringWithFormat:@"Weight ( %@ )",weight];;
-             if ([self.allVideos count] >= 2) {
-                 self.lblYouTubeOne.text = self.allVideos[0]; self.lblYouTubeTwo.text = self.allVideos[1];
-                 
-             }
-             else if([self.allVideos count] >= 1){
-                 self.lblYouTubeOne.text = self.allVideos[0];
-             }
-             
+             self.currentUserShowing = result;
+             self.hasImage = result.hasImage;
+             [self enterBasicInfoToLabler:result];
+             [self setYoutubePlaerForUer:result];
              [self.scrollViewUsing setHidden:NO];
              
              
@@ -578,56 +540,17 @@
     {
      
         [User
-         callGetUserProfileById:self.myJid WithComplitionHandler:^(id result) {
+         callGetUserProfileById:self.myJid WithComplitionHandler:^(User * result) {
+             
+             
+             self.currentUserShowing = result;
              
            
-             
-             [self hideLoader];
-             id videosList = [result objectForKey:@"Videos"];
-             if ([videosList isKindOfClass:[NSArray class]] && [videosList count] > 0)
-             {for (id currentItem in videosList)
-             {
-                 [self.allVideos addObject:[currentItem objectForKey:@"Url"]];
-             }
-             }
-             
-             if ( [[[[result objectForKey:@"Account"] firstObject] objectForKey:@"photo"] length] == 0)  {
-                 
-                 self.hasImage = NO;
-                 
-             }
-             self.lblMyName.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
-             self.lblMyName2.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
-             self.lblPosition.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Position"];
-             self.lblPosition2.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Position"];
-             self.lblSchool.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"School"];
-             self.lblBio.text =  [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Bio"];
-             NSString * heightShowing = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Height"];
-             
-             if (![heightShowing isKindOfClass:[NSString class]]) {
-                 heightShowing = [NSString stringWithFormat:@"%.02f",[heightShowing doubleValue]];
-                 self.heightSelected = heightShowing;
-             }
-             heightShowing = [heightShowing stringByReplacingOccurrencesOfString:@"." withString:@"\""];
-             heightShowing = [heightShowing stringByAppendingString:@"'"];
-             heightShowing = [NSString stringWithFormat:@"Height ( %@ )",heightShowing];
-             self.lblHeight.text = heightShowing;
-             NSString * weight = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Weight"];
-             if (![weight isKindOfClass:[NSString class]]) {
-                 weight = [NSString stringWithFormat:@"%d",[weight intValue]];self.weightSelected = weight;
-             }
-             weight = [weight stringByAppendingString:@" lb"];
-             self.lblWeight.text = [NSString stringWithFormat:@"Weight ( %@ )",weight];;
-              if ([self.allVideos count] >= 2) {
-                 self.lblYouTubeOne.text = self.allVideos[0]; self.lblYouTubeTwo.text = self.allVideos[1];
-                 
-             }
-             else if([self.allVideos count] >= 1){
-                 self.lblYouTubeOne.text = self.allVideos[0];
-             }
-             
-             [self.scrollViewUsing setHidden:NO];
-             
+            [self enterBasicInfoToLabler:result];
+             self.hasImage = self.hasImage;
+            [self setVideLabelsForEditor:result];
+            [self.scrollViewUsing setHidden:NO];
+            [self hideLoader];
              
          } withFailueHandler:^{
              
@@ -662,20 +585,25 @@
 }
 
 
+
 - (IBAction)btnUpdateProfileTapped:(id)sender {
     
     if (!self.hasEditingAnyField) {
     
         return;
     }
-    NSMutableDictionary * paramDictionary = [NSMutableDictionary new] ;
+    NSMutableDictionary * paramDictionary;
+   paramDictionary =  [self.currentUserShowing makeParam];
     
+
+    /*
     NSMutableDictionary * tmpDictionary = [NSMutableDictionary new];
     
     [tmpDictionary setObject:self.myJid forKey:@"ID"];
     [tmpDictionary setObject:self.lblMyName.text forKey:@"Name"];
     [tmpDictionary setObject:self.myEmail forKey:@"Email"];
     [tmpDictionary setObject:self.myAccountType forKey:@"Account_Type"];
+    
     [tmpDictionary setObject:self.heightSelected forKey:@"Height"];
     [tmpDictionary setObject:self.weightSelected forKey:@"Weight"];
     
@@ -708,6 +636,7 @@
 
     [paramDictionary setObject:videosArray forKey:@"Videos"];
     [paramDictionary setObject:@[] forKey:@"Locations"];
+    */
     
     
     
@@ -974,5 +903,66 @@
     
 }
 
+- (void)enterBasicInfoToLabler:(User *)result {
+    self.lblMyName.text = result.name;
+    self.lblMyName2.text = result.name;
+    self.lblPosition.text = result.position;
+    self.lblPosition2.text = result.position;
+    self.lblSchool.text = result.school;
+    self.lblBio.text =  result.bio;
+    self.lblHeight.text = result.heightStringToShow;
+    self.lblWeight.text = result.weightStringToShow;
+}
+
+- (void)setVideLabelsForEditor:(User *)result {
+    id videosList = result.videos;
+    if ([videosList isKindOfClass:[NSArray class]] && [videosList count] > 0)
+    {
+        for (id currentItem in videosList)
+        {
+            [self.allVideos addObject:currentItem];
+        }
+    }
+    if ([self.allVideos count] >= 2) {
+        
+        self.lblYouTubeOne.text = self.allVideos[0];
+        self.lblYouTubeTwo.text = self.allVideos[1];
+        
+    }
+    else if([self.allVideos count] >= 1){
+        self.lblYouTubeOne.text = self.allVideos[0];
+    }
+}
+
+- (void)setYoutubePlaerForUer:(User *)result {
+    id videosList = result.videos;
+    
+    
+    if ([videosList isKindOfClass:[NSArray class]] && [videosList count] > 0)
+    {
+        BOOL hasVideoBeenSetForTube = NO;
+        for (id currentItem in videosList)
+        {
+            [self.allVideos addObject:currentItem];
+            if (!hasVideoBeenSetForTube) {
+                [self.youTubePrayer loadWithVideoId:[self extractYouTubeVideoUrl:currentItem]];
+                hasVideoBeenSetForTube = YES;
+                
+                self.youTubePrayer.delegate = self;
+                
+            }
+            self.currentIndexOfVideos = 0;
+        }
+        if ([self.allVideos count] > 1)
+        {
+            self.doShowTheNextButton = YES;
+        }
+        
+        if([self.allVideos count] == 0){
+            [self.lblNoVideoLabel setHidden:NO];
+        }
+        
+    }
+}
 @end
 

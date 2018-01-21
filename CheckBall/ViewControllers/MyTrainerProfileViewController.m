@@ -8,10 +8,14 @@
 
 #import "MyTrainerProfileViewController.h"
 #import "User.h"
-
 #import "MyTrainerProfileViewController.h"
+#import "Specialities.h"
+#import "DYAlertPickView.h"
 
-@interface MyTrainerProfileViewController ()<SelectMapLocationViewCellDelegate,GMSMapViewDelegate>
+
+@interface MyTrainerProfileViewController ()<SelectMapLocationViewCellDelegate,GMSMapViewDelegate,DYAlertPickViewDataSource, DYAlertPickViewDelegate>
+
+
 
 @property (nonatomic) int indexAddingOfLocation;
 
@@ -33,6 +37,10 @@
 
 @property (nonatomic) BOOL viewDidAppearHAsAlreadyBeenCAlledMan;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapViewTraines;
+@property (weak, nonatomic) IBOutlet UILabel *lblTrainerSpeciality;
+
+@property (nonatomic,strong) NSMutableArray * specalitesList;
+@property (nonatomic,strong) NSMutableArray * selectedSpecialites;
 
 @end
 
@@ -40,6 +48,38 @@
 GMSCameraPosition *camera2;
 GMSMapView *mapView2;
 
+-(NSMutableArray *)selectedSpecialites{
+    
+    if (!_selectedSpecialites) {
+        
+        _selectedSpecialites = [NSMutableArray new];
+        
+    }
+    return _selectedSpecialites;
+    
+}
+-(NSMutableArray *)specalitesList{
+    
+    
+    if (!_specalitesList) {
+        
+        _specalitesList = [Specialities savedSpecialities];
+        
+        if ([_specalitesList count] == 0) {
+            
+            [Specialities callGetSpecialitesWithComplitionHandler:^(id result) {
+            
+                _specalitesList = [Specialities savedSpecialities];
+                
+                //reload the tableView
+            } withFailueHandler:^{
+                
+            }];
+            
+        }
+    }
+    return _specalitesList;
+}
 - (void)viewDidLoad {
     // Do any additional setup after loading the view.
     if (self.comingFromListing) {
@@ -47,6 +87,7 @@ GMSMapView *mapView2;
         self.title = @"Profile";
     }
 
+    self.specalitesList;
     
     [self.scrollViewUsing setHidden:YES];
     [self.youTubePrayer setHidden:YES];
@@ -119,6 +160,46 @@ GMSMapView *mapView2;
 }
 
 
+
+
+- (void)setLocationTextForEditor:(User *)result {
+    id locationObject = result.locations;
+    int i = 0;
+    if (locationObject) {
+        for (Location * currentItem in locationObject) {
+            
+            if (i == 0) {
+                self.lblAddress1.text = currentItem.locationDescription;
+            }
+            else if (i == 1){
+                self.lblAddress2.text = currentItem.locationDescription;
+            }
+            i++;
+        }
+    }
+}
+
+- (void)setLocationMapForUser:(User *)result {
+    BOOL cameriaHasBeenSet = NO;
+    for (Location * currentItemDoing in result.locations)
+    {
+        float latShowing =  currentItemDoing.userLatitude;
+        float longShowing = currentItemDoing.userLongitude;
+        if (!cameriaHasBeenSet) {
+            GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:latShowing
+                                                                    longitude:longShowing
+                                                                         zoom:11];
+            [self.mapViewTraines setCamera:camera];
+        }
+        CLLocationCoordinate2D position = CLLocationCoordinate2DMake(latShowing, longShowing);
+        GMSMarker *marker = [GMSMarker markerWithPosition:position];
+        marker.map = self.mapViewTraines;
+        cameriaHasBeenSet = YES;
+    }
+}
+
+
+
 -(void)viewDidAppear:(BOOL)animated{
     
     if (self.viewDidAppearHAsAlreadyBeenCAlledMan) {
@@ -134,158 +215,28 @@ GMSMapView *mapView2;
 
         
         [User
-         callGetUserProfileById:[NSString stringWithFormat:@"%d",self.idCalling] WithComplitionHandler:^(id result) {
+         callGetUserProfileById:[NSString stringWithFormat:@"%d",self.idCalling] WithComplitionHandler:^(User * result) {
              
+            
              
-             id locationObject = [result objectForKey:@"Location"];
+             self.currentUserShowing = result;
              
+             [self enterBasicInfoToLabler:result];
              
-             BOOL cameriaHasBeenSet = NO;
+             self.lblTrainerSpeciality.text =  [Specialities mySpecialitesStringFromArray:result.specialites];
+             self.mySpeciality = result.specialites;
              
-             for (id currentItemDoing in locationObject)
-             {
-                 
-                float latShowing =  [[currentItemDoing objectForKey:@"Latitude"] floatValue];
-                 
-                float longShowing = [[currentItemDoing objectForKey:@"Longitude"] floatValue];
-                 
-                 if (!cameriaHasBeenSet) {
-                     
-                     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:latShowing
-                                                                             longitude:longShowing
-                                                                                  zoom:11];
-                     
-                     [self.mapViewTraines setCamera:camera];
-                     
-                 }
-                 
-                 CLLocationCoordinate2D position = CLLocationCoordinate2DMake(latShowing, longShowing);
-                 
-                 GMSMarker *marker = [GMSMarker markerWithPosition:position];
-                 //self.mapViewTraines.map = self.mapView;
-                 
-                 marker.map = self.mapViewTraines;
-                 
-
-                 
-
-                 
-                 
-                 
-                 cameriaHasBeenSet = YES;
-                 
-                 
-                 
-             }
+             [self setLocationMapForUser:result];
+             
              
              [self hideLoader];
-             if ( [[[[result objectForKey:@"Account"] firstObject] objectForKey:@"photo"] length] == 0)  {
-                 
-                 self.hasImage = NO;
-                 
-             }
-             self.mySpeciality = [result objectForKey:@"Specialites"];
-             
-             id videosList = [result objectForKey:@"Videos"];
-             
-             if ([videosList isKindOfClass:[NSArray class]] && [videosList count] > 0)
-             {
-                 
-                 
-
-                 BOOL hasVideoBeenSetForTube = NO;
-                 for (id currentItem in videosList)
-                 {
-                     [self.allVideos addObject:[currentItem objectForKey:@"Url"]];
-                     
-                     if (!hasVideoBeenSetForTube) {
-                         [self.youTubePrayer loadWithVideoId:[self extractYouTubeVideoUrl:[currentItem objectForKey:@"Url"]]];
-                         hasVideoBeenSetForTube = YES;
-                     
-                         self.youTubePrayer.delegate = self;
-                         
-                         
-                         
-                     }
-                     
-                     self.currentIndexOfVideos = 0;
-                     
-                     
-                     
-                 }
-                 
-                 self.youTubePrayer.delegate = self;
-                 
-                 
-                 
-                 if ([self.allVideos count] > 1)
-                 {
-                     
-                     self.doShowTheNextButton = YES;
-                     
-                 }
-                 self.youTubePrayer.delegate = self;
-             
-                 if([self.allVideos count] == 0){
-                     
-                     [self.lblNoVideoLabel setHidden:NO];
-                     
-                 }
-                 
-             }
-             
-             self.lblMyName.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
-             self.lblMyName2.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
-             
-             self.lblPosition.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Position"];
-             self.lblPosition2.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Position"];
-             
-             self.lblSchool.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"School"];
-             
-             self.lblBio.text =  [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Bio"];
-             
-             NSString * heightShowing = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Height"];
-             if (![heightShowing isKindOfClass:[NSString class]]) {
-                 
-                 //  5' 7" )
-                 heightShowing = [NSString stringWithFormat:@"%.02f",[heightShowing doubleValue]];
-                 
-                 self.heightSelected = heightShowing;
-                 
-             }
-             heightShowing = [heightShowing stringByReplacingOccurrencesOfString:@"." withString:@"\""];
-             heightShowing = [heightShowing stringByAppendingString:@"'"];
-             
-             heightShowing = [NSString stringWithFormat:@"Height ( %@ )",heightShowing];
-             
-             self.lblHeight.text = heightShowing;
-             
-             NSString * weight = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Weight"];
-             
-             if (![weight isKindOfClass:[NSString class]]) {
-                 
-                 weight = [NSString stringWithFormat:@"%d",[weight intValue]];
-                 
-                 self.weightSelected = weight;
-                 
-             }
-             weight = [weight stringByAppendingString:@" lb"];
-             self.lblWeight.text = [NSString stringWithFormat:@"Weight ( %@ )",weight];;
              
              
-             if ([self.allVideos count] >= 2) {
+             self.hasImage = result.hasImage;
                  
-                 self.lblYouTubeOne.text = self.allVideos[0];
-                 self.lblYouTubeTwo.text = self.allVideos[1];
-                 
-             }
-             else if([self.allVideos count] >= 1){
-                 
-                 
-                 self.lblYouTubeOne.text = self.allVideos[0];
-                 
-                 
-             }
+             [self setYoutubePlaerForUer:result];
+             
+         
              
              [self.scrollViewUsing setHidden:NO];
              
@@ -302,109 +253,16 @@ GMSMapView *mapView2;
         
     
     [User
-     callGetUserProfileById:self.myJid WithComplitionHandler:^(id result) {
+     callGetUserProfileById:self.myJid WithComplitionHandler:^(User * result) {
          
+         self.currentUserShowing = result;
          [self hideLoader];
-         if ( [[[[result objectForKey:@"Account"] firstObject] objectForKey:@"photo"] length] == 0)  {
-             
-             self.hasImage = NO;
-             
-         }
-         
-         self.mySpeciality = [result objectForKey:@"Specialites"];
-         
-         id videosList = [result objectForKey:@"Videos"];
-         
-         id locationObject = [result objectForKey:@"Location"];
-         
-         int i = 0;
-         if (locationObject) {
-             for (id currentItem in locationObject) {
-                 
-                 if (i == 0) {
-                     
-                     self.lblAddress1.text = [currentItem objectForKey:@"Description"];
-                     
-                 }
-                 else     if (i == 1){
-                     
-                     self.lblAddress2.text = [currentItem objectForKey:@"Description"];
-                     
-                     
-                 }
-                 
-                 
-                 i++;
-             }
-             
-         }
-         
-         if ([videosList isKindOfClass:[NSArray class]] && [videosList count] > 0)
-         {
-             
-             
-             for (id currentItem in videosList)
-             {
-                 [self.allVideos addObject:[currentItem objectForKey:@"Url"]];
-             }
-             
-        
-
-             
-         }
-         self.lblMyName.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
-         self.lblMyName2.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Name"];
-         
-         self.lblPosition.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Position"];
-         self.lblPosition2.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Position"];
-         
-         self.lblSchool.text = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"School"];
-         
-         self.lblBio.text =  [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Bio"];
-         
-         NSString * heightShowing = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Height"];
-         if (![heightShowing isKindOfClass:[NSString class]]) {
-             
-             //  5' 7" )
-             heightShowing = [NSString stringWithFormat:@"%.02f",[heightShowing doubleValue]];
-             
-             self.heightSelected = heightShowing;
-             
-         }
-         heightShowing = [heightShowing stringByReplacingOccurrencesOfString:@"." withString:@"\""];
-         heightShowing = [heightShowing stringByAppendingString:@"'"];
-         
-         heightShowing = [NSString stringWithFormat:@"Height ( %@ )",heightShowing];
-         
-         self.lblHeight.text = heightShowing;
-         
-         NSString * weight = [[[result objectForKey:@"Account"] firstObject] objectForKey:@"Weight"];
-         
-         if (![weight isKindOfClass:[NSString class]]) {
-             
-             weight = [NSString stringWithFormat:@"%d",[weight intValue]];
-             
-             self.weightSelected = weight;
-             
-         }
-         weight = [weight stringByAppendingString:@" lb"];
-         self.lblWeight.text = [NSString stringWithFormat:@"Weight ( %@ )",weight];;
-         
-         
-         if ([self.allVideos count] >= 2) {
-             
-             self.lblYouTubeOne.text = self.allVideos[0];
-             self.lblYouTubeTwo.text = self.allVideos[1];
-             
-         }
-         else if([self.allVideos count] >= 1){
-             
-             
-             self.lblYouTubeOne.text = self.allVideos[0];
-             
-             
-         }
-         
+         [self enterBasicInfoToLabler:result];
+         self.lblTrainerSpeciality.text =  [Specialities mySpecialitesStringFromArray:result.specialites];
+         self.mySpeciality = result.specialites;
+         self.hasImage = result.hasImage;
+         [self setLocationTextForEditor:result];
+        [self setVideLabelsForEditor:result];
          [self.scrollViewUsing setHidden:NO];
          
      } withFailueHandler:^{
@@ -447,7 +305,7 @@ GMSMapView *mapView2;
     SelectMapLocationViewController * destination = (SelectMapLocationViewController *)[self viewControllerFromStoryBoard:@"MainTrainer" withViewControllerName:@"SelectMapLocationViewController"];
     destination.delegate = self;
     
-    self.indexAddingOfLocation = 1;
+    self.indexAddingOfLocation = 0;
     [self.navigationController showViewController:destination sender:self];
     
 }
@@ -458,7 +316,7 @@ GMSMapView *mapView2;
     SelectMapLocationViewController * destination = (SelectMapLocationViewController *)[self viewControllerFromStoryBoard:@"MainTrainer" withViewControllerName:@"SelectMapLocationViewController"];
     destination.delegate = self;
     
-    self.indexAddingOfLocation = 2;
+    self.indexAddingOfLocation = 1;
     [self.navigationController showViewController:destination sender:self];
     
 }
@@ -467,20 +325,56 @@ GMSMapView *mapView2;
     
  
     if (self.indexAddingOfLocation == 1) {
+        Location * newLocation = [Location new];
+        newLocation.locationDescription = addres;
+        newLocation.userLatitude = [lat floatValue];
+        newLocation.userLongitude = [longit floatValue];
         
-        self.firstLocationLat = lat;
-        self.firstLocationLong = longit;
-        self.firstLocationAddres = addres;
         
-        self.lblAddress1.text = addres;
+        
+        self.lblAddress2.text = addres;
         
         self.hasEditingAnyField = YES;
+        
+        if ([self.currentUserShowing.locations count] == 0) {
+            
+            [self.currentUserShowing.locations addObject:newLocation];
+            
+        }
+        else if ([self.currentUserShowing.locations count] == 1) {
+            
+            [self.currentUserShowing.locations addObject:newLocation];
+            
+        }
+        else
+        {
+            [self.currentUserShowing.locations replaceObjectAtIndex:1 withObject:newLocation];
+            
+        }
+        
     }
     else {
-        self.secondLocationLat = lat;
-        self.secondLocationLong = longit;
-        self.secondLocationAddres = addres;
-        self.lblAddress2.text = addres;
+        
+        Location * newLocation = [Location new];
+        newLocation.locationDescription = addres;
+        newLocation.userLatitude = [lat floatValue];
+        newLocation.userLongitude = [longit floatValue];
+        
+        
+        if ([self.currentUserShowing.locations count] == 0) {
+            
+            [self.currentUserShowing.locations addObject:newLocation];
+            
+        }
+        else
+        {
+
+            [self.currentUserShowing.locations replaceObjectAtIndex:0 withObject:newLocation];
+            
+            
+        }
+        
+        self.lblAddress1.text = addres;
         
         self.hasEditingAnyField = YES;
     }
@@ -492,77 +386,12 @@ GMSMapView *mapView2;
         
         return;
     }
-    NSMutableDictionary * paramDictionary = [NSMutableDictionary new] ;
-    
-    NSMutableDictionary * tmpDictionary = [NSMutableDictionary new];
-    
-    [tmpDictionary setObject:self.myJid forKey:@"ID"];
-    [tmpDictionary setObject:self.lblMyName.text forKey:@"Name"];
-    [tmpDictionary setObject:self.myEmail forKey:@"Email"];
-    [tmpDictionary setObject:self.myAccountType forKey:@"Account_Type"];
-    [tmpDictionary setObject:self.heightSelected forKey:@"Height"];
-    [tmpDictionary setObject:self.weightSelected forKey:@"Weight"];
-    
-    [tmpDictionary setObject:self.lblPosition.text forKey:@"Position"];
-    
-    [tmpDictionary setObject:self.lblSchool.text forKey:@"School"];
-    [tmpDictionary setObject:self.lblBio.text forKey:@"Bio"];
-    [tmpDictionary setObject:self.myZipCode forKey:@"ZipCode"];
-    
-    [paramDictionary setObject:@[tmpDictionary] forKey:@"Account"];
-    
-    [paramDictionary setObject:self.mySpeciality forKey:@"Specilities"];
     
     
-    NSMutableArray * videosArray = [NSMutableArray new];
     
-    if ([self.lblYouTubeOne.text length] > 0) {
-        [videosArray addObject:
-         @{@"Url":self.lblYouTubeOne.text}];
-        
-    }
+    NSMutableDictionary * paramDictionary = [self.currentUserShowing makeParam];;
     
-    if ([self.lblYouTubeTwo.text length] > 0) {
-        
-        [videosArray addObject:
-         @{@"Url":self.lblYouTubeTwo.text}];
-        
-        
-    }
-    
-    [paramDictionary setObject:videosArray forKey:@"Videos"];
-    
-    if ([self.firstLocationLat length] == 0 && [self.firstLocationLat length] == 0) {
-        [paramDictionary setObject:@[] forKey:@"Locations"];
-
-    }
-    else {
-        
-        NSMutableArray * tmpArray =  [NSMutableArray new];
-        
-        if ([self.firstLocationLat length] > 0) {
-        
-           [tmpArray addObject: @{@"Description":self.firstLocationAddres,@"Latitude":self.firstLocationLat,@"Longitude":self.firstLocationLong}];
-
-            
-            
-        }
-
-        
-        if ([self.secondLocationAddres length] > 0) {
-            
-            [tmpArray addObject: @{@"Description":self.secondLocationAddres,@"Latitude":self.secondLocationLat,@"Longitude":self.secondLocationLong}];
-
-        }
-
-        
-        [paramDictionary setObject:tmpArray forKey:@"Locations"];
-
-        
-        
-    }
-    
-    
+  
     
     [self showLoader];
     
@@ -582,6 +411,92 @@ GMSMapView *mapView2;
     
     
     
+}
+
+
+- (IBAction)btnShowTrainingSpecialitesTapped:(UIButton *)sender {
+    
+    
+    
+    self.selectedSpecialites =  [NSMutableArray new];;
+    
+    
+    DYAlertPickView *picker = [[DYAlertPickView alloc] initWithHeaderTitle:@"Select Training Specialites" cancelButtonTitle:@"Cancel" confirmButtonTitle:@"Confirm" switchButtonTitle:@""];
+    picker.delegate = self;
+    picker.dataSource = self;
+    picker.allowMultipleSelection = YES;
+    [picker showAndSelectedIndex:0];
+    
+    
+    
+    [self.selectedSpecialites addObject:[self.specalitesList objectAtIndex:0]];
+    
+
+    
+}
+-(void)didEndSelected{
+    
+    self.currentUserShowing.specialites = self.selectedSpecialites;
+    
+ 
+    NSString  * stringToShow = [Specialities mySpecialitesStringFromArray:self.currentUserShowing.specialites];
+    
+    self.lblTrainerSpeciality.text = stringToShow;
+    
+    
+            self.hasEditingAnyField = YES;
+    
+    NSLog(@"");
+    
+}
+- (void)pickerview:(DYAlertPickView *)pickerView
+didConfirmWithItemAtRow:(NSInteger)row withIsSelected:(BOOL)isSelected{
+    
+    NSLog(@"");
+    
+    
+
+        if (isSelected) {
+        
+            [self.selectedSpecialites addObject:[self.specalitesList objectAtIndex:row]];
+            
+            
+            
+        
+        }
+        else {
+            
+            [self.selectedSpecialites removeObject:[self.specalitesList objectAtIndex:row]];
+            
+            
+        }
+        
+    NSLog(@"");
+    
+    
+    
+    
+    
+    
+    
+}
+
+- (NSAttributedString *)pickerview:(DYAlertPickView *)pickerView
+                       titleForRow:(NSInteger)row{
+    
+    Specialities * currentItem = [self.specalitesList objectAtIndex:row];
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:currentItem.name];
+    return str;
+}
+
+
+- (NSInteger)numberOfRowsInPickerview:(DYAlertPickView *)pickerView {
+    return [self.specalitesList count];
+    
+}
+
+- (void)pickerviewDidClickCancelButton:(DYAlertPickView *)pickerView {
+    NSLog(@"Canceled");
 }
 
 

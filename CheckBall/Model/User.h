@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Location.h"
+#import "Specialities.h"
 
 
 @interface User : NSObject
@@ -24,6 +25,8 @@
 @property (nonatomic,strong) NSString * school;
 @property (nonatomic,strong) NSString * bio;
 
+@property (nonatomic,strong) NSString * myEmail;
+
 @property (nonatomic) double height;
 @property (nonatomic,strong) NSString * heightStringToShow;
 
@@ -33,7 +36,7 @@
 @property (nonatomic,strong) NSString * phoneName;
 
 @property (nonatomic) BOOL hasImage;
-@property (nonatomic,strong) NSArray * specialites;
+@property (nonatomic,strong) NSArray <Specialities *>* specialites;
 
 @property (nonatomic,strong) NSMutableArray <NSString *> * videos;
 
@@ -153,8 +156,7 @@ withComplitionHandler:(void(^)(id result))completionHandler
        withAlreadyExistsHandler:(void(^)(id result))alreadyExistHandler;
 
 
-+(void)callGetSpecialitesWithComplitionHandler:(void(^)(id result))completionHandler
-                             withFailueHandler:(void(^)(void))failureHandler;
+
 
 +(void)callGetUserProfileById:(NSString *)profileId
         WithComplitionHandler:(void(^)(id result))completionHandler
@@ -176,5 +178,7 @@ withComplitionHandler:(void(^)(id result))completionHandler
             andUserOtherUserId:(NSString *)otherId
          withComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler
       withAlreadyExistsHandler:(void(^)(id result))alreadyExistHandler;
+
+-(NSMutableDictionary *)makeParam;
 
 @end

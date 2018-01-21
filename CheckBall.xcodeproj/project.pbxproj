@@ -278,6 +278,8 @@
 		47EFC3761FCF0B1300794A6E /* SelectEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC3751FCF0B1300794A6E /* SelectEmailViewController.m */; };
 		47EFC3791FCF120500794A6E /* TrainerFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC3781FCF120500794A6E /* TrainerFormViewController.m */; };
 		47EFC37C1FCF121200794A6E /* PlayerFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC37B1FCF121200794A6E /* PlayerFormViewController.m */; };
+		D40B2521201449D10066343F /* Specialities.m in Sources */ = {isa = PBXBuildFile; fileRef = D40B2520201449D10066343F /* Specialities.m */; };
+		D40B2527201496E80066343F /* DIYTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D40B2526201496E80066343F /* DIYTableViewCell.m */; };
 		D41AD42E2010E32700718161 /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D41AD42D2010E32700718161 /* GoogleMapsBase.framework */; };
 		D41AD4312010E34300718161 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D41AD42F2010E34100718161 /* GoogleMaps.framework */; };
 		D41AD4322010E34300718161 /* GoogleMapsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D41AD4302010E34300718161 /* GoogleMapsCore.framework */; };
@@ -871,6 +873,10 @@
 		47EFC3781FCF120500794A6E /* TrainerFormViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrainerFormViewController.m; sourceTree = "<group>"; };
 		47EFC37A1FCF121200794A6E /* PlayerFormViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerFormViewController.h; sourceTree = "<group>"; };
 		47EFC37B1FCF121200794A6E /* PlayerFormViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerFormViewController.m; sourceTree = "<group>"; };
+		D40B251F201449D10066343F /* Specialities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Specialities.h; sourceTree = "<group>"; };
+		D40B2520201449D10066343F /* Specialities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Specialities.m; sourceTree = "<group>"; };
+		D40B2525201496E70066343F /* DIYTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYTableViewCell.h; sourceTree = "<group>"; };
+		D40B2526201496E80066343F /* DIYTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIYTableViewCell.m; sourceTree = "<group>"; };
 		D41AD42D2010E32700718161 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsBase.framework; sourceTree = "<group>"; };
 		D41AD42F2010E34100718161 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		D41AD4302010E34300718161 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsCore.framework; sourceTree = "<group>"; };
@@ -2122,6 +2128,8 @@
 		478074E71FCC737300AFA5F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D40B2525201496E70066343F /* DIYTableViewCell.h */,
+				D40B2526201496E80066343F /* DIYTableViewCell.m */,
 				47D1F5561FD5AF2600FC8F44 /* CollectionView */,
 				478074E81FCC737300AFA5F6 /* TextView */,
 				47A55F7D1FD6F97E00D48F41 /* OptionsView.xib */,
@@ -2189,6 +2197,8 @@
 				D4516CBB2009C89A005FDFDA /* User.h */,
 				D463655D2013BA0F00E7E442 /* Location.h */,
 				D463655E2013BA0F00E7E442 /* Location.m */,
+				D40B251F201449D10066343F /* Specialities.h */,
+				D40B2520201449D10066343F /* Specialities.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2333,6 +2343,7 @@
 				4736D3BF1FC5C702003032AA /* IQCheckmarkView.m in Sources */,
 				4736D3631FC5C702003032AA /* NSDictionary+NullReplacement.m in Sources */,
 				4736D3AC1FC5C702003032AA /* UzysWrapperPickerController.m in Sources */,
+				D40B2527201496E80066343F /* DIYTableViewCell.m in Sources */,
 				4736D40C1FC5C702003032AA /* RTSpinKitFadingCircleAnimation.m in Sources */,
 				4736D3871FC5C702003032AA /* TWMessageBarManager.m in Sources */,
 				4736D3D01FC5C702003032AA /* IQMediaCaptureController.m in Sources */,
@@ -2402,6 +2413,7 @@
 				4736D3F21FC5C702003032AA /* JTSSimpleImageDownloader.m in Sources */,
 				4736D3961FC5C702003032AA /* AFNetworkReachabilityManager.m in Sources */,
 				4736D3FA1FC5C702003032AA /* MASConstraintMaker.m in Sources */,
+				D40B2521201449D10066343F /* Specialities.m in Sources */,
 				4736D34E1FC5C702003032AA /* UITextField+MyTextField.m in Sources */,
 				4736D4281FC5C702003032AA /* TGCameraSlideDownView.m in Sources */,
 				47A55F7B1FD6F4A000D48F41 /* DashboradTrainerListViewCell.m in Sources */,
@@ -2752,7 +2764,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Saad Yusuf (WDTGDQ3WCV)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Plego Technologies, LLC (75975U3UB4)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 75975U3UB4;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2766,8 +2778,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.plego.CheckBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f42d170d-fdab-4a99-89e7-968695580de5";
-				PROVISIONING_PROFILE_SPECIFIER = CheckBallDev;
+				PROVISIONING_PROFILE = "48b4a62d-da4b-4074-b6f6-1d6fa2f7d498";
+				PROVISIONING_PROFILE_SPECIFIER = "CheckBall_ Distribution";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2776,7 +2788,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Saad Yusuf (WDTGDQ3WCV)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Plego Technologies, LLC (75975U3UB4)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 75975U3UB4;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2790,8 +2802,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.plego.CheckBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f42d170d-fdab-4a99-89e7-968695580de5";
-				PROVISIONING_PROFILE_SPECIFIER = CheckBallDev;
+				PROVISIONING_PROFILE = "48b4a62d-da4b-4074-b6f6-1d6fa2f7d498";
+				PROVISIONING_PROFILE_SPECIFIER = "CheckBall_ Distribution";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -157,9 +157,18 @@
     self.title = @"Dashboard";
     
     
-    //segueMyProfile
-    
-    
+    if ([[Specialities savedSpecialities] count] == 0) {
+        
+        [Specialities
+         callGetSpecialitesWithComplitionHandler:^(id result) {
+             
+         } withFailueHandler:^{
+             
+         }];
+        
+        
+    }
+
     
     UITapGestureRecognizer *singleFingerTap =
     [[UITapGestureRecognizer alloc] initWithTarget:self

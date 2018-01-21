@@ -16,7 +16,20 @@
 
 @implementation User
 
+-(NSString *)myEmail{
+    NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];;
+    if ([[userDefaults objectForKey:@"isFirstTimeSignUp"] isKindOfClass:[NSArray class]]) {
+        return [[[userDefaults objectForKey:@"isFirstTimeSignUp"] firstObject] objectForKey:@"Email"];
+    }
+    return [[userDefaults objectForKey:@"isFirstTimeSignUp"] objectForKey:@"Email"];
+    
+}
 
+-(NSString *)weightStringToShow{
+    
+    return [NSString stringWithFormat:@"Weight ( %d lb )",self.weight];
+    
+}
 -(NSString *)heightStringToShow{
     
     NSString * heightShowing = [NSString stringWithFormat:@"%.02f",self.height];
@@ -62,6 +75,95 @@
     return _locations;
     
 }
+
+-(NSMutableDictionary *)makeParam{
+    
+    NSMutableDictionary * paramDictionary = [NSMutableDictionary new] ;
+    
+    NSMutableDictionary * tmpDictionary = [NSMutableDictionary new];
+    
+    
+    [tmpDictionary setObject:[NSString stringWithFormat:@"%d",self.userId] forKey:@"ID"];
+    [tmpDictionary setObject:self.name forKey:@"Name"];
+    [tmpDictionary setObject:self.myEmail forKey:@"Email"];
+    [tmpDictionary setObject:self.accountType forKey:@"Account_Type"];
+    [tmpDictionary setObject:[NSNumber numberWithDouble:self.height] forKey:@"Height"];
+    [tmpDictionary setObject:[NSNumber numberWithInt:self.weight] forKey:@"Weight"];
+    [tmpDictionary setObject:self.position forKey:@"Position"];
+    [tmpDictionary setObject:self.school forKey:@"School"];
+    [tmpDictionary setObject:self.bio forKey:@"Bio"];
+    [tmpDictionary setObject:self.zipCode forKey:@"ZipCode"];
+    [paramDictionary setObject:@[tmpDictionary] forKey:@"Account"];
+    
+    
+    if ([self.specialites count] > 0)
+    {
+    
+        NSMutableArray * tmpSpecialitesArray = [NSMutableArray new];
+     
+        //"Specilities":[{"ID":4},{"ID":2},{"ID":1}],
+
+        for (Specialities * currentSpecialites in self.specialites) {
+            
+            
+            [tmpSpecialitesArray addObject:@{@"ID":[NSNumber numberWithInt:currentSpecialites.itemId]}];
+            
+            
+        }
+        
+        [paramDictionary setObject:tmpSpecialitesArray forKey:@"Specilities"];
+        
+    }
+    else {
+        [paramDictionary setObject:@[] forKey:@"Specilities"];
+    }
+    
+    
+    NSMutableArray * videosArray = [NSMutableArray new];
+    
+    
+    for (NSString * currentVideo in self.videos) {
+        
+        [videosArray addObject:
+         @{@"Url":currentVideo}];
+        
+    }
+    
+    [paramDictionary setObject:videosArray forKey:@"Videos"];
+    
+    
+    
+    if ([self.locations count] == 0) {
+        
+        [paramDictionary setObject:@[] forKey:@"Locations"];
+        
+    }
+    else {
+        
+        NSMutableArray * tmpLocationArray = [NSMutableArray new];
+        
+        for (Location * currentLocation in self.locations) {
+            
+        [tmpLocationArray addObject: @{@"Description":currentLocation.locationDescription,@"Latitude": [NSNumber numberWithFloat:currentLocation.userLatitude],@"Longitude": [NSNumber numberWithFloat:currentLocation.userLongitude]}];
+            
+            
+           
+
+            
+            
+        }
+        
+        [paramDictionary setObject:tmpLocationArray forKey:@"Locations"];
+        
+        
+        
+    }
+ 
+    return paramDictionary;
+    
+    
+}
+
 +(User *)parseItemFromItem:(id)item{
     
     User *currentItem = [User new];
@@ -102,6 +204,8 @@
     }
     
 
+    currentItem.specialites =   [Specialities parteArray:[item objectForKey:@"Specilities"]];
+    
     return currentItem;
     
 }
@@ -1487,51 +1591,6 @@ withFailueHandler:(void(^)(void))failureHandler
 }
 
 
-+(void)callGetSpecialitesWithComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler
-{
-
-    [RestCall callWebServiceWithTheseParams:nil
-                      withSignatureSequence:nil
-                                 urlCalling:
-     [baseServiceUrl stringByAppendingString:@"getspecilities"]
-                              isPostService:NO
-                      withComplitionHandler:^(id result) {
-                          
-                              id message = [result objectForKey:@"message"];
-                          
-                          
-                          NSString * status = [message objectForKey:@"status"];
-                          
-                          
-                          if ([status isEqualToString:@"Success"]) {
-                              
-                              id list = [message objectForKey:@"Data"];
-                           
-                              completionHandler(list);
-                          }
-                          else {
-                              
-                              failureHandler();
-                              
-                          }
-                          
-                          
-                          
-                              
-                              
-                          NSLog(@"");
-                          
-                         
-                          
-                      } failureComlitionHandler:^{
-                          failureHandler();
-                          
-                          
-                          
-                      }];
-    
-    
-}
 
 +(void)callGetUserProfileById:(NSString *)profileId
         WithComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler
@@ -1555,15 +1614,10 @@ withFailueHandler:(void(^)(void))failureHandler
                           if ([status isEqualToString:@"Success"]) {
                               
                               
-                              id videos = [result objectForKey:@"Videos"];
-                              id specilities = [result objectForKey:@"Specilities"];
-                              id locations = [result objectForKey:@"Locations"];
-                              id account = [result objectForKey:@"Account"];
+                         
                               
+                              completionHandler([self parseItemFromItem:result]);
                               
-                              [self parseItemFromItem:result];
-                              
-                              completionHandler(@{@"Videos":videos,@"Specialites": specilities,@"Location":locations,@"Account":account});
                           }
                           else {
                               
