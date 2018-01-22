@@ -84,7 +84,21 @@
         destinationViewController.schoolSelcted = self.txtSchool.txtView.text;
         destinationViewController.accountEmail = self.emailSending;
         
+        if (self.signingWithFB) {
+            
+            destinationViewController.signingWithFB = self.signingWithFB;
+            
+            destinationViewController.fbAccount = self.fbAccount;
+            
+            
+        }
         
+
+        
+       // ;
+       // fbAccount;
+       // fbName;
+
     }
     
 }
@@ -326,6 +340,7 @@
     
     [super viewDidLoad];
     
+
     self.trainingList =  [NSMutableArray new];
 
     self.isSelectingHeight = YES;
@@ -404,6 +419,12 @@
     }];
     
     
+    
+    if (self.signingWithFB)
+    {
+        self.textViewName.txtView.text = self.fbName;
+        
+    }
     
 }
 

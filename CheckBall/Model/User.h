@@ -181,4 +181,8 @@ withComplitionHandler:(void(^)(id result))completionHandler
 
 -(NSMutableDictionary *)makeParam;
 
++(void)callLoginUserWithFaceBool:(NSString *)faceboodId
+           withComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler
+      withNoAccountExistsHandler:(void(^)(id result))noAccountExistsHandler;
+
 @end

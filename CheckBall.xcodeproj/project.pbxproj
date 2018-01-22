@@ -280,6 +280,9 @@
 		47EFC37C1FCF121200794A6E /* PlayerFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC37B1FCF121200794A6E /* PlayerFormViewController.m */; };
 		D40B2521201449D10066343F /* Specialities.m in Sources */ = {isa = PBXBuildFile; fileRef = D40B2520201449D10066343F /* Specialities.m */; };
 		D40B2527201496E80066343F /* DIYTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D40B2526201496E80066343F /* DIYTableViewCell.m */; };
+		D40B252B2014FC700066343F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40B25282014FC6E0066343F /* FBSDKCoreKit.framework */; };
+		D40B252C2014FC700066343F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40B25292014FC6F0066343F /* Bolts.framework */; };
+		D40B252D2014FC700066343F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40B252A2014FC6F0066343F /* FBSDKLoginKit.framework */; };
 		D41AD42E2010E32700718161 /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D41AD42D2010E32700718161 /* GoogleMapsBase.framework */; };
 		D41AD4312010E34300718161 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D41AD42F2010E34100718161 /* GoogleMaps.framework */; };
 		D41AD4322010E34300718161 /* GoogleMapsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D41AD4302010E34300718161 /* GoogleMapsCore.framework */; };
@@ -877,6 +880,9 @@
 		D40B2520201449D10066343F /* Specialities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Specialities.m; sourceTree = "<group>"; };
 		D40B2525201496E70066343F /* DIYTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYTableViewCell.h; sourceTree = "<group>"; };
 		D40B2526201496E80066343F /* DIYTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIYTableViewCell.m; sourceTree = "<group>"; };
+		D40B25282014FC6E0066343F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		D40B25292014FC6F0066343F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		D40B252A2014FC6F0066343F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		D41AD42D2010E32700718161 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsBase.framework; sourceTree = "<group>"; };
 		D41AD42F2010E34100718161 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		D41AD4302010E34300718161 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsCore.framework; sourceTree = "<group>"; };
@@ -928,12 +934,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D41AD4512010E47200718161 /* UIKit.framework in Frameworks */,
+				D40B252C2014FC700066343F /* Bolts.framework in Frameworks */,
+				D40B252D2014FC700066343F /* FBSDKLoginKit.framework in Frameworks */,
 				D41AD44F2010E46B00718161 /* SystemConfiguration.framework in Frameworks */,
 				D41AD44D2010E46300718161 /* QuartzCore.framework in Frameworks */,
 				D41AD44B2010E45B00718161 /* OpenGLES.framework in Frameworks */,
 				D41AD4492010E45200718161 /* libz.tbd in Frameworks */,
 				D41AD4472010E44B00718161 /* libc++.tbd in Frameworks */,
 				D41AD4452010E43E00718161 /* ImageIO.framework in Frameworks */,
+				D40B252B2014FC700066343F /* FBSDKCoreKit.framework in Frameworks */,
 				D41AD4432010E43700718161 /* GLKit.framework in Frameworks */,
 				D41AD4412010E43000718161 /* CoreText.framework in Frameworks */,
 				D41AD43F2010E42900718161 /* CoreTelephony.framework in Frameworks */,
@@ -994,6 +1003,9 @@
 		4736D0F71FC5C62A003032AA /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				D40B25292014FC6F0066343F /* Bolts.framework */,
+				D40B25282014FC6E0066343F /* FBSDKCoreKit.framework */,
+				D40B252A2014FC6F0066343F /* FBSDKLoginKit.framework */,
 				D41AD4332010E3D300718161 /* GoogleMaps.bundle */,
 				D41AD42F2010E34100718161 /* GoogleMaps.framework */,
 				D41AD4302010E34300718161 /* GoogleMapsCore.framework */,
@@ -2764,7 +2776,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Plego Technologies, LLC (75975U3UB4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Saad Yusuf (WDTGDQ3WCV)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 75975U3UB4;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2778,8 +2790,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.plego.CheckBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "48b4a62d-da4b-4074-b6f6-1d6fa2f7d498";
-				PROVISIONING_PROFILE_SPECIFIER = "CheckBall_ Distribution";
+				PROVISIONING_PROFILE = "f42d170d-fdab-4a99-89e7-968695580de5";
+				PROVISIONING_PROFILE_SPECIFIER = CheckBallDev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2788,7 +2800,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Plego Technologies, LLC (75975U3UB4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Saad Yusuf (WDTGDQ3WCV)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 75975U3UB4;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2802,8 +2814,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.plego.CheckBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "48b4a62d-da4b-4074-b6f6-1d6fa2f7d498";
-				PROVISIONING_PROFILE_SPECIFIER = "CheckBall_ Distribution";
+				PROVISIONING_PROFILE = "f42d170d-fdab-4a99-89e7-968695580de5";
+				PROVISIONING_PROFILE_SPECIFIER = CheckBallDev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

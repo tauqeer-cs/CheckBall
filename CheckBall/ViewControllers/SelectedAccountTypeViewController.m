@@ -84,6 +84,17 @@
         destination.comingAsTrainer = self.isTrainer;
         
         
+        if (self.signingWithFB) {
+            
+            destination.signingWithFB = self.signingWithFB;
+            destination.fbAccount = self.fbAccount;
+            destination.fbName = self.fbName;
+            
+            destination.fbEmail = self.fbEmail;
+            
+            
+     
+        }
         
     }
 }

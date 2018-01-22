@@ -993,7 +993,7 @@ withFailueHandler:(void(^)(void))failureHandler
     [currentDictionary setObject:@"APP" forKey:@"LoginBy"];
     
     
-    //
+
     NSUserDefaults *currentUserDefault = [NSUserDefaults standardUserDefaults];
     
     
@@ -1004,6 +1004,78 @@ withFailueHandler:(void(^)(void))failureHandler
                                  urlCalling:
      [baseServiceUrl stringByAppendingString:@"Login"]
      isPostService:YES
+                      withComplitionHandler:^(id result) {
+                          
+                          @try {
+                              
+                              id message = [[result
+                                             objectForKey:@"message"] objectForKey:@"status"];
+                              
+                              if ([message isEqualToString:@"Success"]) {
+                                  
+                                  
+                                  id data = [[result objectForKey:@"message"] objectForKey:@"Data"];;
+                                  
+                                  if ([data isKindOfClass:[NSArray class]])
+                                  {
+                                      data  =  data[0];
+                                      
+                                  }
+                                  [currentUserDefault setObject:data forKey:@"isFirstTimeSignUp"];
+                                  completionHandler(data);
+                                  
+                              }
+                              else if ([message isEqualToString:@"failed"]){
+                                  noAccountExistsHandler(nil);
+                              }
+                              else{
+                                  
+                                  failureHandler();
+                              }
+                              
+                              
+                              
+                              
+                          }
+                          @catch (NSException *exception) {
+                              
+                              failureHandler();
+                              
+                          }
+                          
+                          
+                      } failureComlitionHandler:^{
+                          
+                          failureHandler();
+                          
+                      }];
+}
+
+
++(void)callLoginUserWithFaceBool:(NSString *)faceboodId
+        withComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler
+   withNoAccountExistsHandler:(void(^)(id result))noAccountExistsHandler
+
+{
+    
+    
+    NSMutableDictionary *currentDictionary = [NSMutableDictionary new];
+    [currentDictionary setObject:faceboodId forKey:@"email"];
+    [currentDictionary setObject:@"" forKey:@"password"];
+    [currentDictionary setObject:@"FB" forKey:@"LoginBy"];
+    
+    
+    
+    NSUserDefaults *currentUserDefault = [NSUserDefaults standardUserDefaults];
+    
+    
+    
+    
+    [RestCall callWebServiceWithTheseParams:currentDictionary
+                      withSignatureSequence:nil
+                                 urlCalling:
+     [baseServiceUrl stringByAppendingString:@"Login"]
+                              isPostService:YES
                       withComplitionHandler:^(id result) {
                           
                           @try {

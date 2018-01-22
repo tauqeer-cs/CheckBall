@@ -28,9 +28,9 @@
 
 @property (nonatomic,strong) NSString * accountEmail;
 
-/*
-[self.txtPosition.txtView.text length] == 0 || [self.txtZipCode.txtView.text length] == 0 || [self.finalSelectedItems count] == 0)
+@property (nonatomic,strong) NSString * fbAccount;
+@property (nonatomic) BOOL signingWithFB;
 
-*/
+
 
 @end

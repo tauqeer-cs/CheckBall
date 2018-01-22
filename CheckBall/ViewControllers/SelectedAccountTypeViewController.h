@@ -10,4 +10,10 @@
 
 @interface SelectedAccountTypeViewController : BaseViewController
 
+
+@property (nonatomic) BOOL signingWithFB;
+@property (nonatomic,strong) NSString * fbAccount;
+@property (nonatomic,strong) NSString * fbName;
+@property (nonatomic,strong) NSString * fbEmail;
+
 @end

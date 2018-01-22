@@ -75,6 +75,14 @@
 #endif
     
 
+    if (self.signingWithFB) {
+        if ([self.fbEmail length] > 0) {
+            self.textViewEmail.txtView.text = self.fbEmail;
+        }
+    
+        [self btnEmailTapped:nil];
+        
+    }
     
 }
 
@@ -154,7 +162,13 @@
         
         destination.emailSending = self.textViewEmail.txtView.text;
         
-        //
+        if (self.signingWithFB) {
+            
+            destination.fbName = self.fbName;
+            destination.fbAccount = self.fbAccount;
+            destination.signingWithFB = self.signingWithFB;
+        }
+
         
     }
     else if([segue.destinationViewController isKindOfClass:[PlayerFormViewController class]])
@@ -165,12 +179,17 @@
         destination.emailSending = self.textViewEmail.txtView.text;
         
         
+        if (self.signingWithFB) {
+
+            destination.fbName = self.fbName;
+            destination.fbAccount = self.fbAccount;
+            destination.signingWithFB = self.signingWithFB;
+        
+        }
+        
     }
     
-    /*
-     
-     
-     */
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

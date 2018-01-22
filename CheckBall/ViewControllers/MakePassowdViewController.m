@@ -116,7 +116,13 @@
             
             NSMutableDictionary * tmpDictionary = [NSMutableDictionary new];
             
-            [tmpDictionary setObject:@"" forKey:@"FB_ID"];
+            if (self.signingWithFB ) {
+                
+                [tmpDictionary setObject:self.fbAccount forKey:@"FB_ID"];
+                
+            }
+            else
+                [tmpDictionary setObject:@"" forKey:@"FB_ID"];
             [tmpDictionary setObject:self.fullName forKey:@"Name"];
             [tmpDictionary setObject:self.accountEmail forKey:@"Email"];
             if ([self.accountType isEqualToString:@"U"]) {

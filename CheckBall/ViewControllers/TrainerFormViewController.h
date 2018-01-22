@@ -13,4 +13,8 @@
 @property (nonatomic,strong) NSString * emailSending;
 
 
+@property (nonatomic) BOOL signingWithFB;
+@property (nonatomic,strong) NSString * fbAccount;
+@property (nonatomic,strong) NSString * fbName;
+
 @end

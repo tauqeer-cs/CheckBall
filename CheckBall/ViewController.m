@@ -11,6 +11,10 @@
 #import "AppDelegate.h"
 #import "User.h"
 #import "Validator.h"
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "SelectedAccountTypeViewController.h"
+
 @interface ViewController ()<UITextFieldDelegate>
 
 
@@ -98,6 +102,25 @@
     self.btnFacebook.layer.cornerRadius = 5;
     self.btnCreateAccount.layer.cornerRadius = 5;
     
+    if ([FBSDKAccessToken currentAccessToken]) {
+        
+        NSLog(@"%@",[FBSDKAccessToken currentAccessToken]);
+        
+        FBSDKAccessToken * currentToken = [FBSDKAccessToken currentAccessToken];
+        
+        [self showLoader];
+        
+        FBSDKLoginManager *loginL = [[FBSDKLoginManager alloc] init];
+        
+        [loginL logOut];
+        
+        //[self getFacebookProfileInfos];
+        
+        
+        
+        
+    }
+    
     
     
     
@@ -114,6 +137,35 @@
     [self performSegueWithIdentifier:@"segueSelectAccountType" sender:self];
     
 }
+- (void)extracted:(id)result {
+    NSString * accountType =  [result objectForKey:@"Account_Type"];
+    
+    if ([accountType isEqualToString:@"P"]) {
+        
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *initViewController;
+        initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"RooTView"];
+        
+        AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+        
+        appDelegate.window.rootViewController = initViewController;
+        
+    }
+    else {
+        
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MainTrainer" bundle:nil];
+        UIViewController *initViewController;
+        initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"RooTView"];
+        
+        AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+        
+        appDelegate.window.rootViewController = initViewController;
+        
+        
+    }
+    NSLog(@"");
+}
+
 - (IBAction)loginButtonTapped:(UIButton *)sender {
 
 
@@ -146,32 +198,7 @@
                     withPassword:self.textViewPassword.txtView.text
            withComplitionHandler:^(id result) {
         
-              NSString * accountType =  [result objectForKey:@"Account_Type"];
-               
-               if ([accountType isEqualToString:@"P"]) {
-                
-                   UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                   UIViewController *initViewController;
-                   initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"RooTView"];
-                   
-                   AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
-                   
-                   appDelegate.window.rootViewController = initViewController;
-                   
-               }
-               else {
-                   
-                   UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MainTrainer" bundle:nil];
-                   UIViewController *initViewController;
-                   initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"RooTView"];
-                   
-                   AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
-                   
-                   appDelegate.window.rootViewController = initViewController;
-                   
-                   
-               }
-               NSLog(@"");
+               [self extracted:result];
                
                //
 
@@ -193,6 +220,129 @@
     
 
 }
+- (IBAction)btnLoginWithFbTapped:(UIButton *)sender {
+    
+    [self showLoader];
+    
+    
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    login.loginBehavior = FBSDKLoginBehaviorNative;
+    [login logInWithReadPermissions:@[@"public_profile", @"email", @"user_friends",@"user_birthday"]
+                 fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+                     if (error)
+                     {
+                         // Process error
+                         NSLog(@"Error");
+                         [self hideLoader];
+                         
+                         [self showAlert:@"" message:@"Error while loggin in to Facebook"];
+                         
+                     }
+                     else if (result.isCancelled)
+                     {
+                         // Handle cancellations
+                         
+                     }
+                     else
+                     {
+                         
+                         
+                         [self getFacebookProfileInfos];
+                         
+                     }
+                 }];
+    
+    
+}
+
+-(void)getFacebookProfileInfos {
+    
+    FBSDKGraphRequest *requestMe = [[FBSDKGraphRequest alloc]initWithGraphPath:@"me" parameters: @{@"fields": @"id,name,link,first_name, last_name, picture.type(large), email, birthday, location ,friends ,hometown , friendlists"}];
+    
+    FBSDKGraphRequestConnection *connection = [[FBSDKGraphRequestConnection alloc] init];
+    [connection addRequest:requestMe completionHandler:^(FBSDKGraphRequestConnection *connection,
+                                                         id result,
+                                                         NSError *error) {
+        //ok wjat
+        
+        if (error)
+        {
+            
+            
+            NSLog(@"Error");
+            
+        }
+        if(result)
+        {
+           
+            
+            //10155710069191273
+            
+           __block NSString * fbID = [result objectForKey:@"id"];
+            
+            
+            [User callLoginUserWithFaceBool:fbID
+                      withComplitionHandler:^(id result) {
+                
+                          
+                          NSLog(@"");
+                          [self hideLoader];
+                          [self extracted:result];
+                          
+
+                          FBSDKLoginManager *loginL = [[FBSDKLoginManager alloc] init];
+                          [loginL logOut];
+                          
+            } withFailueHandler:^{
+                
+
+                [self hideLoader];
+
+                SelectedAccountTypeViewController * destination = (SelectedAccountTypeViewController *)[self viewControllerFromStoryBoard:@"SignUpStoryboard" withViewControllerName:@"SelectedAccountTypeViewController"];
+                destination.signingWithFB = YES;
+                destination.fbAccount = fbID;
+                NSString * emailOfMine = [result objectForKey:@"email"];
+                
+                NSString * myName =  [result objectForKey:@"name"];
+                destination.fbEmail = emailOfMine;
+                destination.fbName = myName;
+                [self.navigationController showViewController:destination sender:self];
+                
+                
+                
+                FBSDKLoginManager *loginL = [[FBSDKLoginManager alloc] init];
+                
+                [loginL logOut];
+                
+                
+            } withNoAccountExistsHandler:^(id result) {
+                
+                [self hideLoader];
+                
+                
+                NSLog(@"");
+                
+            }];
+            
+            
+      
+
+            NSLog(@"%@",result);
+            
+            
+            //url
+            __block UIImage *tmp = nil;
+            
+            
+            
+        }
+        
+    }];
+    
+    [connection start];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

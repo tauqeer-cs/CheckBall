@@ -11,5 +11,11 @@
 @interface SelectEmailViewController : BaseViewController
 
 @property (nonatomic) BOOL comingAsTrainer;
+@property (nonatomic) BOOL signingWithFB;
+
+@property (nonatomic,strong) NSString * fbAccount;
+@property (nonatomic,strong) NSString * fbName;
+@property (nonatomic,strong) NSString * fbEmail;
+
 
 @end
