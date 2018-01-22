@@ -96,6 +96,16 @@
 #endif
 
     
+    if (self.signingWithFB) {
+        
+        self.txtPassword.txtView.text = @"111111";
+        self.txtConfirmPassword.txtView.text = @"111111";
+
+        
+        [self btnSignUpTapped:nil];
+        
+    }
+    
     
 }
 
@@ -119,10 +129,13 @@
             if (self.signingWithFB ) {
                 
                 [tmpDictionary setObject:self.fbAccount forKey:@"FB_ID"];
-                
+                [tmpDictionary setObject:@"" forKey:@"Password"];
             }
             else
+            {
                 [tmpDictionary setObject:@"" forKey:@"FB_ID"];
+                        [tmpDictionary setObject:self.txtPassword.txtView.text forKey:@"Password"];
+            }
             [tmpDictionary setObject:self.fullName forKey:@"Name"];
             [tmpDictionary setObject:self.accountEmail forKey:@"Email"];
             if ([self.accountType isEqualToString:@"U"]) {
@@ -149,7 +162,7 @@
             [tmpDictionary setObject:self.schoolSelcted forKey:@"School"];
             [tmpDictionary setObject:@"" forKey:@"Bio"];
             [tmpDictionary setObject:self.zipCode forKey:@"ZipCode"];
-            [tmpDictionary setObject:self.txtPassword.txtView.text forKey:@"Password"];
+
             NSMutableDictionary * paramsToPass = [NSMutableDictionary new];
             
             [paramsToPass setObject:@[tmpDictionary] forKey:@"Account"];
