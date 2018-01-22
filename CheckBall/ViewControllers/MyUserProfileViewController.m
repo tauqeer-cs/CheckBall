@@ -458,7 +458,7 @@
     
     self.viewVideoContainer.layer.cornerRadius = 10;
     
-    //
+    
     self.lblBio.text = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid";
     
     
@@ -578,10 +578,14 @@
     self.viewVideoContainer.layer.mask = maskLayer;
     
     
-    
+
+    if (self.comingFromListing) {
+    [self.scrollViewUsing setContentSize:CGSizeMake(self.view.frame.size.width, 823)];
+    }
+    else
     [self.scrollViewUsing setContentSize:CGSizeMake(self.view.frame.size.width, 773)];
     
-    //
+
 }
 
 

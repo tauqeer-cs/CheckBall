@@ -291,9 +291,16 @@ GMSMapView *mapView2;
     
     self.viewVideoContainer.layer.mask = maskLayer;
     
+    if(self.comingFromListing){
+        
+        [self.scrollViewUsing setContentSize:CGSizeMake(self.view.frame.size.width, 1100)];
+        
+    }
+    else {
+        [self.scrollViewUsing setContentSize:CGSizeMake(self.view.frame.size.width, 893)];
+        
+    }
     
-    
-    [self.scrollViewUsing setContentSize:CGSizeMake(self.view.frame.size.width, 893)];
     
         self.viewDidAppearHAsAlreadyBeenCAlledMan = YES;
     
