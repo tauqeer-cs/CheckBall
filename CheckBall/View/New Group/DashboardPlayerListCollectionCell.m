@@ -27,7 +27,12 @@
     
     self.lblName.text =   [data objectForKey:@"name"];
    
-    
+
+    if ([[data objectForKey:@"photo"] length] == 0) {
+        
+        [self.profileImageView setImage:[UIImage imageNamed:@"gander-icon"]];
+    }
+    else
     [FileManager loadProfileImage:self.profileImageView url:[baseImageLink stringByAppendingString:[NSString stringWithFormat:@"tmb%d.jpg",[[data objectForKey:@"id"] intValue]]] loader:nil];
     
     

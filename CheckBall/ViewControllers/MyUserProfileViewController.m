@@ -522,7 +522,7 @@
              [self hideLoader];
              
 
-
+             
              self.currentUserShowing = result;
              self.hasImage = result.hasImage;
              [self enterBasicInfoToLabler:result];
@@ -537,7 +537,7 @@
          }];
         
     }
-    {
+    else {
      
         [User
          callGetUserProfileById:self.myJid WithComplitionHandler:^(User * result) {
@@ -942,7 +942,7 @@
     id videosList = result.videos;
     
     
-    if ([videosList isKindOfClass:[NSArray class]] && [videosList count] > 0)
+    if ([videosList count] > 0)
     {
         BOOL hasVideoBeenSetForTube = NO;
         for (id currentItem in videosList)
@@ -965,6 +965,15 @@
         if([self.allVideos count] == 0){
             [self.lblNoVideoLabel setHidden:NO];
         }
+        
+    }
+    else {
+        
+        [self.lblNoVideoLabel setHidden:NO];
+        [self.youTubePrayer removeFromSuperview];
+        [self.videoLoader stopAnimating];
+        
+        
         
     }
 }

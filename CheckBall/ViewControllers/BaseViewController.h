@@ -241,5 +241,5 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
 -(NSString *)extractYouTubeVideoUrl:(NSString *)videoUrl;
-
+@property (nonatomic) BOOL firstTimeDataHasBeenLoaded;
 @end

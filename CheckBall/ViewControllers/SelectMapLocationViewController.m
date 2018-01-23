@@ -45,8 +45,10 @@ GMSMapView *mapView;
     [self.locationManager startUpdatingLocation];
     
 
-        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 
+    self.title = @"Drop Pin";
+    
 }
 
 -(void)doneButtonTapped{

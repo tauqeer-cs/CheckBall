@@ -249,7 +249,12 @@
     
     [self.collectionView reloadData];
  
-    [self showLoader];
+    if (!self.firstTimeDataHasBeenLoaded) {
+        
+        [self showLoader];
+        
+        self.firstTimeDataHasBeenLoaded = YES;
+    }
     
     [User callGetPlayersWithZipCode:self.myZipCode
               WithComplitionHandler:^(id result) {

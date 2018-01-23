@@ -24,8 +24,6 @@
 -(void)updateWithDate:(id)data{
     
     
-    ;
-    
 
     AppDelegate * sharedDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
