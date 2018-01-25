@@ -29,6 +29,7 @@
 
 @property (nonatomic) double height;
 @property (nonatomic,strong) NSString * heightStringToShow;
+@property (nonatomic,strong) NSString * heightStringToSend;
 
 @property (nonatomic) int weight;
 @property (nonatomic,strong) NSString * weightStringToShow;
@@ -40,6 +41,8 @@
 
 @property (nonatomic,strong) NSMutableArray <NSString *> * videos;
 
+
+@property (nonatomic,strong) NSString * orignalHeightString;
 
 @property (nonatomic,strong) NSMutableArray <Location *>* locations;
 

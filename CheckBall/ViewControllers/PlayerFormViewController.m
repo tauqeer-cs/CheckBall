@@ -43,6 +43,11 @@
 @property (nonatomic) BOOL isSelectingHeight;
 
 
+@property (nonatomic) BOOL showingHeightFistTime;
+@property (nonatomic) BOOL showingWeightFirstTime;
+
+
+
 @end
 
 @implementation PlayerFormViewController
@@ -187,7 +192,7 @@
     
     self.heightFeets = @[@"1'",@"2'",@"3'",@"4'",@"5'",@"6'",@"7'",@"8'"];
     
-    self.heightInches = @[@"1\"",@"2\"",@"3\"",@"4\"",@"5\"",@"6\"",@"7\"",@"8\"",@"9\"",@"10\"",@"11\""];
+    self.heightInches = @[@"0\"",@"1\"",@"2\"",@"3\"",@"4\"",@"5\"",@"6\"",@"7\"",@"8\"",@"9\"",@"10\"",@"11\""];
     
     
     self.weightsArray = [NSMutableArray new];
@@ -384,6 +389,11 @@
         [self.heightPickerView reloadAllComponents];
         
         
+        if (!self.showingHeightFistTime) {
+            [ self.heightPickerView selectRow:4 inComponent:0 animated:NO];
+            self.showingHeightFistTime = YES;
+        }
+        
         return NO;
         
     }
@@ -399,6 +409,13 @@
         [self.view endEditing:YES];
 
         self.lblSelectHeight.text = @"Select Weight";
+        
+        if (!self.showingWeightFirstTime) {
+            [ self.heightPickerView selectRow:100 inComponent:0 animated:NO];
+            self.showingWeightFirstTime = YES;
+            
+        }
+        
         return NO;
         
         

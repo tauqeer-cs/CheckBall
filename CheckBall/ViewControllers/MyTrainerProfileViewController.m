@@ -42,6 +42,8 @@
 @property (nonatomic,strong) NSMutableArray * specalitesList;
 @property (nonatomic,strong) NSMutableArray * selectedSpecialites;
 
+
+@property (weak, nonatomic) IBOutlet UIView *viewNoMapAvailableContainer;
 @end
 
 @implementation MyTrainerProfileViewController
@@ -132,7 +134,7 @@ GMSMapView *mapView2;
     
     self.heightFeets = @[@"1'",@"2'",@"3'",@"4'",@"5'",@"6'",@"7'",@"8'"];
     
-    self.heightInches = @[@"1\"",@"2\"",@"3\"",@"4\"",@"5\"",@"6\"",@"7\"",@"8\"",@"9\"",@"10\"",@"11\""];
+    self.heightInches = @[@"0\"",@"1\"",@"2\"",@"3\"",@"4\"",@"5\"",@"6\"",@"7\"",@"8\"",@"9\"",@"10\"",@"11\""];
     self.weightsArray = [NSMutableArray new];
     
     for (int i = 50;i<1451;i++)
@@ -181,6 +183,15 @@ GMSMapView *mapView2;
 
 - (void)setLocationMapForUser:(User *)result {
     BOOL cameriaHasBeenSet = NO;
+    
+    if ([result.locations count] == 0) {
+        
+        
+///        [self.mapViewTraines setHidden:YES];
+        
+        [self.viewNoMapAvailableContainer setHidden:NO];
+        
+    }
     for (Location * currentItemDoing in result.locations)
     {
         float latShowing =  currentItemDoing.userLatitude;

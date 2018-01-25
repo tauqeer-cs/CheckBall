@@ -97,6 +97,8 @@
 
 @property (nonatomic) BOOL doShowTheNextButton;
 
+@property (nonatomic,strong) NSString * heightToSendForService;
+
 @property (weak, nonatomic) IBOutlet UILabel *lblNoVideoLabel;
 - (void)enterBasicInfoToLabler:(User *)result;
 - (void)setVideLabelsForEditor:(User *)result;
@@ -104,5 +106,10 @@
 - (void)setYoutubePlaerForUer:(User *)result;
 
 @property (nonatomic,strong) User * currentUserShowing;
+
+
+@property (nonatomic) BOOL showingHeightFistTime;
+@property (nonatomic) BOOL showingWeightFirstTime;
+
 
 @end

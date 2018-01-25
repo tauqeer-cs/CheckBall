@@ -32,7 +32,46 @@
 }
 -(NSString *)heightStringToShow{
     
-    NSString * heightShowing = [NSString stringWithFormat:@"%.02f",self.height];
+    NSString * heightShowing ;
+    
+        if ([self.orignalHeightString intValue] < 10) {
+
+            if ([self.orignalHeightString length] == 1) {
+                
+                NSLog(@"Height is within 1");
+                heightShowing = [NSString stringWithFormat:@"%.01f",self.height];
+                
+            }
+            else if ([self.orignalHeightString length] == 3) {
+                
+                NSLog(@"Height is within 1");
+            heightShowing = [NSString stringWithFormat:@"%.01f",self.height];
+                
+            }
+            else {
+                
+                heightShowing = [NSString stringWithFormat:@"%.02f",self.height];
+                
+            }
+        }
+        else {
+            
+            if ([self.orignalHeightString length] == 4) {
+                
+                NSLog(@"Height is within 1");
+                heightShowing = [NSString stringWithFormat:@"%.01f",self.height];
+                
+            }
+            else {
+                
+                heightShowing = [NSString stringWithFormat:@"%.02f",self.height];
+                
+            }
+            
+        }
+    
+
+    
     
     heightShowing = [heightShowing stringByReplacingOccurrencesOfString:@"." withString:@"\""];
     heightShowing = [heightShowing stringByAppendingString:@"'"];
@@ -83,12 +122,29 @@
     NSMutableDictionary * tmpDictionary = [NSMutableDictionary new];
     
     
+    
+    
     [tmpDictionary setObject:[NSString stringWithFormat:@"%d",self.userId] forKey:@"ID"];
     [tmpDictionary setObject:self.name forKey:@"Name"];
     [tmpDictionary setObject:self.myEmail forKey:@"Email"];
     [tmpDictionary setObject:self.accountType forKey:@"Account_Type"];
-    [tmpDictionary setObject:[NSNumber numberWithDouble:self.height] forKey:@"Height"];
-    [tmpDictionary setObject:[NSNumber numberWithInt:self.weight] forKey:@"Weight"];
+    
+    
+    [tmpDictionary setObject:self.heightStringToSend forKey:@"Height"];
+    
+    id tmp = [self.heightStringToSend substringFromString:@"."];
+    
+    if ([tmp intValue] == 10) {
+        
+        
+        
+     
+        [tmpDictionary setObject:[NSString stringWithFormat:@"%d.13",[[self.heightStringToSend substringToString:@"."] intValue]] forKey:@"Height"];
+        
+        
+    }
+    
+    [tmpDictionary setObject:[NSString stringWithFormat:@"%d",self.weight] forKey:@"Weight"];
     [tmpDictionary setObject:self.position forKey:@"Position"];
     [tmpDictionary setObject:self.school forKey:@"School"];
     [tmpDictionary setObject:self.bio forKey:@"Bio"];
@@ -173,8 +229,27 @@
     id accountItem = [[item objectForKey:@"Account"] firstObject];
     currentItem.accountType =  [accountItem objectForKey:@"Account_Type"];
     currentItem.bio =  [accountItem objectForKey:@"Bio"];
-    currentItem.height =  [[accountItem objectForKey:@"Height"] doubleValue];
+
+    currentItem.orignalHeightString = [accountItem objectForKey:@"Height"];
+    
+    if ([[currentItem.orignalHeightString substringFromString:@"."] intValue] == 13) {
+        
+       currentItem.orignalHeightString =  [NSString stringWithFormat:@"%d.10",[[currentItem.orignalHeightString substringToString:@"."] intValue]];
+        
+        currentItem.height =  [currentItem.orignalHeightString doubleValue];
+        
+        
+    }
+    else {
+        currentItem.height =  [[accountItem objectForKey:@"Height"] doubleValue];
+        
+        
+    }
+    
+    //currentItem.heightStringToSend = [NSString stringWithFormat:@""];
+    
     currentItem.userId =  [[accountItem objectForKey:@"ID"] intValue];
+    
     currentItem.name =  [accountItem objectForKey:@"Name"];
     currentItem.position =  [accountItem objectForKey:@"Position"];
     currentItem.school =  [accountItem objectForKey:@"School"];

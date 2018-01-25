@@ -338,13 +338,7 @@
     [[UITapGestureRecognizer alloc] initWithTarget:self
                                             action:@selector(selectedItem:)];
     currentCell.contentView.tag = indexPath.row;
-    
     [currentCell.contentView addGestureRecognizer:singleFingerTap];
-    
-    
-    
-    
-    //updateWithDate
     return currentCell;
 }
 

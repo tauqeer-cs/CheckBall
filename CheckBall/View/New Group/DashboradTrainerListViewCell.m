@@ -44,30 +44,23 @@
         
         
         if ([locationITem count] > 0 ) {
-            
-            
             float lastOne = 0;
-            
             for (id currentItem in locationITem)
-            {
-                
-                float latShowing = [[currentItem objectForKey:@"latitude"] floatValue];
+            {float latShowing = [[currentItem objectForKey:@"latitude"] floatValue];
                 float longShowing = [[currentItem objectForKey:@"longitude"] floatValue];
-                
                 CLLocation *endLocation = [[CLLocation alloc] initWithLatitude:latShowing longitude:longShowing];
-
-                CLLocationDistance distance = [startLocation distanceFromLocation:endLocation]; // aka double
-
-                if (distance > lastOne) {
+CLLocationDistance distance = [startLocation distanceFromLocation:endLocation]; // aka double
+if (distance > lastOne) {
                     lastOne = distance;
                     self.lblMiles.text = [NSString stringWithFormat:@"%.1fmi",(distance/1609.344)];
-                    
-                    
                 }
-                
-                
             }
+
             NSLog(@"");
+            
+        }
+        else {
+            self.lblMiles.text = @"";
             
         }
         NSLog(@"");

@@ -77,16 +77,32 @@
        
         self.heightSelected = [finalSelectedHeight stringByReplacingOccurrencesOfString:@"'" withString:@"."];
         
-        self.currentUserShowing.height = [self.heightSelected doubleValue];
+        
+
+        if([[self.heightInches objectAtIndex:inchesIndex] length] == 2){
+            
+            self.currentUserShowing.height = [self.heightSelected doubleValue];
+            
+            
+            
+        }
+        else {
+            self.currentUserShowing.height = [self.heightSelected doubleValue];
+            
+            
+        }
+        
         
         
         self.heightSelected = [self.heightSelected stringByReplacingOccurrencesOfString:@"\"" withString:@""];
         
-
+        self.currentUserShowing.heightStringToSend = self.heightSelected;
+        
+        
         finalSelectedHeight = [NSString stringWithFormat:@"Height ( %@ )",finalSelectedHeight];
         
-        self.lblHeight.text = self.currentUserShowing.heightStringToShow;
-        
+        self.lblHeight.text = finalSelectedHeight;
+        self.currentUserShowing.heightStringToSend = self.heightSelected;
         
 
     }
@@ -169,7 +185,15 @@
     
     [self.heightPickerView reloadAllComponents];
     
+    if (!self.showingHeightFistTime) {
+        [ self.heightPickerView selectRow:4 inComponent:0 animated:NO];
+        self.showingHeightFistTime = YES;
+        
+        
+    }
 
+    
+    
     
     
     
@@ -187,6 +211,14 @@
     self.lblSelectHeight.text = @"Select Weight";
     
     [self.heightPickerView reloadAllComponents];
+    
+    
+    if (!self.showingWeightFirstTime) {
+        [ self.heightPickerView selectRow:100 inComponent:0 animated:NO];
+        self.showingWeightFirstTime = YES;
+        
+    }
+
     
     
 }
@@ -437,6 +469,7 @@
         self.title = @"Profile";
     }
     
+    
     self.btnConnect.layer.cornerRadius = 5;
     
     [self.youTubePrayer setHidden:YES];
@@ -468,7 +501,7 @@
     
     self.heightFeets = @[@"1'",@"2'",@"3'",@"4'",@"5'",@"6'",@"7'",@"8'"];
     
-    self.heightInches = @[@"1\"",@"2\"",@"3\"",@"4\"",@"5\"",@"6\"",@"7\"",@"8\"",@"9\"",@"10\"",@"11\""];
+    self.heightInches = @[@"0\"",@"1\"",@"2\"",@"3\"",@"4\"",@"5\"",@"6\"",@"7\"",@"8\"",@"9\"",@"10\"",@"11\""];
     self.weightsArray = [NSMutableArray new];
     
     for (int i = 50;i<1451;i++)

@@ -1135,8 +1135,8 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OTP-8O-986">
                                                         <rect key="frame" x="8" y="0.0" width="339" height="38"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1y-H3-AN3">
-                                                                <rect key="frame" x="2" y="9" width="63" height="21"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1y-H3-AN3">
+                                                                <rect key="frame" x="2" y="9" width="96" height="21"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="21" id="HlW-W5-4FQ"/>
                                                                 </constraints>
@@ -1218,19 +1218,8 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Vh-At-ZLU">
                                                         <rect key="frame" x="0.0" y="84" width="177.5" height="34"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Q4-Wz-XFz">
-                                                                <rect key="frame" x="146.5" y="1" width="23" height="33"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="33" id="DbH-2P-WQg"/>
-                                                                    <constraint firstAttribute="width" constant="23" id="sIY-gL-he3"/>
-                                                                </constraints>
-                                                                <state key="normal" image="EDIT-ICON"/>
-                                                                <connections>
-                                                                    <action selector="btnHeightTapped:" destination="MMB-kc-XPs" eventType="touchUpInside" id="6aa-Ky-bLy"/>
-                                                                </connections>
-                                                            </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJK-G6-tbE">
-                                                                <rect key="frame" x="12" y="9" width="134.5" height="16"/>
+                                                                <rect key="frame" x="12" y="9" width="0.0" height="16"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="16" id="ORn-G7-2Z0"/>
                                                                 </constraints>
@@ -1241,12 +1230,9 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="0Q4-Wz-XFz" secondAttribute="trailing" constant="8" id="3SJ-Bv-Per"/>
                                                             <constraint firstItem="wJK-G6-tbE" firstAttribute="centerY" secondItem="8Vh-At-ZLU" secondAttribute="centerY" id="Kcg-xJ-cCW"/>
-                                                            <constraint firstItem="0Q4-Wz-XFz" firstAttribute="centerY" secondItem="8Vh-At-ZLU" secondAttribute="centerY" id="L47-uY-7jZ"/>
                                                             <constraint firstAttribute="height" constant="34" id="TTf-nb-RIQ"/>
                                                             <constraint firstItem="wJK-G6-tbE" firstAttribute="leading" secondItem="8Vh-At-ZLU" secondAttribute="leading" constant="12" id="cNf-S5-vdE"/>
-                                                            <constraint firstItem="0Q4-Wz-XFz" firstAttribute="leading" secondItem="wJK-G6-tbE" secondAttribute="trailing" id="q5Q-0i-K1W"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPP-h1-Fpx">
