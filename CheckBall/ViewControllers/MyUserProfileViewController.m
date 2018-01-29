@@ -282,6 +282,16 @@
         self.currentUserShowing.school = self.addingTextView.txtBoxEntering.text;
         
     }
+    else if(self.changingTheZipCode){
+        
+        self.lblZipCode.text = self.addingTextView.txtBoxEntering.text;
+        self.lblZipCode.text = self.addingTextView.txtBoxEntering.text;
+        self.changingTheSchool = NO;
+        
+        self.currentUserShowing.zipCode = self.addingTextView.txtBoxEntering.text;
+        
+    }
+    //
     else if(self.changingTheBioDetails){
         
         self.lblBio.text = self.addingTextView.txtBoxEntering.text;
@@ -296,7 +306,7 @@
         
         
         self.lblYouTubeOne.text = self.addingTextView.txtBoxEntering.text;
-        self.lblYouTubeOne.text = self.addingTextView.txtBoxEntering.text;
+
         self.changingYouTubeOne = NO;
         NSMutableArray* currentVideos = self.currentUserShowing.videos;
         
@@ -314,7 +324,6 @@
     else if(self.changingYouTubeTwo){
         
         self.lblYouTubeTwo.text = self.addingTextView.txtBoxEntering.text;
-        self.lblYouTubeTwo.text = self.addingTextView.txtBoxEntering.text;
         
         self.changingYouTubeTwo  = NO;
         
@@ -328,10 +337,10 @@
             
         }
         else if([currentVideos count] == 2){
-            [currentVideos replaceObjectAtIndex:1 withObject:self.lblYouTubeOne.text];
+            [currentVideos replaceObjectAtIndex:1 withObject:self.lblYouTubeTwo.text];
         }
         else if([currentVideos count] == 1){
-            [currentVideos replaceObjectAtIndex:0 withObject:self.lblYouTubeOne.text];
+            [currentVideos replaceObjectAtIndex:0 withObject:self.lblYouTubeTwo.text];
         }
         
     }
@@ -392,6 +401,24 @@
     
     
 }
+
+- (IBAction)btnZipCodeTapped:(id)sender {
+    
+    _addingTextView.txtBoxEntering.text = @"";
+    
+    
+    [self.addingTextView setHidden:NO];
+    [self.view bringSubviewToFront:self.addingTextView];
+    
+    
+    self.changingTheZipCode = YES;
+    
+    [self.addingTextView.txtBoxEntering becomeFirstResponder];
+    
+    
+}
+
+//lblZipCode
 
 
 - (IBAction)btnSchoolNameTapped:(id)sender {
@@ -613,10 +640,10 @@
     
 
     if (self.comingFromListing) {
-    [self.scrollViewUsing setContentSize:CGSizeMake(self.view.frame.size.width, 823)];
+    [self.scrollViewUsing setContentSize:CGSizeMake(self.view.frame.size.width, 850)];
     }
     else
-    [self.scrollViewUsing setContentSize:CGSizeMake(self.view.frame.size.width, 773)];
+    [self.scrollViewUsing setContentSize:CGSizeMake(self.view.frame.size.width, 810)];
     
 
 }
@@ -633,48 +660,6 @@
    paramDictionary =  [self.currentUserShowing makeParam];
     
 
-    /*
-    NSMutableDictionary * tmpDictionary = [NSMutableDictionary new];
-    
-    [tmpDictionary setObject:self.myJid forKey:@"ID"];
-    [tmpDictionary setObject:self.lblMyName.text forKey:@"Name"];
-    [tmpDictionary setObject:self.myEmail forKey:@"Email"];
-    [tmpDictionary setObject:self.myAccountType forKey:@"Account_Type"];
-    
-    [tmpDictionary setObject:self.heightSelected forKey:@"Height"];
-    [tmpDictionary setObject:self.weightSelected forKey:@"Weight"];
-    
-    [tmpDictionary setObject:self.lblPosition.text forKey:@"Position"];
-    
-    [tmpDictionary setObject:self.lblSchool.text forKey:@"School"];
-    [tmpDictionary setObject:self.lblBio.text forKey:@"Bio"];
-    [tmpDictionary setObject:self.myZipCode forKey:@"ZipCode"];
-    
-    [paramDictionary setObject:@[tmpDictionary] forKey:@"Account"];
-    
-    [paramDictionary setObject:@[] forKey:@"Specilities"];
-  
-    
-    NSMutableArray * videosArray = [NSMutableArray new];
-    
-    if ([self.lblYouTubeOne.text length] > 0) {
-        [videosArray addObject:
-         @{@"Url":self.lblYouTubeOne.text}];
-        
-    }
-    
-    if ([self.lblYouTubeTwo.text length] > 0) {
-     
-        [videosArray addObject:
-         @{@"Url":self.lblYouTubeTwo.text}];
-        
-        
-    }
-
-    [paramDictionary setObject:videosArray forKey:@"Videos"];
-    [paramDictionary setObject:@[] forKey:@"Locations"];
-    */
-    
     
     
     [self showLoader];
@@ -949,6 +934,9 @@
     self.lblBio.text =  result.bio;
     self.lblHeight.text = result.heightStringToShow;
     self.lblWeight.text = result.weightStringToShow;
+
+    self.lblZipCode.text = result.zipCode;
+    
 }
 
 - (void)setVideLabelsForEditor:(User *)result {

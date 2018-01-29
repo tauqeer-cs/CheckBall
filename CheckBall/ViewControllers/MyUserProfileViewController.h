@@ -42,6 +42,8 @@
 
 @property (nonatomic) BOOL changingTheName;
 @property (nonatomic) BOOL changingThePosition;
+@property (nonatomic) BOOL changingTheZipCode;
+
 @property (nonatomic) BOOL changingTheSchool;
 @property (nonatomic) BOOL changingTheBioDetails;
 
@@ -111,5 +113,6 @@
 @property (nonatomic) BOOL showingHeightFistTime;
 @property (nonatomic) BOOL showingWeightFirstTime;
 
+@property (weak, nonatomic) IBOutlet UILabel *lblZipCode;
 
 @end

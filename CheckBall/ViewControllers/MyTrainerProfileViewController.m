@@ -304,11 +304,11 @@ GMSMapView *mapView2;
     
     if(self.comingFromListing){
         
-        [self.scrollViewUsing setContentSize:CGSizeMake(self.view.frame.size.width, 1100)];
+        [self.scrollViewUsing setContentSize:CGSizeMake(self.view.frame.size.width, 1140)];
         
     }
     else {
-        [self.scrollViewUsing setContentSize:CGSizeMake(self.view.frame.size.width, 893)];
+        [self.scrollViewUsing setContentSize:CGSizeMake(self.view.frame.size.width, 923)];
         
     }
     

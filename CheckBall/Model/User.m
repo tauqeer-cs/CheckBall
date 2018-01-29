@@ -130,6 +130,12 @@
     [tmpDictionary setObject:self.accountType forKey:@"Account_Type"];
     
     
+    if (!self.heightStringToSend) {
+       
+        [tmpDictionary setObject:self.orignalHeightString forKey:@"Height"];
+        
+    }
+    else
     [tmpDictionary setObject:self.heightStringToSend forKey:@"Height"];
     
     id tmp = [self.heightStringToSend substringFromString:@"."];
