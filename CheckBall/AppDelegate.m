@@ -60,6 +60,9 @@
         
         
         
+        [self registerForRemoteNotifion];
+        
+        
     }
     
     return YES;
@@ -80,6 +83,53 @@
     // Add any custom logic here.
     return handled;
 }
+
+-(void)registerForRemoteNotifion{
+    
+    //
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(isRegisteredForRemoteNotifications)]){
+        
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+        
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+        
+    }
+    else{
+        
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+         UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+        
+    }
+    
+    
+    
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
+(NSData *)deviceToken {
+    
+    [deviceToken description];
+    
+    NSUserDefaults *defauls = [NSUserDefaults standardUserDefaults];
+    
+    
+    NSString *tokenToSend =     [[[[deviceToken description]
+                                   stringByReplacingOccurrencesOfString:@"<"withString:@""]
+                                  stringByReplacingOccurrencesOfString:@">" withString:@""]
+                                 stringByReplacingOccurrencesOfString: @" " withString: @""];
+    [defauls setObject:tokenToSend forKey:@"deviceToken"];
+    
+    
+    
+    NSLog(@"%@",tokenToSend);
+    
+    //self.tokenToSend = tokenToSend;
+    
+    
+}
+
+
+
 
 
 

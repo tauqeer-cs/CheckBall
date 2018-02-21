@@ -917,6 +917,7 @@
 		D46365562013747C00E7E442 /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
 		D463655D2013BA0F00E7E442 /* Location.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		D463655E2013BA0F00E7E442 /* Location.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		D487FD0F202C924E00ED0E67 /* CheckBall.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CheckBall.entitlements; sourceTree = "<group>"; };
 		D4E5896220105C1B00EB95F1 /* CropImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropImageViewController.h; sourceTree = "<group>"; };
 		D4E5896320105C1B00EB95F1 /* CropImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CropImageViewController.xib; sourceTree = "<group>"; };
 		D4E5896420105C1B00EB95F1 /* CropImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropImageViewController.m; sourceTree = "<group>"; };
@@ -979,6 +980,7 @@
 		4736D0DE1FC5C4A7003032AA /* CheckBall */ = {
 			isa = PBXGroup;
 			children = (
+				D487FD0F202C924E00ED0E67 /* CheckBall.entitlements */,
 				D4516CB92009C89A005FDFDA /* Model */,
 				478074E71FCC737300AFA5F6 /* View */,
 				4736D0FC1FC5C701003032AA /* Engine */,
@@ -2267,6 +2269,11 @@
 					4736D0DB1FC5C4A7003032AA = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -2776,7 +2783,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Plego Technologies, LLC (75975U3UB4)";
+				CODE_SIGN_ENTITLEMENTS = CheckBall/CheckBall.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Saad Yusuf (WDTGDQ3WCV)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 75975U3UB4;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2790,8 +2798,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.plego.CheckBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "48b4a62d-da4b-4074-b6f6-1d6fa2f7d498";
-				PROVISIONING_PROFILE_SPECIFIER = "CheckBall_ Distribution";
+				PROVISIONING_PROFILE = "be0c3a11-c036-4a52-a213-bffc03fcd5dd";
+				PROVISIONING_PROFILE_SPECIFIER = CheckBallDev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2800,7 +2808,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Plego Technologies, LLC (75975U3UB4)";
+				CODE_SIGN_ENTITLEMENTS = CheckBall/CheckBall.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Saad Yusuf (WDTGDQ3WCV)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 75975U3UB4;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2814,8 +2823,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.plego.CheckBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "48b4a62d-da4b-4074-b6f6-1d6fa2f7d498";
-				PROVISIONING_PROFILE_SPECIFIER = "CheckBall_ Distribution";
+				PROVISIONING_PROFILE = "be0c3a11-c036-4a52-a213-bffc03fcd5dd";
+				PROVISIONING_PROFILE_SPECIFIER = CheckBallDev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
