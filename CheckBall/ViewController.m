@@ -138,6 +138,9 @@
     
 }
 - (void)extracted:(id)result {
+    
+    
+    
     NSString * accountType =  [result objectForKey:@"Account_Type"];
     
     if ([accountType isEqualToString:@"P"]) {
@@ -168,6 +171,16 @@
 
 - (IBAction)loginButtonTapped:(UIButton *)sender {
 
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *initViewController;
+    initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"TabBarView"];
+    
+    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    appDelegate.window.rootViewController = initViewController;
+    
+    return;
+    
 
     if (![Validator validateEmptyString:self.textViewPassword.txtView.text]
         || ![Validator validateEmptyString:self.textViewPassword.txtView.text])

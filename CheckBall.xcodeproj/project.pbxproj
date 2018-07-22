@@ -278,6 +278,8 @@
 		47EFC3761FCF0B1300794A6E /* SelectEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC3751FCF0B1300794A6E /* SelectEmailViewController.m */; };
 		47EFC3791FCF120500794A6E /* TrainerFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC3781FCF120500794A6E /* TrainerFormViewController.m */; };
 		47EFC37C1FCF121200794A6E /* PlayerFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC37B1FCF121200794A6E /* PlayerFormViewController.m */; };
+		50D7C77121045ED900E3F791 /* CustomTApBArViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D7C77021045ED900E3F791 /* CustomTApBArViewController.m */; };
+		50D7C77521045FC600E3F791 /* FeedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D7C77421045FC600E3F791 /* FeedListViewController.m */; };
 		D40B2521201449D10066343F /* Specialities.m in Sources */ = {isa = PBXBuildFile; fileRef = D40B2520201449D10066343F /* Specialities.m */; };
 		D40B2527201496E80066343F /* DIYTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D40B2526201496E80066343F /* DIYTableViewCell.m */; };
 		D40B252B2014FC700066343F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40B25282014FC6E0066343F /* FBSDKCoreKit.framework */; };
@@ -876,6 +878,10 @@
 		47EFC3781FCF120500794A6E /* TrainerFormViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrainerFormViewController.m; sourceTree = "<group>"; };
 		47EFC37A1FCF121200794A6E /* PlayerFormViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerFormViewController.h; sourceTree = "<group>"; };
 		47EFC37B1FCF121200794A6E /* PlayerFormViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerFormViewController.m; sourceTree = "<group>"; };
+		50D7C76F21045ED900E3F791 /* CustomTApBArViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTApBArViewController.h; sourceTree = "<group>"; };
+		50D7C77021045ED900E3F791 /* CustomTApBArViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTApBArViewController.m; sourceTree = "<group>"; };
+		50D7C77321045FC600E3F791 /* FeedListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedListViewController.h; sourceTree = "<group>"; };
+		50D7C77421045FC600E3F791 /* FeedListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedListViewController.m; sourceTree = "<group>"; };
 		D40B251F201449D10066343F /* Specialities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Specialities.h; sourceTree = "<group>"; };
 		D40B2520201449D10066343F /* Specialities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Specialities.m; sourceTree = "<group>"; };
 		D40B2525201496E70066343F /* DIYTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYTableViewCell.h; sourceTree = "<group>"; };
@@ -1020,6 +1026,7 @@
 		4736D0F91FC5C701003032AA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				50D7C77221045FB000E3F791 /* Feed */,
 				4736D0FA1FC5C701003032AA /* BaseViewController.h */,
 				4736D0FB1FC5C701003032AA /* BaseViewController.m */,
 				47315D581FCDB5AF0010DAA3 /* ForgotPasswordViewController.h */,
@@ -1046,6 +1053,8 @@
 				D41AD4532010E62A00718161 /* SelectMapLocationViewController.m */,
 				D46365482013544900E7E442 /* ChangePasswordViewController.h */,
 				D46365492013544900E7E442 /* ChangePasswordViewController.m */,
+				50D7C76F21045ED900E3F791 /* CustomTApBArViewController.h */,
+				50D7C77021045ED900E3F791 /* CustomTApBArViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -2183,6 +2192,15 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
+		50D7C77221045FB000E3F791 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				50D7C77321045FC600E3F791 /* FeedListViewController.h */,
+				50D7C77421045FC600E3F791 /* FeedListViewController.m */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
 		D41AD4352010E40D00718161 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2380,6 +2398,7 @@
 				4736D3741FC5C702003032AA /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				4736D43A1FC5C703003032AA /* TOCropToolbar.m in Sources */,
 				4736D35B1FC5C702003032AA /* NSArray+NBAdditions.m in Sources */,
+				50D7C77521045FC600E3F791 /* FeedListViewController.m in Sources */,
 				4736D3DA1FC5C702003032AA /* IQPhotoSettingsContainerView.m in Sources */,
 				4736D3A71FC5C702003032AA /* UzysAssetsPickerController.m in Sources */,
 				4736D4111FC5C702003032AA /* RTSpinKitWaveAnimation.m in Sources */,
@@ -2520,6 +2539,7 @@
 				4736D37E1FC5C702003032AA /* NSString+JS.m in Sources */,
 				4736D3571FC5C702003032AA /* NBPhoneMetaDataGenerator.m in Sources */,
 				4721F2011FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.m in Sources */,
+				50D7C77121045ED900E3F791 /* CustomTApBArViewController.m in Sources */,
 				4736D43C1FC5C703003032AA /* UIImage+LMExtension.m in Sources */,
 				4736D3FC1FC5C702003032AA /* MASViewAttribute.m in Sources */,
 				4736D4031FC5C702003032AA /* NIDropDown.m in Sources */,

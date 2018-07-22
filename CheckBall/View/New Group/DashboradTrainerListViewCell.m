@@ -49,6 +49,7 @@
             {float latShowing = [[currentItem objectForKey:@"latitude"] floatValue];
                 float longShowing = [[currentItem objectForKey:@"longitude"] floatValue];
                 CLLocation *endLocation = [[CLLocation alloc] initWithLatitude:latShowing longitude:longShowing];
+                
 CLLocationDistance distance = [startLocation distanceFromLocation:endLocation]; // aka double
 if (distance > lastOne) {
                     lastOne = distance;
