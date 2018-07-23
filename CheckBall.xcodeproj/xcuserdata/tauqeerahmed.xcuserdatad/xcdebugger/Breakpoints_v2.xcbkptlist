@@ -89,7 +89,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/Message/MessageListingViewController.m"
-            timestampString = "554063158.918895"
+            timestampString = "554065262.313803"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "46"
@@ -105,7 +105,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/ViewControllers/Message/MessageListingViewController.m"
-            timestampString = "554063158.919202"
+            timestampString = "554065262.314171"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
@@ -131,7 +131,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Chat/ChatViewController.m"
-            timestampString = "554063158.919268"
+            timestampString = "554065262.3142509"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "231"
@@ -147,7 +147,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Chat/ChatViewController.m"
-            timestampString = "554063158.919464"
+            timestampString = "554065262.314605"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "245"
@@ -163,13 +163,71 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckBall/Chat/ChatViewController.m"
-            timestampString = "554063158.919517"
+            timestampString = "554065262.314698"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "253"
             endingLineNumber = "253"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckBall/ViewControllers/PlayerDashboardViewController.m"
+            timestampString = "554065262.314778"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "PlayerDashboardViewController()"
+            landmarkType = "2">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[PlayerDashboardViewController mapView]"
+                  moduleName = "CheckBall"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tauqeerahmed/Documents/GitHub/CheckBall/CheckBall/ViewControllers/PlayerDashboardViewController.m"
+                  timestampString = "554065162.1637729"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[PlayerDashboardViewController setMapView:]"
+                  moduleName = "CheckBall"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tauqeerahmed/Documents/GitHub/CheckBall/CheckBall/ViewControllers/PlayerDashboardViewController.m"
+                  timestampString = "554065162.167379"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "49">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

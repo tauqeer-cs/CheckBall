@@ -7,10 +7,13 @@
 //
 
 #import "GameListingViewController.h"
+#import "DashboradTrainerListViewCell.h"
 
-@interface GameListingViewController ()
+@interface GameListingViewController ()<UICollectionViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet GMSMapView *mapView;
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @end
 
 @implementation GameListingViewController
@@ -18,13 +21,60 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    [self.collectionView registerNib:[UINib nibWithNibName:@"DashboradTrainerListViewCell" bundle:nil]
+          forCellWithReuseIdentifier:@"cellTrainer"];
+    [self.collectionView setBackgroundColor:[UIColor clearColor]];
+    
+}
+- (NSInteger)collectionView:(UICollectionView *)collectionView
+     numberOfItemsInSection:(NSInteger)section{
+    
+    return 4;
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    DashboradTrainerListViewCell *currentCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellTrainer" forIndexPath:indexPath];
+    
+    
+    //[currentCell updateWithDate:[self.dataSource objectAtIndex:indexPath.row]];
+    
+   // UITapGestureRecognizer *singleFingerTap =
+   // [[UITapGestureRecognizer alloc] initWithTarget:self
+   //                                         action:@selector(selectedItem:)];
+    currentCell.contentView.tag = indexPath.row;
+    currentCell.lblName.text = @"Team Name";
+    currentCell.lblType.text = @"Game Name";
+    
+    return currentCell;
 }
+
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(self.collectionView.frame.size.width, 55);
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    
+}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    
+    
+    
+    NSLog(@"");
+    
+    
+    
+}
+
 
 /*
 #pragma mark - Navigation
