@@ -147,7 +147,7 @@
         
         UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UIViewController *initViewController;
-        initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"RooTView"];
+        initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"TabBarView"];
         
         AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
         
@@ -171,6 +171,7 @@
 
 - (IBAction)loginButtonTapped:(UIButton *)sender {
 
+    /*
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *initViewController;
     initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"TabBarView"];
@@ -180,6 +181,7 @@
     appDelegate.window.rootViewController = initViewController;
     
     return;
+    */
     
 
     if (![Validator validateEmptyString:self.textViewPassword.txtView.text]
@@ -234,6 +236,8 @@
 
 }
 - (IBAction)btnLoginWithFbTapped:(UIButton *)sender {
+    
+    return;
     
     [self showLoader];
     

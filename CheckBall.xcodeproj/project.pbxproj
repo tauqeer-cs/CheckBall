@@ -278,6 +278,27 @@
 		47EFC3761FCF0B1300794A6E /* SelectEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC3751FCF0B1300794A6E /* SelectEmailViewController.m */; };
 		47EFC3791FCF120500794A6E /* TrainerFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC3781FCF120500794A6E /* TrainerFormViewController.m */; };
 		47EFC37C1FCF121200794A6E /* PlayerFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC37B1FCF121200794A6E /* PlayerFormViewController.m */; };
+		50C0F63E210617A8006B929C /* VideoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C0F63C210617A8006B929C /* VideoCollectionViewCell.m */; };
+		50C0F63F210617A8006B929C /* VideoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50C0F63D210617A8006B929C /* VideoCollectionViewCell.xib */; };
+		50C0F643210617E9006B929C /* NewsItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C0F641210617E9006B929C /* NewsItemCollectionViewCell.m */; };
+		50C0F644210617E9006B929C /* NewsItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50C0F642210617E9006B929C /* NewsItemCollectionViewCell.xib */; };
+		50C0F64921062D45006B929C /* MessageListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C0F64721062D45006B929C /* MessageListingViewController.m */; };
+		50C0F64A21062D45006B929C /* MessageListingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50C0F64821062D45006B929C /* MessageListingViewController.xib */; };
+		50C0F64F21062F17006B929C /* MessageListingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C0F64D21062F17006B929C /* MessageListingTableViewCell.m */; };
+		50C0F65021062F17006B929C /* MessageListingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50C0F64E21062F17006B929C /* MessageListingTableViewCell.xib */; };
+		50C0F65C21063ACB006B929C /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50C0F65221063ACB006B929C /* ChatViewController.xib */; };
+		50C0F65D21063ACB006B929C /* RightChatViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C0F65321063ACB006B929C /* RightChatViewCell.m */; };
+		50C0F65E21063ACB006B929C /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C0F65421063ACB006B929C /* ChatViewController.m */; };
+		50C0F65F21063ACB006B929C /* RightChatViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50C0F65521063ACB006B929C /* RightChatViewCell.xib */; };
+		50C0F66021063ACC006B929C /* LeftChatViewCell copy.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50C0F65721063ACB006B929C /* LeftChatViewCell copy.xib */; };
+		50C0F66121063ACC006B929C /* LeftChatViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50C0F65921063ACB006B929C /* LeftChatViewCell.xib */; };
+		50C0F66221063ACC006B929C /* LeftChatViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C0F65A21063ACB006B929C /* LeftChatViewCell.m */; };
+		50C0F6662106434D006B929C /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C0F6652106434D006B929C /* FriendsViewController.m */; };
+		50C0F66B210645CD006B929C /* AcceptRejectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C0F669210645CD006B929C /* AcceptRejectTableViewCell.m */; };
+		50C0F66C210645CD006B929C /* AcceptRejectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50C0F66A210645CD006B929C /* AcceptRejectTableViewCell.xib */; };
+		50C0F670210645DC006B929C /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C0F66E210645DC006B929C /* FriendTableViewCell.m */; };
+		50C0F671210645DC006B929C /* FriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50C0F66F210645DC006B929C /* FriendTableViewCell.xib */; };
+		50C0F6752106558F006B929C /* GameListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C0F6742106558F006B929C /* GameListingViewController.m */; };
 		50D7C77121045ED900E3F791 /* CustomTApBArViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D7C77021045ED900E3F791 /* CustomTApBArViewController.m */; };
 		50D7C77521045FC600E3F791 /* FeedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D7C77421045FC600E3F791 /* FeedListViewController.m */; };
 		D40B2521201449D10066343F /* Specialities.m in Sources */ = {isa = PBXBuildFile; fileRef = D40B2520201449D10066343F /* Specialities.m */; };
@@ -878,6 +899,38 @@
 		47EFC3781FCF120500794A6E /* TrainerFormViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrainerFormViewController.m; sourceTree = "<group>"; };
 		47EFC37A1FCF121200794A6E /* PlayerFormViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerFormViewController.h; sourceTree = "<group>"; };
 		47EFC37B1FCF121200794A6E /* PlayerFormViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerFormViewController.m; sourceTree = "<group>"; };
+		50C0F63B210617A8006B929C /* VideoCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCollectionViewCell.h; sourceTree = "<group>"; };
+		50C0F63C210617A8006B929C /* VideoCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCollectionViewCell.m; sourceTree = "<group>"; };
+		50C0F63D210617A8006B929C /* VideoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCollectionViewCell.xib; sourceTree = "<group>"; };
+		50C0F640210617E9006B929C /* NewsItemCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsItemCollectionViewCell.h; sourceTree = "<group>"; };
+		50C0F641210617E9006B929C /* NewsItemCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsItemCollectionViewCell.m; sourceTree = "<group>"; };
+		50C0F642210617E9006B929C /* NewsItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsItemCollectionViewCell.xib; sourceTree = "<group>"; };
+		50C0F64621062D45006B929C /* MessageListingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageListingViewController.h; sourceTree = "<group>"; };
+		50C0F64721062D45006B929C /* MessageListingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageListingViewController.m; sourceTree = "<group>"; };
+		50C0F64821062D45006B929C /* MessageListingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageListingViewController.xib; sourceTree = "<group>"; };
+		50C0F64C21062F17006B929C /* MessageListingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageListingTableViewCell.h; sourceTree = "<group>"; };
+		50C0F64D21062F17006B929C /* MessageListingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageListingTableViewCell.m; sourceTree = "<group>"; };
+		50C0F64E21062F17006B929C /* MessageListingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageListingTableViewCell.xib; sourceTree = "<group>"; };
+		50C0F65221063ACB006B929C /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		50C0F65321063ACB006B929C /* RightChatViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightChatViewCell.m; sourceTree = "<group>"; };
+		50C0F65421063ACB006B929C /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		50C0F65521063ACB006B929C /* RightChatViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RightChatViewCell.xib; sourceTree = "<group>"; };
+		50C0F65621063ACB006B929C /* LeftChatViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftChatViewCell.h; sourceTree = "<group>"; };
+		50C0F65721063ACB006B929C /* LeftChatViewCell copy.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "LeftChatViewCell copy.xib"; sourceTree = "<group>"; };
+		50C0F65821063ACB006B929C /* RightChatViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightChatViewCell.h; sourceTree = "<group>"; };
+		50C0F65921063ACB006B929C /* LeftChatViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftChatViewCell.xib; sourceTree = "<group>"; };
+		50C0F65A21063ACB006B929C /* LeftChatViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftChatViewCell.m; sourceTree = "<group>"; };
+		50C0F65B21063ACB006B929C /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		50C0F6642106434D006B929C /* FriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
+		50C0F6652106434D006B929C /* FriendsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
+		50C0F668210645CD006B929C /* AcceptRejectTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AcceptRejectTableViewCell.h; sourceTree = "<group>"; };
+		50C0F669210645CD006B929C /* AcceptRejectTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AcceptRejectTableViewCell.m; sourceTree = "<group>"; };
+		50C0F66A210645CD006B929C /* AcceptRejectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AcceptRejectTableViewCell.xib; sourceTree = "<group>"; };
+		50C0F66D210645DC006B929C /* FriendTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
+		50C0F66E210645DC006B929C /* FriendTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
+		50C0F66F210645DC006B929C /* FriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendTableViewCell.xib; sourceTree = "<group>"; };
+		50C0F6732106558F006B929C /* GameListingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameListingViewController.h; sourceTree = "<group>"; };
+		50C0F6742106558F006B929C /* GameListingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameListingViewController.m; sourceTree = "<group>"; };
 		50D7C76F21045ED900E3F791 /* CustomTApBArViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTApBArViewController.h; sourceTree = "<group>"; };
 		50D7C77021045ED900E3F791 /* CustomTApBArViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTApBArViewController.m; sourceTree = "<group>"; };
 		50D7C77321045FC600E3F791 /* FeedListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedListViewController.h; sourceTree = "<group>"; };
@@ -987,6 +1040,7 @@
 			isa = PBXGroup;
 			children = (
 				D487FD0F202C924E00ED0E67 /* CheckBall.entitlements */,
+				50C0F65121063ACB006B929C /* Chat */,
 				D4516CB92009C89A005FDFDA /* Model */,
 				478074E71FCC737300AFA5F6 /* View */,
 				4736D0FC1FC5C701003032AA /* Engine */,
@@ -1026,6 +1080,9 @@
 		4736D0F91FC5C701003032AA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				50C0F6722106557C006B929C /* Game */,
+				50C0F66321064328006B929C /* Friends */,
+				50C0F64521062D2D006B929C /* Message */,
 				50D7C77221045FB000E3F791 /* Feed */,
 				4736D0FA1FC5C701003032AA /* BaseViewController.h */,
 				4736D0FB1FC5C701003032AA /* BaseViewController.m */,
@@ -2151,6 +2208,8 @@
 		478074E71FCC737300AFA5F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				50C0F66721064581006B929C /* MessageListing */,
+				50C0F64B21062EE5006B929C /* TableView */,
 				D40B2525201496E70066343F /* DIYTableViewCell.h */,
 				D40B2526201496E80066343F /* DIYTableViewCell.m */,
 				47D1F5561FD5AF2600FC8F44 /* CollectionView */,
@@ -2187,9 +2246,83 @@
 				47A55F781FD6F4A000D48F41 /* DashboradTrainerListViewCell.h */,
 				47A55F791FD6F4A000D48F41 /* DashboradTrainerListViewCell.m */,
 				47A55F7A1FD6F4A000D48F41 /* DashboradTrainerListViewCell.xib */,
+				50C0F63B210617A8006B929C /* VideoCollectionViewCell.h */,
+				50C0F63C210617A8006B929C /* VideoCollectionViewCell.m */,
+				50C0F63D210617A8006B929C /* VideoCollectionViewCell.xib */,
+				50C0F640210617E9006B929C /* NewsItemCollectionViewCell.h */,
+				50C0F641210617E9006B929C /* NewsItemCollectionViewCell.m */,
+				50C0F642210617E9006B929C /* NewsItemCollectionViewCell.xib */,
 			);
 			name = CollectionView;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		50C0F64521062D2D006B929C /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				50C0F64621062D45006B929C /* MessageListingViewController.h */,
+				50C0F64721062D45006B929C /* MessageListingViewController.m */,
+				50C0F64821062D45006B929C /* MessageListingViewController.xib */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		50C0F64B21062EE5006B929C /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				50C0F64C21062F17006B929C /* MessageListingTableViewCell.h */,
+				50C0F64D21062F17006B929C /* MessageListingTableViewCell.m */,
+				50C0F64E21062F17006B929C /* MessageListingTableViewCell.xib */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		50C0F65121063ACB006B929C /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				50C0F65221063ACB006B929C /* ChatViewController.xib */,
+				50C0F65321063ACB006B929C /* RightChatViewCell.m */,
+				50C0F65421063ACB006B929C /* ChatViewController.m */,
+				50C0F65521063ACB006B929C /* RightChatViewCell.xib */,
+				50C0F65621063ACB006B929C /* LeftChatViewCell.h */,
+				50C0F65721063ACB006B929C /* LeftChatViewCell copy.xib */,
+				50C0F65821063ACB006B929C /* RightChatViewCell.h */,
+				50C0F65921063ACB006B929C /* LeftChatViewCell.xib */,
+				50C0F65A21063ACB006B929C /* LeftChatViewCell.m */,
+				50C0F65B21063ACB006B929C /* ChatViewController.h */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		50C0F66321064328006B929C /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				50C0F6642106434D006B929C /* FriendsViewController.h */,
+				50C0F6652106434D006B929C /* FriendsViewController.m */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		50C0F66721064581006B929C /* MessageListing */ = {
+			isa = PBXGroup;
+			children = (
+				50C0F668210645CD006B929C /* AcceptRejectTableViewCell.h */,
+				50C0F669210645CD006B929C /* AcceptRejectTableViewCell.m */,
+				50C0F66A210645CD006B929C /* AcceptRejectTableViewCell.xib */,
+				50C0F66D210645DC006B929C /* FriendTableViewCell.h */,
+				50C0F66E210645DC006B929C /* FriendTableViewCell.m */,
+				50C0F66F210645DC006B929C /* FriendTableViewCell.xib */,
+			);
+			path = MessageListing;
+			sourceTree = "<group>";
+		};
+		50C0F6722106557C006B929C /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				50C0F6732106558F006B929C /* GameListingViewController.h */,
+				50C0F6742106558F006B929C /* GameListingViewController.m */,
+			);
+			path = Game;
 			sourceTree = "<group>";
 		};
 		50D7C77221045FB000E3F791 /* Feed */ = {
@@ -2335,29 +2468,39 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50C0F66021063ACC006B929C /* LeftChatViewCell copy.xib in Resources */,
 				4736D4321FC5C703003032AA /* Info.plist in Resources */,
+				50C0F66C210645CD006B929C /* AcceptRejectTableViewCell.xib in Resources */,
 				47A55F7E1FD6F97E00D48F41 /* OptionsView.xib in Resources */,
+				50C0F64A21062D45006B929C /* MessageListingViewController.xib in Resources */,
 				D4E5896520105C1C00EB95F1 /* CropImageViewController.xib in Resources */,
 				D43AF7B6200F9CBC00702481 /* AddingTextViewControl.xib in Resources */,
+				50C0F65C21063ACB006B929C /* ChatViewController.xib in Resources */,
 				4736D42E1FC5C702003032AA /* TGCameraViewController.xib in Resources */,
 				4736D0EC1FC5C4A7003032AA /* LaunchScreen.storyboard in Resources */,
 				4721F2021FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.xib in Resources */,
 				4736D36F1FC5C702003032AA /* menu-button.png in Resources */,
 				47A55F7C1FD6F4A000D48F41 /* DashboradTrainerListViewCell.xib in Resources */,
+				50C0F65F21063ACB006B929C /* RightChatViewCell.xib in Resources */,
 				D41AD4342010E3D300718161 /* GoogleMaps.bundle in Resources */,
 				D463655A2013747C00E7E442 /* LICENSE in Resources */,
 				4736D0F61FC5C59B003032AA /* SignUpStoryboard.storyboard in Resources */,
 				4736D3D11FC5C702003032AA /* IQMediaCaptureController.xcassets in Resources */,
 				47A55F771FD6F37300D48F41 /* MainTrainer.storyboard in Resources */,
+				50C0F644210617E9006B929C /* NewsItemCollectionViewCell.xib in Resources */,
 				4711A6BC1FD5B52000A6EACC /* DashboardPlayerListCollectionCell.xib in Resources */,
 				4736D0E91FC5C4A7003032AA /* Assets.xcassets in Resources */,
+				50C0F65021062F17006B929C /* MessageListingTableViewCell.xib in Resources */,
+				50C0F671210645DC006B929C /* FriendTableViewCell.xib in Resources */,
 				D46365592013747C00E7E442 /* README.md in Resources */,
 				4736D0E71FC5C4A7003032AA /* Main.storyboard in Resources */,
 				4736D3701FC5C702003032AA /* menu-button@2x.png in Resources */,
 				4736D3A61FC5C702003032AA /* UzysAssetPickerController.bundle in Resources */,
 				D46365572013747C00E7E442 /* Assets.bundle in Resources */,
+				50C0F66121063ACC006B929C /* LeftChatViewCell.xib in Resources */,
 				4736D4311FC5C703003032AA /* TOCropViewControllerLocalizable.strings in Resources */,
 				4736D42D1FC5C702003032AA /* TGCameraAuthorizationViewController.xib in Resources */,
+				50C0F63F210617A8006B929C /* VideoCollectionViewCell.xib in Resources */,
 				4736D3C21FC5C702003032AA /* IQAudioPickerController.xcassets in Resources */,
 				4736D4241FC5C702003032AA /* TGCameraViewController.bundle in Resources */,
 				4736D42F1FC5C702003032AA /* TGPhotoViewController.xib in Resources */,
@@ -2392,6 +2535,7 @@
 				4736D4091FC5C702003032AA /* RTSpinKitCircleAnimation.m in Sources */,
 				4736D3E91FC5C702003032AA /* JotTextEditView.m in Sources */,
 				4721F2051FD3E187006046FE /* MakePassowdViewController.m in Sources */,
+				50C0F64921062D45006B929C /* MessageListingViewController.m in Sources */,
 				4736D4351FC5C703003032AA /* TOCropViewControllerTransitioning.m in Sources */,
 				4736D3CB1FC5C702003032AA /* IQSongsComposersViewController.m in Sources */,
 				4736D3F71FC5C702003032AA /* LMMenuCell.m in Sources */,
@@ -2405,6 +2549,7 @@
 				4736D3D31FC5C702003032AA /* IQCaptureSession.m in Sources */,
 				4736D43B1FC5C703003032AA /* TOCropView.m in Sources */,
 				4736D3EF1FC5C702003032AA /* JTSAnimatedGIFUtility.m in Sources */,
+				50C0F6662106434D006B929C /* FriendsViewController.m in Sources */,
 				4736D41E1FC5C702003032AA /* TGCameraFlash.m in Sources */,
 				4736D37F1FC5C702003032AA /* PrayTime.m in Sources */,
 				4736D36E1FC5C702003032AA /* LeftMenuViewController.m in Sources */,
@@ -2489,6 +2634,7 @@
 				4736D3C71FC5C702003032AA /* IQSongsListTableHeaderView.m in Sources */,
 				4736D4171FC5C702003032AA /* TGCameraNavigationController.m in Sources */,
 				4736D38B1FC5C702003032AA /* XMLDictionary.m in Sources */,
+				50C0F65E21063ACB006B929C /* ChatViewController.m in Sources */,
 				4736D3ED1FC5C702003032AA /* JotViewController.m in Sources */,
 				4736D3EE1FC5C702003032AA /* UIImage+Jot.m in Sources */,
 				4736D3E31FC5C702003032AA /* IQAKPickerView.m in Sources */,
@@ -2512,6 +2658,7 @@
 				4736D3F11FC5C702003032AA /* JTSImageViewController.m in Sources */,
 				4736D3BA1FC5C702003032AA /* EDStarRating.m in Sources */,
 				4736D34A1FC5C702003032AA /* NSString+MyString.m in Sources */,
+				50C0F66221063ACC006B929C /* LeftChatViewCell.m in Sources */,
 				4736D3A21FC5C702003032AA /* UIRefreshControl+AFNetworking.m in Sources */,
 				4736D3F31FC5C702003032AA /* UIApplication+JTSImageViewController.m in Sources */,
 				4736D4341FC5C703003032AA /* TOCroppedImageAttributes.m in Sources */,
@@ -2543,6 +2690,7 @@
 				4736D43C1FC5C703003032AA /* UIImage+LMExtension.m in Sources */,
 				4736D3FC1FC5C702003032AA /* MASViewAttribute.m in Sources */,
 				4736D4031FC5C702003032AA /* NIDropDown.m in Sources */,
+				50C0F63E210617A8006B929C /* VideoCollectionViewCell.m in Sources */,
 				4736D42A1FC5C702003032AA /* TGCameraSlideView.m in Sources */,
 				4736D3861FC5C702003032AA /* ESModalImageViewAnimationController.m in Sources */,
 				4736D3D61FC5C702003032AA /* IQCaptureButton.m in Sources */,
@@ -2554,6 +2702,7 @@
 				4736D4221FC5C702003032AA /* TGCameraToggle.m in Sources */,
 				4736D3491FC5C702003032AA /* APTimeZones.m in Sources */,
 				4736D3841FC5C702003032AA /* TextFieldValidator.m in Sources */,
+				50C0F643210617E9006B929C /* NewsItemCollectionViewCell.m in Sources */,
 				4736D3A31FC5C702003032AA /* UIWebView+AFNetworking.m in Sources */,
 				4736D3C41FC5C702003032AA /* IQAudioPickerShadowView.m in Sources */,
 				4736D4151FC5C702003032AA /* UIImage+CameraFilters.m in Sources */,
@@ -2562,6 +2711,7 @@
 				4736D3711FC5C702003032AA /* RightMenuViewController.m in Sources */,
 				4736D3A01FC5C702003032AA /* UIImageView+AFNetworking.m in Sources */,
 				4736D3D91FC5C702003032AA /* IQAudioSettingsContainerView.m in Sources */,
+				50C0F6752106558F006B929C /* GameListingViewController.m in Sources */,
 				47EFC37C1FCF121200794A6E /* PlayerFormViewController.m in Sources */,
 				4736D3B51FC5C702003032AA /* HRHSVColorUtil.m in Sources */,
 				4736D4141FC5C702003032AA /* RTSpinKitView.m in Sources */,
@@ -2569,6 +2719,7 @@
 				4736D3621FC5C702003032AA /* NSArray+NullReplacement.m in Sources */,
 				4736D4361FC5C703003032AA /* UIImage+CropRotate.m in Sources */,
 				4736D3E11FC5C702003032AA /* IQNSArray+Remove.m in Sources */,
+				50C0F670210645DC006B929C /* FriendTableViewCell.m in Sources */,
 				4736D0E11FC5C4A7003032AA /* AppDelegate.m in Sources */,
 				4736D3511FC5C702003032AA /* CLPlacemark+APTimeZones.m in Sources */,
 				4736D39F1FC5C702003032AA /* UIButton+AFNetworking.m in Sources */,
@@ -2581,6 +2732,7 @@
 				4736D3CF1FC5C702003032AA /* IQImagePreviewViewController.m in Sources */,
 				4736D4291FC5C702003032AA /* TGCameraSlideUpView.m in Sources */,
 				4736D4161FC5C702003032AA /* TGCameraAuthorizationViewController.m in Sources */,
+				50C0F66B210645CD006B929C /* AcceptRejectTableViewCell.m in Sources */,
 				4736D3BE1FC5C702003032AA /* IQAssetsPickerShadowView.m in Sources */,
 				4736D3751FC5C702003032AA /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				47EFC3791FCF120500794A6E /* TrainerFormViewController.m in Sources */,
@@ -2620,6 +2772,8 @@
 				4736D4061FC5C702003032AA /* RTSpinKitArcAnimation.m in Sources */,
 				4736D37A1FC5C702003032AA /* NSArray+BinarySearch.m in Sources */,
 				4736D3911FC5C702003032AA /* IQDropDownTextField.m in Sources */,
+				50C0F64F21062F17006B929C /* MessageListingTableViewCell.m in Sources */,
+				50C0F65D21063ACB006B929C /* RightChatViewCell.m in Sources */,
 				4736D3561FC5C702003032AA /* NBPhoneMetaData.m in Sources */,
 				4736D4071FC5C702003032AA /* RTSpinKitBounceAnimation.m in Sources */,
 				478074EC1FCC737400AFA5F6 /* TextViewForSignUpform.m in Sources */,

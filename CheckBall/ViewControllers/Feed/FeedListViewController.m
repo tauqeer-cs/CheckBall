@@ -7,9 +7,14 @@
 //
 
 #import "FeedListViewController.h"
+#import "VideoCollectionViewCell.h"
+#import "MessageListingViewController.h"
 
 @interface FeedListViewController ()
 
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet UIImageView *smallImageIcon;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @end
 
 @implementation FeedListViewController
@@ -23,6 +28,19 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SideMenuButton"] style:UIBarButtonItemStylePlain target:self action:@selector(messageButtonTapped)];
 
     
+    
+    self.containerView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.containerView.layer.borderWidth = 1.0;
+    [self.smallImageIcon roundTheView];
+    
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:@"VideoCollectionViewCell" bundle:nil]
+          forCellWithReuseIdentifier:@"cellVideoNews"];
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:@"NewsItemCollectionViewCell" bundle:nil]
+          forCellWithReuseIdentifier:@"cellNewsText"];
+    
+    self.containerView.layer.cornerRadius = 10;
     
     UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search"]];
     [imageView setFrame:CGRectMake(0, 5, 30, 30)];
@@ -75,11 +93,49 @@
 -(void)messageButtonTapped
 {
     
+    MessageListingViewController * destination = [[MessageListingViewController alloc] initWithNibName:@"MessageListingViewController" bundle:nil];
+    
+    
+    [self.navigationController showViewController:destination sender:self];
+    
+
+    //messageButtonTapped
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView
+     numberOfItemsInSection:(NSInteger)section{
+    
+    return 4;
+    
+    
+}
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    VideoCollectionViewCell *currentCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellVideoNews" forIndexPath:indexPath];
+    
+    if (indexPath.row % 2 == 1) {
+        
+        currentCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellNewsText" forIndexPath:indexPath];
+        
+    }
+    return currentCell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row % 2 == 1) {
+        
+           return CGSizeMake(self.collectionView.frame.size.width-24, 120);
+    }
+    
+    return CGSizeMake(self.collectionView.frame.size.width-24, 190);
+}
+
 
 /*
 #pragma mark - Navigation

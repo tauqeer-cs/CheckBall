@@ -48,7 +48,8 @@
     
     [self profilePictureTapped];
  
-    ChangePasswordViewController * destination = [self viewControllerFromStoryBoard:@"SignUpStoryboard" withViewControllerName:@"ChangePasswordViewController"];
+    
+    ChangePasswordViewController * destination = (ChangePasswordViewController *)[self viewControllerFromStoryBoard:@"SignUpStoryboard" withViewControllerName:@"ChangePasswordViewController"];
     
     [self showViewController:destination sender:self];
     
@@ -168,8 +169,8 @@
     [self.profileImageView addGestureRecognizer:singleFingerTap];
     
     self.lblName.text = self.myName;
-    
     self.locationManager = [[CLLocationManager alloc]init];
+    
     self.locationManager.delegate = self;
     self.locationManager.distanceFilter = 10;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;

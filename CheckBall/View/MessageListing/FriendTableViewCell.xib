@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellFriend" rowHeight="87" id="w0w-mP-SbN" customClass="AcceptRejectTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w0w-mP-SbN" id="TEe-qZ-zQz">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="74.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LeBron-James" translatesAutoresizingMaskIntoConstraints="NO" id="WkU-ot-yQ6">
+                        <rect key="frame" x="16" y="12.5" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="Akn-VA-KfW"/>
+                            <constraint firstAttribute="width" constant="50" id="HHq-Ms-Boj"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill Russell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKz-xf-ZyL">
+                        <rect key="frame" x="74" y="11" width="230" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Bc5-xT-iYh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzF-8M-ymh">
+                        <rect key="frame" x="74" y="43.5" width="78" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="SpJ-on-kgX"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTU-W7-Uv0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="5"/>
+                        <color key="backgroundColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="5" id="kdn-ol-H68"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VxY-cH-W7Y">
+                        <rect key="frame" x="0.0" y="70" width="320" height="5"/>
+                        <color key="backgroundColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="5" id="4Ba-x2-5s6"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QI6-OR-YF0">
+                        <rect key="frame" x="268" y="21" width="36" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="DPc-BR-ckg"/>
+                            <constraint firstAttribute="width" constant="36" id="V8J-PS-gbv"/>
+                        </constraints>
+                        <color key="tintColor" red="0.92549019610000005" green="0.23608970639999999" blue="0.14014643430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" image="message-icon"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="VxY-cH-W7Y" secondAttribute="trailing" id="0w3-rj-M5B"/>
+                    <constraint firstItem="KzF-8M-ymh" firstAttribute="leading" secondItem="WkU-ot-yQ6" secondAttribute="trailing" constant="8" id="6YC-zS-Wo4"/>
+                    <constraint firstItem="VxY-cH-W7Y" firstAttribute="leading" secondItem="TEe-qZ-zQz" secondAttribute="leading" id="6ri-PW-gUF"/>
+                    <constraint firstItem="vTU-W7-Uv0" firstAttribute="leading" secondItem="TEe-qZ-zQz" secondAttribute="leading" id="A1i-gc-nGg"/>
+                    <constraint firstAttribute="bottom" secondItem="KzF-8M-ymh" secondAttribute="bottom" constant="11" id="ACm-jg-JNy"/>
+                    <constraint firstItem="QI6-OR-YF0" firstAttribute="centerY" secondItem="TEe-qZ-zQz" secondAttribute="centerY" id="CRE-Xr-Lzo"/>
+                    <constraint firstItem="WkU-ot-yQ6" firstAttribute="centerY" secondItem="TEe-qZ-zQz" secondAttribute="centerY" id="Pas-dK-zF2"/>
+                    <constraint firstItem="WkU-ot-yQ6" firstAttribute="leading" secondItem="TEe-qZ-zQz" secondAttribute="leading" constant="16" id="R4x-GF-f5f"/>
+                    <constraint firstItem="QI6-OR-YF0" firstAttribute="trailing" secondItem="TEe-qZ-zQz" secondAttribute="trailingMargin" id="Vee-vU-93z"/>
+                    <constraint firstItem="AKz-xf-ZyL" firstAttribute="leading" secondItem="WkU-ot-yQ6" secondAttribute="trailing" constant="8" id="Wdd-N9-gPY"/>
+                    <constraint firstItem="vTU-W7-Uv0" firstAttribute="top" secondItem="TEe-qZ-zQz" secondAttribute="top" id="XKz-4Z-jkD"/>
+                    <constraint firstItem="AKz-xf-ZyL" firstAttribute="top" secondItem="TEe-qZ-zQz" secondAttribute="top" constant="11" id="bMI-GX-0Hj"/>
+                    <constraint firstAttribute="trailing" secondItem="AKz-xf-ZyL" secondAttribute="trailing" constant="16" id="bfn-kQ-P4U"/>
+                    <constraint firstAttribute="bottom" secondItem="VxY-cH-W7Y" secondAttribute="bottom" id="ckQ-UB-ITy"/>
+                    <constraint firstAttribute="trailing" secondItem="vTU-W7-Uv0" secondAttribute="trailing" id="yoO-p9-LYQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="g1X-aD-8gc"/>
+            <connections>
+                <outlet property="userImage" destination="WkU-ot-yQ6" id="JNk-cc-Fs1"/>
+            </connections>
+            <point key="canvasLocation" x="33" y="68.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="LeBron-James" width="133" height="133"/>
+        <image name="message-icon" width="41" height="35"/>
+    </resources>
+</document>
