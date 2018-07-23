@@ -55,7 +55,7 @@
 
         UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MainTrainer" bundle:nil];
         UIViewController *initViewController;
-        initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"RooTView"];
+        initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"TapBarView"];
         self.window.rootViewController = initViewController;
         
         

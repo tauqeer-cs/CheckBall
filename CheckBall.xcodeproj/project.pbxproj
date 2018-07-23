@@ -2958,7 +2958,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CheckBall/CheckBall.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Saad Yusuf (WDTGDQ3WCV)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Plego Technologies, LLC (75975U3UB4)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 75975U3UB4;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2972,8 +2972,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.plego.CheckBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "be0c3a11-c036-4a52-a213-bffc03fcd5dd";
-				PROVISIONING_PROFILE_SPECIFIER = CheckBallDev;
+				PROVISIONING_PROFILE = "ac7d3333-211d-4cb0-ad7b-e370345c9392";
+				PROVISIONING_PROFILE_SPECIFIER = "CheckBall_ Distribution";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2983,7 +2983,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CheckBall/CheckBall.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Saad Yusuf (WDTGDQ3WCV)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Plego Technologies, LLC (75975U3UB4)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 75975U3UB4;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2997,8 +2997,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.plego.CheckBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "be0c3a11-c036-4a52-a213-bffc03fcd5dd";
-				PROVISIONING_PROFILE_SPECIFIER = CheckBallDev;
+				PROVISIONING_PROFILE = "ac7d3333-211d-4cb0-ad7b-e370345c9392";
+				PROVISIONING_PROFILE_SPECIFIER = "CheckBall_ Distribution";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

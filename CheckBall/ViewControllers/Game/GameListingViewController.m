@@ -26,6 +26,9 @@
           forCellWithReuseIdentifier:@"cellTrainer"];
     [self.collectionView setBackgroundColor:[UIColor clearColor]];
     
+    self.title = @"Games";
+    
+    
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section{
