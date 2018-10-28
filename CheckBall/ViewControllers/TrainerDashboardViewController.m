@@ -30,6 +30,7 @@
 @property (nonatomic,strong) id tmpObjectSelected;
 
 
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 
 @end
@@ -45,6 +46,23 @@
     
 
 
+}
+- (IBAction)segmentChanged:(UISegmentedControl *)sender {
+    
+    if (sender.selectedSegmentIndex == 0)
+    {
+    
+        [self.collectionView setHidden:NO];
+        
+        [self.containerView setHidden:YES];
+        
+    }
+    else
+    {
+        [self.collectionView setHidden:YES];
+        [self.containerView setHidden:NO];
+        
+    }
 }
 
 -(void)changePAsswordTapped{

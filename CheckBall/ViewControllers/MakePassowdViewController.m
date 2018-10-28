@@ -161,7 +161,7 @@
             [tmpDictionary setObject:self.position forKey:@"Position"];
             [tmpDictionary setObject:self.schoolSelcted forKey:@"School"];
             [tmpDictionary setObject:@"" forKey:@"Bio"];
-            [tmpDictionary setObject:self.zipCode forKey:@"ZipCode"];
+            [tmpDictionary setObject:self.zipCode forKey:@"Zip"];
 
             NSMutableDictionary * paramsToPass = [NSMutableDictionary new];
             

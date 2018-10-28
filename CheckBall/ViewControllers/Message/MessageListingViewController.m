@@ -8,9 +8,12 @@
 
 #import "MessageListingViewController.h"
 #import "MessageListingTableViewCell.h"
+//#import "ChatViewController.h"
+#import "FriendTableViewCell.h"
+#import "AcceptRejectTableViewCell.h"
 #import "ChatViewController.h"
 
-@interface MessageListingViewController ()<UITableViewDelegate>
+@interface MessageListingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -26,10 +29,31 @@
     self.tableView.dataSource = self;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"MessageListingTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellMessage"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"FriendTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellFriend"];
     
     self.tableView.rowHeight = 75;
     
 }
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *sectionName;
+    switch (section)
+    {
+        case 0:
+            
+            sectionName = @"Messages";
+            break;
+        case 1:
+            sectionName = @"Friends";
+            break;
+            // ...
+        default:
+            break;
+    }
+    return sectionName;
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex{
     
@@ -46,6 +70,8 @@
     
     
     
+    
+    
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -56,6 +82,17 @@
 
     MessageListingTableViewCell *currentCell = [tableView dequeueReusableCellWithIdentifier:@"cellMessage"];
     
+    if (indexPath.section == 1) {
+        
+        
+        AcceptRejectTableViewCell * friendCell = [tableView dequeueReusableCellWithIdentifier:@"cellFriend"];;
+        
+        [friendCell.btnMessage removeFromSuperview];
+        
+        
+        return friendCell;
+        
+    }
     [currentCell.btnMessage addTarget:self action:@selector(messageTapped:) forControlEvents:UIControlEventTouchUpInside];
     
 
@@ -66,12 +103,26 @@
 
 -(void)messageTapped:(UIButton *)button
 {
+    
+    
+    ChatViewController *chatVC = [ChatViewController new];
+    chatVC.title = @"";
+    [self.navigationController pushViewController:chatVC animated:true];
+    
+    
+    
     return;
     
-    ChatViewController *chatView = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
+    //ChatViewController *chatView = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
     
-    [self.navigationController showViewController:chatView sender:self];
+    //[self.navigationController showViewController:chatView sender:self];
     
+    
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
     
 }
 - (void)didReceiveMemoryWarning {

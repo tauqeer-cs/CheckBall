@@ -278,6 +278,25 @@
 		47EFC3761FCF0B1300794A6E /* SelectEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC3751FCF0B1300794A6E /* SelectEmailViewController.m */; };
 		47EFC3791FCF120500794A6E /* TrainerFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC3781FCF120500794A6E /* TrainerFormViewController.m */; };
 		47EFC37C1FCF121200794A6E /* PlayerFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EFC37B1FCF121200794A6E /* PlayerFormViewController.m */; };
+		501D12E0217F8D73004CF0F4 /* CreatPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D12DE217F8D73004CF0F4 /* CreatPostViewController.m */; };
+		501D12E1217F8D73004CF0F4 /* CreatPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 501D12DF217F8D73004CF0F4 /* CreatPostViewController.xib */; };
+		503E4308217E35F50089885A /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503E42E7217E35F50089885A /* ChatViewController.m */; };
+		503E4309217E35F50089885A /* ChatInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 503E42EA217E35F50089885A /* ChatInputView.m */; };
+		503E430A217E35F50089885A /* ChatRightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 503E42EB217E35F50089885A /* ChatRightTableViewCell.m */; };
+		503E430B217E35F50089885A /* ChatRightImgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 503E42EC217E35F50089885A /* ChatRightImgTableViewCell.m */; };
+		503E430C217E35F60089885A /* ChatLeftTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 503E42ED217E35F50089885A /* ChatLeftTableViewCell.xib */; };
+		503E430D217E35F60089885A /* ChatLeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 503E42EF217E35F50089885A /* ChatLeftTableViewCell.m */; };
+		503E430E217E35F60089885A /* ChatRightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 503E42F2217E35F50089885A /* ChatRightTableViewCell.xib */; };
+		503E430F217E35F60089885A /* ChatRightImgTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 503E42F4217E35F50089885A /* ChatRightImgTableViewCell.xib */; };
+		503E4310217E35F60089885A /* ChatLeftImgTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 503E42F5217E35F50089885A /* ChatLeftImgTableViewCell.xib */; };
+		503E4311217E35F60089885A /* ChatLeftImgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 503E42F7217E35F50089885A /* ChatLeftImgTableViewCell.m */; };
+		503E4312217E35F60089885A /* PhotoCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 503E42FA217E35F50089885A /* PhotoCenter.m */; };
+		503E4313217E35F60089885A /* UIImage+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = 503E42FC217E35F50089885A /* UIImage+ZY.m */; };
+		503E4314217E35F60089885A /* UIViewController+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = 503E42FD217E35F50089885A /* UIViewController+ZY.m */; };
+		503E4315217E35F60089885A /* IWFormData.m in Sources */ = {isa = PBXBuildFile; fileRef = 503E42FE217E35F50089885A /* IWFormData.m */; };
+		503E4316217E35F60089885A /* UIScrollView+HideKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 503E42FF217E35F50089885A /* UIScrollView+HideKeyboard.m */; };
+		503E4317217E35F60089885A /* UIImagePickerController+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = 503E4301217E35F50089885A /* UIImagePickerController+ZY.m */; };
+		503E4318217E35F60089885A /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 503E4306217E35F50089885A /* MessageModel.m */; };
 		50C0F63E210617A8006B929C /* VideoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C0F63C210617A8006B929C /* VideoCollectionViewCell.m */; };
 		50C0F63F210617A8006B929C /* VideoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50C0F63D210617A8006B929C /* VideoCollectionViewCell.xib */; };
 		50C0F643210617E9006B929C /* NewsItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C0F641210617E9006B929C /* NewsItemCollectionViewCell.m */; };
@@ -286,9 +305,7 @@
 		50C0F64A21062D45006B929C /* MessageListingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50C0F64821062D45006B929C /* MessageListingViewController.xib */; };
 		50C0F64F21062F17006B929C /* MessageListingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C0F64D21062F17006B929C /* MessageListingTableViewCell.m */; };
 		50C0F65021062F17006B929C /* MessageListingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50C0F64E21062F17006B929C /* MessageListingTableViewCell.xib */; };
-		50C0F65C21063ACB006B929C /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50C0F65221063ACB006B929C /* ChatViewController.xib */; };
 		50C0F65D21063ACB006B929C /* RightChatViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C0F65321063ACB006B929C /* RightChatViewCell.m */; };
-		50C0F65E21063ACB006B929C /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C0F65421063ACB006B929C /* ChatViewController.m */; };
 		50C0F65F21063ACB006B929C /* RightChatViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50C0F65521063ACB006B929C /* RightChatViewCell.xib */; };
 		50C0F66021063ACC006B929C /* LeftChatViewCell copy.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50C0F65721063ACB006B929C /* LeftChatViewCell copy.xib */; };
 		50C0F66121063ACC006B929C /* LeftChatViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50C0F65921063ACB006B929C /* LeftChatViewCell.xib */; };
@@ -899,6 +916,39 @@
 		47EFC3781FCF120500794A6E /* TrainerFormViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrainerFormViewController.m; sourceTree = "<group>"; };
 		47EFC37A1FCF121200794A6E /* PlayerFormViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerFormViewController.h; sourceTree = "<group>"; };
 		47EFC37B1FCF121200794A6E /* PlayerFormViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerFormViewController.m; sourceTree = "<group>"; };
+		501D12DD217F8D73004CF0F4 /* CreatPostViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreatPostViewController.h; sourceTree = "<group>"; };
+		501D12DE217F8D73004CF0F4 /* CreatPostViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreatPostViewController.m; sourceTree = "<group>"; };
+		501D12DF217F8D73004CF0F4 /* CreatPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreatPostViewController.xib; sourceTree = "<group>"; };
+		503E42E7217E35F50089885A /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		503E42E8217E35F50089885A /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		503E42EA217E35F50089885A /* ChatInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatInputView.m; sourceTree = "<group>"; };
+		503E42EB217E35F50089885A /* ChatRightTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatRightTableViewCell.m; sourceTree = "<group>"; };
+		503E42EC217E35F50089885A /* ChatRightImgTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatRightImgTableViewCell.m; sourceTree = "<group>"; };
+		503E42ED217E35F50089885A /* ChatLeftTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatLeftTableViewCell.xib; sourceTree = "<group>"; };
+		503E42EE217E35F50089885A /* ChatLeftImgTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatLeftImgTableViewCell.h; sourceTree = "<group>"; };
+		503E42EF217E35F50089885A /* ChatLeftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatLeftTableViewCell.m; sourceTree = "<group>"; };
+		503E42F0217E35F50089885A /* ChatInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatInputView.h; sourceTree = "<group>"; };
+		503E42F1217E35F50089885A /* ChatRightTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatRightTableViewCell.h; sourceTree = "<group>"; };
+		503E42F2217E35F50089885A /* ChatRightTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatRightTableViewCell.xib; sourceTree = "<group>"; };
+		503E42F3217E35F50089885A /* ChatRightImgTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatRightImgTableViewCell.h; sourceTree = "<group>"; };
+		503E42F4217E35F50089885A /* ChatRightImgTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatRightImgTableViewCell.xib; sourceTree = "<group>"; };
+		503E42F5217E35F50089885A /* ChatLeftImgTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatLeftImgTableViewCell.xib; sourceTree = "<group>"; };
+		503E42F6217E35F50089885A /* ChatLeftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatLeftTableViewCell.h; sourceTree = "<group>"; };
+		503E42F7217E35F50089885A /* ChatLeftImgTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatLeftImgTableViewCell.m; sourceTree = "<group>"; };
+		503E42F9217E35F50089885A /* UIImagePickerController+ZY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+ZY.h"; sourceTree = "<group>"; };
+		503E42FA217E35F50089885A /* PhotoCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCenter.m; sourceTree = "<group>"; };
+		503E42FB217E35F50089885A /* UIScrollView+HideKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+HideKeyboard.h"; sourceTree = "<group>"; };
+		503E42FC217E35F50089885A /* UIImage+ZY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZY.m"; sourceTree = "<group>"; };
+		503E42FD217E35F50089885A /* UIViewController+ZY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZY.m"; sourceTree = "<group>"; };
+		503E42FE217E35F50089885A /* IWFormData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWFormData.m; sourceTree = "<group>"; };
+		503E42FF217E35F50089885A /* UIScrollView+HideKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+HideKeyboard.m"; sourceTree = "<group>"; };
+		503E4300217E35F50089885A /* PhotoCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCenter.h; sourceTree = "<group>"; };
+		503E4301217E35F50089885A /* UIImagePickerController+ZY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+ZY.m"; sourceTree = "<group>"; };
+		503E4302217E35F50089885A /* UIImage+ZY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZY.h"; sourceTree = "<group>"; };
+		503E4303217E35F50089885A /* UIViewController+ZY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ZY.h"; sourceTree = "<group>"; };
+		503E4304217E35F50089885A /* IWFormData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWFormData.h; sourceTree = "<group>"; };
+		503E4306217E35F50089885A /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
+		503E4307217E35F50089885A /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageModel.h; sourceTree = "<group>"; };
 		50C0F63B210617A8006B929C /* VideoCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCollectionViewCell.h; sourceTree = "<group>"; };
 		50C0F63C210617A8006B929C /* VideoCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCollectionViewCell.m; sourceTree = "<group>"; };
 		50C0F63D210617A8006B929C /* VideoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -911,16 +961,13 @@
 		50C0F64C21062F17006B929C /* MessageListingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageListingTableViewCell.h; sourceTree = "<group>"; };
 		50C0F64D21062F17006B929C /* MessageListingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageListingTableViewCell.m; sourceTree = "<group>"; };
 		50C0F64E21062F17006B929C /* MessageListingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageListingTableViewCell.xib; sourceTree = "<group>"; };
-		50C0F65221063ACB006B929C /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
 		50C0F65321063ACB006B929C /* RightChatViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightChatViewCell.m; sourceTree = "<group>"; };
-		50C0F65421063ACB006B929C /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		50C0F65521063ACB006B929C /* RightChatViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RightChatViewCell.xib; sourceTree = "<group>"; };
 		50C0F65621063ACB006B929C /* LeftChatViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftChatViewCell.h; sourceTree = "<group>"; };
 		50C0F65721063ACB006B929C /* LeftChatViewCell copy.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "LeftChatViewCell copy.xib"; sourceTree = "<group>"; };
 		50C0F65821063ACB006B929C /* RightChatViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightChatViewCell.h; sourceTree = "<group>"; };
 		50C0F65921063ACB006B929C /* LeftChatViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftChatViewCell.xib; sourceTree = "<group>"; };
 		50C0F65A21063ACB006B929C /* LeftChatViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftChatViewCell.m; sourceTree = "<group>"; };
-		50C0F65B21063ACB006B929C /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		50C0F6642106434D006B929C /* FriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
 		50C0F6652106434D006B929C /* FriendsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
 		50C0F668210645CD006B929C /* AcceptRejectTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AcceptRejectTableViewCell.h; sourceTree = "<group>"; };
@@ -1112,6 +1159,9 @@
 				D46365492013544900E7E442 /* ChangePasswordViewController.m */,
 				50D7C76F21045ED900E3F791 /* CustomTApBArViewController.h */,
 				50D7C77021045ED900E3F791 /* CustomTApBArViewController.m */,
+				501D12DD217F8D73004CF0F4 /* CreatPostViewController.h */,
+				501D12DE217F8D73004CF0F4 /* CreatPostViewController.m */,
+				501D12DF217F8D73004CF0F4 /* CreatPostViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -2257,6 +2307,64 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
+		503E42E6217E35F50089885A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				503E42E7217E35F50089885A /* ChatViewController.m */,
+				503E42E8217E35F50089885A /* ChatViewController.h */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		503E42E9217E35F50089885A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				503E42EA217E35F50089885A /* ChatInputView.m */,
+				503E42EB217E35F50089885A /* ChatRightTableViewCell.m */,
+				503E42EC217E35F50089885A /* ChatRightImgTableViewCell.m */,
+				503E42ED217E35F50089885A /* ChatLeftTableViewCell.xib */,
+				503E42EE217E35F50089885A /* ChatLeftImgTableViewCell.h */,
+				503E42EF217E35F50089885A /* ChatLeftTableViewCell.m */,
+				503E42F0217E35F50089885A /* ChatInputView.h */,
+				503E42F1217E35F50089885A /* ChatRightTableViewCell.h */,
+				503E42F2217E35F50089885A /* ChatRightTableViewCell.xib */,
+				503E42F3217E35F50089885A /* ChatRightImgTableViewCell.h */,
+				503E42F4217E35F50089885A /* ChatRightImgTableViewCell.xib */,
+				503E42F5217E35F50089885A /* ChatLeftImgTableViewCell.xib */,
+				503E42F6217E35F50089885A /* ChatLeftTableViewCell.h */,
+				503E42F7217E35F50089885A /* ChatLeftImgTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		503E42F8217E35F50089885A /* ZYPhotoCenter */ = {
+			isa = PBXGroup;
+			children = (
+				503E42F9217E35F50089885A /* UIImagePickerController+ZY.h */,
+				503E42FA217E35F50089885A /* PhotoCenter.m */,
+				503E42FB217E35F50089885A /* UIScrollView+HideKeyboard.h */,
+				503E42FC217E35F50089885A /* UIImage+ZY.m */,
+				503E42FD217E35F50089885A /* UIViewController+ZY.m */,
+				503E42FE217E35F50089885A /* IWFormData.m */,
+				503E42FF217E35F50089885A /* UIScrollView+HideKeyboard.m */,
+				503E4300217E35F50089885A /* PhotoCenter.h */,
+				503E4301217E35F50089885A /* UIImagePickerController+ZY.m */,
+				503E4302217E35F50089885A /* UIImage+ZY.h */,
+				503E4303217E35F50089885A /* UIViewController+ZY.h */,
+				503E4304217E35F50089885A /* IWFormData.h */,
+			);
+			path = ZYPhotoCenter;
+			sourceTree = "<group>";
+		};
+		503E4305217E35F50089885A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				503E4306217E35F50089885A /* MessageModel.m */,
+				503E4307217E35F50089885A /* MessageModel.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		50C0F64521062D2D006B929C /* Message */ = {
 			isa = PBXGroup;
 			children = (
@@ -2280,16 +2388,17 @@
 		50C0F65121063ACB006B929C /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				50C0F65221063ACB006B929C /* ChatViewController.xib */,
+				503E4305217E35F50089885A /* Model */,
+				503E42E9217E35F50089885A /* View */,
+				503E42E6217E35F50089885A /* ViewController */,
+				503E42F8217E35F50089885A /* ZYPhotoCenter */,
 				50C0F65321063ACB006B929C /* RightChatViewCell.m */,
-				50C0F65421063ACB006B929C /* ChatViewController.m */,
 				50C0F65521063ACB006B929C /* RightChatViewCell.xib */,
 				50C0F65621063ACB006B929C /* LeftChatViewCell.h */,
 				50C0F65721063ACB006B929C /* LeftChatViewCell copy.xib */,
 				50C0F65821063ACB006B929C /* RightChatViewCell.h */,
 				50C0F65921063ACB006B929C /* LeftChatViewCell.xib */,
 				50C0F65A21063ACB006B929C /* LeftChatViewCell.m */,
-				50C0F65B21063ACB006B929C /* ChatViewController.h */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -2468,6 +2577,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				503E430E217E35F60089885A /* ChatRightTableViewCell.xib in Resources */,
 				50C0F66021063ACC006B929C /* LeftChatViewCell copy.xib in Resources */,
 				4736D4321FC5C703003032AA /* Info.plist in Resources */,
 				50C0F66C210645CD006B929C /* AcceptRejectTableViewCell.xib in Resources */,
@@ -2475,7 +2585,6 @@
 				50C0F64A21062D45006B929C /* MessageListingViewController.xib in Resources */,
 				D4E5896520105C1C00EB95F1 /* CropImageViewController.xib in Resources */,
 				D43AF7B6200F9CBC00702481 /* AddingTextViewControl.xib in Resources */,
-				50C0F65C21063ACB006B929C /* ChatViewController.xib in Resources */,
 				4736D42E1FC5C702003032AA /* TGCameraViewController.xib in Resources */,
 				4736D0EC1FC5C4A7003032AA /* LaunchScreen.storyboard in Resources */,
 				4721F2021FD3CEF9006046FE /* TrainingSpecialityCollectionViewCell.xib in Resources */,
@@ -2495,6 +2604,9 @@
 				D46365592013747C00E7E442 /* README.md in Resources */,
 				4736D0E71FC5C4A7003032AA /* Main.storyboard in Resources */,
 				4736D3701FC5C702003032AA /* menu-button@2x.png in Resources */,
+				503E430C217E35F60089885A /* ChatLeftTableViewCell.xib in Resources */,
+				501D12E1217F8D73004CF0F4 /* CreatPostViewController.xib in Resources */,
+				503E430F217E35F60089885A /* ChatRightImgTableViewCell.xib in Resources */,
 				4736D3A61FC5C702003032AA /* UzysAssetPickerController.bundle in Resources */,
 				D46365572013747C00E7E442 /* Assets.bundle in Resources */,
 				50C0F66121063ACC006B929C /* LeftChatViewCell.xib in Resources */,
@@ -2503,6 +2615,7 @@
 				50C0F63F210617A8006B929C /* VideoCollectionViewCell.xib in Resources */,
 				4736D3C21FC5C702003032AA /* IQAudioPickerController.xcassets in Resources */,
 				4736D4241FC5C702003032AA /* TGCameraViewController.bundle in Resources */,
+				503E4310217E35F60089885A /* ChatLeftImgTableViewCell.xib in Resources */,
 				4736D42F1FC5C702003032AA /* TGPhotoViewController.xib in Resources */,
 				478074ED1FCC737400AFA5F6 /* TextViewForSignUpform.xib in Resources */,
 				4736D3A81FC5C702003032AA /* UzysAssetsPickerController.xib in Resources */,
@@ -2536,8 +2649,11 @@
 				4736D3E91FC5C702003032AA /* JotTextEditView.m in Sources */,
 				4721F2051FD3E187006046FE /* MakePassowdViewController.m in Sources */,
 				50C0F64921062D45006B929C /* MessageListingViewController.m in Sources */,
+				503E4315217E35F60089885A /* IWFormData.m in Sources */,
+				503E4318217E35F60089885A /* MessageModel.m in Sources */,
 				4736D4351FC5C703003032AA /* TOCropViewControllerTransitioning.m in Sources */,
 				4736D3CB1FC5C702003032AA /* IQSongsComposersViewController.m in Sources */,
+				503E430D217E35F60089885A /* ChatLeftTableViewCell.m in Sources */,
 				4736D3F71FC5C702003032AA /* LMMenuCell.m in Sources */,
 				4736D3741FC5C702003032AA /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				4736D43A1FC5C703003032AA /* TOCropToolbar.m in Sources */,
@@ -2546,6 +2662,7 @@
 				4736D3DA1FC5C702003032AA /* IQPhotoSettingsContainerView.m in Sources */,
 				4736D3A71FC5C702003032AA /* UzysAssetsPickerController.m in Sources */,
 				4736D4111FC5C702003032AA /* RTSpinKitWaveAnimation.m in Sources */,
+				503E4316217E35F60089885A /* UIScrollView+HideKeyboard.m in Sources */,
 				4736D3D31FC5C702003032AA /* IQCaptureSession.m in Sources */,
 				4736D43B1FC5C703003032AA /* TOCropView.m in Sources */,
 				4736D3EF1FC5C702003032AA /* JTSAnimatedGIFUtility.m in Sources */,
@@ -2612,14 +2729,17 @@
 				4736D3951FC5C702003032AA /* AFHTTPSessionManager.m in Sources */,
 				4736D41F1FC5C702003032AA /* TGCameraFocus.m in Sources */,
 				4736D3791FC5C702003032AA /* UIViewController+MJPopupViewController.m in Sources */,
+				501D12E0217F8D73004CF0F4 /* CreatPostViewController.m in Sources */,
 				4736D36A1FC5C702003032AA /* JSONKit.m in Sources */,
 				4736D4301FC5C702003032AA /* TKImageView.m in Sources */,
+				503E4308217E35F50089885A /* ChatViewController.m in Sources */,
 				4736D3F41FC5C702003032AA /* UIImage+JTSImageEffects.m in Sources */,
 				4736D35A1FC5C702003032AA /* NBPhoneNumberUtil.m in Sources */,
 				4736D4181FC5C702003032AA /* TGCameraViewController.m in Sources */,
 				4736D3CC1FC5C702003032AA /* IQSongsGenreViewController.m in Sources */,
 				4736D35C1FC5C702003032AA /* DYAlertPickView.m in Sources */,
 				4736D3811FC5C702003032AA /* RACollectionViewTripletLayout.m in Sources */,
+				503E4309217E35F50089885A /* ChatInputView.m in Sources */,
 				4736D3601FC5C702003032AA /* CoreLocationController.m in Sources */,
 				4736D3B31FC5C702003032AA /* HRColorMapView.m in Sources */,
 				4736D3721FC5C702003032AA /* SlideNavigationContorllerAnimatorFade.m in Sources */,
@@ -2634,7 +2754,6 @@
 				4736D3C71FC5C702003032AA /* IQSongsListTableHeaderView.m in Sources */,
 				4736D4171FC5C702003032AA /* TGCameraNavigationController.m in Sources */,
 				4736D38B1FC5C702003032AA /* XMLDictionary.m in Sources */,
-				50C0F65E21063ACB006B929C /* ChatViewController.m in Sources */,
 				4736D3ED1FC5C702003032AA /* JotViewController.m in Sources */,
 				4736D3EE1FC5C702003032AA /* UIImage+Jot.m in Sources */,
 				4736D3E31FC5C702003032AA /* IQAKPickerView.m in Sources */,
@@ -2649,6 +2768,7 @@
 				47315D5A1FCDB5AF0010DAA3 /* ForgotPasswordViewController.m in Sources */,
 				4736D3B41FC5C702003032AA /* HRColorPickerView.m in Sources */,
 				4736D4371FC5C703003032AA /* TOCropViewController.m in Sources */,
+				503E4311217E35F60089885A /* ChatLeftImgTableViewCell.m in Sources */,
 				4736D40F1FC5C702003032AA /* RTSpinKitThreeBounceAnimation.m in Sources */,
 				4736D3C51FC5C702003032AA /* IQSongsAlbumViewCell.m in Sources */,
 				4736D3AD1FC5C702003032AA /* CircleAnimationView.m in Sources */,
@@ -2668,7 +2788,9 @@
 				4736D3821FC5C702003032AA /* Reachability.m in Sources */,
 				4736D3581FC5C702003032AA /* NBPhoneNumber.m in Sources */,
 				4736D39E1FC5C702003032AA /* UIAlertView+AFNetworking.m in Sources */,
+				503E430B217E35F50089885A /* ChatRightImgTableViewCell.m in Sources */,
 				4736D40B1FC5C702003032AA /* RTSpinKitFadingCircleAltAnimation.m in Sources */,
+				503E4313217E35F60089885A /* UIImage+ZY.m in Sources */,
 				4736D38E1FC5C702003032AA /* ZFModalTransitionAnimator.m in Sources */,
 				4736D3891FC5C702003032AA /* Validator.m in Sources */,
 				4736D3A91FC5C702003032AA /* UzysAssetsViewCell.m in Sources */,
@@ -2720,6 +2842,7 @@
 				4736D4361FC5C703003032AA /* UIImage+CropRotate.m in Sources */,
 				4736D3E11FC5C702003032AA /* IQNSArray+Remove.m in Sources */,
 				50C0F670210645DC006B929C /* FriendTableViewCell.m in Sources */,
+				503E4317217E35F60089885A /* UIImagePickerController+ZY.m in Sources */,
 				4736D0E11FC5C4A7003032AA /* AppDelegate.m in Sources */,
 				4736D3511FC5C702003032AA /* CLPlacemark+APTimeZones.m in Sources */,
 				4736D39F1FC5C702003032AA /* UIButton+AFNetworking.m in Sources */,
@@ -2743,11 +2866,14 @@
 				47D1F54D1FD5A8C200FC8F44 /* PlayerDashboardViewController.m in Sources */,
 				4736D3B81FC5C702003032AA /* DragAndDropTableView.m in Sources */,
 				4736D3B71FC5C702003032AA /* CropImage.m in Sources */,
+				503E430A217E35F50089885A /* ChatRightTableViewCell.m in Sources */,
 				4736D35E1FC5C702003032AA /* EMCCountryManager.m in Sources */,
 				4736D40A1FC5C702003032AA /* RTSpinKitCircleFlipAnimation.m in Sources */,
 				4736D36D1FC5C702003032AA /* MBProgressHUD.m in Sources */,
+				503E4312217E35F60089885A /* PhotoCenter.m in Sources */,
 				4736D3781FC5C702003032AA /* MJPopupBackgroundView.m in Sources */,
 				4736D3D21FC5C702003032AA /* IQAudioSession.m in Sources */,
+				503E4314217E35F60089885A /* UIViewController+ZY.m in Sources */,
 				4736D3E81FC5C702003032AA /* JotDrawView.m in Sources */,
 				4736D3921FC5C702003032AA /* UIView+Toast.m in Sources */,
 				4736D3A11FC5C702003032AA /* UIProgressView+AFNetworking.m in Sources */,

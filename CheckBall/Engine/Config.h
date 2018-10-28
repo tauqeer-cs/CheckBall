@@ -9,13 +9,17 @@
 #import <Foundation/Foundation.h>
 //http:///pingem/api/vendor/create-vendor-from-user
 
+/*#define baseServiceUrl (isLive) ? @"http://check-ball.plego.net/CheckBallService.svc/" : @"http://check-ball.plego.net/CheckBallService.svc/"
+ #define baseImageLink (isLive) ? @"http://check-ball.plego.net/Images/DP/" : @"http://check-ball.plego.net/Images/DP/"
+ #define serviceLink (isLive) ? @"http://check-ball.plego.net/CheckBallService.svc/" : @"http://check-ball.plego.net/CheckBallService.svc/"
+*/
+
+#define baseServiceUrl (isLive) ? @"http://cbapi.plego.us/api/" : @"http://cbapi.plego.us/api/"
+#define baseImageLink (isLive) ? @"http://cbapi.plego.us/api/" : @"http://cbapi.plego.us/api/"
+#define serviceLink (isLive) ? @"http://cbapi.plego.us/api/" : @"http://cbapi.plego.us/api/"
 
 
-///CheckBallService.svc/getlisting/p/75300
-#define baseServiceUrl (isLive) ? @"http://check-ball.plego.net/CheckBallService.svc/" : @"http://check-ball.plego.net/CheckBallService.svc/"
-//http://main.iamkarachiapp.com/api/
-#define baseImageLink (isLive) ? @"http://check-ball.plego.net/Images/DP/" : @"http://check-ball.plego.net/Images/DP/"
-#define serviceLink (isLive) ? @"http://check-ball.plego.net/CheckBallService.svc/" : @"http://check-ball.plego.net/CheckBallService.svc/"
+
 //define serviceLink (isLive) ? @"http://beta.iamkarachiapp.com/" : @"http://dev.iamkarachiapp.com/"
 //http://main.iamkarachiapp.com/
 #define serviceStart (isLive) ? @"api/" : @"api/"

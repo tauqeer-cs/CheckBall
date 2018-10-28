@@ -452,15 +452,7 @@
     
     
     NSUserDefaults *defauls = [NSUserDefaults standardUserDefaults];
-    NSString *token = [defauls objectForKey:@"deviceToken"];;
-    
-    if (!token) {
-        
-        AppDelegate *sharedDelegate =(AppDelegate *) [[UIApplication sharedApplication] delegate];
-        
-        
-        
-    }
+
     
 
     NSData *imageData;
@@ -581,17 +573,16 @@
                           
                           @try {
                               
-                              id message = [[result
-                                             objectForKey:@"message"] objectForKey:@"status"];
+                              id message = [result objectForKey:@"status"];
                               
-                              if ([message isEqualToString:@"Success"]) {
+                              
+                              if ([message isEqualToString:@"success"]) {
                                   
-                                  id data = [[result objectForKey:@"message"] objectForKey:@"Data"];
+                                  id data = [result objectForKey:@"data"];
                                   
                                   if ([data isKindOfClass:[NSArray class]])
                                   {
                                       data  =  data[0];
-                                      
                                   }
                                   
                                   [currentUserDefault setObject:data forKey:@"isFirstTimeSignUp"];
@@ -1207,243 +1198,10 @@ withFailueHandler:(void(^)(void))failureHandler
 
 
 
-+(void)callSerchUserWithKeyword:(NSString *)keyword completionHandler:(void(^)(id result))completionHandler
-           withFailueHandler:(void(^)(void))failureHandler
-{
-    
-    NSMutableDictionary *currentDictionary = [NSMutableDictionary new];
-    [currentDictionary setObject:keyword forKey:@"keyword"];
-    
-    
-   
-    [RestCall callWebServiceWithTheseParams:currentDictionary
-                      withSignatureSequence:
-     nil
-                                 urlCalling:
-     [baseServiceUrl stringByAppendingString:@"FlpUsers/search.json"]
-                              isPostService:YES
-                      withComplitionHandler:^(id result) {
-                          
-                          @try {
-                              
-                              
-                              
-                              id message = [result objectForKey:@"message"];
-                              
-                           
-                              if ([[message objectForKey:@"status"] isEqualToString:@"success"]) {
-                                  
-                                  completionHandler([message objectForKey:@"data"]);
-                                  
-                                  return;
-                                  
-                              }
-                              else{
-                                                                failureHandler();
-                              }
-                              NSLog(@"");
-                              
-                              
-                              
-                          }
-                          @catch (NSException *exception) {
-                              
-                              failureHandler();
-                              
-                          }
-                          
-                          
-                      } failureComlitionHandler:^{
-                          
-                          failureHandler();
-                          
-                      }];
-    
-}
 
 
-+(void)callGetMyFriendsWithUserId:(NSString *)userId
-                completionHandler:(void(^)(id result))completionHandler
-              withFailueHandler:(void(^)(void))failureHandler
-{
-    
-    
-    NSMutableDictionary *currentDictionary = [NSMutableDictionary new];
-    [currentDictionary setObject:[NSString stringWithFormat:@"%d",[userId intValue]] forKey:@"userid"];
-    
-    [RestCall callWebServiceWithTheseParams:currentDictionary
-                      withSignatureSequence:
-     nil
-                                 urlCalling:
-     [baseServiceUrl stringByAppendingString:@"FlpUserFriends/getlistoffriends.json"]
-                              isPostService:YES
-                      withComplitionHandler:^(id result) {
-                          
-                          @try {
-                              
-                              
-                              
-                              id message = [result objectForKey:@"message"];
-                              
-                              
-                              if ([[message objectForKey:@"status"] isEqualToString:@"Success"]) {
-                                  
-                                  completionHandler([message objectForKey:@"data"]);
-                                  
-                                  return;
-                                  
-                              }
-                              else if ([[message objectForKey:@"status"] isEqualToString:@"No User Found."]){
-                                  
-                                  completionHandler(nil);
-                                  
-                                  
-                                  
-                              }
-                              else{
-                                  failureHandler();
-                                  
-                                  
-                              }
-                              NSLog(@"");
-                              
-                              
-                              
-                          }
-                          @catch (NSException *exception) {
-                              
-                              failureHandler();
-                              
-                          }
-                          
-                          
-                      } failureComlitionHandler:^{
-                          
-                          failureHandler();
-                          
-                      }];
-    
-}
 
-+(void)callAddFacebookFriendsWithUser:(NSString *)userId
-                        withFriendIds:(NSString *)friends
-                withComplitionHandler:(void(^)(id result))completionHandler
-                    withFailueHandler:(void(^)(void))failureHandler
-{
-    //userid, fbids
-    //parameters =  ,  (comma separated)
-    //
-    
-    [RestCall callWebServiceWithTheseParams:@{@"userid":[NSString stringWithFormat:@"%d",[userId intValue]],
-                                              @"fbids":friends}
-                      withSignatureSequence:nil
-                                 urlCalling:
-     [baseServiceUrl stringByAppendingString:@"FlpUserFriends/addsocialfriends.json"]
-                              isPostService:YES
-                      withComplitionHandler:^(id result) {
-                          
-                          @try {
-                              id message = [result objectForKey:@"message"];
-                              if ([message isKindOfClass:[NSArray class]]) {
-                                  
-                                  if ([message count] == 0 ) {
-                                      
-                                      failureHandler();
-                                      
-                                  }
-                              }
-                              else if ([[message objectForKey:@"status"] isEqualToString:@"Success"]) {
-                                  
-                                  id data = [message objectForKey:@"data"];
-                                  
-                                  completionHandler(data);
-                                  
-                              }
-                              
-                              else{
-                                  
-                                  completionHandler(nil);
-                                  
-                              }
-                              
-                              
-                              
-                              
-                          }
-                          @catch (NSException *exception) {
-                              
-                              failureHandler();
-                              
-                          }
-                          
-                          
-                      } failureComlitionHandler:^{
-                          
-                          failureHandler();
-                          
-                      }];
-    
-    
-}
 
-+(void)callRemoveFriendsWith:(NSString *)userId
-                             withFriendIds:(NSString *)friendId
-                         ComplitionHandler:(void(^)(id result))completionHandler
-                         withFailueHandler:(void(^)(void))failureHandler
-{
-    //userid , requestid
-    [RestCall callWebServiceWithTheseParams:@{@"requestid":[NSString stringWithFormat:@"%d",[friendId intValue]],
-                                              @"userid":[NSString stringWithFormat:@"%d",[userId intValue]]}
-                      withSignatureSequence:nil
-                                 urlCalling:
-     [baseServiceUrl stringByAppendingString:@"FlpUserFriends/delete.json"]
-                              isPostService:YES
-                      withComplitionHandler:^(id result) {
-                          
-                          @try {
-                              
-                              id message = [result objectForKey:@"message"];
-                              if ([message isKindOfClass:[NSArray class]]) {
-                                  
-                                  if ([message count] == 0 ) {
-                                      
-                                      failureHandler();
-                                      
-                                  }
-                              }
-                              else if ([[message objectForKey:@"status"] isEqualToString:@"Success"]) {
-                                  
-                                  id data = [message objectForKey:@"data"];
-                                  
-                                  completionHandler(data);
-                                  
-                              }
-                              
-                              else{
-                                  
-                                  completionHandler(nil);
-                                  
-                              }
-                              
-                              
-                              
-                              
-                          }
-                          @catch (NSException *exception) {
-                              
-                              failureHandler();
-                              
-                          }
-                          
-                          
-                      } failureComlitionHandler:^{
-                          
-                          failureHandler();
-                          
-                      }];
-    
-    
-}
 
 
 +(void)callForgetPasswordWithEmail:(NSString *)email
@@ -1503,7 +1261,7 @@ withFailueHandler:(void(^)(void))failureHandler
                  withFailueHandler:(void(^)(void))failureHandler
 {
     //userid , requestid
-    [RestCall callWebServiceWithTheseParams:@{@"email":email}
+    [RestCall callWebServiceWithTheseParams:@{@"params":email}
                       withSignatureSequence:nil
                                  urlCalling:
      [baseServiceUrl stringByAppendingString:@"ValidateEmail"]
@@ -1513,7 +1271,7 @@ withFailueHandler:(void(^)(void))failureHandler
                           @try {
                               
                               id message = [[result objectForKey:@"message"] objectForKey:@"status"];
-                              if ([message isEqualToString:@"Success"]) {
+                              if ([message isEqualToString:@"success"]) {
                                   
                                   id data = [[result objectForKey:@"message"] objectForKey:@"Data"];
                                   
@@ -1548,64 +1306,6 @@ withFailueHandler:(void(^)(void))failureHandler
 }
 
 
-+(void)callChangeUserPasswordWithUserId:(NSString *)userId
-                        withOldPassword:(NSString *)oldPassword
-                        withNewPassword:(NSString *)newPassword
-                  complitionHandler:(void(^)(id result))completionHandler
-                  withFailueHandler:(void(^)(void))failureHandler
-{
-    //userid , requestid
-    
-    [RestCall callWebServiceWithTheseParams:@{@"userid":[NSString stringWithFormat:@"%d",[userId intValue] ],@"oldpassword":oldPassword,@"newpassword":newPassword}
-                      withSignatureSequence:nil
-                                 urlCalling:
-     [baseServiceUrl stringByAppendingString:@"FlpUsers/updatepassword.json"]
-                              isPostService:YES
-                      withComplitionHandler:^(id result) {
-                          
-                          @try {
-                              
-                              id message = [result objectForKey:@"message"];
-                              if ([message isKindOfClass:[NSArray class]]) {
-                                  
-                                  if ([message count] == 0 ) {
-                                      
-                                      failureHandler();
-                                      
-                                  }
-                              }
-                              else{
-                                  
-                                  id data = [message objectForKey:@"message"];
-                                  
-                                  if ([data isEqualToString:@"Password Updated"]) {
-                                      completionHandler(@"Password Updated");
-                                      
-                                  }
-                                  else
-                                  completionHandler(@"Invalid Password");
-                                  
-                              }
-                              
-                              
-                              
-                              
-                          }
-                          @catch (NSException *exception) {
-                              
-                              failureHandler();
-                              
-                          }
-                          
-                          
-                      } failureComlitionHandler:^{
-                          
-                          failureHandler();
-                          
-                      }];
-    
-    
-}
 
 //http://check-ball.plego.net/CheckBallService.svc/GetListing/T/10011
 ///http://check-ball.plego.net/CheckBallService.svc/GetListing/P/10011
@@ -1681,40 +1381,35 @@ withFailueHandler:(void(^)(void))failureHandler
 +(void)callGetTrainersWithZipCode:(NSString *)myZipCode WithComplitionHandler:(void(^)(id result))completionHandler withFailueHandler:(void(^)(void))failureHandler
 {
     
+    ////http://cbapi.plego.us/api//T/10101
+    
     
     [RestCall callWebServiceWithTheseParams:nil
                       withSignatureSequence:nil
                                  urlCalling:
-     [baseServiceUrl stringByAppendingString:[NSString stringWithFormat:@"GetListing/T/%@",myZipCode]]
+     [baseServiceUrl stringByAppendingString:[NSString stringWithFormat:@"getListing/T/%@",myZipCode]]
                               isPostService:NO
                       withComplitionHandler:^(id result) {
                           
-                          id message = [result objectForKey:@"message"];
+
                           
                           
-                          NSString * status = [message objectForKey:@"status"];
+                          NSString * status = [result objectForKey:@"status"];
                           
                           
-                          if ([status isEqualToString:@"Success"]) {
+                          if ([status isEqualToString:@"success"]) {
                               
-                              id list = [message objectForKey:@"Data"];
+                              id list = [result objectForKey:@"data"];
                               
                               completionHandler(list);
                           }
-                          else if ([status isEqualToString:@"Failure"] & [[message allKeys] containsObject:@"Error"]) {
+                          else if ([status isEqualToString:@"Failure"] & [[result allKeys] containsObject:@"Error"]) {
                               
                               //[[message allKeys] containsObject:@"Error"]
                               
                               
-                              if ([[message  objectForKey:@"Error"] isEqualToString:@"List Not Found"]) {
-                                  
-                                  completionHandler(nil);
-                                  
-                              }
-                              else {
-                               
                                     failureHandler();
-                              }
+                              
                               
 
                           }

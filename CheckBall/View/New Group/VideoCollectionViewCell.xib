@@ -100,6 +100,7 @@
             <connections>
                 <outlet property="containerView" destination="dy8-hI-zDZ" id="jrq-2Y-HBS"/>
                 <outlet property="lblDetail" destination="N2g-nF-3hN" id="fhK-FE-eJi"/>
+                <outlet property="threeDots" destination="4v3-kl-cY1" id="x2N-gI-t55"/>
                 <outlet property="userImage" destination="XAN-pt-S7q" id="L33-35-RpB"/>
             </connections>
             <point key="canvasLocation" x="154.5" y="119.5"/>

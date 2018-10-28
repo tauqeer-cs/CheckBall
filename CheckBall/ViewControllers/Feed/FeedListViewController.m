@@ -9,12 +9,16 @@
 #import "FeedListViewController.h"
 #import "VideoCollectionViewCell.h"
 #import "MessageListingViewController.h"
+#import "CreatPostViewController.h"
 
 @interface FeedListViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIImageView *smallImageIcon;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+@property (weak, nonatomic) IBOutlet UITextField *txtMessage;
+
 @end
 
 @implementation FeedListViewController
@@ -24,21 +28,17 @@
     // Do any additional setup after loading the view.
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"message-small-list"] style:UIBarButtonItemStylePlain target:self action:@selector(messageButtonTapped)];
-    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SideMenuButton"] style:UIBarButtonItemStylePlain target:self action:@selector(messageButtonTapped)];
-
-    
     
     self.containerView.layer.borderColor = [UIColor grayColor].CGColor;
     self.containerView.layer.borderWidth = 1.0;
     [self.smallImageIcon roundTheView];
-    
-    
     [self.collectionView registerNib:[UINib nibWithNibName:@"VideoCollectionViewCell" bundle:nil]
           forCellWithReuseIdentifier:@"cellVideoNews"];
-    
     [self.collectionView registerNib:[UINib nibWithNibName:@"NewsItemCollectionViewCell" bundle:nil]
           forCellWithReuseIdentifier:@"cellNewsText"];
+    
+    self.txtMessage.delegate = self;
     
     self.containerView.layer.cornerRadius = 10;
     
@@ -90,6 +90,19 @@
     
 }
 
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    
+    CreatPostViewController * destination = [[CreatPostViewController alloc] initWithNibName:@"CreatPostViewController" bundle:nil];
+    
+    
+    [self presentViewController:destination animated:self completion:^{
+        
+    }];
+    
+    return NO;
+    
+}
 -(void)messageButtonTapped
 {
     
@@ -123,9 +136,53 @@
         currentCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellNewsText" forIndexPath:indexPath];
         
     }
+    
+    [currentCell.threeDots addTarget:self action:@selector(threeDotsTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
     return currentCell;
 }
 
+-(void)threeDotsTapped:(UIButton *)threeDots
+{
+ 
+    UIAlertController * alert=[UIAlertController alertControllerWithTitle:@""
+                                                                  message:@"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+                                                           preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* yesButton = [UIAlertAction actionWithTitle:@"EDIT POST"
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:^(UIAlertAction * action)
+    {
+        /** What we write here???????? **/
+        NSLog(@"you pressed Yes, please button");
+        
+        // call method whatever u need
+    }];
+    
+    UIAlertAction* noButton = [UIAlertAction actionWithTitle:@"DELETE POST"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * action)
+    {
+
+    }];
+    
+    UIAlertAction* cancle = [UIAlertAction actionWithTitle:@"CANCEL"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * action)
+                               {
+                                   /** What we write here???????? **/
+                                   NSLog(@"you pressed No, thanks button");
+                                   // call method whatever u need
+                               }];
+    
+    
+    [alert addAction:yesButton];
+    [alert addAction:noButton];
+    [alert addAction:cancle];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row % 2 == 1) {

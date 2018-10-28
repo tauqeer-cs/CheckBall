@@ -399,13 +399,13 @@
         for (id currentItem in result) {
             
             
-        [self.trainingList addObject:[currentItem objectForKey:@"Name"]];
+        [self.trainingList addObject:[currentItem objectForKey:@"name"]];
         [self.selectedArray addObject:@"0"];
             
             NSLog(@"%@",currentItem);
             
             
-            [tmpDic setValue:[currentItem objectForKey:@"ID"] forKey:[currentItem objectForKey:@"Name"]];
+            [tmpDic setValue:[currentItem objectForKey:@"id"] forKey:[currentItem objectForKey:@"name"]];
             
         }
         

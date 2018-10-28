@@ -87,19 +87,19 @@
     [RestCall callWebServiceWithTheseParams:nil
                       withSignatureSequence:nil
                                  urlCalling:
-     [baseServiceUrl stringByAppendingString:@"getspecilities"]
+     [baseServiceUrl stringByAppendingString:@"specility"]
                               isPostService:NO
                       withComplitionHandler:^(id result) {
                           
-                          id message = [result objectForKey:@"message"];
+                          id message = [result objectForKey:@"status"];
                           
                           
-                          NSString * status = [message objectForKey:@"status"];
+                          NSString * status = message;
                           
                           
-                          if ([status isEqualToString:@"Success"]) {
+                          if ([status isEqualToString:@"success"]) {
                               
-                              id list = [message objectForKey:@"Data"];
+                              id list = [result objectForKey:@"data"];
                               NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
                               
                               [defaults setObject:list forKey:@"Specialities"];

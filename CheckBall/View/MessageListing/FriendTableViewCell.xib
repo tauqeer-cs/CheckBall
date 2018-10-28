@@ -89,6 +89,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="g1X-aD-8gc"/>
             <connections>
+                <outlet property="btnMessage" destination="QI6-OR-YF0" id="Wx1-v4-f8v"/>
                 <outlet property="userImage" destination="WkU-ot-yQ6" id="JNk-cc-Fs1"/>
             </connections>
             <point key="canvasLocation" x="33" y="68.5"/>

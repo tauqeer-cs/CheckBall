@@ -13,4 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *userImage;
 @property (weak, nonatomic) IBOutlet UIButton *btnDelete;
 @property (weak, nonatomic) IBOutlet UIButton *btnConfirm;
+@property (weak, nonatomic) IBOutlet UIButton *btnMessage;
+
+
 @end

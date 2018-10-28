@@ -13,4 +13,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *userImage;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblDetail;
+@property (weak, nonatomic) IBOutlet UIButton *threeDots;
 @end

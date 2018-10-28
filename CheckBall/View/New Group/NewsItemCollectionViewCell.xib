@@ -100,6 +100,7 @@
             <size key="customSize" width="426" height="137"/>
             <connections>
                 <outlet property="lblDetail" destination="xmD-f1-3es" id="2u8-Dh-LF3"/>
+                <outlet property="threeDots" destination="PDx-SJ-h8K" id="Mmc-rO-Mw9"/>
                 <outlet property="userImage" destination="wBI-Ro-MgZ" id="G3B-Vi-GZV"/>
             </connections>
             <point key="canvasLocation" x="137" y="-82"/>

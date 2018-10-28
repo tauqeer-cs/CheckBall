@@ -459,9 +459,9 @@
     NSLog(@"%@",[self.userDefaults objectForKey:@"isFirstTimeSignUp"]);
     
     if ([[self.userDefaults objectForKey:@"isFirstTimeSignUp"] isKindOfClass:[NSArray class]]) {
-        return [[[self.userDefaults objectForKey:@"isFirstTimeSignUp"] firstObject] objectForKey:@"ZipCode"];
+        return [[[self.userDefaults objectForKey:@"isFirstTimeSignUp"] firstObject] objectForKey:@"zip"];
     }
-    return [[self.userDefaults objectForKey:@"isFirstTimeSignUp"] objectForKey:@"ZipCode"];
+    return [[self.userDefaults objectForKey:@"isFirstTimeSignUp"] objectForKey:@"zip"];
     
 }
 
